@@ -1,10 +1,10 @@
 ---
 name: nestjs-features-performance
-description: 'Selects and implements NestJS runtime features, API and error contracts, security controls, testing strategy, deployment, performance, and safe scale. Use for middleware, guards, pipes, interceptors, filters, DTO validation, authentication, authorization, APIs, GraphQL, WebSockets, SSE, microservice transports, caching, queues, schedulers, lifecycle hooks, health checks, observability, slow endpoints, event-loop or database bottlenecks, load tests, horizontal scaling, retries, idempotency, backpressure, and graceful shutdown. Do not use for frontend-only performance or non-NestJS services.'
+description: 'Selects and implements NestJS runtime features, API and error contracts, security, testing, DevOps, performance, and safe scale. Use for middleware, guards, pipes, interceptors, filters, DTO validation, authentication, authorization, APIs, transports, caching, queues, schedulers, CI/CD, Docker and container images, Kubernetes, configuration and secrets, migrations, supply-chain controls, health probes, logs/metrics/traces, SLOs and alerts, incident recovery, rollout and rollback, event-loop or database bottlenecks, load tests, horizontal scaling, retries, idempotency, backpressure, and graceful shutdown. Do not use for frontend-only performance or non-NestJS services.'
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.1.0'
+  version: '1.2.0'
 ---
 
 # NestJS Features, Scaling, and Performance
@@ -115,6 +115,15 @@ Use [references/scaling-reliability.md](references/scaling-reliability.md).
 4. Design overload and partial-failure behavior before adding capacity.
 5. Prove the plan with load, soak, spike, and failure tests appropriate to the risk.
 
+### Build, deploy, or diagnose production
+
+1. Identify the source revision, immutable artifact/image digest, target environment, and owner.
+2. Compare repository intent, built artifact, desired deployment, and running state; do not infer live state from configuration files alone.
+3. Define migration/configuration compatibility, rollout strategy, success signals, abort threshold, and rollback or forward-repair path.
+4. Apply the smallest authorized change through the repository's delivery mechanism.
+5. Verify live revision, readiness, representative traffic/work, errors, latency, saturation, queues/dependencies, and drain behavior.
+6. Record the release or incident evidence and reconcile any emergency drift back into declared state.
+
 ## Production gate
 
 Use [references/production-readiness.md](references/production-readiness.md) before calling a feature production-ready. At minimum verify configuration, security, contracts, resource bounds, observability, health/readiness, shutdown, and recovery.
@@ -132,6 +141,9 @@ Use [references/production-readiness.md](references/production-readiness.md) bef
 | Diagnose latency, CPU, event loop, database, memory, cache, or Fastify choices | [performance-diagnosis.md](references/performance-diagnosis.md) |
 | Add replicas, workers, queues, retries, idempotency, backpressure, or distributed coordination | [scaling-reliability.md](references/scaling-reliability.md) |
 | Design build, configuration, migration, health, observability, rollout, or shutdown controls | [devops-deployment.md](references/devops-deployment.md) |
+| Build CI/CD, container images, provenance, promotion, or artifact rollback | [ci-cd-containers.md](references/ci-cd-containers.md) |
+| Configure or diagnose Kubernetes workloads, probes, resources, HPA, rollout, or termination | [kubernetes-operations.md](references/kubernetes-operations.md) |
+| Define SLOs, logs/metrics/traces, alerts, dashboards, incidents, backups, or recovery | [observability-sre.md](references/observability-sre.md) |
 | Review operational readiness and rollout safety | [production-readiness.md](references/production-readiness.md) |
 
 ## Expected response
@@ -146,3 +158,12 @@ For performance/scaling work, report:
 - **Before/after verification plan**
 
 If evidence is missing, propose the smallest measurement needed before an architectural change.
+
+For DevOps work, report:
+
+- **Release identity:** source revision, artifact/digest, environment, and owner.
+- **State comparison:** repository intent, desired deployment, and observed runtime.
+- **Safety:** migrations/configuration compatibility, security gates, and failure risks.
+- **Rollout:** strategy, success/abort signals, observation window, and capacity impact.
+- **Verification:** live revision, health, representative work, telemetry, and drain.
+- **Recovery:** rollback or forward-repair procedure and trigger.

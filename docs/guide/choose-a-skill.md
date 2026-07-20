@@ -35,9 +35,9 @@ It does not require an interface for every class or a pattern for every conditio
 
 ## Features & Performance
 
-Lead with `nestjs-features-performance` for framework feature selection, request and message lifecycles, transport contracts, observability, resource bottlenecks, reliability, or horizontal scale.
+Lead with `nestjs-features-performance` for framework feature selection, request and message lifecycles, transport contracts, CI/CD, containers, Kubernetes, observability/SRE, resource bottlenecks, reliability, or horizontal scale.
 
-It measures before optimizing. Fastify, Redis, workers, replicas, and service splits are possible remedies only after evidence identifies the constraint and the compatibility cost is understood.
+It measures before optimizing and compares repository intent with the built artifact and live runtime before diagnosing deployment. Fastify, Redis, workers, replicas, and service splits are possible remedies only after evidence identifies the constraint and the compatibility cost is understood.
 
 [Open the full skill →](/reference/features-performance/)
 

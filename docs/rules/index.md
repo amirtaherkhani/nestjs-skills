@@ -66,7 +66,7 @@ description: Ten conflict-checked NestJS rulebooks covering architecture, depend
   </a>
   <a class="rule-row" href="../reference/features-performance/references/devops-deployment">
     <span class="rule-number" aria-hidden="true">10</span>
-    <span class="rule-copy"><strong>DevOps &amp; Deployment</strong><small>Artifacts, configuration, migrations, health, observability, drain, and rollout</small></span>
+    <span class="rule-copy"><strong>DevOps &amp; Deployment</strong><small>CI/CD, containers, Kubernetes, supply chain, SRE, recovery, drain, and rollout</small></span>
     <span class="rule-owner">Runtime</span>
     <span class="rule-arrow" aria-hidden="true">→</span>
   </a>

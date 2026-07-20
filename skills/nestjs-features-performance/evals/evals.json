@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-features-performance",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "cases": [
     {
       "id": "feature-placement",
@@ -99,6 +99,46 @@
         "Defines readiness, intake stop, drain deadline, and resource closure",
         "Assumes duplicate delivery and requires idempotent processing",
         "Includes compatible rollout, telemetry, retry/dead-letter behavior, and rollback checks"
+      ]
+    },
+    {
+      "id": "secure-container-pipeline",
+      "prompt": "Create a production GitHub Actions and Docker delivery plan for a NestJS API. We currently rebuild the image separately in every environment and store cloud keys as repository secrets.",
+      "expectations": [
+        "Builds one tested immutable image and promotes it by digest",
+        "Uses a multi-stage non-root runtime image without embedded build secrets",
+        "Minimizes workflow permissions and prefers short-lived OIDC identity",
+        "Defines provenance/SBOM or scanning according to risk plus rollout and rollback gates"
+      ]
+    },
+    {
+      "id": "kubernetes-probes-resources",
+      "prompt": "Our NestJS Pods restart whenever PostgreSQL is briefly unavailable, HPA does nothing, and rollouts drop requests. Fix the Kubernetes deployment.",
+      "expectations": [
+        "Separates startup, liveness, and readiness semantics and removes downstream availability from fragile liveness",
+        "Inspects live Pods, events, endpoints, metrics, resources, and running digest before editing manifests",
+        "Sets measured requests and an appropriate HPA signal within downstream capacity",
+        "Aligns Nest shutdown/drain with rollout and termination grace"
+      ]
+    },
+    {
+      "id": "slo-observability",
+      "prompt": "Add production observability to a NestJS checkout service. The team currently logs every request body and pages whenever CPU exceeds 70 percent.",
+      "expectations": [
+        "Starts from critical user journeys, SLIs/SLOs, and actionable ownership",
+        "Uses correlated structured logs, metrics, and traces with redaction and bounded cardinality",
+        "Replaces generic CPU paging with user-impact or SLO-based alerting plus diagnostic saturation signals",
+        "Defines dashboards, runbooks, deployment markers, and telemetry cost controls"
+      ]
+    },
+    {
+      "id": "production-incident-state",
+      "prompt": "A Helm values file shows the new NestJS image and environment variable, but production still behaves like the old release. Diagnose and recover safely.",
+      "expectations": [
+        "Separates repository intent, rendered desired state, artifact identity, and running state",
+        "Verifies live release revision, Pod image digest, effective configuration, rollout status, events, and endpoints",
+        "Preserves evidence and chooses a reversible mitigation with explicit success and rollback signals",
+        "Reconciles emergency changes back into declared state"
       ]
     }
   ]

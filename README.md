@@ -16,6 +16,8 @@ The collection follows the [Agent Skills open standard](https://agentskills.io/s
 
 The three skills expose one conflict-checked rules reference covering Architecture, Dependency Injection, Error Handling, Security, Performance, Testing, Database & ORM, API Design, Microservices, and DevOps & Deployment. The categories are navigation—not ten competing sources of truth.
 
+DevOps is treated as a first-class operating discipline: immutable CI/CD and container delivery, Kubernetes live-state verification, SLO-driven observability, incident response, tested recovery, compatible migrations, graceful drain, and evidence-based rollout/rollback. Platform-specific guidance remains conditional rather than making Docker or Kubernetes mandatory.
+
 ## Install
 
 Install all three skills:

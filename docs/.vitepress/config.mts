@@ -45,7 +45,7 @@ export default defineConfig({
       {
         text: 'Rules',
         link: '/rules/',
-        activeMatch: '/rules/|/reference/.*/references/(architecture-rules|dependency-injection|error-handling|security|performance-diagnosis|testing|database-orm|api-design|microservices|devops-deployment)'
+        activeMatch: '/rules/|/reference/.*/references/(architecture-rules|dependency-injection|error-handling|security|performance-diagnosis|testing|database-orm|api-design|microservices|devops-deployment|ci-cd-containers|kubernetes-operations|observability-sre)'
       },
       { text: 'Concepts', link: '/concepts/request-lifecycle', activeMatch: '/concepts/' },
       {
@@ -135,6 +135,9 @@ export default defineConfig({
           { text: 'Performance diagnosis', link: '/reference/features-performance/references/performance-diagnosis' },
           { text: 'Scaling & reliability', link: '/reference/features-performance/references/scaling-reliability' },
           { text: 'DevOps & deployment', link: '/reference/features-performance/references/devops-deployment' },
+          { text: 'CI/CD & containers', link: '/reference/features-performance/references/ci-cd-containers' },
+          { text: 'Kubernetes operations', link: '/reference/features-performance/references/kubernetes-operations' },
+          { text: 'Observability & SRE', link: '/reference/features-performance/references/observability-sre' },
           { text: 'Production readiness', link: '/reference/features-performance/references/production-readiness' }
         ]
       },

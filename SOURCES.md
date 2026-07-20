@@ -71,6 +71,29 @@ Official documentation is authoritative for framework behavior. Version-sensitiv
 
 The security rules use OWASP as a framework-neutral baseline and NestJS documentation for integration points. ORM guidance remains tool-neutral; agents must verify migration, transaction, and isolation APIs against the driver and version installed in the target repository.
 
+## DevOps, containers, Kubernetes, and SRE sources
+
+- [Docker build best practices](https://docs.docker.com/build/building/best-practices/)
+- [Docker multi-stage builds](https://docs.docker.com/build/building/multi-stage/)
+- [Docker build secrets](https://docs.docker.com/build/building/secrets/)
+- [GitHub Actions secure use](https://docs.github.com/en/actions/reference/security/secure-use)
+- [GitHub Actions deployments](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments)
+- [GitHub artifact attestations](https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations)
+- [Kubernetes probes](https://kubernetes.io/docs/concepts/workloads/pods/probes/)
+- [Kubernetes Pod lifecycle and termination](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/)
+- [Kubernetes Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+- [Kubernetes resource management](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/)
+- [Kubernetes horizontal autoscaling](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/)
+- [Kubernetes disruption budgets](https://kubernetes.io/docs/tasks/run-application/configure-pdb/)
+- [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/)
+- [OpenTelemetry concepts](https://opentelemetry.io/docs/concepts/)
+- [OpenTelemetry context propagation](https://opentelemetry.io/docs/concepts/context-propagation/)
+- [OpenTelemetry metrics and cardinality](https://opentelemetry.io/docs/concepts/signals/metrics/)
+- [Google SRE Workbook: Monitoring](https://sre.google/workbook/monitoring/)
+- [Google SRE Workbook: Incident response](https://sre.google/workbook/incident-response/)
+
+DevOps guidance is provider-neutral at its core. Docker, GitHub Actions, Kubernetes, and OpenTelemetry are loaded only when present or requested. Manifests and pipeline files describe intent; agents must compare them with built artifact identity and observed runtime state before diagnosing or declaring a release healthy.
+
 ## Requested NestJS and software-design references
 
 - [myatminlu/vector-skills](https://github.com/myatminlu/vector-skills)
