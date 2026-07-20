@@ -4,7 +4,7 @@ description: 'Designs and reviews NestJS application architecture using cohesive
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.0.0'
+  version: '1.1.0'
 ---
 
 # NestJS Architecture and Principles
@@ -48,7 +48,7 @@ Never introduce layers, buses, repositories, factories, or services only to make
 7. **Cycles are design feedback.** Treat `forwardRef()` as a last-resort compatibility tool, not the default fix.
 8. **The composition root owns wiring.** Nest modules and providers assemble implementations; business objects do not locate dependencies at runtime.
 
-For detailed NestJS boundary rules, load [references/module-boundaries.md](references/module-boundaries.md) and [references/dependency-injection.md](references/dependency-injection.md).
+For the consolidated rule set, load [references/architecture-rules.md](references/architecture-rules.md). For detailed NestJS boundaries, load [references/module-boundaries.md](references/module-boundaries.md) and [references/dependency-injection.md](references/dependency-injection.md).
 
 ## Apply principles pragmatically
 
@@ -93,9 +93,12 @@ Use [references/architecture-review.md](references/architecture-review.md). Repo
 
 | Task | Load |
 | --- | --- |
+| Apply or review the consolidated architecture rules | [architecture-rules.md](references/architecture-rules.md) |
 | Choose modular monolith, layers, hexagonal, CQRS, or services | [architecture-ladder.md](references/architecture-ladder.md) |
 | Design feature modules, exports, ownership, or remove cycles | [module-boundaries.md](references/module-boundaries.md) |
 | Define provider tokens, ports, scopes, factories, or dynamic modules | [dependency-injection.md](references/dependency-injection.md) |
+| Define database ownership, repositories, migrations, transactions, or ORM boundaries | [database-orm.md](references/database-orm.md) |
+| Decide service extraction, distributed data ownership, contracts, or messaging semantics | [microservices.md](references/microservices.md) |
 | Apply KISS, YAGNI, DRY, cohesion, coupling, and dependency rules | [engineering-principles.md](references/engineering-principles.md) |
 | Audit a repository or plan an incremental migration | [architecture-review.md](references/architecture-review.md) |
 

@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-features-performance",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "cases": [
     {
       "id": "feature-placement",
@@ -63,6 +63,42 @@
         "Explains that every replica runs the schedule",
         "Chooses a platform scheduler, dedicated replica, distributed lease, or unique queued job",
         "Makes cleanup idempotent and observable"
+      ]
+    },
+    {
+      "id": "transport-neutral-errors",
+      "prompt": "A NestJS payment use case is called by HTTP and a queue consumer. Add consistent error handling.",
+      "expectations": [
+        "Keeps application failures transport-neutral",
+        "Maps failures at each HTTP or message boundary",
+        "Defines stable safe errors, logging ownership, and retry classification"
+      ]
+    },
+    {
+      "id": "tenant-security-review",
+      "prompt": "Secure a multi-tenant NestJS endpoint that uses JWT, accepts filters, and returns TypeORM entities.",
+      "expectations": [
+        "Separates authentication from resource and tenant authorization",
+        "Validates and bounds filters while using injection-safe persistence APIs",
+        "Verifies JWT claims and returns an allow-listed response contract without entity leakage"
+      ]
+    },
+    {
+      "id": "testing-boundary-choice",
+      "prompt": "Write tests for a pure pricing policy, its Nest provider token, and the PostgreSQL adapter. Use TestingModule for all of them.",
+      "expectations": [
+        "Directly constructs the pure policy instead of requiring TestingModule",
+        "Uses TestingModule for provider wiring",
+        "Uses a realistic PostgreSQL integration test for adapter semantics"
+      ]
+    },
+    {
+      "id": "rolling-deployment",
+      "prompt": "Prepare a NestJS queue worker for rolling Kubernetes deployment without losing or duplicating critical jobs.",
+      "expectations": [
+        "Defines readiness, intake stop, drain deadline, and resource closure",
+        "Assumes duplicate delivery and requires idempotent processing",
+        "Includes compatible rollout, telemetry, retry/dead-letter behavior, and rollback checks"
       ]
     }
   ]

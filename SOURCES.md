@@ -11,6 +11,7 @@ Reviewed on 2026-07-20. These skills are an original synthesis; source projects 
 - [`skills` npm package](https://www.npmjs.com/package/skills)
 - [psenger/ai-agent-skills](https://github.com/psenger/ai-agent-skills)
 - [Kadajett/agent-nestjs-skills](https://github.com/Kadajett/agent-nestjs-skills)
+- [Kadajett NestJS Rules Reference](https://kadajett.github.io/agent-nestjs-skills/concepts/interceptors)
 
 Key decisions taken from this research:
 
@@ -20,6 +21,7 @@ Key decisions taken from this research:
 - Provide evaluation prompts and deterministic repository validation.
 - Prefer three focused skills over one always-loaded NestJS encyclopedia.
 - Keep the documentation navigable by concept while preserving the distributable skills as the canonical source.
+- Use Kadajett's ten-section rules taxonomy as a navigation and coverage check, while validating every technical rule independently and assigning one primary owner across the three skills.
 
 ## Official NestJS and Node.js sources
 
@@ -29,10 +31,20 @@ Key decisions taken from this research:
 - [Custom providers](https://docs.nestjs.com/fundamentals/custom-providers)
 - [Dynamic modules](https://docs.nestjs.com/fundamentals/dynamic-modules)
 - [Injection scopes](https://docs.nestjs.com/fundamentals/injection-scopes)
+- [Lazy-loading modules](https://docs.nestjs.com/fundamentals/lazy-loading-modules)
 - [Circular dependencies](https://docs.nestjs.com/fundamentals/circular-dependency)
 - [Request lifecycle](https://docs.nestjs.com/faq/request-lifecycle)
 - [Guards](https://docs.nestjs.com/guards)
 - [Interceptors](https://docs.nestjs.com/interceptors)
+- [Exception filters](https://docs.nestjs.com/exception-filters)
+- [Validation](https://docs.nestjs.com/techniques/validation)
+- [Serialization](https://docs.nestjs.com/techniques/serialization)
+- [API versioning](https://docs.nestjs.com/techniques/versioning)
+- [Authentication](https://docs.nestjs.com/security/authentication)
+- [Authorization](https://docs.nestjs.com/security/authorization)
+- [Rate limiting](https://docs.nestjs.com/security/rate-limiting)
+- [Configuration](https://docs.nestjs.com/techniques/configuration)
+- [Logger](https://docs.nestjs.com/techniques/logger)
 - [Lifecycle events](https://docs.nestjs.com/fundamentals/lifecycle-events)
 - [Events](https://docs.nestjs.com/techniques/events)
 - [CQRS](https://docs.nestjs.com/recipes/cqrs)
@@ -42,10 +54,22 @@ Key decisions taken from this research:
 - [Performance with Fastify](https://docs.nestjs.com/techniques/performance)
 - [Microservices](https://docs.nestjs.com/microservices/basics)
 - [Health checks](https://docs.nestjs.com/recipes/terminus)
+- [Deployment](https://docs.nestjs.com/deployment)
 - [Node.js: Do not block the event loop](https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop)
 - [Node.js worker threads](https://nodejs.org/api/worker_threads.html)
 
 Official documentation is authoritative for framework behavior. Version-sensitive commands and APIs must still be checked against the target repository.
+
+## Security and persistence sources
+
+- [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html)
+- [OWASP Input Validation Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html)
+- [TypeORM migrations](https://typeorm.io/docs/advanced-topics/migrations/)
+- [TypeORM transactions](https://typeorm.io/docs/advanced-topics/transactions/)
+- [Prisma Migrate](https://www.prisma.io/docs/orm/prisma-migrate)
+- [Prisma transactions](https://www.prisma.io/docs/orm/prisma-client/queries/transactions)
+
+The security rules use OWASP as a framework-neutral baseline and NestJS documentation for integration points. ORM guidance remains tool-neutral; agents must verify migration, transaction, and isolation APIs against the driver and version installed in the target repository.
 
 ## Requested NestJS and software-design references
 
@@ -66,6 +90,8 @@ The requested Clean Architecture path is no longer present on the current regist
 `awesome-nestjs`, directory sites, and `@nestjs-ai/*` packages are discovery sources, not authorities for core NestJS behavior. An agent should not introduce a community dependency only because it appears in one of these catalogs.
 
 The requested NestJS Design Patterns article was validated as a discovery catalog rather than adopted as a checklist. Its module, dependency-injection, custom-provider, interceptor, and optional CQRS concepts align with official NestJS capabilities. The skills add safeguards where the article overstates or combines guarantees: repositories and CQRS are not universally required; a popularity score is not evidence; middleware does not know route metadata; interceptors should not hide core business policy; Nest metadata decorators differ from the GoF Decorator pattern; default provider scope differs from a hand-written Singleton; and in-process events or command objects do not automatically provide durable pub/sub, queuing, replay, or auditability.
+
+Kadajett's rules inventory was reviewed topic by topic for this update. Its ten categories informed the public Rules Reference, but its impact labels and absolute wording were not copied as authority. The resulting rulebooks narrow context-dependent claims around repositories, events, `TestingModule`, HTTP exceptions, JWT, output sanitization, lazy loading, lifecycle hooks, queues, API versioning, and configuration.
 
 ## Requested community discussions
 

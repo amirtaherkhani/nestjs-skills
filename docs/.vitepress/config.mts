@@ -42,6 +42,11 @@ export default defineConfig({
     },
     nav: [
       { text: 'Guide', link: '/guide/getting-started', activeMatch: '/guide/' },
+      {
+        text: 'Rules',
+        link: '/rules/',
+        activeMatch: '/rules/|/reference/.*/references/(architecture-rules|dependency-injection|error-handling|security|performance-diagnosis|testing|database-orm|api-design|microservices|devops-deployment)'
+      },
       { text: 'Concepts', link: '/concepts/request-lifecycle', activeMatch: '/concepts/' },
       {
         text: 'Skills',
@@ -74,13 +79,32 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Rules reference',
+        collapsed: false,
+        items: [
+          { text: '1. Architecture', link: '/reference/architecture/references/architecture-rules' },
+          { text: '2. Dependency Injection', link: '/reference/architecture/references/dependency-injection' },
+          { text: '3. Error Handling', link: '/reference/features-performance/references/error-handling' },
+          { text: '4. Security', link: '/reference/features-performance/references/security' },
+          { text: '5. Performance', link: '/reference/features-performance/references/performance-diagnosis' },
+          { text: '6. Testing', link: '/reference/features-performance/references/testing' },
+          { text: '7. Database & ORM', link: '/reference/architecture/references/database-orm' },
+          { text: '8. API Design', link: '/reference/features-performance/references/api-design' },
+          { text: '9. Microservices', link: '/reference/architecture/references/microservices' },
+          { text: '10. DevOps & Deployment', link: '/reference/features-performance/references/devops-deployment' }
+        ]
+      },
+      {
         text: 'Architecture & Principles',
         collapsed: true,
         items: [
           { text: 'Skill instructions', link: '/reference/architecture/' },
+          { text: 'Architecture rules', link: '/reference/architecture/references/architecture-rules' },
           { text: 'Architecture ladder', link: '/reference/architecture/references/architecture-ladder' },
           { text: 'Module boundaries', link: '/reference/architecture/references/module-boundaries' },
           { text: 'Dependency injection', link: '/reference/architecture/references/dependency-injection' },
+          { text: 'Database & ORM', link: '/reference/architecture/references/database-orm' },
+          { text: 'Microservices', link: '/reference/architecture/references/microservices' },
           { text: 'Engineering principles', link: '/reference/architecture/references/engineering-principles' },
           { text: 'Architecture review', link: '/reference/architecture/references/architecture-review' }
         ]
@@ -104,8 +128,13 @@ export default defineConfig({
           { text: 'Skill instructions', link: '/reference/features-performance/' },
           { text: 'Feature selection', link: '/reference/features-performance/references/feature-selection' },
           { text: 'API & runtime', link: '/reference/features-performance/references/api-runtime' },
+          { text: 'Error handling', link: '/reference/features-performance/references/error-handling' },
+          { text: 'Security', link: '/reference/features-performance/references/security' },
+          { text: 'Testing', link: '/reference/features-performance/references/testing' },
+          { text: 'API design', link: '/reference/features-performance/references/api-design' },
           { text: 'Performance diagnosis', link: '/reference/features-performance/references/performance-diagnosis' },
           { text: 'Scaling & reliability', link: '/reference/features-performance/references/scaling-reliability' },
+          { text: 'DevOps & deployment', link: '/reference/features-performance/references/devops-deployment' },
           { text: 'Production readiness', link: '/reference/features-performance/references/production-readiness' }
         ]
       },

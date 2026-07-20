@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-architecture-principles",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "cases": [
     {
       "id": "modular-monolith-default",
@@ -54,6 +54,33 @@
         "Builds an evidence-based baseline",
         "Ranks concrete boundary findings",
         "Proposes an incremental migration and regression checks"
+      ]
+    },
+    {
+      "id": "repository-boundary",
+      "prompt": "A small NestJS CRUD module injects TypeORM Repository directly. A review says every entity must get a generic repository interface. Decide what to change.",
+      "expectations": [
+        "Rejects a universal repository requirement",
+        "Bases the decision on ownership, policy, volatility, and test value",
+        "Prevents ORM entities or repositories from becoming cross-feature contracts"
+      ]
+    },
+    {
+      "id": "migration-transaction-safety",
+      "prompt": "Plan a zero-downtime NestJS deployment that renames a busy database column and publishes an event after the write.",
+      "expectations": [
+        "Uses an expand-and-contract migration compatible with mixed versions",
+        "Defines transaction scope and atomic publication such as an outbox where required",
+        "Includes migration rehearsal, recovery, idempotency, and rollout validation"
+      ]
+    },
+    {
+      "id": "microservice-extraction-gate",
+      "prompt": "Split UsersModule and OrdersModule into NestJS microservices because their providers currently form a cycle.",
+      "expectations": [
+        "Rejects a module cycle alone as justification for a network boundary",
+        "Evaluates deployment, ownership, scaling, data, and failure boundaries",
+        "Repairs ownership locally unless independent operation is justified"
       ]
     }
   ]

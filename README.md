@@ -4,15 +4,17 @@ Three focused Agent Skills for building, reviewing, refactoring, and scaling Nes
 
 The collection follows the [Agent Skills open standard](https://agentskills.io/specification): each skill has a concise `SKILL.md`, focused on-demand references, and evaluation prompts. The guidance is architecture-aware without forcing every project into Clean Architecture, CQRS, or microservices.
 
-**Documentation:** [amirtaherkhani.github.io/nestjs-agent-skills](https://amirtaherkhani.github.io/nestjs-agent-skills/)
+**Documentation:** [amirtaherkhani.github.io/nestjs-agent-skills](https://amirtaherkhani.github.io/nestjs-agent-skills/) · [Ten-topic rules reference](https://amirtaherkhani.github.io/nestjs-agent-skills/rules/)
 
 ## Skills
 
 | Skill | Focus | Use it for |
 | --- | --- | --- |
-| [`nestjs-architecture-principles`](skills/nestjs-architecture-principles/SKILL.md) | NestJS architectures + engineering principles | Module boundaries, modular monoliths, layered or hexagonal designs, dependency direction, architecture reviews, and refactors |
+| [`nestjs-architecture-principles`](skills/nestjs-architecture-principles/SKILL.md) | NestJS architectures + engineering principles | Module, data, ORM, transaction, and service boundaries; modular monoliths; architecture reviews; and refactors |
 | [`nestjs-oop-design-patterns`](skills/nestjs-oop-design-patterns/SKILL.md) | OOP rules and tips + design patterns | SOLID, object design, dependency injection, code smells, refactoring, and selecting patterns without over-engineering |
-| [`nestjs-features-performance`](skills/nestjs-features-performance/SKILL.md) | NestJS features + scaling and performance | Request lifecycle, APIs, queues, caching, transports, observability, event-loop safety, horizontal scaling, and production readiness |
+| [`nestjs-features-performance`](skills/nestjs-features-performance/SKILL.md) | NestJS features + scaling and performance | Errors, security, testing, APIs, queues, caching, transports, observability, deployment, performance, and scale |
+
+The three skills expose one conflict-checked rules reference covering Architecture, Dependency Injection, Error Handling, Security, Performance, Testing, Database & ORM, API Design, Microservices, and DevOps & Deployment. The categories are navigation—not ten competing sources of truth.
 
 ## Install
 

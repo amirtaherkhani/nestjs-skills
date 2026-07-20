@@ -15,6 +15,9 @@ hero:
     - theme: alt
       text: Explore concepts
       link: /concepts/request-lifecycle
+    - theme: alt
+      text: Browse rules
+      link: /rules/
 
 features:
   - icon: ◫

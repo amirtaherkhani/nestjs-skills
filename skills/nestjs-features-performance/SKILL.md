@@ -1,10 +1,10 @@
 ---
 name: nestjs-features-performance
-description: 'Selects and implements NestJS features while diagnosing performance and planning safe scale. Use for middleware, guards, pipes, interceptors, filters, DTO validation, APIs, GraphQL, WebSockets, SSE, microservices, caching, queues, schedulers, lifecycle hooks, health checks, observability, slow endpoints, event-loop blocking, database bottlenecks, load tests, horizontal scaling, retries, idempotency, backpressure, and graceful shutdown. Do not use for frontend-only performance or non-NestJS services.'
+description: 'Selects and implements NestJS runtime features, API and error contracts, security controls, testing strategy, deployment, performance, and safe scale. Use for middleware, guards, pipes, interceptors, filters, DTO validation, authentication, authorization, APIs, GraphQL, WebSockets, SSE, microservice transports, caching, queues, schedulers, lifecycle hooks, health checks, observability, slow endpoints, event-loop or database bottlenecks, load tests, horizontal scaling, retries, idempotency, backpressure, and graceful shutdown. Do not use for frontend-only performance or non-NestJS services.'
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.0.0'
+  version: '1.1.0'
 ---
 
 # NestJS Features, Scaling, and Performance
@@ -53,7 +53,7 @@ Defaults:
 - **Queue/worker:** durable, deferred, bursty, or resource-heavy work.
 - **Event:** a completed fact with independent reactions; choose in-process versus durable delivery explicitly.
 
-For API and transport guidance, load [references/api-runtime.md](references/api-runtime.md).
+For API and transport guidance, load [references/api-runtime.md](references/api-runtime.md). Use the focused rulebooks for [error handling](references/error-handling.md), [security](references/security.md), [testing](references/testing.md), [API design](references/api-design.md), and [deployment](references/devops-deployment.md) when those risks are in scope.
 
 ## Diagnose performance by resource
 
@@ -125,8 +125,13 @@ Use [references/production-readiness.md](references/production-readiness.md) bef
 | --- | --- |
 | Pick middleware, guard, pipe, interceptor, filter, decorator, event, queue, or scheduler | [feature-selection.md](references/feature-selection.md) |
 | Build HTTP/GraphQL/WebSocket/SSE/microservice contracts and tests | [api-runtime.md](references/api-runtime.md) |
+| Classify failures, map stable errors, or design filters and retries | [error-handling.md](references/error-handling.md) |
+| Review authentication, authorization, validation, secrets, output, or abuse controls | [security.md](references/security.md) |
+| Choose unit, module, integration, contract, E2E, or reliability tests | [testing.md](references/testing.md) |
+| Design DTOs, responses, errors, pagination, idempotency, or versioning | [api-design.md](references/api-design.md) |
 | Diagnose latency, CPU, event loop, database, memory, cache, or Fastify choices | [performance-diagnosis.md](references/performance-diagnosis.md) |
 | Add replicas, workers, queues, retries, idempotency, backpressure, or distributed coordination | [scaling-reliability.md](references/scaling-reliability.md) |
+| Design build, configuration, migration, health, observability, rollout, or shutdown controls | [devops-deployment.md](references/devops-deployment.md) |
 | Review operational readiness and rollout safety | [production-readiness.md](references/production-readiness.md) |
 
 ## Expected response

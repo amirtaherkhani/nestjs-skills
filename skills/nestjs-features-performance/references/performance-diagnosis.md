@@ -47,6 +47,15 @@ Singleton is the default and preferred scope. Request-scoped providers are recre
 
 Measure before using request scope broadly. Prefer explicit principals/context or an existing request-context mechanism when it keeps the graph singleton-safe. Never store per-request data in singleton fields.
 
+## Framework loading and lifecycle
+
+Do not present lazy-loaded modules or lifecycle hooks as generic performance optimizations.
+
+- Lifecycle hooks coordinate initialization and shutdown correctness. Keep startup work bounded and observable, but optimize it only when startup measurements and deployment requirements identify a problem.
+- Nest lazy-loading support is useful for niche, optional dependency graphs. It adds wiring and first-use complexity and does not automatically reduce steady-state request latency or memory.
+- Dynamic imports, deferred initialization, and lazy modules can shift cost to the first request. Measure cold start, first-use latency, readiness, memory, and failure behavior before and after.
+- Avoid discovering dependencies at runtime merely to defer construction; preserve explicit provider contracts and verify the installed NestJS API.
+
 ## Database
 
 Database latency often dominates framework overhead.

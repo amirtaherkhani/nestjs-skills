@@ -352,6 +352,87 @@ body {
   margin: 0;
 }
 
+.rules-reference {
+  display: grid;
+  margin: 34px 0 52px;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+.rule-row {
+  display: grid;
+  min-height: 88px;
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding: 16px 14px;
+  color: var(--vp-c-text-1) !important;
+  background: transparent;
+  text-decoration: none !important;
+  grid-template-columns: 42px minmax(0, 1fr) auto 30px;
+  gap: 14px;
+  align-items: center;
+  transition: background-color 160ms ease, padding-inline 160ms ease;
+}
+
+.rule-row:hover,
+.rule-row:focus-visible {
+  padding-inline: 20px 12px;
+  background: color-mix(in srgb, var(--vp-c-brand-soft) 62%, var(--vp-c-bg-elv));
+}
+
+.rule-number {
+  color: var(--vp-c-text-3);
+  font-family: var(--vp-font-family-mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.rule-copy {
+  min-width: 0;
+}
+
+.rule-copy strong,
+.rule-copy small {
+  display: block;
+}
+
+.rule-copy strong {
+  margin-bottom: 5px;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.rule-copy small {
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.rule-owner {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 999px;
+  padding: 4px 8px;
+  color: var(--vp-c-text-2);
+  background: var(--vp-c-bg-soft);
+  font-size: 10px;
+  font-weight: 720;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.rule-arrow {
+  color: var(--vp-c-brand-1);
+  font-size: 22px;
+  transition: transform 160ms ease;
+}
+
+.rule-row:hover .rule-arrow,
+.rule-row:focus-visible .rule-arrow {
+  transform: translateX(4px);
+}
+
 @media (max-width: 959px) {
   .VPHomeHero {
     padding-top: 92px !important;
@@ -367,6 +448,14 @@ body {
 
   .install-strip {
     grid-template-columns: 1fr;
+  }
+
+  .rule-row {
+    grid-template-columns: 38px minmax(0, 1fr) 26px;
+  }
+
+  .rule-owner {
+    display: none;
   }
 }
 
@@ -395,6 +484,30 @@ body {
   .install-strip {
     margin-inline: -4px;
     padding: 20px;
+  }
+
+  .rules-reference {
+    margin-top: 26px;
+  }
+
+  .rule-row {
+    min-height: 78px;
+    padding-inline: 6px;
+    grid-template-columns: 32px minmax(0, 1fr) 22px;
+    gap: 10px;
+  }
+
+  .rule-row:hover,
+  .rule-row:focus-visible {
+    padding-inline: 10px 4px;
+  }
+
+  .rule-copy strong {
+    font-size: 16px;
+  }
+
+  .rule-copy small {
+    font-size: 11px;
   }
 }
 

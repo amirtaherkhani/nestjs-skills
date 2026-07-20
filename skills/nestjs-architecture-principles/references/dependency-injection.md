@@ -54,6 +54,18 @@ Create a port when at least one is true:
 
 Do not add interfaces to pure local helpers only to satisfy a rule. An interface with one implementation and no boundary can increase navigation cost without reducing coupling.
 
+## Keep contracts substitutable and consumer-shaped
+
+Interface Segregation and Liskov Substitution apply to injected contracts, but they are object-design tests rather than reasons to create more tokens:
+
+- expose only the operations a consumer needs instead of one broad `CommonService` or generic repository;
+- make every implementation honor the same inputs, outputs, error categories, side effects, and lifetime assumptions;
+- do not register a test double or alternate adapter that accepts states the production implementation rejects;
+- split a contract when implementations need incompatible preconditions or semantics;
+- prefer composition when a class hierarchy cannot preserve the contract.
+
+Use the OOP and Design Patterns skill when the main question is collaborator behavior or substitutability; this reference owns Nest runtime tokens and composition.
+
 ## Scope rules
 
 Default singleton scope is correct for most providers. A singleton must not store request-specific mutable state.
