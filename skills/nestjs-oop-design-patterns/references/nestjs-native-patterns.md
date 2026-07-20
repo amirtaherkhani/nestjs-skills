@@ -2,6 +2,12 @@
 
 NestJS already implements many architectural and behavioral patterns. Use its lifecycle and container instead of creating competing mechanisms.
 
+## Classify by semantics, not by name
+
+Nest metadata decorators such as `@UseGuards()` are not implementations of the GoF object Decorator pattern. A class extending Passport's `PassportStrategy` is a framework integration, but it demonstrates an application Strategy only when consumers select among real interchangeable authentication policies behind a stable contract. Likewise, a default-scoped provider has a shared container lifetime; it does not need a hand-written static Singleton implementation.
+
+Name the actual mechanism and guarantee. A familiar pattern label must not imply durability, distribution, replay, independent scaling, or substitution that the implementation does not provide.
+
 ## Module as encapsulation and composition root
 
 `@Module()` declares controllers, providers, imports, and exports. The exports are the module's public facade. Provider registrations choose concrete implementations behind tokens.
@@ -56,6 +62,8 @@ Use for configurable reusable infrastructure. Prefer normal feature modules for 
 
 Commands, queries, events, and sagas are appropriate when explicit dispatch, separate models, or long-running workflows provide value. Do not use a command bus as a mandatory wrapper around every service call.
 
+Dispatch alone does not queue, persist, replay, or audit a command. Add those guarantees explicitly when required. CQRS can separate read and write models, but it is not automatically more scalable than a cohesive CRUD/application-service design.
+
 ## Event emitter versus broker
 
 - In-process emitter: best-effort reactions in the same process.
@@ -63,6 +71,8 @@ Commands, queries, events, and sagas are appropriate when explicit dispatch, sep
 - Transactional outbox: database commit and external publication must stay consistent.
 
 Do not assume an in-process event survives a crash or reaches another replica.
+
+The same caution applies to an in-process CQRS `EventBus`: the event class and handler decorators do not by themselves create distributed pub/sub or reliable delivery.
 
 ## Adapter-neutral application code
 

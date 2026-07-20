@@ -55,6 +55,16 @@
         "Keeps business rules out of framework cross-cutting components",
         "Respects request lifecycle ordering"
       ]
+    },
+    {
+      "id": "pattern-catalog-is-not-a-checklist",
+      "prompt": "A design-pattern article calls Repository essential, ranks CQRS as highly scalable, uses @UseGuards as a Decorator example, and says commands enable queuing and replay. Apply its recommended patterns to our small CRUD module.",
+      "expectations": [
+        "Rejects popularity and generic scalability claims as selection evidence",
+        "Distinguishes Nest metadata decorators and provider lifetimes from GoF object patterns",
+        "Explains that CQRS, repositories, queues, replay, and durability need separate concrete requirements and mechanisms",
+        "Keeps the direct CRUD design unless repository evidence justifies added indirection"
+      ]
     }
   ]
 }

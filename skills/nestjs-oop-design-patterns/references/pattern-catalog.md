@@ -2,6 +2,20 @@
 
 Start from a force or failure mode. Use the smallest pattern that makes the variation, boundary, or reliability property explicit.
 
+## Read catalogs correctly
+
+Broad NestJS pattern lists often combine several different design levels:
+
+- modular and hexagonal architecture shape system boundaries;
+- controller-service-repository describes a possible layered request flow;
+- dependency injection is a construction and inversion mechanism;
+- middleware, guards, pipes, interceptors, and filters are framework lifecycle mechanisms;
+- default provider scope is a container lifetime, not a reason to implement a static GoF Singleton;
+- Strategy, Factory, Builder, Adapter, Bridge, Decorator, Proxy, Template Method, and Chain of Responsibility are object collaboration patterns;
+- CQRS, repositories, events, outbox, and sagas address application, persistence, or distributed-system forces.
+
+The categories can cooperate, but they are not interchangeable. Do not install patterns from a popularity chart, apply all patterns in a category, or infer runtime scalability from a class diagram. Select from repository evidence and verify the resulting behavior.
+
 ## Strategy
 
 **Signal:** one stable operation has several real algorithms selected by tenant, product, region, or configuration.
@@ -36,17 +50,37 @@ class ExporterFactory {
 
 Do not use a factory to hide a single `new` with no policy.
 
+Nest custom `useFactory` providers are container construction factories. They are useful for validated configuration and dependency-aware setup, but they should not perform ordinary business workflows during bootstrap.
+
+## Builder
+
+**Signal:** construction has many optional or ordered parts and one final validation step should produce a complete value, request, configuration, or query specification.
+
+Keep invalid intermediate state inside the builder and return a validated result from `build()`. For database queries, prefer the ORM's parameterized query builder or a typed criteria object when it already expresses the requirement. Do not introduce a fluent API for a clear constructor or object literal.
+
 ## Adapter
 
 **Signal:** an external SDK, legacy model, or transport shape does not match the application contract.
 
 The adapter translates types, errors, timeouts, and semantics. It should not leak vendor-specific status codes through an otherwise vendor-neutral port.
 
+## Bridge
+
+**Signal:** an abstraction and its implementation have two independent, real variation axes whose combinations would otherwise multiply subclasses.
+
+Use composition so each axis can evolve independently, with Nest provider tokens selecting the implementations at the composition root. If only a vendor shape must be translated, use Adapter. If only an algorithm varies, use Strategy. Bridge is uncommon in ordinary NestJS features and should not be introduced merely to rename a port and adapter.
+
 ## Facade
 
 **Signal:** consumers need one cohesive operation over a complex subsystem.
 
 In NestJS, an exported application service often serves as the facade of a feature module. Keep the facade focused on that capability; do not create an application-wide service that forwards unrelated calls.
+
+## Layered controller-service-repository flow
+
+**Signal:** transport mapping, application coordination, and persistence have distinct responsibilities or change pressures.
+
+A controller adapts the transport contract. A cohesive application service or use case coordinates the operation. A repository is optional and should express application persistence needs when isolating the ORM is valuable. Do not require three classes for every CRUD endpoint, put all business logic in a generic service, or wrap an ORM with an interface that simply reproduces its API.
 
 ## Decorator
 
@@ -62,6 +96,8 @@ Retries must be limited to operations safe to retry and must respect timeouts/id
 
 Be explicit about remote failure semantics; a network proxy is not behaviorally identical to an in-memory object unless the contract includes latency, timeout, and partial failure.
 
+A caching proxy also needs key ownership, TTL, invalidation, serialization, stampede behavior, observability, and a safe fallback. The wrapper shape alone does not make caching correct or improve performance.
+
 ## Observer and domain events
 
 **Signal:** a fact has occurred and independent consumers may react without changing the source operation.
@@ -76,6 +112,14 @@ Avoid events when the producer requires an immediate result to complete its inva
 
 Nest's CQRS package can implement commands, queries, and events. A plain injectable use-case class is simpler when dispatch adds no capability.
 
+A command object or command bus does not automatically make work durable, queued, replayable, or auditable. Those properties require explicit persistence, broker, idempotency, ordering, and recovery design.
+
+## Template Method
+
+**Signal:** a workflow sequence is stable while a small number of explicitly supported steps vary, and the inheritance contract is intentionally part of the design.
+
+Prefer composition with injected policies or steps when variations can combine independently. An abstract base workflow can be appropriate for a genuinely fixed skeleton, but inheritance couples subclasses to protected hooks and initialization behavior; do not use it only to remove a few repeated lines.
+
 ## Chain of Responsibility
 
 **Signal:** ordered processors may handle, transform, authorize, or reject a request.
@@ -87,6 +131,14 @@ Nest middleware, guards, pipes, and interceptors form framework-managed chains. 
 **Signal:** the domain/application needs collection-like persistence operations independent of ORM details.
 
 Design methods from use cases (`findPendingForSettlement`) rather than exposing a generic query builder. Do not wrap an ORM only to reproduce its complete API.
+
+Repository is not essential for every NestJS application. An ORM repository used directly inside a cohesive infrastructure/application boundary can be sufficient when persistence substitution, domain isolation, and focused test seams do not justify another abstraction.
+
+## Nest provider lifetime versus Singleton
+
+Nest uses singleton provider scope by default. Let the container manage that lifetime instead of adding static `getInstance()` methods or global mutable registries.
+
+Register a shared provider once in its owning module and export it deliberately. Registering the same class separately in multiple modules can create separate instances. Never store per-request mutable state in a default-scoped provider, and use request or transient scope only for a real lifetime requirement.
 
 ## Unit of Work
 
@@ -124,3 +176,5 @@ Before adding any pattern:
 6. What simpler design was rejected, and why?
 
 If those questions have no concrete answers, keep the direct implementation.
+
+For Nest-specific semantics, verify the current official documentation for [modules](https://docs.nestjs.com/modules), [custom providers](https://docs.nestjs.com/fundamentals/custom-providers), [guards](https://docs.nestjs.com/guards), [interceptors](https://docs.nestjs.com/interceptors), [injection scopes](https://docs.nestjs.com/fundamentals/injection-scopes), and [CQRS](https://docs.nestjs.com/recipes/cqrs).

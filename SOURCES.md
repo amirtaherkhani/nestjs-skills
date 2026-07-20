@@ -31,7 +31,11 @@ Key decisions taken from this research:
 - [Injection scopes](https://docs.nestjs.com/fundamentals/injection-scopes)
 - [Circular dependencies](https://docs.nestjs.com/fundamentals/circular-dependency)
 - [Request lifecycle](https://docs.nestjs.com/faq/request-lifecycle)
+- [Guards](https://docs.nestjs.com/guards)
+- [Interceptors](https://docs.nestjs.com/interceptors)
 - [Lifecycle events](https://docs.nestjs.com/fundamentals/lifecycle-events)
+- [Events](https://docs.nestjs.com/techniques/events)
+- [CQRS](https://docs.nestjs.com/recipes/cqrs)
 - [Testing](https://docs.nestjs.com/fundamentals/testing)
 - [Caching](https://docs.nestjs.com/techniques/caching)
 - [Queues](https://docs.nestjs.com/techniques/queues)
@@ -55,10 +59,13 @@ Official documentation is authoritative for framework behavior. Version-sensitiv
 - [EliteAI SOLID listing](https://eliteai.tools/agent-skills/solid)
 - [EliteAI Clean Architecture listing](https://eliteai.tools/agent-skills/clean-architecture-18)
 - [NestJS AI npm organization](https://www.npmjs.com/org/nestjs-ai)
+- [NestJS Design Patterns](https://dev.to/amirtaherkhani/nestjs-design-patterns-23fc)
 
 The requested Clean Architecture path is no longer present on the current registry branch. Its repository history and the linked directory mirror were reviewed instead. npm web pages rejected automated access, so current package metadata was verified through the public npm registry CLI.
 
 `awesome-nestjs`, directory sites, and `@nestjs-ai/*` packages are discovery sources, not authorities for core NestJS behavior. An agent should not introduce a community dependency only because it appears in one of these catalogs.
+
+The requested NestJS Design Patterns article was validated as a discovery catalog rather than adopted as a checklist. Its module, dependency-injection, custom-provider, interceptor, and optional CQRS concepts align with official NestJS capabilities. The skills add safeguards where the article overstates or combines guarantees: repositories and CQRS are not universally required; a popularity score is not evidence; middleware does not know route metadata; interceptors should not hide core business policy; Nest metadata decorators differ from the GoF Decorator pattern; default provider scope differs from a hand-written Singleton; and in-process events or command objects do not automatically provide durable pub/sub, queuing, replay, or auditability.
 
 ## Requested community discussions
 
