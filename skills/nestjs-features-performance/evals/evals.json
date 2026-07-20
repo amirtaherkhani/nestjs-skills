@@ -1,0 +1,69 @@
+{
+  "skill": "nestjs-features-performance",
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "feature-placement",
+      "prompt": "Add DTO conversion, authorization, request timing, and stable error mapping to a NestJS endpoint.",
+      "expectations": [
+        "Uses pipes, guards/policies, interceptors, and filters in the correct lifecycle stages",
+        "Keeps business behavior in application providers",
+        "Tests ordering and transport behavior"
+      ]
+    },
+    {
+      "id": "slow-endpoint",
+      "prompt": "A NestJS endpoint has a 1.8 second p95. Make it faster.",
+      "expectations": [
+        "Requests or gathers traces and resource metrics before choosing a fix",
+        "Classifies database, event-loop, external, memory, or capacity constraints",
+        "Defines a repeatable before/after workload"
+      ]
+    },
+    {
+      "id": "cpu-work",
+      "prompt": "PDF generation blocks all requests in our NestJS API during peak traffic.",
+      "expectations": [
+        "Identifies event-loop blocking",
+        "Moves CPU-heavy work to a worker pool or separate queued worker based on response requirements",
+        "Bounds concurrency and defines job failure/idempotency behavior"
+      ]
+    },
+    {
+      "id": "horizontal-scale",
+      "prompt": "Scale a stateful NestJS WebSocket app from one pod to six pods.",
+      "expectations": [
+        "Externalizes or coordinates pub-sub, presence, sessions, and rate limits",
+        "Addresses adapter/sticky-session requirements and bounded buffers",
+        "Includes readiness, drain, and load verification"
+      ]
+    },
+    {
+      "id": "queue-reliability",
+      "prompt": "Implement a BullMQ payment-capture worker in NestJS with retries.",
+      "expectations": [
+        "Defines idempotency and duplicate results",
+        "Classifies retryable errors with bounded backoff and jitter",
+        "Includes timeout, concurrency, dead-letter, telemetry, and replay behavior"
+      ]
+    },
+    {
+      "id": "fastify-decision",
+      "prompt": "Switch our NestJS service from Express to Fastify because a benchmark says it is twice as fast.",
+      "expectations": [
+        "Rejects generic benchmark evidence as sufficient",
+        "Profiles HTTP adapter contribution and audits middleware compatibility",
+        "Benchmarks representative routes before and after"
+      ]
+    },
+    {
+      "id": "distributed-schedule",
+      "prompt": "Our @Cron cleanup job runs six times after scaling the NestJS deployment.",
+      "expectations": [
+        "Explains that every replica runs the schedule",
+        "Chooses a platform scheduler, dedicated replica, distributed lease, or unique queued job",
+        "Makes cleanup idempotent and observable"
+      ]
+    }
+  ]
+}

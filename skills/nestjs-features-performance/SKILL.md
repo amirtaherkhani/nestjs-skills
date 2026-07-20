@@ -1,0 +1,143 @@
+---
+name: nestjs-features-performance
+description: 'Selects and implements NestJS features while diagnosing performance and planning safe scale. Use for middleware, guards, pipes, interceptors, filters, DTO validation, APIs, GraphQL, WebSockets, SSE, microservices, caching, queues, schedulers, lifecycle hooks, health checks, observability, slow endpoints, event-loop blocking, database bottlenecks, load tests, horizontal scaling, retries, idempotency, backpressure, and graceful shutdown. Do not use for frontend-only performance or non-NestJS services.'
+license: MIT
+metadata:
+  author: amirtaherkhani
+  version: '1.0.0'
+---
+
+# NestJS Features, Scaling, and Performance
+
+Choose the NestJS primitive whose lifecycle matches the concern. Diagnose the limiting resource before optimizing or distributing the system.
+
+## Establish the runtime baseline
+
+Before recommending or changing behavior:
+
+1. Read the installed NestJS/Node versions, bootstrap code, adapter, modules, transports, persistence clients, cache/queue setup, and deployment manifests.
+2. Trace one representative request, message, or job through guards, pipes, interceptors, handlers, providers, persistence, and external calls.
+3. Identify the current symptom and evidence: latency percentiles, throughput, error rate, event-loop delay, CPU, heap/GC, database time, pool saturation, external latency, or queue lag.
+4. Define a target and workload. "Make it faster" is not a measurable acceptance criterion.
+5. Check framework and library APIs against official documentation and the repository version.
+
+Never claim a performance improvement from code appearance. Measure before and after under a representative workload.
+
+## Put behavior in the correct NestJS feature
+
+Use [references/feature-selection.md](references/feature-selection.md).
+
+General HTTP lifecycle:
+
+```text
+request
+  -> middleware
+  -> guards
+  -> interceptors (before)
+  -> pipes
+  -> controller/resolver + providers
+  -> interceptors (after, reverse order)
+  -> exception filters for uncaught errors
+  -> response
+```
+
+Defaults:
+
+- **Middleware:** raw protocol preprocessing and correlation context.
+- **Guard:** authentication/authorization decision for an execution context.
+- **Pipe:** input validation and transformation.
+- **Interceptor:** behavior around handler execution, response mapping, timing, tracing, or compatible caching.
+- **Exception filter:** final protocol-specific error mapping.
+- **Decorator:** declarative metadata or extraction of established context, not hidden I/O.
+- **Provider/application operation:** business behavior and orchestration.
+- **Queue/worker:** durable, deferred, bursty, or resource-heavy work.
+- **Event:** a completed fact with independent reactions; choose in-process versus durable delivery explicitly.
+
+For API and transport guidance, load [references/api-runtime.md](references/api-runtime.md).
+
+## Diagnose performance by resource
+
+Use [references/performance-diagnosis.md](references/performance-diagnosis.md).
+
+Classify the primary constraint before selecting a remedy:
+
+| Constraint | Evidence | Typical first moves |
+| --- | --- | --- |
+| Event-loop blocking | High event-loop delay/utilization, CPU callback hotspots | Remove synchronous work; bound input; offload CPU work |
+| Database | Slow queries, N+1, pool waits, locks, high rows scanned | Fix query shape/indexes; bound results; shorten transactions |
+| External I/O | Dependency spans dominate latency | Deadlines, connection reuse, bounded retry, concurrency control |
+| Memory/GC | Heap growth, GC pauses, OOM/restarts | Remove retention; stream/bound data; profile allocations |
+| Serialization/logging | CPU or payload size grows with response | Select fields; paginate/stream; reduce hot-path logging |
+| Capacity | Stable per-instance performance but saturated replicas | Horizontal scale with stateless processes and safe dependencies |
+
+Do not switch to Fastify, add Redis, introduce worker threads, or split services before evidence identifies the bottleneck and compatibility cost is understood.
+
+## Scaling rules
+
+Use [references/scaling-reliability.md](references/scaling-reliability.md).
+
+1. Keep web replicas stateless; move shared sessions, locks, job state, and coordination to appropriate external systems.
+2. Prefer default singleton providers. Request scope propagates through the injection chain and adds per-request allocation; use only for a real lifetime requirement.
+3. Bound every collection, page, batch, queue concurrency, retry count, payload, upload, and timeout.
+4. Make jobs and message consumers idempotent. Assume duplicate delivery and partial failure.
+5. Use exponential backoff with jitter for transient failures; never blindly retry validation, authorization, or invariant errors.
+6. Add backpressure. Reject, shed, pause, or queue load instead of allowing unbounded memory and latency growth.
+7. Separate user-facing processes from CPU-heavy or slow background work when their capacity profiles differ.
+8. Treat caches as derived state. Define key namespace, TTL, invalidation, stampede behavior, and safe fallback.
+9. Drain before shutdown: stop accepting work, mark unready, finish or safely requeue in-flight work, then close resources.
+10. Scale from service-level objectives and saturation signals, not average CPU alone.
+
+## Implementation workflow
+
+### Add or change a feature
+
+1. Locate the correct lifecycle stage and existing repository convention.
+2. Define the contract, scope, and failure behavior.
+3. Implement the smallest provider/component and bind it at the narrowest useful level.
+4. Test its behavior in isolation and its ordering/wiring at a boundary.
+5. Update OpenAPI/schema, configuration validation, telemetry, and docs when the public or operational contract changes.
+
+### Optimize a slow path
+
+1. Reproduce with a controlled benchmark or trace.
+2. Record baseline percentiles, throughput, errors, and resource saturation.
+3. Profile the dominant path.
+4. Change one limiting factor.
+5. Repeat the same workload and compare.
+6. Run correctness and failure tests; faster incorrect behavior is a regression.
+7. Document the capacity limit and rollback signal.
+
+### Plan scale
+
+1. Define workload shape, SLO, consistency, durability, and cost constraints.
+2. Estimate per-instance capacity and identify shared dependency limits.
+3. Choose vertical tuning, replicas, workers, queues, partitions, or service extraction based on the actual resource boundary.
+4. Design overload and partial-failure behavior before adding capacity.
+5. Prove the plan with load, soak, spike, and failure tests appropriate to the risk.
+
+## Production gate
+
+Use [references/production-readiness.md](references/production-readiness.md) before calling a feature production-ready. At minimum verify configuration, security, contracts, resource bounds, observability, health/readiness, shutdown, and recovery.
+
+## Reference routing
+
+| Task | Load |
+| --- | --- |
+| Pick middleware, guard, pipe, interceptor, filter, decorator, event, queue, or scheduler | [feature-selection.md](references/feature-selection.md) |
+| Build HTTP/GraphQL/WebSocket/SSE/microservice contracts and tests | [api-runtime.md](references/api-runtime.md) |
+| Diagnose latency, CPU, event loop, database, memory, cache, or Fastify choices | [performance-diagnosis.md](references/performance-diagnosis.md) |
+| Add replicas, workers, queues, retries, idempotency, backpressure, or distributed coordination | [scaling-reliability.md](references/scaling-reliability.md) |
+| Review operational readiness and rollout safety | [production-readiness.md](references/production-readiness.md) |
+
+## Expected response
+
+For performance/scaling work, report:
+
+- **Symptom and target**
+- **Baseline evidence**
+- **Primary constraint**
+- **Recommended change and trade-off**
+- **Correctness/failure risks**
+- **Before/after verification plan**
+
+If evidence is missing, propose the smallest measurement needed before an architectural change.

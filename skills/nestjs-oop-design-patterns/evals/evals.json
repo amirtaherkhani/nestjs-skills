@@ -1,0 +1,60 @@
+{
+  "skill": "nestjs-oop-design-patterns",
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "god-service",
+      "prompt": "Refactor a 600-line NestJS OrdersService that validates DTOs, calls Stripe, writes TypeORM entities, sends email, and calculates pricing.",
+      "expectations": [
+        "Splits by responsibility and change axis rather than arbitrary size",
+        "Moves pricing rules and external adapters to appropriate owners",
+        "Preserves a cohesive order-placement use case and public contract"
+      ]
+    },
+    {
+      "id": "strategy-signal",
+      "prompt": "We now have three pricing algorithms selected by contract type, and the same switch appears in four services.",
+      "expectations": [
+        "Recommends a strategy or policy for the observed variation",
+        "Centralizes validated selection",
+        "Defines contract tests for implementations"
+      ]
+    },
+    {
+      "id": "avoid-pattern",
+      "prompt": "Create a factory and interface for this NestJS provider that has one constructor and one implementation.",
+      "expectations": [
+        "Challenges the unjustified abstraction",
+        "Keeps the direct provider unless a real boundary or variation exists",
+        "Explains what future signal would justify extraction"
+      ]
+    },
+    {
+      "id": "value-object-pragmatism",
+      "prompt": "Should every string and number in our NestJS DTOs become a value object?",
+      "expectations": [
+        "Rejects mandatory wrapping",
+        "Recommends value objects for meaningful invariants, units, or identifier safety",
+        "Keeps transport DTO validation distinct from domain construction"
+      ]
+    },
+    {
+      "id": "liskov-contract",
+      "prompt": "Two PaymentGateway implementations have the same TypeScript interface, but one throws on duplicate requests and the other returns the original result.",
+      "expectations": [
+        "Identifies a behavioral substitution violation",
+        "Makes idempotency and error semantics explicit in the contract",
+        "Updates adapter contract tests"
+      ]
+    },
+    {
+      "id": "nestjs-lifecycle-pattern",
+      "prompt": "Where should tenant authorization, DTO transformation, request timing, and error response mapping live in NestJS?",
+      "expectations": [
+        "Maps authorization to guards/policies, transformation to pipes, timing to interceptors, and mapping to filters",
+        "Keeps business rules out of framework cross-cutting components",
+        "Respects request lifecycle ordering"
+      ]
+    }
+  ]
+}

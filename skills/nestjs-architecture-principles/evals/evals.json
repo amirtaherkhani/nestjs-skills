@@ -1,0 +1,60 @@
+{
+  "skill": "nestjs-architecture-principles",
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "modular-monolith-default",
+      "prompt": "Design the architecture for a new NestJS order-management API used by one team and deployed as one service.",
+      "expectations": [
+        "Recommends cohesive feature modules or a modular monolith as the default",
+        "Does not introduce microservices or CQRS without a concrete driver",
+        "Defines module and data ownership"
+      ]
+    },
+    {
+      "id": "clean-architecture-tradeoff",
+      "prompt": "Should this 12-endpoint NestJS CRUD service be converted to strict Clean Architecture?",
+      "expectations": [
+        "Inspects current complexity and change pressure before deciding",
+        "Allows selective layering rather than an all-or-nothing rewrite",
+        "Explains cost and validation"
+      ]
+    },
+    {
+      "id": "circular-dependency",
+      "prompt": "OrdersModule and PaymentsModule import each other and both services use forwardRef. Fix the architecture.",
+      "expectations": [
+        "Treats the cycle as ownership feedback",
+        "Considers a coordinator, narrow port, or event based on consistency needs",
+        "Uses forwardRef only as a temporary compatibility option"
+      ]
+    },
+    {
+      "id": "service-extraction",
+      "prompt": "Our NestJS monolith has a CPU-heavy report generator. Do we need a reporting microservice?",
+      "expectations": [
+        "Separates deployment or worker scaling from business-service boundaries",
+        "Evaluates ownership, data, failure, and contract costs",
+        "Recommends the smallest justified extraction"
+      ]
+    },
+    {
+      "id": "provider-port",
+      "prompt": "Refactor a NestJS use case that imports the Stripe SDK directly so it can be tested and another provider can be added.",
+      "expectations": [
+        "Defines an application-owned port and runtime token",
+        "Wires the vendor adapter in a module",
+        "Keeps vendor types out of the use case"
+      ]
+    },
+    {
+      "id": "architecture-review",
+      "prompt": "Review a NestJS repository where every provider is exported from SharedModule and feature modules read each other's repositories.",
+      "expectations": [
+        "Builds an evidence-based baseline",
+        "Ranks concrete boundary findings",
+        "Proposes an incremental migration and regression checks"
+      ]
+    }
+  ]
+}

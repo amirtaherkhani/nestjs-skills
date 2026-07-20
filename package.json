@@ -1,0 +1,14 @@
+{
+  "name": "nestjs-agent-skills",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Three cross-compatible Agent Skills for NestJS architecture, OOP, patterns, features, scaling, and performance.",
+  "license": "MIT",
+  "scripts": {
+    "validate": "node scripts/validate-skills.mjs",
+    "test": "npm run validate"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
