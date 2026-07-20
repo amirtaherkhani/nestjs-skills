@@ -62,4 +62,6 @@ Use structured audit events for privileged actions without placing secrets or un
 - Scan dependencies and container artifacts in CI, then triage results rather than treating a scan as proof of safety.
 - Perform focused manual or automated security testing for uploads, webhooks, outbound URLs, rich content, and privileged flows.
 
+This reference owns disclosure and redaction requirements. [Error handling](error-handling.md) owns failure taxonomy and transport mapping; a mapper must satisfy these security rules rather than creating a separate disclosure policy.
+
 Use current official guidance for [NestJS authentication](https://docs.nestjs.com/security/authentication), [authorization](https://docs.nestjs.com/security/authorization), [rate limiting](https://docs.nestjs.com/security/rate-limiting), [validation](https://docs.nestjs.com/techniques/validation), and [serialization](https://docs.nestjs.com/techniques/serialization), plus the OWASP [REST Security](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html) and [Input Validation](https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html) cheat sheets.

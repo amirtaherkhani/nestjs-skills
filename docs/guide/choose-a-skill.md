@@ -35,7 +35,7 @@ It does not require an interface for every class or a pattern for every conditio
 
 ## Features & Performance
 
-Lead with `nestjs-features-performance` for framework feature selection, request and message lifecycles, transport contracts, CI/CD, containers, Kubernetes, observability/SRE, resource bottlenecks, reliability, or horizontal scale.
+Lead with `nestjs-features-performance` for framework feature selection, request and message lifecycles, error taxonomy and transport mapping, CI/CD, containers, Kubernetes, observability/SRE, resource bottlenecks, reliability, or horizontal scale.
 
 It measures before optimizing and compares repository intent with the built artifact and live runtime before diagnosing deployment. Fastify, Redis, workers, replicas, and service splits are possible remedies only after evidence identifies the constraint and the compatibility cost is understood.
 
@@ -51,7 +51,7 @@ Overlap is resolved by decision ownership, so the skills reinforce rather than o
 | Interceptors and guards | Features owns lifecycle placement | OOP reviews cohesion; Architecture prevents business policy from leaking into transport adapters |
 | Events | Architecture owns capability and transaction boundaries | OOP models completed facts; Features owns delivery, retries, idempotency, and backpressure |
 | CQRS | Architecture decides whether command/query separation is justified | OOP shapes handlers and messages; Features verifies transport and operational behavior |
-| Error handling | Features owns public/transport mapping, filters, retries, and diagnostics | OOP models cohesive failure types; Architecture owns transactional consequences |
+| Error handling | Features owns taxonomy, public/transport mapping, filters, deadlines, retry classification, fatal-process behavior, and diagnostics | OOP models cohesive failure types; Architecture owns transactions and partial-effect consistency; Security owns disclosure |
 | Security | Features owns validation, identity, access, secrets, output, and abuse controls | Architecture assigns trust/data ownership; OOP encapsulates resource policy |
 | Testing | Features owns test-layer selection and runtime verification | Architecture owns boundary assertions; OOP owns object behavior and test seams |
 | Database & ORM | Architecture owns data, migration, transaction, and persistence boundaries | OOP shapes domain objects/ports; Features diagnoses query, pool, and capacity cost |

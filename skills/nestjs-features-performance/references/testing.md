@@ -63,6 +63,6 @@ Keep performance tests separate from ordinary unit suites and record workload, e
 
 ## Skill handoff
 
-This reference owns test-layer choice and runtime verification. The Architecture and Principles skill owns module/data/service boundary assertions. The OOP and Design Patterns skill owns object-level behavior and refactoring seams. Performance claims require the measurement workflow in [performance-diagnosis.md](performance-diagnosis.md).
+This reference owns test-layer choice and runtime verification. The Architecture and Principles skill owns module/data/service boundary assertions. The OOP and Design Patterns skill owns object-level behavior and refactoring seams. [Failure resilience and testing](failure-resilience-testing.md) defines the error-specific failure matrix, while this reference selects the test boundary. Performance claims require the measurement workflow in [performance-diagnosis.md](performance-diagnosis.md).
 
 See the official NestJS [testing](https://docs.nestjs.com/fundamentals/testing) guidance. Verify helper APIs against the installed NestJS and test-runner versions.

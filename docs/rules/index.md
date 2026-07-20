@@ -24,7 +24,7 @@ description: Ten conflict-checked NestJS rulebooks covering architecture, depend
   </a>
   <a class="rule-row" href="../reference/features-performance/references/error-handling">
     <span class="rule-number" aria-hidden="true">03</span>
-    <span class="rule-copy"><strong>Error Handling</strong><small>Typed failures, transport mapping, filters, async errors, privacy, and retries</small></span>
+    <span class="rule-copy"><strong>Error Handling</strong><small>Taxonomy, stable contracts, multi-transport filters, deadlines, retries, privacy, and fatal failures</small></span>
     <span class="rule-owner">Runtime</span>
     <span class="rule-arrow" aria-hidden="true">→</span>
   </a>

@@ -32,7 +32,7 @@ features:
     linkText: Read the skill
   - icon: ↗
     title: Features & Performance
-    details: Put behavior in the right lifecycle, ship immutable releases, operate from live evidence, and scale safely.
+    details: Put behavior in the right lifecycle, design safe error contracts, ship immutable releases, operate from live evidence, and scale safely.
     link: /reference/features-performance/
     linkText: Read the skill
 ---
@@ -54,7 +54,7 @@ Each skill owns a distinct decision level. Use one as the lead and bring in anot
   </a>
   <a class="route-card" href="./guide/choose-a-skill#features--performance">
     <strong>Runtime behavior</strong>
-    <span>Request lifecycle, APIs, queues, caching, observability, bottlenecks, reliability, and scale.</span>
+    <span>Request lifecycle, error contracts, APIs, queues, caching, observability, bottlenecks, reliability, and scale.</span>
   </a>
 </div>
 

@@ -69,4 +69,6 @@ Generate OpenAPI or schemas from the same maintained contract where the project 
 
 Test validation, status/outcome, authorization, serialization, stable errors, pagination bounds, idempotency, and version compatibility through the real transport. Add consumer/provider contract tests when teams or deployments evolve independently.
 
+This reference owns API compatibility. Failure classification, protocol mapping, and filter behavior are detailed in [error-handling.md](error-handling.md); preserve one public contract rather than defining a second envelope here.
+
 See the official NestJS guidance for [validation](https://docs.nestjs.com/techniques/validation), [serialization](https://docs.nestjs.com/techniques/serialization), [interceptors](https://docs.nestjs.com/interceptors), [versioning](https://docs.nestjs.com/techniques/versioning), and [OpenAPI](https://docs.nestjs.com/openapi/introduction).

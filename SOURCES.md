@@ -60,6 +60,28 @@ Key decisions taken from this research:
 
 Official documentation is authoritative for framework behavior. Version-sensitive commands and APIs must still be checked against the target repository.
 
+## Error contracts, transports, and failure behavior
+
+- [NestJS exception filters](https://docs.nestjs.com/exception-filters)
+- [NestJS request lifecycle](https://docs.nestjs.com/faq/request-lifecycle)
+- [NestJS execution context](https://docs.nestjs.com/fundamentals/execution-context)
+- [NestJS microservice exception filters](https://docs.nestjs.com/microservices/exception-filters)
+- [NestJS WebSocket exception filters](https://docs.nestjs.com/websockets/exception-filters)
+- [Node.js errors](https://nodejs.org/api/errors.html)
+- [Node.js process events](https://nodejs.org/api/process.html)
+- [Node.js `AbortSignal`](https://nodejs.org/api/globals.html#class-abortsignal)
+- [RFC 9457: Problem Details for HTTP APIs](https://www.rfc-editor.org/rfc/rfc9457.html)
+- [RFC 9110: HTTP Semantics](https://www.rfc-editor.org/rfc/rfc9110.html)
+- [GraphQL specification: Errors](https://spec.graphql.org/September2025/#sec-Errors)
+- [gRPC error handling](https://grpc.io/docs/guides/error/)
+- [gRPC status codes](https://grpc.io/docs/guides/status-codes/)
+- [RxJS `timeout`](https://rxjs.dev/api/operators/timeout)
+- [OpenTelemetry exception conventions](https://opentelemetry.io/docs/specs/semconv/exceptions/)
+- [OWASP Error Handling Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Error_Handling_Cheat_Sheet.html)
+- [OWASP Logging Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
+
+The error-handling rules separate stable application meaning from protocol representation. HTTP status codes, GraphQL errors, gRPC status, WebSocket events, and worker acknowledgement/retry semantics are mapped independently. Filters own final transport mapping; application policy owns business failures; architecture owns transactions and partial effects; security owns disclosure; operational observability retains one primary logging owner.
+
 ## Security and persistence sources
 
 - [OWASP REST Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html)

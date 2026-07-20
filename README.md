@@ -18,6 +18,8 @@ The three skills expose one conflict-checked rules reference covering Architectu
 
 DevOps is treated as a first-class operating discipline: immutable CI/CD and container delivery, Kubernetes live-state verification, SLO-driven observability, incident response, tested recovery, compatible migrations, graceful drain, and evidence-based rollout/rollback. Platform-specific guidance remains conditional rather than making Docker or Kubernetes mandatory.
 
+Error Handling is also first-class: application-owned failure taxonomy, stable public contracts, precise HTTP/GraphQL/RPC/gRPC/WebSocket mapping, NestJS filter coverage, deadline and cancellation propagation, safe retry/idempotency rules, partial-effect analysis, privacy, fatal-process behavior, and failure-path testing. The guidance preserves an existing compatible API instead of forcing one universal error envelope.
+
 ## Install
 
 Install all three skills:

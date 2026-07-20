@@ -70,6 +70,8 @@ Retries multiply load during incidents. Use:
 
 Never retry authentication, validation, insufficient funds, uniqueness conflict, or other deterministic failures without a state change.
 
+This reference owns retry amplification, capacity, and overload controls. [Error handling](error-handling.md) owns failure classification and public mapping; database/application policy owns whether a complete concurrency unit is safe to repeat.
+
 ## Backpressure and overload
 
 Bound:

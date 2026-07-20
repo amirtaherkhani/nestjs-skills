@@ -1,8 +1,8 @@
 {
   "name": "nestjs-agent-skills",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "private": true,
-  "description": "Three cross-compatible Agent Skills for NestJS architecture, OOP, APIs, security, testing, CI/CD, Kubernetes, SRE, scaling, and performance.",
+  "description": "Three cross-compatible Agent Skills for NestJS architecture, OOP, error handling, APIs, security, testing, CI/CD, Kubernetes, SRE, scaling, and performance.",
   "license": "MIT",
   "scripts": {
     "docs:sync": "node scripts/sync-docs.mjs",

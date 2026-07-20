@@ -45,7 +45,7 @@ export default defineConfig({
       {
         text: 'Rules',
         link: '/rules/',
-        activeMatch: '/rules/|/reference/.*/references/(architecture-rules|dependency-injection|error-handling|security|performance-diagnosis|testing|database-orm|api-design|microservices|devops-deployment|ci-cd-containers|kubernetes-operations|observability-sre)'
+        activeMatch: '/rules/|/reference/.*/references/(architecture-rules|dependency-injection|error-handling|error-taxonomy-contracts|exception-filters-transports|failure-resilience-testing|security|performance-diagnosis|testing|database-orm|api-design|microservices|devops-deployment|ci-cd-containers|kubernetes-operations|observability-sre)'
       },
       { text: 'Concepts', link: '/concepts/request-lifecycle', activeMatch: '/concepts/' },
       {
@@ -129,6 +129,9 @@ export default defineConfig({
           { text: 'Feature selection', link: '/reference/features-performance/references/feature-selection' },
           { text: 'API & runtime', link: '/reference/features-performance/references/api-runtime' },
           { text: 'Error handling', link: '/reference/features-performance/references/error-handling' },
+          { text: 'Error taxonomy & contracts', link: '/reference/features-performance/references/error-taxonomy-contracts' },
+          { text: 'Exception filters & transports', link: '/reference/features-performance/references/exception-filters-transports' },
+          { text: 'Failure resilience & testing', link: '/reference/features-performance/references/failure-resilience-testing' },
           { text: 'Security', link: '/reference/features-performance/references/security' },
           { text: 'Testing', link: '/reference/features-performance/references/testing' },
           { text: 'API design', link: '/reference/features-performance/references/api-design' },

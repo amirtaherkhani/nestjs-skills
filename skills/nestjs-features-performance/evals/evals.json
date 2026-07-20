@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-features-performance",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "cases": [
     {
       "id": "feature-placement",
@@ -72,6 +72,46 @@
         "Keeps application failures transport-neutral",
         "Maps failures at each HTTP or message boundary",
         "Defines stable safe errors, logging ownership, and retry classification"
+      ]
+    },
+    {
+      "id": "http-error-contract",
+      "prompt": "Standardize errors for a public NestJS REST API. The current filter returns raw exception objects and uses 500 for validation, conflicts, and dependency outages. Adopt Problem Details if it is compatible.",
+      "expectations": [
+        "Inventories the existing client contract before changing the response shape",
+        "Classifies validation, conflict, transient dependency, and unknown failures without parsing messages",
+        "Uses precise HTTP semantics and, if adopted, a valid RFC 9457 representation with a stable application code",
+        "Allow-lists public fields and tests that causes, stacks, SQL, secrets, and vendor bodies do not leak"
+      ]
+    },
+    {
+      "id": "hybrid-transport-errors",
+      "prompt": "A hybrid NestJS app exposes HTTP, GraphQL, WebSocket, and Kafka handlers. One global HTTP exception filter should make all failures consistent.",
+      "expectations": [
+        "Rejects the assumption that one HTTP filter automatically covers every execution context",
+        "Keeps application failure meaning transport-neutral while mapping each protocol independently",
+        "Accounts for GraphQL partial errors, WebSocket events, RPC Observable/filter behavior, and Kafka acknowledgement/retry semantics",
+        "Defines one logging owner and E2E or runtime coverage for every entry point"
+      ]
+    },
+    {
+      "id": "timeout-unknown-outcome",
+      "prompt": "A payment provider call times out after three seconds, so retry it three times immediately and return 504 from our NestJS service.",
+      "expectations": [
+        "Explains that a timeout does not prove the payment failed and treats the write outcome as unknown",
+        "Requires reconciliation or an idempotency key before repeating the side effect",
+        "Uses a total deadline, cancellation where supported, bounded jittered retry only for classified safe failures, and overload awareness",
+        "Uses 504 only when HTTP gateway semantics actually apply and defines a stable public code"
+      ]
+    },
+    {
+      "id": "fatal-process-error",
+      "prompt": "Keep a NestJS process running after uncaughtException so Kubernetes does not restart the Pod. Log the error and continue serving traffic.",
+      "expectations": [
+        "Rejects continuing normal service after an uncaught exception because process state may be inconsistent",
+        "Uses the hook for minimal bounded last-resort diagnostics rather than request recovery",
+        "Stops readiness or intake where possible, exits, and relies on the supervisor for a clean restart",
+        "Distinguishes fatal error handling from normal graceful shutdown and tests crash-loop diagnostics"
       ]
     },
     {

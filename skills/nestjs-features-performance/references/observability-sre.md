@@ -89,4 +89,6 @@ Avoid speculative configuration changes and simultaneous untracked experiments. 
 
 Set retention, sampling, aggregation, and cardinality budgets. Keep production debugging access least-privileged and audited. Prefer a collector/agent boundary when it centralizes enrichment, buffering, redaction, routing, or vendor portability without creating a new silent failure point.
 
+This reference owns operational telemetry and incident response. [Error handling](error-handling.md) owns failure classification and boundary mapping; both use one primary diagnostic event instead of independently logging the same stack.
+
 See OpenTelemetry guidance on [concepts](https://opentelemetry.io/docs/concepts/), [context propagation](https://opentelemetry.io/docs/concepts/context-propagation/), and [metric cardinality](https://opentelemetry.io/docs/concepts/signals/metrics/), plus the Google SRE Workbook on [monitoring](https://sre.google/workbook/monitoring/) and [incident response](https://sre.google/workbook/incident-response/).

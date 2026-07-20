@@ -1,10 +1,10 @@
 ---
 name: nestjs-features-performance
-description: 'Selects and implements NestJS runtime features, API and error contracts, security, testing, DevOps, performance, and safe scale. Use for middleware, guards, pipes, interceptors, filters, DTO validation, authentication, authorization, APIs, transports, caching, queues, schedulers, CI/CD, Docker and container images, Kubernetes, configuration and secrets, migrations, supply-chain controls, health probes, logs/metrics/traces, SLOs and alerts, incident recovery, rollout and rollback, event-loop or database bottlenecks, load tests, horizontal scaling, retries, idempotency, backpressure, and graceful shutdown. Do not use for frontend-only performance or non-NestJS services.'
+description: 'Selects and implements NestJS runtime features, error and API contracts, security, testing, DevOps, performance, and safe scale. Use for middleware, guards, pipes, interceptors, exception filters, typed failures/results, Problem Details, validation errors, HTTP/GraphQL/RPC/gRPC/WebSocket error mapping, deadlines, cancellation, retry classification, fatal process errors, authentication, authorization, caching, queues, schedulers, CI/CD, containers, Kubernetes, configuration and secrets, migrations, supply-chain controls, health probes, logs/metrics/traces, SLOs and alerts, incident recovery, rollout and rollback, event-loop or database bottlenecks, load tests, horizontal scaling, idempotency, backpressure, and graceful shutdown. Do not use for frontend-only performance or non-NestJS services.'
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.2.0'
+  version: '1.3.0'
 ---
 
 # NestJS Features, Scaling, and Performance
@@ -97,6 +97,16 @@ Use [references/scaling-reliability.md](references/scaling-reliability.md).
 4. Test its behavior in isolation and its ordering/wiring at a boundary.
 5. Update OpenAPI/schema, configuration validation, telemetry, and docs when the public or operational contract changes.
 
+### Design or repair error handling
+
+1. Inventory every entry point, current public error contract, filter binding, adapter/vendor error, client dependency, and partial side effect.
+2. Classify expected business, validation, identity/access, conflict, transient, permanent, cancellation/timeout, and unknown failures without parsing messages.
+3. Define the application-owned type/result and translate vendor failures at infrastructure adapters while preserving a safe cause.
+4. Map each HTTP, GraphQL, RPC/gRPC, WebSocket, or worker boundary independently; keep one non-sensitive unknown fallback.
+5. Define deadlines, cancellation, retry/idempotency, acknowledgement, transaction, and unknown-outcome behavior before adding recovery logic.
+6. Bind the narrowest correct NestJS filter/handler and verify hybrid, gateway, adapter, stream, and process-fatal paths as applicable.
+7. Test the stable contract, side effects, observability ownership, sensitive-data absence, and restart/recovery behavior.
+
 ### Optimize a slow path
 
 1. Reproduce with a controlled benchmark or trace.
@@ -135,6 +145,9 @@ Use [references/production-readiness.md](references/production-readiness.md) bef
 | Pick middleware, guard, pipe, interceptor, filter, decorator, event, queue, or scheduler | [feature-selection.md](references/feature-selection.md) |
 | Build HTTP/GraphQL/WebSocket/SSE/microservice contracts and tests | [api-runtime.md](references/api-runtime.md) |
 | Classify failures, map stable errors, or design filters and retries | [error-handling.md](references/error-handling.md) |
+| Define typed errors/results, public codes, validation shape, Problem Details, or HTTP semantics | [error-taxonomy-contracts.md](references/error-taxonomy-contracts.md) |
+| Implement filters across HTTP, GraphQL, RPC/gRPC, WebSocket, workers, or hybrid apps | [exception-filters-transports.md](references/exception-filters-transports.md) |
+| Design deadlines, cancellation, safe retries, fatal-process handling, telemetry, or failure tests | [failure-resilience-testing.md](references/failure-resilience-testing.md) |
 | Review authentication, authorization, validation, secrets, output, or abuse controls | [security.md](references/security.md) |
 | Choose unit, module, integration, contract, E2E, or reliability tests | [testing.md](references/testing.md) |
 | Design DTOs, responses, errors, pagination, idempotency, or versioning | [api-design.md](references/api-design.md) |
@@ -158,6 +171,15 @@ For performance/scaling work, report:
 - **Before/after verification plan**
 
 If evidence is missing, propose the smallest measurement needed before an architectural change.
+
+For Error Handling work, report:
+
+- **Failure model:** categories, stable codes/types, and expected versus unknown behavior.
+- **Boundary mapping:** application-to-transport mapping for every affected entry point.
+- **Effects and resilience:** committed/possible side effects, deadline, cancellation, retry/idempotency, and recovery ownership.
+- **Disclosure:** public fields, redaction, logging ownership, and sensitive-data controls.
+- **Framework wiring:** filter/handler scope, execution context, adapter/hybrid coverage, and fatal-process behavior.
+- **Verification:** contract, adapter, timeout, duplicate, partial-effect, privacy, and restart tests.
 
 For DevOps work, report:
 
