@@ -2,9 +2,19 @@
 
 Deploy a verified, immutable artifact with validated configuration, observable health, compatible data changes, and a tested shutdown and rollback path.
 
-## Contents
+## Load the focused guide
 
-- [Load the focused guide](#load-the-focused-guide)
+| Task | Load |
+| --- | --- |
+| Design CI gates, container images, provenance, promotion, or release rollback | [ci-cd-containers.md](ci-cd-containers.md) |
+| Configure or diagnose Kubernetes workloads, probes, resources, autoscaling, or drain | [kubernetes-operations.md](kubernetes-operations.md) |
+| Define SLOs, telemetry, alerts, dashboards, incident response, or recovery | [observability-sre.md](observability-sre.md) |
+
+These guides are conditional. Do not prescribe Docker, GitHub Actions, Kubernetes, or OpenTelemetry when the target repository uses another deployment model.
+
+<details>
+<summary><strong>Page contents</strong></summary>
+
 - [Start from evidence](#start-from-evidence)
 - [Build and release](#build-and-release)
 - [Configuration and secrets](#configuration-and-secrets)
@@ -17,15 +27,7 @@ Deploy a verified, immutable artifact with validated configuration, observable h
 - [Incident and recovery readiness](#incident-and-recovery-readiness)
 - [Operational gate](#operational-gate)
 
-## Load the focused guide
-
-| Task | Load |
-| --- | --- |
-| Design CI gates, container images, provenance, promotion, or release rollback | [ci-cd-containers.md](ci-cd-containers.md) |
-| Configure or diagnose Kubernetes workloads, probes, resources, autoscaling, or drain | [kubernetes-operations.md](kubernetes-operations.md) |
-| Define SLOs, telemetry, alerts, dashboards, incident response, or recovery | [observability-sre.md](observability-sre.md) |
-
-These guides are conditional. Do not prescribe Docker, GitHub Actions, Kubernetes, or OpenTelemetry when the target repository uses another deployment model.
+</details>
 
 ## Start from evidence
 
