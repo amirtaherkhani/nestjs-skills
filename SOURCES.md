@@ -10,6 +10,7 @@ Reviewed on 2026-07-20. These skills are an original synthesis; source projects 
 - [`skills` CLI repository](https://github.com/vercel-labs/skills)
 - [`skills` npm package](https://www.npmjs.com/package/skills)
 - [psenger/ai-agent-skills](https://github.com/psenger/ai-agent-skills)
+- [Kadajett/agent-nestjs-skills](https://github.com/Kadajett/agent-nestjs-skills)
 
 Key decisions taken from this research:
 
@@ -18,6 +19,7 @@ Key decisions taken from this research:
 - Use the portable open-standard fields only in the distributable skills.
 - Provide evaluation prompts and deterministic repository validation.
 - Prefer three focused skills over one always-loaded NestJS encyclopedia.
+- Keep the documentation navigable by concept while preserving the distributable skills as the canonical source.
 
 ## Official NestJS and Node.js sources
 

@@ -4,6 +4,8 @@ Three focused Agent Skills for building, reviewing, refactoring, and scaling Nes
 
 The collection follows the [Agent Skills open standard](https://agentskills.io/specification): each skill has a concise `SKILL.md`, focused on-demand references, and evaluation prompts. The guidance is architecture-aware without forcing every project into Clean Architecture, CQRS, or microservices.
 
+**Documentation:** [amirtaherkhani.github.io/nestjs-agent-skills](https://amirtaherkhani.github.io/nestjs-agent-skills/)
+
 ## Skills
 
 | Skill | Focus | Use it for |
@@ -67,11 +69,19 @@ Example requests:
 ## Validate
 
 ```bash
+npm install
 npm run validate
+npm run docs:build
 npx skills add . --list
 ```
 
-The local validator checks required frontmatter, directory/name agreement, description limits, reference links, evaluation JSON, and the recommended `SKILL.md` size limit.
+The local validator checks required frontmatter, directory/name agreement, description limits, reference links, evaluation JSON, and the recommended `SKILL.md` size limit. The documentation build generates the complete website reference directly from the canonical skill files so the two cannot drift.
+
+Run the documentation site locally:
+
+```bash
+npm run docs:dev
+```
 
 ## Research and attribution
 

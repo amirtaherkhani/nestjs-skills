@@ -1,3 +1,6 @@
 .DS_Store
 node_modules/
 *.skill
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+docs/reference/

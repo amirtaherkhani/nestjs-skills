@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">NestJS Agent Skills mark</title>
+  <desc id="desc">Three connected coral modules inside a dark rounded square.</desc>
+  <defs>
+    <linearGradient id="bg" x1="18" y1="12" x2="144" y2="150" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2A252A"/>
+      <stop offset="1" stop-color="#151316"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="48" y1="41" x2="116" y2="121" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF6B8D"/>
+      <stop offset="1" stop-color="#D91F4E"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="144" height="144" rx="34" fill="url(#bg)"/>
+  <path d="M53 54h54M53 80h54M53 106h54" stroke="#6B5961" stroke-width="5" stroke-linecap="round"/>
+  <rect x="34" y="39" width="38" height="30" rx="10" fill="url(#accent)"/>
+  <rect x="88" y="65" width="38" height="30" rx="10" fill="url(#accent)"/>
+  <rect x="34" y="91" width="38" height="30" rx="10" fill="url(#accent)"/>
+  <circle cx="53" cy="54" r="4" fill="#FFF7F9"/>
+  <circle cx="107" cy="80" r="4" fill="#FFF7F9"/>
+  <circle cx="53" cy="106" r="4" fill="#FFF7F9"/>
+</svg>
