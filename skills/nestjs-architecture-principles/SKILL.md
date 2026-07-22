@@ -1,6 +1,6 @@
 ---
 name: nestjs-architecture-principles
-description: 'Designs and reviews NestJS application architecture using cohesive feature modules, modular monoliths, layered or hexagonal boundaries, dependency inversion, and pragmatic engineering principles. Use when planning a NestJS project, changing module boundaries, evaluating Clean Architecture or DDD, resolving circular dependencies, defining ports and adapters, reviewing coupling, or deciding whether CQRS or microservices are justified. Do not use for pure frontend work or non-NestJS backends.'
+description: 'Designs and reviews NestJS application architecture using cohesive feature modules, modular monoliths, layered or hexagonal boundaries, dependency inversion, and pragmatic engineering principles. Use when planning a NestJS project, changing module boundaries, evaluating Clean Architecture or DDD, resolving circular dependencies, defining ports and adapters, reviewing coupling, or deciding whether CQRS or microservices are justified. Do not use for pure frontend work or non-NestJS backends. When other skills also apply, reconcile ownership before mutation.'
 license: MIT
 metadata:
   author: amirtaherkhani
@@ -10,6 +10,35 @@ metadata:
 # NestJS Architecture and Principles
 
 Make architecture decisions from the repository's actual constraints. Prefer the least complex design that protects the required boundaries and can evolve safely.
+
+## Pre-execution conflict guard
+
+Run this guard after identifying every applicable skill and before editing files, installing packages, generating code, running migrations, or executing any other state-changing command. Read-only inspection is allowed while resolving the guard.
+
+### Prerequisites
+
+- Read the target repository's instructions, manifests, module/bootstrap files, tests, and the coordination contract of every other active skill.
+- Identify the requested outcome, public contracts that must remain stable, and the files and commands likely to be affected.
+- Do not assume that activating this skill gives it ownership of every NestJS decision.
+
+### Primary ownership
+
+This skill leads decisions about architecture level, capability and module boundaries, dependency direction, public module APIs, data/write ownership, transaction boundaries, ports, and service extraction.
+
+It shares provider/module placement with `nestjs-oop-design-patterns` and shares transport, deployment, and scaling boundaries with `nestjs-features-performance`. It yields local object responsibilities and pattern selection to the OOP skill, and yields NestJS lifecycle mechanisms, error/transport mapping, security controls, testing strategy, runtime performance, and delivery operations to the features skill.
+
+### Conflict test
+
+A conflict exists when active skills would:
+
+- change the same file or contract toward incompatible outcomes;
+- require commands whose order, environment, or side effects cannot both be satisfied;
+- claim primary ownership of the same decision without a clear handoff; or
+- proceed while another skill's prerequisite or repository constraint is unmet.
+
+Resolve conflicts in this order: explicit user intent, repository contracts and verified runtime constraints, then the narrowest primary owner above. Assign one lead skill per disputed decision; other skills may advise only within that boundary. For example, this skill decides whether application code may depend on HTTP types, while the features skill decides how a transport filter maps the resulting failure.
+
+If the conflict remains material, stop before mutation and ask for clarification. Report the conflicting instructions, affected files or commands, why both cannot be satisfied, and the smallest safe choices. Never silently blend incompatible architectures or let whichever skill runs last overwrite the earlier decision.
 
 ## Start with evidence
 

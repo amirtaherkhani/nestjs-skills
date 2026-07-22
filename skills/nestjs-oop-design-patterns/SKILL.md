@@ -1,6 +1,6 @@
 ---
 name: nestjs-oop-design-patterns
-description: 'Applies pragmatic OOP, SOLID, object-design rules, and design patterns to NestJS and TypeScript code. Use when writing or refactoring controllers, providers, use cases, entities, value objects, repositories, adapters, factories, strategies, handlers, or tests; when diagnosing god services, primitive obsession, inheritance misuse, duplicated conditionals, or leaky abstractions; and when selecting a pattern without over-engineering. Do not use for pure functional codebases or non-NestJS frontend work.'
+description: 'Applies pragmatic OOP, SOLID, object-design rules, and design patterns to NestJS and TypeScript code. Use when writing or refactoring controllers, providers, use cases, entities, value objects, repositories, adapters, factories, strategies, handlers, or tests; when diagnosing god services, primitive obsession, inheritance misuse, duplicated conditionals, or leaky abstractions; and when selecting a pattern without over-engineering. Do not use for pure functional codebases or non-NestJS frontend work. When other skills also apply, reconcile ownership before mutation.'
 license: MIT
 metadata:
   author: amirtaherkhani
@@ -10,6 +10,35 @@ metadata:
 # NestJS OOP and Design Patterns
 
 Improve changeability and correctness through clear responsibilities, encapsulated invariants, and deliberate collaboration. Use patterns to solve observed forces, never as decoration.
+
+## Pre-execution conflict guard
+
+Run this guard after identifying every applicable skill and before editing files, installing packages, generating code, running migrations, or executing any other state-changing command. Read-only inspection is allowed while resolving the guard.
+
+### Prerequisites
+
+- Read the relevant code, callers, tests, Nest module wiring, repository instructions, and the coordination contract of every other active skill.
+- Identify the observed design pressure, behavior that must be preserved, and the files and commands likely to be affected.
+- Do not select a pattern until architecture and runtime constraints that shape it are known.
+
+### Primary ownership
+
+This skill leads decisions about object responsibilities, invariant placement, encapsulation, collaborator contracts, SOLID trade-offs, design-pattern selection, and behavior-preserving class-level refactoring.
+
+It shares provider/module placement with `nestjs-architecture-principles` and shares Nest lifecycle placement and test seams with `nestjs-features-performance`. It yields capability, data, transaction, dependency, and deployment boundaries to the architecture skill. It yields framework lifecycle mechanisms, transport/error contracts, security controls, operational testing, performance, and delivery mechanics to the features skill.
+
+### Conflict test
+
+A conflict exists when active skills would:
+
+- change the same file or contract toward incompatible outcomes;
+- require commands whose order, environment, or side effects cannot both be satisfied;
+- claim primary ownership of the same decision without a clear handoff; or
+- proceed while another skill's prerequisite or repository constraint is unmet.
+
+Resolve conflicts in this order: explicit user intent, repository contracts and verified runtime constraints, then the narrowest primary owner above. Assign one lead skill per disputed decision; other skills may advise only within that boundary. For example, the architecture skill decides whether a persistence port is justified; this skill shapes that port and its collaborators only after that boundary decision.
+
+If the conflict remains material, stop before mutation and ask for clarification. Report the conflicting instructions, affected files or commands, why both cannot be satisfied, and the smallest safe choices. Never introduce parallel abstractions to satisfy competing patterns or let whichever skill runs last overwrite the earlier decision.
 
 ## Inspect before prescribing
 

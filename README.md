@@ -68,6 +68,7 @@ Example requests:
 - **Progressive disclosure:** the main instructions stay compact; detailed rules and examples live under `references/`.
 - **Architecture ladder:** begin with cohesive feature modules and add layers, ports, CQRS, or services only when the problem earns their cost.
 - **Context before rules:** inspect the actual repository, NestJS version, transport, persistence layer, and conventions before recommending a change.
+- **Pre-execution conflict guard:** every skill declares prerequisites, primary ownership, handoffs, and conflict tests; agents may inspect read-only state but must resolve material conflicts before mutation.
 - **Framework-aware OOP:** use Nest modules and providers as real boundaries; do not recreate the DI container or framework lifecycle in application code.
 - **Measure before optimizing:** distinguish event-loop, database, network, memory, and capacity bottlenecks before selecting a remedy.
 - **Source freshness:** verify version-sensitive APIs and packages against the installed project and official documentation.

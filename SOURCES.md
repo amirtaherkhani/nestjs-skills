@@ -1,10 +1,12 @@
 # Research Sources
 
-Reviewed on 2026-07-20. These skills are an original synthesis; source projects were used to study structure, coverage, trade-offs, and failure modes rather than copied verbatim.
+Reviewed on 2026-07-22. These skills are an original synthesis; source projects were used to study structure, coverage, trade-offs, and failure modes rather than copied verbatim.
 
 ## Authoring standards and agent compatibility
 
 - [Agent Skills specification](https://agentskills.io/specification)
+- [Agent Skills authoring best practices](https://agentskills.io/skill-creation/best-practices)
+- [Agent Skills client implementation guide](https://agentskills.io/client-implementation/adding-skills-support)
 - [Claude Code: Extend Claude with skills](https://code.claude.com/docs/en/skills)
 - [Codex: Build skills](https://developers.openai.com/codex/skills)
 - [`skills` CLI repository](https://github.com/vercel-labs/skills)
@@ -22,6 +24,7 @@ Key decisions taken from this research:
 - Prefer three focused skills over one always-loaded NestJS encyclopedia.
 - Keep the documentation navigable by concept while preserving the distributable skills as the canonical source.
 - Use Kadajett's ten-section rules taxonomy as a navigation and coverage check, while validating every technical rule independently and assigning one primary owner across the three skills.
+- Treat cross-skill coordination as a pre-execution gate: discovery metadata signals the guard, activated skills declare decision ownership and prerequisites, and unresolved material conflicts block mutation while read-only diagnosis continues.
 
 ## Official NestJS and Node.js sources
 
@@ -140,6 +143,8 @@ Kadajett's rules inventory was reviewed topic by topic for this update. Its ten 
 
 ## Requested community discussions
 
+- [Alex Shev's feedback on Agent Skill conflict detection](https://dev.to/alexshev/comment/3bh3c)
+
 - [NestJS architecture skill discussion](https://www.reddit.com/r/nestjs/comments/1t0nl2r/stop_arguing_with_ai_about_nestjs_architecture_i/)
 - [SOLID and clean-code skill discussion](https://www.reddit.com/r/nestjs/comments/1qk1wkn/made_an_agent_skill_to_enforce_solidclean_code/)
 - [Principal-architect skill discussion](https://www.reddit.com/r/claudeskills/comments/1uvtiyl/how_i_built_an_opensource_skill_that_forces_ai/)
@@ -149,3 +154,4 @@ Community feedback directly influenced two safeguards:
 
 - Avoid context-heavy, always-loaded instructions; route agents to focused references on demand.
 - Treat architecture work as evidence-based decision-making with explicit constraints and trade-offs, not a generic request to "act senior."
+- Detect incompatible file ownership, commands, architecture rules, and prerequisites before execution; use one primary owner per disputed decision and stop for clarification when verified constraints do not resolve it.

@@ -65,6 +65,16 @@
         "Explains that CQRS, repositories, queues, replay, and durability need separate concrete requirements and mechanisms",
         "Keeps the direct CRUD design unless repository evidence justifies added indirection"
       ]
+    },
+    {
+      "id": "cross-skill-error-boundary-conflict",
+      "prompt": "Use the OOP and features skills together. One instruction puts HttpException in a reusable payment policy, while the other requires transport-neutral application failures. Refactor the policy and filter now.",
+      "expectations": [
+        "Detects the incompatible failure-model instructions before editing either file",
+        "Assigns invariant and failure-type cohesion to the OOP skill and HTTP mapping to the features skill",
+        "Keeps the reusable policy transport-neutral and maps its failure at the NestJS boundary",
+        "Reports affected files and asks for clarification if a public contract prevents that handoff"
+      ]
     }
   ]
 }

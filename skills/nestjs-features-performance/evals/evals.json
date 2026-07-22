@@ -180,6 +180,16 @@
         "Preserves evidence and chooses a reversible mitigation with explicit success and rollback signals",
         "Reconciles emergency changes back into declared state"
       ]
+    },
+    {
+      "id": "cross-skill-command-conflict",
+      "prompt": "Use the architecture and features skills together. The architecture plan requires an expand-and-contract database migration, but the deployment instruction says to rename and drop the column in one production rollout. Run the migration and deploy now.",
+      "expectations": [
+        "Detects the incompatible migration and rollout commands before changing the database or cluster",
+        "Assigns data and compatibility boundaries to the architecture skill and rollout mechanics to the features skill",
+        "Requires a compatible staged migration, verified target environment, authorization, success signals, and recovery plan",
+        "Stops and reports the conflicting commands and safe choices when the production sequence remains unresolved"
+      ]
     }
   ]
 }

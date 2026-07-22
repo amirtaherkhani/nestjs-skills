@@ -82,6 +82,16 @@
         "Evaluates deployment, ownership, scaling, data, and failure boundaries",
         "Repairs ownership locally unless independent operation is justified"
       ]
+    },
+    {
+      "id": "cross-skill-persistence-conflict",
+      "prompt": "Use the architecture and OOP skills together. Architecture says this feature can use TypeORM directly inside its module, while the pattern advice says every entity needs a generic repository. Implement both recommendations now.",
+      "expectations": [
+        "Detects the incompatible persistence-boundary recommendations before editing files or running generators",
+        "Assigns persistence-boundary ownership to the architecture skill and pattern shaping to the OOP skill",
+        "Inspects repository constraints and keeps direct TypeORM use when no justified port exists",
+        "Stops for clarification if an explicit user requirement still makes the conflict unresolved"
+      ]
     }
   ]
 }

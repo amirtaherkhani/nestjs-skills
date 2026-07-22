@@ -36,3 +36,6 @@ Avoid universal mandates that lack a correctness basis. Examples of weak rules i
 - Descriptions explain what the skill does and when it should trigger, with a maximum of 1024 characters.
 - Keep each `SKILL.md` below 500 lines and preferably below 5,000 tokens.
 - Keep supporting references one link away from `SKILL.md`.
+- Keep the pre-execution conflict guard in every skill description and body.
+- Declare prerequisites, primary ownership, handoffs to the other NestJS skills, and concrete conflict tests before adding mutating instructions.
+- Add an evaluation case when a change creates or alters a cross-skill ownership boundary.

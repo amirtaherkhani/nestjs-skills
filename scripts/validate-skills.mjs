@@ -5,6 +5,12 @@ import { fileURLToPath } from 'node:url';
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const skillsRoot = join(repositoryRoot, 'skills');
 const errors = [];
+const coordinationHeadings = [
+  '## Pre-execution conflict guard',
+  '### Prerequisites',
+  '### Primary ownership',
+  '### Conflict test',
+];
 
 function record(condition, message) {
   if (!condition) errors.push(message);
@@ -71,6 +77,25 @@ for (const skillDirectory of skillDirectories) {
     Boolean(description && description.length <= 1024),
     `${directoryName}: description must contain 1-1024 characters.`,
   );
+  record(
+    Boolean(description?.includes('reconcile ownership before mutation')),
+    `${directoryName}: description must disclose cross-skill coordination.`,
+  );
+  for (const heading of coordinationHeadings) {
+    record(markdown.includes(heading), `${directoryName}/SKILL.md is missing ${heading}.`);
+  }
+  record(
+    markdown.includes('before editing files') && markdown.includes('Read-only'),
+    `${directoryName}: conflict guard must run before mutation while allowing read-only inspection.`,
+  );
+  for (const otherSkillDirectory of skillDirectories) {
+    const otherSkillName = relative(skillsRoot, otherSkillDirectory);
+    if (otherSkillName === directoryName) continue;
+    record(
+      markdown.includes(`\`${otherSkillName}\``),
+      `${directoryName}: conflict guard must define a handoff with ${otherSkillName}.`,
+    );
+  }
   record(markdown.split('\n').length <= 500, `${directoryName}/SKILL.md exceeds 500 lines.`);
   validateLinks(markdown, skillPath, skillDirectory);
 

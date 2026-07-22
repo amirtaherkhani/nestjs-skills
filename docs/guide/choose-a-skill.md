@@ -61,6 +61,22 @@ Overlap is resolved by decision ownership, so the skills reinforce rather than o
 | Performance-driven service split | Features supplies measurements and capacity evidence | Architecture decides whether independent deployment and data ownership justify the split |
 | Repository pattern | Architecture decides whether persistence needs a port | OOP keeps the contract application-owned and cohesive; Features checks query and transaction cost |
 
+## Pre-execution conflict guard
+
+Every skill carries the same guard, with ownership specialized to its decision level. After selecting all applicable skills and before any file edit, package installation, generator, migration, deployment, or other state-changing command:
+
+1. Read the target repository instructions and each active skill's prerequisites and ownership declaration.
+2. List the intended files, contracts, commands, target environments, and assumptions.
+3. Flag incompatible outcomes, unsafe command ordering or side effects, overlapping primary ownership, and unmet prerequisites.
+4. Resolve each disputed decision using explicit user intent, verified repository/runtime constraints, and then the narrowest primary owner in the routing matrix.
+5. Assign one lead skill to the decision. If a material conflict remains, stop before mutation and present the conflict and smallest safe choices.
+
+Read-only inspection may continue to collect the evidence needed to resolve a conflict. The guard blocks mutation, not diagnosis.
+
+::: danger Do not merge incompatible advice
+Running both commands, introducing parallel abstractions, or letting the last skill overwrite the first is not conflict resolution. The agent must preserve one coherent architecture and execution plan.
+:::
+
 ## Shared rules
 
 All three skills use the same non-negotiable order when advice competes:
