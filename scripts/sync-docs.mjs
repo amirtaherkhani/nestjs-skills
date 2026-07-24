@@ -7,6 +7,24 @@ const generatedRoot = join(repositoryRoot, 'docs', 'reference');
 
 const skills = [
   {
+    directory: 'git-commit-pr-message',
+    route: 'git-publication',
+    title: 'Git Commit and Pull Request',
+    description: 'Intentional staging, secret scanning, commit and PR messages, safe pushes, releases, CI, and GitHub Pages follow-up.'
+  },
+  {
+    directory: 'professional-software-engineering',
+    route: 'professional-engineering',
+    title: 'Professional Software Engineering',
+    description: 'Project-aware implementation, idiomatic syntax, safe syntactic sugar, testing, and evidence-backed verification.'
+  },
+  {
+    directory: 'nestjs-code-audit',
+    route: 'code-audit',
+    title: 'Code Audit',
+    description: 'Read-only whole-repository checks, cross-skill finding ownership, and evidence-backed code-quality reports.'
+  },
+  {
     directory: 'nestjs-architecture-principles',
     route: 'architecture',
     title: 'Architecture & Principles',

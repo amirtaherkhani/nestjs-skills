@@ -27,6 +27,12 @@ This skill leads decisions about architecture level, capability and module bound
 
 It shares provider/module placement with `nestjs-oop-design-patterns` and shares transport, deployment, and scaling boundaries with `nestjs-features-performance`. It yields local object responsibilities and pattern selection to the OOP skill, and yields NestJS lifecycle mechanisms, error/transport mapping, security controls, testing strategy, runtime performance, and delivery operations to the features skill.
 
+For a whole-repository review, `nestjs-code-audit` owns read-only evidence collection, deduplication, and report assembly while this skill remains the primary owner of architecture findings.
+
+For implementation, `professional-software-engineering` coordinates project inspection, syntax selection, coding, and verification while this skill remains the primary owner of NestJS architecture boundaries.
+
+`git-commit-pr-message` may publish the verified change but does not alter architecture decisions to simplify Git history or release text.
+
 ### Conflict test
 
 A conflict exists when active skills would:

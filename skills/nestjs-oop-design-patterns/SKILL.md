@@ -27,6 +27,12 @@ This skill leads decisions about object responsibilities, invariant placement, e
 
 It shares provider/module placement with `nestjs-architecture-principles` and shares Nest lifecycle placement and test seams with `nestjs-features-performance`. It yields capability, data, transaction, dependency, and deployment boundaries to the architecture skill. It yields framework lifecycle mechanisms, transport/error contracts, security controls, operational testing, performance, and delivery mechanics to the features skill.
 
+For a whole-repository review, `nestjs-code-audit` owns read-only evidence collection, deduplication, and report assembly while this skill remains the primary owner of object-design findings.
+
+For implementation, `professional-software-engineering` coordinates project inspection, syntax selection, coding, and verification while this skill remains the primary owner of object responsibilities, invariants, and pattern decisions.
+
+`git-commit-pr-message` may publish the verified change but does not alter object design or refactoring boundaries to simplify a commit.
+
 ### Conflict test
 
 A conflict exists when active skills would:

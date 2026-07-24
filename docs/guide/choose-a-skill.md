@@ -1,21 +1,41 @@
 ---
 title: Choose a Skill
-description: Route NestJS work across the three skills without conflicting advice or duplicated ownership.
+description: Route implementation, Git publication, three NestJS domain skills, and code audits without conflicting ownership.
 ---
 
 <p class="doc-kicker">Guide · Skill routing</p>
 
 # Choose a skill
 
-<p class="doc-lede">Use the skill that owns the decision level as the lead. Combine skills only when a task crosses from system structure, to object collaboration, to runtime behavior.</p>
+<p class="doc-lede">Use Professional Engineering to coordinate implementation, domain skills for NestJS decisions, and Git Publication only after the intended change is verified.</p>
+
+For a whole-codebase quality review, start with `nestjs-code-audit`. It coordinates all three decision owners, runs safe static checks, deduplicates findings, and returns one report without modifying the target project.
 
 ## Routing matrix
 
 | Decision level | Lead skill | Typical questions |
 | --- | --- | --- |
+| Git and GitHub publication | Git Commit and Pull Request | What belongs in the commit? Is staged content safe? Should this push create a PR or trigger Pages? |
+| Implementation workflow and syntax | Professional Software Engineering | What syntax does this project and version support? Is syntactic sugar clearer and safe? How should the change be tested? |
 | System shape and ownership | Architecture & Principles | Which module owns this write? Is a port justified? Does this capability need its own deployment boundary? |
 | Object responsibilities and collaboration | OOP & Design Patterns | Where should this invariant live? Is Strategy warranted? How do we refactor this god provider safely? |
 | Framework lifecycle and runtime behavior | Features & Performance | Is this a guard or interceptor? Why is the endpoint slow? How should jobs retry and drain? |
+
+## Git Commit and Pull Request
+
+Lead with `git-commit-pr-message` when the user asks to commit, push, open or update a PR, prepare changelog/release text, or confirm CI and GitHub Pages after publication.
+
+It owns publication mechanics, not implementation correctness. It stages only intended files, scans for sensitive content, matches repository history, performs only authorized remote actions, and distinguishes a pushed feature branch from a deployed public site.
+
+[Open the full skill →](/reference/git-publication/)
+
+## Professional Software Engineering
+
+Lead with `professional-software-engineering` for feature implementation, fixes, refactors, public APIs, library work, developer experience, and syntax selection.
+
+It inspects the actual project and installed versions, compares explicit and convenient forms, and uses syntactic sugar only when it reduces real ceremony without hiding meaningful behavior. NestJS-specific architecture, object-design, and runtime decisions remain owned by the domain skills below.
+
+[Open the full skill →](/reference/professional-engineering/)
 
 ## Architecture & Principles
 
@@ -47,6 +67,8 @@ Overlap is resolved by decision ownership, so the skills reinforce rather than o
 
 | Topic | Primary ownership | Handoff |
 | --- | --- | --- |
+| Git publication | Git Publication owns staging, commits, pushes, PRs, changelog/release text, CI, and Pages follow-up | Professional Engineering and domain skills determine whether implementation is ready |
+| Implementation and syntax | Professional Engineering coordinates inspection, syntax selection, coding, testing, and reporting | Domain skills own architecture, object design, and NestJS runtime decisions |
 | Dependency injection | Architecture defines boundaries and composition; OOP defines collaborator contracts | Features evaluates provider scope and runtime cost |
 | Interceptors and guards | Features owns lifecycle placement | OOP reviews cohesion; Architecture prevents business policy from leaking into transport adapters |
 | Events | Architecture owns capability and transaction boundaries | OOP models completed facts; Features owns delivery, retries, idempotency, and backpressure |
@@ -79,7 +101,7 @@ Running both commands, introducing parallel abstractions, or letting the last sk
 
 ## Shared rules
 
-All three skills use the same non-negotiable order when advice competes:
+All implementation and NestJS domain skills use the same non-negotiable order when advice competes:
 
 1. Correctness, security, and data integrity.
 2. Explicit external contracts and backward compatibility.
@@ -102,7 +124,9 @@ If two recommendations still appear incompatible, do not silently pick the more 
 
 For a feature that writes data and publishes work:
 
-1. **Architecture:** assign write ownership, transaction intent, and dependency direction.
-2. **OOP:** place invariants and define the smallest useful collaborators or ports.
-3. **Features:** choose the controller, validation, event or queue mechanism, idempotency, observability, and shutdown behavior.
-4. **All three:** test the public contract, boundary wiring, failure paths, and runtime target.
+1. **Professional Engineering:** inspect the project, versions, conventions, public contracts, and verification commands.
+2. **Architecture:** assign write ownership, transaction intent, and dependency direction.
+3. **OOP:** place invariants and define the smallest useful collaborators or ports.
+4. **Features:** choose the controller, validation, event or queue mechanism, idempotency, observability, and shutdown behavior.
+5. **Professional Engineering:** implement the coherent design and verify the public contract, boundary wiring, failure paths, and runtime target.
+6. **Git Publication:** stage the intended scope, scan for sensitive content, publish only the requested Git/GitHub state, and verify matching CI or Pages workflows.

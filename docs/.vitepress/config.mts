@@ -4,7 +4,7 @@ const github = 'https://github.com/amirtaherkhani/nestjs-agent-skills';
 
 export default defineConfig({
   title: 'NestJS Agent Skills',
-  description: 'Evidence-based NestJS architecture, object design, framework features, performance, and scaling guidance for Claude Code and Codex.',
+  description: 'Project-aware software implementation and evidence-based NestJS architecture, object design, runtime, performance, and scaling guidance for Claude Code and Codex.',
   lang: 'en-US',
   base: '/nestjs-agent-skills/',
   cleanUrls: true,
@@ -17,7 +17,7 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#e0234e' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'NestJS Agent Skills' }],
-    ['meta', { property: 'og:description', content: 'Three focused Agent Skills for Claude Code and Codex.' }]
+    ['meta', { property: 'og:description', content: 'Six focused Agent Skills for Claude Code and Codex.' }]
   ],
   markdown: {
     lineNumbers: true,
@@ -51,6 +51,9 @@ export default defineConfig({
       {
         text: 'Skills',
         items: [
+          { text: 'Git Publication', link: '/reference/git-publication/' },
+          { text: 'Professional Engineering', link: '/reference/professional-engineering/' },
+          { text: 'Code Audit', link: '/reference/code-audit/' },
           { text: 'Architecture & Principles', link: '/reference/architecture/' },
           { text: 'OOP & Design Patterns', link: '/reference/oop-patterns/' },
           { text: 'Features & Performance', link: '/reference/features-performance/' }
@@ -92,6 +95,36 @@ export default defineConfig({
           { text: '8. API Design', link: '/reference/features-performance/references/api-design' },
           { text: '9. Microservices', link: '/reference/architecture/references/microservices' },
           { text: '10. DevOps & Deployment', link: '/reference/features-performance/references/devops-deployment' }
+        ]
+      },
+      {
+        text: 'Git Publication',
+        collapsed: false,
+        items: [
+          { text: 'Skill instructions', link: '/reference/git-publication/' },
+          { text: 'Commit messages', link: '/reference/git-publication/references/commit-messages' },
+          { text: 'Pull requests & releases', link: '/reference/git-publication/references/pull-requests-and-releases' },
+          { text: 'Sensitive content & remote safety', link: '/reference/git-publication/references/sensitive-content-and-remote-safety' }
+        ]
+      },
+      {
+        text: 'Professional Engineering',
+        collapsed: false,
+        items: [
+          { text: 'Skill instructions', link: '/reference/professional-engineering/' },
+          { text: 'Syntax and idioms', link: '/reference/professional-engineering/references/syntax-and-idioms' },
+          { text: 'Syntactic sugar', link: '/reference/professional-engineering/references/syntactic-sugar' },
+          { text: 'Implementation verification', link: '/reference/professional-engineering/references/implementation-verification' }
+        ]
+      },
+      {
+        text: 'Code Audit',
+        collapsed: false,
+        items: [
+          { text: 'Skill instructions', link: '/reference/code-audit/' },
+          { text: 'Read-only check policy', link: '/reference/code-audit/references/check-policy' },
+          { text: 'Finding ownership', link: '/reference/code-audit/references/finding-ownership' },
+          { text: 'Report template', link: '/reference/code-audit/references/report-template' }
         ]
       },
       {

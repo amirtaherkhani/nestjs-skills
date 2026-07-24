@@ -49,7 +49,7 @@ const skillDirectories = existsSync(skillsRoot)
       .sort()
   : [];
 
-record(skillDirectories.length === 3, `Expected 3 skills, found ${skillDirectories.length}.`);
+record(skillDirectories.length === 6, `Expected 6 skills, found ${skillDirectories.length}.`);
 
 for (const skillDirectory of skillDirectories) {
   const directoryName = relative(skillsRoot, skillDirectory);
@@ -124,6 +124,52 @@ for (const skillDirectory of skillDirectories) {
       );
     } catch (error) {
       errors.push(`${directoryName}: invalid eval JSON (${error.message}).`);
+    }
+  }
+
+  if (directoryName === 'nestjs-code-audit') {
+    record(
+      existsSync(join(skillDirectory, 'scripts', 'collect-quality-evidence.mjs')),
+      `${directoryName} is missing its evidence collector.`,
+    );
+    record(
+      existsSync(join(repositoryRoot, 'integrations', 'codex', 'prompts', 'nestjs-audit.md')),
+      `${directoryName} is missing the Codex prompt alias.`,
+    );
+    record(
+      existsSync(join(skillDirectory, 'agents', 'openai.yaml')),
+      `${directoryName} is missing Codex UI metadata.`,
+    );
+  }
+
+  if (directoryName === 'professional-software-engineering') {
+    record(
+      existsSync(join(skillDirectory, 'agents', 'openai.yaml')),
+      `${directoryName} is missing Codex UI metadata.`,
+    );
+    record(
+      existsSync(join(repositoryRoot, 'integrations', 'codex', 'AGENTS.md')),
+      `${directoryName} is missing the Codex AGENTS.md template.`,
+    );
+    record(
+      existsSync(join(repositoryRoot, 'integrations', 'claude', 'CLAUDE.md')),
+      `${directoryName} is missing the Claude Code CLAUDE.md template.`,
+    );
+  }
+
+  if (directoryName === 'git-commit-pr-message') {
+    record(
+      existsSync(join(skillDirectory, 'agents', 'openai.yaml')),
+      `${directoryName} is missing Codex UI metadata.`,
+    );
+    const pagesWorkflow = join(repositoryRoot, '.github', 'workflows', 'deploy-pages.yml');
+    record(existsSync(pagesWorkflow), `${directoryName} is missing the GitHub Pages workflow.`);
+    if (existsSync(pagesWorkflow)) {
+      const pagesYaml = readFileSync(pagesWorkflow, 'utf8');
+      record(
+        /push:\s*\n\s*branches:\s*\[main\]/.test(pagesYaml),
+        `${directoryName}: GitHub Pages must deploy after pushes to main.`,
+      );
     }
   }
 }

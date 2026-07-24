@@ -1,16 +1,18 @@
 # Research Sources
 
-Reviewed on 2026-07-22. These skills are an original synthesis; source projects were used to study structure, coverage, trade-offs, and failure modes rather than copied verbatim.
+Reviewed on 2026-07-24. These skills are an original synthesis; source projects were used to study structure, coverage, trade-offs, and failure modes rather than copied verbatim.
 
 ## Authoring standards and agent compatibility
 
 - [Agent Skills specification](https://agentskills.io/specification)
 - [Agent Skills authoring best practices](https://agentskills.io/skill-creation/best-practices)
 - [Agent Skills client implementation guide](https://agentskills.io/client-implementation/adding-skills-support)
-- [Claude Code: Extend Claude with skills](https://code.claude.com/docs/en/skills)
 - [Codex: Build skills](https://developers.openai.com/codex/skills)
+- [Codex: Custom prompts (deprecated)](https://developers.openai.com/codex/custom-prompts)
+- [Claude Code: Extend Claude with skills](https://code.claude.com/docs/en/skills)
 - [`skills` CLI repository](https://github.com/vercel-labs/skills)
 - [`skills` npm package](https://www.npmjs.com/package/skills)
+- [psenger/ai-agent-skills: Git Commit & PR Message](https://github.com/psenger/ai-agent-skills/tree/main/skills/git-commit-pr-message)
 - [psenger/ai-agent-skills](https://github.com/psenger/ai-agent-skills)
 - [Kadajett/agent-nestjs-skills](https://github.com/Kadajett/agent-nestjs-skills)
 - [Kadajett NestJS Rules Reference](https://kadajett.github.io/agent-nestjs-skills/concepts/interceptors)
@@ -21,10 +23,13 @@ Key decisions taken from this research:
 - Put both the capability and trigger conditions in the frontmatter description.
 - Use the portable open-standard fields only in the distributable skills.
 - Provide evaluation prompts and deterministic repository validation.
-- Prefer three focused skills over one always-loaded NestJS encyclopedia.
+- Prefer three focused domain skills plus one read-only audit orchestrator over one always-loaded NestJS encyclopedia.
 - Keep the documentation navigable by concept while preserving the distributable skills as the canonical source.
-- Use Kadajett's ten-section rules taxonomy as a navigation and coverage check, while validating every technical rule independently and assigning one primary owner across the three skills.
+- Use Kadajett's ten-section rules taxonomy as a navigation and coverage check, while validating every technical rule independently and assigning one primary owner across the three domain skills.
 - Treat cross-skill coordination as a pre-execution gate: discovery metadata signals the guard, activated skills declare decision ownership and prerequisites, and unresolved material conflicts block mutation while read-only diagnosis continues.
+- Ship the NestJS audit as the portable primary skill. Keep `/prompts:nestjs-audit` only as an optional deprecated Codex CLI alias because Codex recommends skills for reusable workflows and does not expose arbitrary bare custom slash-command names.
+- Ship Professional Software Engineering as one portable skill for Claude Code and Codex, with optional `CLAUDE.md` and `AGENTS.md` repository templates. Select syntax from repository conventions, installed versions, official documentation, and focused verification; treat syntactic sugar as an API-design decision rather than a line-count optimization.
+- Adapt the linked Git Commit & PR Message workflow into a smaller cross-client skill: retain intentional staging, sensitive-content review, Conventional Commit compatibility, ticket/PR/changelog guidance, and explicit remote authorization; add NestJS verification ownership and GitHub Pages trigger/result checks. Production Pages remains tied to reviewed `main` history rather than feature-branch pushes.
 
 ## Official NestJS and Node.js sources
 
