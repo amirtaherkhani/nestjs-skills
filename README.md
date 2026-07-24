@@ -1,6 +1,6 @@
 # NestJS Agent Skills
 
-Five focused Agent Skills for auditing, building, reviewing, refactoring, and scaling software—including NestJS applications—with Claude Code and Codex.
+Six focused Agent Skills for auditing, building, reviewing, refactoring, publishing, and scaling software—including NestJS applications—with Claude Code and Codex.
 
 The collection follows the [Agent Skills open standard](https://agentskills.io/specification): each skill has a concise `SKILL.md`, focused on-demand references, and evaluation prompts. The guidance is architecture-aware without forcing every project into Clean Architecture, CQRS, or microservices.
 
@@ -16,13 +16,14 @@ The collection follows the [Agent Skills open standard](https://agentskills.io/s
 
 | Skill | Focus | Use it for |
 | --- | --- | --- |
+| [`git-commit-pr-message`](skills/git-commit-pr-message/SKILL.md) | Safe Git and GitHub publication | Intentional staging, secret scans, commit and PR messages, pushes, changelogs, releases, CI, and GitHub Pages follow-up |
 | [`professional-software-engineering`](skills/professional-software-engineering/SKILL.md) | Project-aware implementation | New features, fixes, refactors, APIs, idiomatic syntax, safe syntactic sugar, tests, and evidence-backed verification |
 | [`nestjs-code-audit`](skills/nestjs-code-audit/SKILL.md) | Read-only whole-codebase audit | Syntax, TypeScript, lint, architecture, design, security, testing, runtime, and production-readiness reports using all three domain skills |
 | [`nestjs-architecture-principles`](skills/nestjs-architecture-principles/SKILL.md) | NestJS architectures + engineering principles | Module, data, ORM, transaction, and service boundaries; modular monoliths; architecture reviews; and refactors |
 | [`nestjs-oop-design-patterns`](skills/nestjs-oop-design-patterns/SKILL.md) | OOP rules and tips + design patterns | SOLID, object design, dependency injection, code smells, refactoring, and selecting patterns without over-engineering |
 | [`nestjs-features-performance`](skills/nestjs-features-performance/SKILL.md) | NestJS features + scaling and performance | Errors, security, testing, APIs, queues, caching, transports, observability, deployment, performance, and scale |
 
-The professional engineering skill coordinates implementation and selects the clearest version-compatible syntax. The three NestJS domain skills own architecture, object design, and runtime decisions. The audit skill coordinates those owners into one read-only report.
+The professional engineering skill coordinates implementation and selects the clearest version-compatible syntax. The three NestJS domain skills own architecture, object design, and runtime decisions. The audit skill coordinates those owners into one read-only report. The Git publication skill turns verified work into intentional commits, pushes, pull requests, and release history without treating publication as implementation authorization.
 
 DevOps is treated as a first-class operating discipline: immutable CI/CD and container delivery, Kubernetes live-state verification, SLO-driven observability, incident response, tested recovery, compatible migrations, graceful drain, and evidence-based rollout/rollback. Platform-specific guidance remains conditional rather than making Docker or Kubernetes mandatory.
 
@@ -30,7 +31,7 @@ Error Handling is also first-class: application-owned failure taxonomy, stable p
 
 ## Install
 
-Install all five skills:
+Install all six skills:
 
 ```bash
 npx skills add amirtaherkhani/nestjs-agent-skills
@@ -81,6 +82,7 @@ Example requests:
 
 - "Audit this NestJS repository and return one evidence-backed report without changing code."
 - "Implement this feature using the clearest syntax supported by the current project, and verify it."
+- "Commit and push this verified NestJS change, open a draft PR, and report whether the push updates GitHub Pages."
 - "Review this NestJS module graph and recommend the smallest architecture change."
 - "Refactor this provider using SOLID and an appropriate design pattern."
 - "Find the bottleneck in this NestJS endpoint and propose a measured scaling plan."
@@ -94,6 +96,8 @@ For a read-only codebase report in Codex, use `$nestjs-code-audit`. Codex CLI/ID
 - **Context before rules:** inspect the actual repository, NestJS version, transport, persistence layer, and conventions before recommending a change.
 - **Syntax from evidence:** prefer repository conventions, installed versions, official documentation, and focused experiments over remembered or fashionable syntax.
 - **Safe syntactic sugar:** reduce real ceremony without hiding I/O, state, security, transactions, cost, failures, or advanced control.
+- **Intentional publication:** inspect the full diff, protect unrelated work, scan staged content for secrets, and perform only the Git/GitHub actions the user requested.
+- **Pages from reviewed history:** production documentation deploys after pushes to `main`; feature branches validate without replacing the public site.
 - **Pre-execution conflict guard:** every skill declares prerequisites, primary ownership, handoffs, and conflict tests; agents may inspect read-only state but must resolve material conflicts before mutation.
 - **Read-only audit:** the audit collector runs only installed local ESLint and `tsc --noEmit` checks, never package lifecycle scripts, dependency installation, fixing commands, builds, migrations, or deployments.
 - **Framework-aware OOP:** use Nest modules and providers as real boundaries; do not recreate the DI container or framework lifecycle in application code.

@@ -31,6 +31,8 @@ For a whole-repository review, `nestjs-code-audit` owns read-only evidence colle
 
 For implementation, `professional-software-engineering` coordinates project inspection, syntax selection, coding, and verification while this skill remains the primary owner of object responsibilities, invariants, and pattern decisions.
 
+`git-commit-pr-message` may publish the verified change but does not alter object design or refactoring boundaries to simplify a commit.
+
 ### Conflict test
 
 A conflict exists when active skills would:

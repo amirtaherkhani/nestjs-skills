@@ -34,6 +34,8 @@ Syntax, TypeScript, and lint failures are reported as toolchain facts. A single 
 
 `professional-software-engineering` may provide general code-quality context, but this skill's read-only boundary controls the audit. Fixes require a separately authorized implementation workflow.
 
+`git-commit-pr-message` may publish an explicitly requested audit report, but it cannot use publication as authorization to fix findings or mutate the audited project.
+
 ### Conflict test
 
 A conflict exists when active skills would:

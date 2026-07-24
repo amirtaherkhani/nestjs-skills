@@ -7,7 +7,7 @@ description: Install and use the NestJS Agent Skills with Claude Code and Codex.
 
 # Getting started
 
-<p class="doc-lede">Install five focused Agent Skills for project-aware implementation, safe syntactic sugar, NestJS architecture and runtime decisions, and read-only codebase audits.</p>
+<p class="doc-lede">Install six focused Agent Skills for project-aware implementation, safe Git publication, NestJS architecture and runtime decisions, and read-only codebase audits.</p>
 
 ## Requirements
 
@@ -60,6 +60,7 @@ $professional-software-engineering
 
 The other skill names are:
 
+- `git-commit-pr-message`
 - `nestjs-architecture-principles`
 - `nestjs-code-audit`
 - `nestjs-oop-design-patterns`
@@ -86,6 +87,16 @@ Implement this feature using the clearest syntax supported by the current projec
 Compare any syntactic sugar with the explicit form, preserve compatibility,
 and run the relevant tests, type-check, lint, and build.
 ```
+
+When the change is verified, publish it explicitly:
+
+```text
+$git-commit-pr-message
+Commit and push this NestJS change, open a draft PR, and verify the
+matching CI and GitHub Pages workflow without merging.
+```
+
+The public documentation workflow deploys after every push to `main`. A feature-branch push runs validation but does not replace the production GitHub Pages site; the agent reports that merge or a main-branch push is still required.
 
 ## Audit a current project
 

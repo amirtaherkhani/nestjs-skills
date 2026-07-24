@@ -17,7 +17,7 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#e0234e' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'NestJS Agent Skills' }],
-    ['meta', { property: 'og:description', content: 'Five focused Agent Skills for Claude Code and Codex.' }]
+    ['meta', { property: 'og:description', content: 'Six focused Agent Skills for Claude Code and Codex.' }]
   ],
   markdown: {
     lineNumbers: true,
@@ -51,6 +51,7 @@ export default defineConfig({
       {
         text: 'Skills',
         items: [
+          { text: 'Git Publication', link: '/reference/git-publication/' },
           { text: 'Professional Engineering', link: '/reference/professional-engineering/' },
           { text: 'Code Audit', link: '/reference/code-audit/' },
           { text: 'Architecture & Principles', link: '/reference/architecture/' },
@@ -94,6 +95,16 @@ export default defineConfig({
           { text: '8. API Design', link: '/reference/features-performance/references/api-design' },
           { text: '9. Microservices', link: '/reference/architecture/references/microservices' },
           { text: '10. DevOps & Deployment', link: '/reference/features-performance/references/devops-deployment' }
+        ]
+      },
+      {
+        text: 'Git Publication',
+        collapsed: false,
+        items: [
+          { text: 'Skill instructions', link: '/reference/git-publication/' },
+          { text: 'Commit messages', link: '/reference/git-publication/references/commit-messages' },
+          { text: 'Pull requests & releases', link: '/reference/git-publication/references/pull-requests-and-releases' },
+          { text: 'Sensitive content & remote safety', link: '/reference/git-publication/references/sensitive-content-and-remote-safety' }
         ]
       },
       {

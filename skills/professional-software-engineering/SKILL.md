@@ -31,6 +31,8 @@ It yields NestJS capability, module, dependency, data, transaction, and service 
 
 For a read-only NestJS repository review, `nestjs-code-audit` owns evidence collection, finding deduplication, severity, and report assembly. This skill may provide general implementation-quality context but must not turn an audit into a mutation.
 
+After implementation is verified, `git-commit-pr-message` owns intentional staging, commit and PR wording, push safety, changelog routing, and publication follow-up. It does not decide whether incomplete code is ready.
+
 ### Conflict test
 
 A conflict exists when active skills would:

@@ -4,7 +4,7 @@ layout: home
 hero:
   name: NestJS Agent Skills
   text: Better boundaries. Better decisions.
-  tagline: Five focused skills that implement and audit software with project-aware syntax, deliberate NestJS boundaries, safe runtime behavior, and evidence-backed verification.
+  tagline: Six focused skills that implement, audit, and publish software with project-aware syntax, deliberate NestJS boundaries, safe runtime behavior, and evidence-backed verification.
   image:
     src: /skill-mark.svg
     alt: Three connected modules representing the skill collection
@@ -20,6 +20,11 @@ hero:
       link: /rules/
 
 features:
+  - icon: ↥
+    title: Git Publication
+    details: Stage intentionally, scan for secrets, write accurate commits and PRs, push safely, and verify CI or GitHub Pages.
+    link: /reference/git-publication/
+    linkText: Read the skill
   - icon: </>
     title: Professional Engineering
     details: Inspect the project, choose clear version-compatible syntax, implement the smallest coherent change, and verify the result.
@@ -51,9 +56,13 @@ features:
 
 ## Route work to the right skill
 
-Use Professional Engineering to coordinate implementation. Each NestJS domain skill owns a distinct decision level, while Code Audit coordinates all three domain owners for a read-only report.
+Use Professional Engineering to coordinate implementation and Git Publication after verification. Each NestJS domain skill owns a distinct decision level, while Code Audit coordinates all three domain owners for a read-only report.
 
 <div class="route-grid">
+  <a class="route-card" href="./reference/git-publication/">
+    <strong>Publication</strong>
+    <span>Staging scope, secret scanning, commits, pushes, PRs, changelogs, CI, releases, and GitHub Pages.</span>
+  </a>
   <a class="route-card" href="./reference/professional-engineering/">
     <strong>Implementation</strong>
     <span>Project inspection, idiomatic syntax, safe syntactic sugar, focused changes, tests, and verification.</span>
@@ -82,7 +91,7 @@ For a large change, use Professional Engineering to coordinate the work: decide 
 
 <div class="install-strip">
   <div>
-    <h2>Install all five</h2>
+    <h2>Install all six</h2>
     <p>The open Agent Skills format works with Claude Code and Codex.</p>
   </div>
 

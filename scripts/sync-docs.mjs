@@ -7,6 +7,12 @@ const generatedRoot = join(repositoryRoot, 'docs', 'reference');
 
 const skills = [
   {
+    directory: 'git-commit-pr-message',
+    route: 'git-publication',
+    title: 'Git Commit and Pull Request',
+    description: 'Intentional staging, secret scanning, commit and PR messages, safe pushes, releases, CI, and GitHub Pages follow-up.'
+  },
+  {
     directory: 'professional-software-engineering',
     route: 'professional-engineering',
     title: 'Professional Software Engineering',

@@ -22,7 +22,7 @@ Version-sensitive APIs and commands must be checked against the target repositor
 
 The complete skill-reference pages are generated from `skills/*/SKILL.md` and their `references/` directories during every documentation build. The website therefore presents the same instructions distributed to Claude Code and Codex.
 
-Hand-authored concept pages explain how Professional Engineering coordinates implementation, how the three NestJS domain skills work together, and how Code Audit coordinates a read-only review. [Choose a skill](/guide/choose-a-skill) records primary ownership and handoff rules, while the [ten-topic rules reference](/rules/) routes each public category to one canonical domain-skill reference.
+Hand-authored concept pages explain how Professional Engineering coordinates implementation, how Git Publication handles verified changes, how the three NestJS domain skills work together, and how Code Audit coordinates a read-only review. [Choose a skill](/guide/choose-a-skill) records primary ownership and handoff rules, while the [ten-topic rules reference](/rules/) routes each public category to one canonical domain-skill reference.
 
 ## Research log
 

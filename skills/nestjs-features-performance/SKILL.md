@@ -31,6 +31,8 @@ For a whole-repository review, `nestjs-code-audit` owns read-only evidence colle
 
 For implementation, `professional-software-engineering` coordinates project inspection, syntax selection, coding, and verification while this skill remains the primary owner of NestJS runtime, security, reliability, performance, and delivery decisions.
 
+`git-commit-pr-message` owns Git publication and CI/Pages follow-up after verification; this skill retains runtime deployment and production-readiness ownership.
+
 ### Conflict test
 
 A conflict exists when active skills would:

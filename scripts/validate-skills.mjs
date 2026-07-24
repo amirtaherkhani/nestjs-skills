@@ -49,7 +49,7 @@ const skillDirectories = existsSync(skillsRoot)
       .sort()
   : [];
 
-record(skillDirectories.length === 5, `Expected 5 skills, found ${skillDirectories.length}.`);
+record(skillDirectories.length === 6, `Expected 6 skills, found ${skillDirectories.length}.`);
 
 for (const skillDirectory of skillDirectories) {
   const directoryName = relative(skillsRoot, skillDirectory);
@@ -155,6 +155,22 @@ for (const skillDirectory of skillDirectories) {
       existsSync(join(repositoryRoot, 'integrations', 'claude', 'CLAUDE.md')),
       `${directoryName} is missing the Claude Code CLAUDE.md template.`,
     );
+  }
+
+  if (directoryName === 'git-commit-pr-message') {
+    record(
+      existsSync(join(skillDirectory, 'agents', 'openai.yaml')),
+      `${directoryName} is missing Codex UI metadata.`,
+    );
+    const pagesWorkflow = join(repositoryRoot, '.github', 'workflows', 'deploy-pages.yml');
+    record(existsSync(pagesWorkflow), `${directoryName} is missing the GitHub Pages workflow.`);
+    if (existsSync(pagesWorkflow)) {
+      const pagesYaml = readFileSync(pagesWorkflow, 'utf8');
+      record(
+        /push:\s*\n\s*branches:\s*\[main\]/.test(pagesYaml),
+        `${directoryName}: GitHub Pages must deploy after pushes to main.`,
+      );
+    }
   }
 }
 

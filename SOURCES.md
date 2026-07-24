@@ -12,6 +12,7 @@ Reviewed on 2026-07-24. These skills are an original synthesis; source projects 
 - [Claude Code: Extend Claude with skills](https://code.claude.com/docs/en/skills)
 - [`skills` CLI repository](https://github.com/vercel-labs/skills)
 - [`skills` npm package](https://www.npmjs.com/package/skills)
+- [psenger/ai-agent-skills: Git Commit & PR Message](https://github.com/psenger/ai-agent-skills/tree/main/skills/git-commit-pr-message)
 - [psenger/ai-agent-skills](https://github.com/psenger/ai-agent-skills)
 - [Kadajett/agent-nestjs-skills](https://github.com/Kadajett/agent-nestjs-skills)
 - [Kadajett NestJS Rules Reference](https://kadajett.github.io/agent-nestjs-skills/concepts/interceptors)
@@ -28,6 +29,7 @@ Key decisions taken from this research:
 - Treat cross-skill coordination as a pre-execution gate: discovery metadata signals the guard, activated skills declare decision ownership and prerequisites, and unresolved material conflicts block mutation while read-only diagnosis continues.
 - Ship the NestJS audit as the portable primary skill. Keep `/prompts:nestjs-audit` only as an optional deprecated Codex CLI alias because Codex recommends skills for reusable workflows and does not expose arbitrary bare custom slash-command names.
 - Ship Professional Software Engineering as one portable skill for Claude Code and Codex, with optional `CLAUDE.md` and `AGENTS.md` repository templates. Select syntax from repository conventions, installed versions, official documentation, and focused verification; treat syntactic sugar as an API-design decision rather than a line-count optimization.
+- Adapt the linked Git Commit & PR Message workflow into a smaller cross-client skill: retain intentional staging, sensitive-content review, Conventional Commit compatibility, ticket/PR/changelog guidance, and explicit remote authorization; add NestJS verification ownership and GitHub Pages trigger/result checks. Production Pages remains tied to reviewed `main` history rather than feature-branch pushes.
 
 ## Official NestJS and Node.js sources
 
