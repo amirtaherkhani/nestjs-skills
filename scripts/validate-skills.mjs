@@ -49,7 +49,7 @@ const skillDirectories = existsSync(skillsRoot)
       .sort()
   : [];
 
-record(skillDirectories.length === 3, `Expected 3 skills, found ${skillDirectories.length}.`);
+record(skillDirectories.length === 5, `Expected 5 skills, found ${skillDirectories.length}.`);
 
 for (const skillDirectory of skillDirectories) {
   const directoryName = relative(skillsRoot, skillDirectory);
@@ -125,6 +125,36 @@ for (const skillDirectory of skillDirectories) {
     } catch (error) {
       errors.push(`${directoryName}: invalid eval JSON (${error.message}).`);
     }
+  }
+
+  if (directoryName === 'nestjs-code-audit') {
+    record(
+      existsSync(join(skillDirectory, 'scripts', 'collect-quality-evidence.mjs')),
+      `${directoryName} is missing its evidence collector.`,
+    );
+    record(
+      existsSync(join(repositoryRoot, 'integrations', 'codex', 'prompts', 'nestjs-audit.md')),
+      `${directoryName} is missing the Codex prompt alias.`,
+    );
+    record(
+      existsSync(join(skillDirectory, 'agents', 'openai.yaml')),
+      `${directoryName} is missing Codex UI metadata.`,
+    );
+  }
+
+  if (directoryName === 'professional-software-engineering') {
+    record(
+      existsSync(join(skillDirectory, 'agents', 'openai.yaml')),
+      `${directoryName} is missing Codex UI metadata.`,
+    );
+    record(
+      existsSync(join(repositoryRoot, 'integrations', 'codex', 'AGENTS.md')),
+      `${directoryName} is missing the Codex AGENTS.md template.`,
+    );
+    record(
+      existsSync(join(repositoryRoot, 'integrations', 'claude', 'CLAUDE.md')),
+      `${directoryName} is missing the Claude Code CLAUDE.md template.`,
+    );
   }
 }
 

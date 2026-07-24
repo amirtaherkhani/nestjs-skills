@@ -7,6 +7,18 @@ const generatedRoot = join(repositoryRoot, 'docs', 'reference');
 
 const skills = [
   {
+    directory: 'professional-software-engineering',
+    route: 'professional-engineering',
+    title: 'Professional Software Engineering',
+    description: 'Project-aware implementation, idiomatic syntax, safe syntactic sugar, testing, and evidence-backed verification.'
+  },
+  {
+    directory: 'nestjs-code-audit',
+    route: 'code-audit',
+    title: 'Code Audit',
+    description: 'Read-only whole-repository checks, cross-skill finding ownership, and evidence-backed code-quality reports.'
+  },
+  {
     directory: 'nestjs-architecture-principles',
     route: 'architecture',
     title: 'Architecture & Principles',

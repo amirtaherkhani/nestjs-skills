@@ -3,7 +3,7 @@ title: Rules Reference
 description: Ten conflict-checked NestJS rulebooks covering architecture, dependency injection, errors, security, performance, testing, data, APIs, microservices, and deployment.
 ---
 
-<p class="doc-kicker">Ten rulebooks · Three owners</p>
+<p class="doc-kicker">Ten rulebooks · Three domain owners</p>
 
 # Rules reference
 
@@ -74,7 +74,7 @@ description: Ten conflict-checked NestJS rulebooks covering architecture, depend
 
 ## One rule model, not ten competing checklists
 
-The labels are navigation; the three skills remain the ownership model. Architecture decides system and data boundaries. OOP and Design Patterns shapes collaborators inside those boundaries. Features, Scaling, and Performance implements runtime behavior and verifies it under load and failure.
+The labels are navigation; the three NestJS domain skills remain the decision-ownership model, while Professional Engineering coordinates implementation and Code Audit coordinates one read-only report. Architecture decides system and data boundaries. OOP and Design Patterns shapes collaborators inside those boundaries. Features, Scaling, and Performance owns runtime behavior under load and failure.
 
 ::: tip Context beats slogans
 Repository evidence, explicit contracts, security, data integrity, and measured runtime behavior outrank a generic rule. The rulebooks state their conditions and handoffs wherever a topic crosses skill boundaries.

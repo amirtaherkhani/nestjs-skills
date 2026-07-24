@@ -27,6 +27,10 @@ This skill leads decisions about NestJS lifecycle features, API and transport co
 
 It shares provider/module placement with `nestjs-architecture-principles` and shares collaborator design with `nestjs-oop-design-patterns`. It yields capability, data/write, transaction, dependency, and service boundaries to the architecture skill. It yields local object responsibilities, invariant placement, and design-pattern selection to the OOP skill.
 
+For a whole-repository review, `nestjs-code-audit` owns read-only evidence collection, deduplication, and report assembly while this skill remains the primary owner of runtime, security, testing, performance, and delivery findings.
+
+For implementation, `professional-software-engineering` coordinates project inspection, syntax selection, coding, and verification while this skill remains the primary owner of NestJS runtime, security, reliability, performance, and delivery decisions.
+
 ### Conflict test
 
 A conflict exists when active skills would:

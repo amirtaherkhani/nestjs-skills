@@ -1,16 +1,18 @@
 {
   "name": "nestjs-agent-skills",
-  "version": "1.3.0",
+  "version": "1.5.0",
   "private": true,
-  "description": "Three cross-compatible Agent Skills for NestJS architecture, OOP, error handling, APIs, security, testing, CI/CD, Kubernetes, SRE, scaling, and performance.",
+  "description": "Five cross-compatible Agent Skills for professional implementation and NestJS code audits, architecture, OOP, APIs, security, testing, DevOps, scaling, and performance.",
   "license": "MIT",
   "scripts": {
     "docs:sync": "node scripts/sync-docs.mjs",
     "docs:dev": "npm run docs:sync && vitepress dev docs",
     "docs:build": "npm run docs:sync && vitepress build docs",
     "docs:preview": "vitepress preview docs",
+    "preview:gif": "node scripts/generate-readme-preview.mjs",
     "validate": "node scripts/validate-skills.mjs",
-    "test": "npm run validate && npm run docs:build"
+    "test:audit": "node scripts/test-code-audit.mjs",
+    "test": "npm run validate && npm run test:audit && npm run docs:build"
   },
   "engines": {
     "node": ">=20"

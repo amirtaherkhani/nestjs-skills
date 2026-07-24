@@ -10,6 +10,8 @@ Contributions should make an agent more correct, more decisive, or more efficien
 4. Add or update an evaluation case that would fail without the change.
 5. Run `npm run validate` and `npx skills add . --list`.
 
+Changes to the code-audit collector must also run `npm run test:audit` and prove that scoped paths cannot escape the target repository.
+
 ## Rule format
 
 Prefer rules that state:

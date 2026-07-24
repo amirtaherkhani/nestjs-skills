@@ -7,13 +7,13 @@ description: Install and use the NestJS Agent Skills with Claude Code and Codex.
 
 # Getting started
 
-<p class="doc-lede">Install three focused Agent Skills that help your coding agent make deliberate NestJS architecture, object-design, framework, performance, and scaling decisions.</p>
+<p class="doc-lede">Install five focused Agent Skills for project-aware implementation, safe syntactic sugar, NestJS architecture and runtime decisions, and read-only codebase audits.</p>
 
 ## Requirements
 
 - Node.js 20 or newer for repository validation and the documentation site.
 - Claude Code, Codex, or another client that supports the open [Agent Skills specification](https://agentskills.io/specification).
-- A NestJS repository to inspect. The skills are useful during planning, implementation, refactoring, review, and diagnosis.
+- A software repository to inspect. The professional skill is framework-neutral; the other four skills require a NestJS project.
 
 ## Install
 
@@ -27,7 +27,7 @@ To install a single skill for Claude Code and Codex:
 
 ```bash
 npx skills add amirtaherkhani/nestjs-agent-skills \
-  --skill nestjs-architecture-principles \
+  --skill professional-software-engineering \
   --agent claude-code \
   --agent codex
 ```
@@ -45,23 +45,67 @@ Use `--global` for a user-level installation. Without it, the CLI installs into 
 The descriptions are written for automatic activation, so a concrete request is usually enough:
 
 ```text
-Review the module graph and recommend the smallest architecture change that removes this cycle.
+Implement this feature using the clearest syntax supported by the current project, then verify it.
 ```
 
 You can also name a skill explicitly:
 
 ```text
 # Claude Code
-/nestjs-architecture-principles
+/professional-software-engineering
 
 # Codex
-$nestjs-architecture-principles
+$professional-software-engineering
 ```
 
 The other skill names are:
 
+- `nestjs-architecture-principles`
+- `nestjs-code-audit`
 - `nestjs-oop-design-patterns`
 - `nestjs-features-performance`
+
+## Add client engineering rules
+
+The portable skill works in both clients. Optional repository-level templates make it the default engineering workflow. From this repository checkout:
+
+```bash
+# Codex
+cp integrations/codex/AGENTS.md ./AGENTS.md
+
+# Claude Code
+cp integrations/claude/CLAUDE.md ./CLAUDE.md
+```
+
+Merge rather than overwrite when the project already has `AGENTS.md` or `CLAUDE.md`; the nearest project instructions must remain authoritative.
+
+For a new feature, ask:
+
+```text
+Implement this feature using the clearest syntax supported by the current project.
+Compare any syntactic sugar with the explicit form, preserve compatibility,
+and run the relevant tests, type-check, lint, and build.
+```
+
+## Audit a current project
+
+From a NestJS project root, invoke the portable audit skill:
+
+```text
+$nestjs-code-audit
+$nestjs-code-audit full src/payments
+$nestjs-code-audit static
+$nestjs-code-audit security src/auth
+```
+
+It runs a read-only workflow and returns one report covering safe syntax/TypeScript/lint checks plus verified architecture, object-design, security, testing, runtime, and delivery findings. It does not install dependencies or fix code.
+
+Codex does not support arbitrary bare custom commands such as `/Nestjs audit`. Custom prompts are deprecated in favor of skills, but Codex CLI and the IDE extension still support them as explicit local aliases. Copy [`integrations/codex/prompts/nestjs-audit.md`](https://github.com/amirtaherkhani/nestjs-agent-skills/blob/main/integrations/codex/prompts/nestjs-audit.md) into `~/.codex/prompts/`, then use:
+
+```text
+/prompts:nestjs-audit
+/prompts:nestjs-audit full src/payments
+```
 
 ## Give the agent evidence
 

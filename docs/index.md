@@ -4,7 +4,7 @@ layout: home
 hero:
   name: NestJS Agent Skills
   text: Better boundaries. Better decisions.
-  tagline: Three focused skills that help Claude Code and Codex reason about NestJS architecture, object design, framework features, performance, and scale—without forcing accidental complexity.
+  tagline: Five focused skills that implement and audit software with project-aware syntax, deliberate NestJS boundaries, safe runtime behavior, and evidence-backed verification.
   image:
     src: /skill-mark.svg
     alt: Three connected modules representing the skill collection
@@ -20,6 +20,16 @@ hero:
       link: /rules/
 
 features:
+  - icon: </>
+    title: Professional Engineering
+    details: Inspect the project, choose clear version-compatible syntax, implement the smallest coherent change, and verify the result.
+    link: /reference/professional-engineering/
+    linkText: Read the skill
+  - icon: ✓
+    title: Code Audit
+    details: Run read-only syntax, TypeScript, lint, architecture, design, security, testing, and runtime checks and receive one evidence-backed report.
+    link: /reference/code-audit/
+    linkText: Run the audit
   - icon: ◫
     title: Architecture & Principles
     details: Choose the smallest architecture that protects real boundaries—from cohesive feature modules to deliberate distributed services.
@@ -41,9 +51,13 @@ features:
 
 ## Route work to the right skill
 
-Each skill owns a distinct decision level. Use one as the lead and bring in another only when the task crosses a real boundary.
+Use Professional Engineering to coordinate implementation. Each NestJS domain skill owns a distinct decision level, while Code Audit coordinates all three domain owners for a read-only report.
 
 <div class="route-grid">
+  <a class="route-card" href="./reference/professional-engineering/">
+    <strong>Implementation</strong>
+    <span>Project inspection, idiomatic syntax, safe syntactic sugar, focused changes, tests, and verification.</span>
+  </a>
   <a class="route-card" href="./guide/choose-a-skill#architecture--principles">
     <strong>System shape</strong>
     <span>Module ownership, architecture level, dependency direction, transactions, and service boundaries.</span>
@@ -63,12 +77,12 @@ Each skill owns a distinct decision level. Use one as the lead and bring in anot
 The skills share the same defaults: inspect the actual repository, preserve explicit contracts, prefer the least complex safe design, keep policy separate from volatile infrastructure, and verify outcomes with tests or measurements. Their scopes overlap at intentional handoff points—not through contradictory ownership.
 
 ::: tip A practical sequence
-For a large change, decide the system boundary first, design the collaborating objects second, then choose the NestJS runtime features and performance controls that implement it.
+For a large change, use Professional Engineering to coordinate the work: decide the system boundary first, design the collaborating objects second, then choose the NestJS runtime features and verification that implement it.
 :::
 
 <div class="install-strip">
   <div>
-    <h2>Install all three</h2>
+    <h2>Install all five</h2>
     <p>The open Agent Skills format works with Claude Code and Codex.</p>
   </div>
 
