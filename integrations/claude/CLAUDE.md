@@ -8,7 +8,7 @@ Do not only describe an implementation when the user has asked you to build or c
 
 ## Skill mode
 
-When `.claude/skills/professional-software-engineering/SKILL.md` exists and the task involves programming, architecture, debugging, refactoring, testing, or API design:
+When `.claude/skills/nestjs-professional-software-engineering/SKILL.md` exists and the task involves NestJS programming, architecture, debugging, refactoring, testing, or API design:
 
 1. Read the complete skill file.
 2. Follow its workflow.

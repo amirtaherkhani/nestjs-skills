@@ -23,7 +23,7 @@ For a whole-codebase quality review, start with `nestjs-code-audit`. It coordina
 
 ## Git Commit and Pull Request
 
-Lead with `git-commit-pr-message` when the user asks to commit, push, open or update a PR, prepare changelog/release text, or confirm CI and GitHub Pages after publication.
+Lead with `nestjs-git-commit-pr-message` when the user asks to commit, push, open or update a PR, prepare changelog/release text, or confirm CI and GitHub Pages after publication.
 
 It owns publication mechanics, not implementation correctness. It stages only intended files, scans for sensitive content, matches repository history, performs only authorized remote actions, and distinguishes a pushed feature branch from a deployed public site.
 
@@ -31,7 +31,7 @@ It owns publication mechanics, not implementation correctness. It stages only in
 
 ## Professional Software Engineering
 
-Lead with `professional-software-engineering` for feature implementation, fixes, refactors, public APIs, library work, developer experience, and syntax selection.
+Lead with `nestjs-professional-software-engineering` for NestJS feature implementation, fixes, refactors, public APIs, library work, developer experience, and syntax selection.
 
 It inspects the actual project and installed versions, compares explicit and convenient forms, and uses syntactic sugar only when it reduces real ceremony without hiding meaningful behavior. NestJS-specific architecture, object-design, and runtime decisions remain owned by the domain skills below.
 

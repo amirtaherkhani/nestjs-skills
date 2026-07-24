@@ -13,7 +13,7 @@ description: Install and use the NestJS Agent Skills with Claude Code and Codex.
 
 - Node.js 20 or newer for repository validation and the documentation site.
 - Claude Code, Codex, or another client that supports the open [Agent Skills specification](https://agentskills.io/specification).
-- A software repository to inspect. The professional skill is framework-neutral; the other four skills require a NestJS project.
+- A NestJS repository to inspect. Every skill in this collection is scoped to NestJS work.
 
 ## Install
 
@@ -27,7 +27,7 @@ To install a single skill for Claude Code and Codex:
 
 ```bash
 npx skills add amirtaherkhani/nestjs-agent-skills \
-  --skill professional-software-engineering \
+  --skill nestjs-professional-software-engineering \
   --agent claude-code \
   --agent codex
 ```
@@ -39,6 +39,10 @@ npx skills add amirtaherkhani/nestjs-agent-skills --list
 ```
 
 Use `--global` for a user-level installation. Without it, the CLI installs into the project location expected by each selected agent.
+
+::: warning Version 2 migration
+`professional-software-engineering` was renamed to `nestjs-professional-software-engineering`, and `git-commit-pr-message` was renamed to `nestjs-git-commit-pr-message`. Reinstall the renamed skills and update explicit commands.
+:::
 
 ## Invoke a skill
 
@@ -52,15 +56,15 @@ You can also name a skill explicitly:
 
 ```text
 # Claude Code
-/professional-software-engineering
+/nestjs-professional-software-engineering
 
 # Codex
-$professional-software-engineering
+$nestjs-professional-software-engineering
 ```
 
 The other skill names are:
 
-- `git-commit-pr-message`
+- `nestjs-git-commit-pr-message`
 - `nestjs-architecture-principles`
 - `nestjs-code-audit`
 - `nestjs-oop-design-patterns`
@@ -91,7 +95,7 @@ and run the relevant tests, type-check, lint, and build.
 When the change is verified, publish it explicitly:
 
 ```text
-$git-commit-pr-message
+$nestjs-git-commit-pr-message
 Commit and push this NestJS change, open a draft PR, and verify the
 matching CI and GitHub Pages workflow without merging.
 ```

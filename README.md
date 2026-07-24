@@ -1,60 +1,151 @@
-# NestJS Agent Skills
+<div align="center">
+  <img src="docs/public/skill-mark.svg" width="112" alt="NestJS Agent Skills logo">
 
-Six focused Agent Skills for auditing, building, reviewing, refactoring, publishing, and scaling software—including NestJS applications—with Claude Code and Codex.
+  <h1>NestJS Agent Skills</h1>
 
-The collection follows the [Agent Skills open standard](https://agentskills.io/specification): each skill has a concise `SKILL.md`, focused on-demand references, and evaluation prompts. The guidance is architecture-aware without forcing every project into Clean Architecture, CQRS, or microservices.
+  <p><strong>Thoughtful engineering guidance for agents that work on real NestJS codebases.</strong></p>
+  <p>Build, audit, refactor, scale, and publish with clear ownership—without turning every project into accidental architecture.</p>
 
-**Documentation:** [amirtaherkhani.github.io/nestjs-agent-skills](https://amirtaherkhani.github.io/nestjs-agent-skills/) · [Ten-topic rules reference](https://amirtaherkhani.github.io/nestjs-agent-skills/rules/)
+  <p>
+    <a href="https://github.com/amirtaherkhani/nestjs-agent-skills/actions/workflows/validate.yml"><img src="https://github.com/amirtaherkhani/nestjs-agent-skills/actions/workflows/validate.yml/badge.svg" alt="Validation status"></a>
+    <a href="https://github.com/amirtaherkhani/nestjs-agent-skills/actions/workflows/deploy-pages.yml"><img src="https://github.com/amirtaherkhani/nestjs-agent-skills/actions/workflows/deploy-pages.yml/badge.svg" alt="Documentation deployment status"></a>
+    <a href="https://agentskills.io/specification"><img src="https://img.shields.io/badge/Agent_Skills-open_standard-E0234E?style=flat-square" alt="Agent Skills open standard"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2F855A?style=flat-square" alt="MIT License"></a>
+  </p>
+
+  <p>
+    <a href="https://amirtaherkhani.github.io/nestjs-agent-skills/"><strong>Documentation</strong></a>
+    ·
+    <a href="https://amirtaherkhani.github.io/nestjs-agent-skills/guide/getting-started">Getting started</a>
+    ·
+    <a href="https://amirtaherkhani.github.io/nestjs-agent-skills/guide/choose-a-skill">Choose a skill</a>
+    ·
+    <a href="https://amirtaherkhani.github.io/nestjs-agent-skills/rules/">Rules reference</a>
+  </p>
+</div>
+
+---
 
 <p align="center">
-  <img src="docs/assets/nestjs-code-audit-preview.gif" alt="Animated terminal preview of the NestJS code audit skill" width="960">
+  <img src="docs/assets/nestjs-code-audit-preview.gif" alt="Animated terminal preview of the NestJS code audit skill" width="900">
 </p>
 
-<p align="center"><sub>Run a read-only audit across TypeScript, lint, architecture, design, security, testing, and production readiness—then get one prioritized, evidence-backed report.</sub></p>
+<p align="center"><sub>A read-only audit turns TypeScript, lint, architecture, design, security, testing, and production evidence into one prioritized report.</sub></p>
 
-## Skills
+## ✨ What is this?
 
-| Skill | Focus | Use it for |
+This repository contains **six focused Agent Skills** for Claude Code, Codex, and other clients that support the [Agent Skills open standard](https://agentskills.io/specification).
+
+Each skill owns a distinct engineering decision. Together they help an agent inspect the actual repository, choose the smallest safe design, resolve conflicting instructions before mutation, and verify outcomes with evidence.
+
+> [!IMPORTANT]
+> **Version 2 migration:** `professional-software-engineering` is now `nestjs-professional-software-engineering`, and `git-commit-pr-message` is now `nestjs-git-commit-pr-message`. Reinstall the renamed skills and update explicit commands so every skill in this NestJS collection uses the `nestjs-` prefix.
+
+> [!NOTE]
+> These skills do not force Clean Architecture, CQRS, repositories, microservices, Kubernetes, or design patterns into every project. The repository and its real constraints come first.
+
+## 🧭 Pick the right skill
+
+| | Skill | Reach for it when you need to… |
 | --- | --- | --- |
-| [`git-commit-pr-message`](skills/git-commit-pr-message/SKILL.md) | Safe Git and GitHub publication | Intentional staging, secret scans, commit and PR messages, pushes, changelogs, releases, CI, and GitHub Pages follow-up |
-| [`professional-software-engineering`](skills/professional-software-engineering/SKILL.md) | Project-aware implementation | New features, fixes, refactors, APIs, idiomatic syntax, safe syntactic sugar, tests, and evidence-backed verification |
-| [`nestjs-code-audit`](skills/nestjs-code-audit/SKILL.md) | Read-only whole-codebase audit | Syntax, TypeScript, lint, architecture, design, security, testing, runtime, and production-readiness reports using all three domain skills |
-| [`nestjs-architecture-principles`](skills/nestjs-architecture-principles/SKILL.md) | NestJS architectures + engineering principles | Module, data, ORM, transaction, and service boundaries; modular monoliths; architecture reviews; and refactors |
-| [`nestjs-oop-design-patterns`](skills/nestjs-oop-design-patterns/SKILL.md) | OOP rules and tips + design patterns | SOLID, object design, dependency injection, code smells, refactoring, and selecting patterns without over-engineering |
-| [`nestjs-features-performance`](skills/nestjs-features-performance/SKILL.md) | NestJS features + scaling and performance | Errors, security, testing, APIs, queues, caching, transports, observability, deployment, performance, and scale |
+| 🧠 | [`nestjs-professional-software-engineering`](skills/nestjs-professional-software-engineering/SKILL.md) | Implement a NestJS feature, fix, refactor, API, or library using clear version-compatible syntax and proportionate verification |
+| 🏗️ | [`nestjs-architecture-principles`](skills/nestjs-architecture-principles/SKILL.md) | Decide module, capability, dependency, data, transaction, ORM, or service boundaries |
+| 🧩 | [`nestjs-oop-design-patterns`](skills/nestjs-oop-design-patterns/SKILL.md) | Improve responsibilities, invariants, SOLID trade-offs, test seams, or pattern selection without over-engineering |
+| ⚡ | [`nestjs-features-performance`](skills/nestjs-features-performance/SKILL.md) | Design errors, security, APIs, queues, caching, observability, delivery, performance, reliability, or scale |
+| 🔎 | [`nestjs-code-audit`](skills/nestjs-code-audit/SKILL.md) | Audit a whole NestJS repository for static and semantic problems without modifying it |
+| 🚀 | [`nestjs-git-commit-pr-message`](skills/nestjs-git-commit-pr-message/SKILL.md) | Stage NestJS changes intentionally, scan for secrets, write commits and PRs, push safely, and follow CI or GitHub Pages |
 
-The professional engineering skill coordinates implementation and selects the clearest version-compatible syntax. The three NestJS domain skills own architecture, object design, and runtime decisions. The audit skill coordinates those owners into one read-only report. The Git publication skill turns verified work into intentional commits, pushes, pull requests, and release history without treating publication as implementation authorization.
+### How they fit together
 
-DevOps is treated as a first-class operating discipline: immutable CI/CD and container delivery, Kubernetes live-state verification, SLO-driven observability, incident response, tested recovery, compatible migrations, graceful drain, and evidence-based rollout/rollback. Platform-specific guidance remains conditional rather than making Docker or Kubernetes mandatory.
+| Workflow | Recommended path |
+| --- | --- |
+| Build or change a feature | 🧠 Professional Engineering → 🏗️ Architecture → 🧩 Object Design → ⚡ Runtime → 🚀 Git Publication |
+| Review the whole codebase | 🔎 Code Audit → one deduplicated, evidence-backed report |
+| Diagnose a focused problem | Start with the narrowest owning skill; add another only when the decision crosses boundaries |
 
-Error Handling is also first-class: application-owned failure taxonomy, stable public contracts, precise HTTP/GraphQL/RPC/gRPC/WebSocket mapping, NestJS filter coverage, deadline and cancellation propagation, safe retry/idempotency rules, partial-effect analysis, privacy, fatal-process behavior, and failure-path testing. The guidance preserves an existing compatible API instead of forcing one universal error envelope.
+Every skill carries a **pre-execution conflict guard**. If two active skills want incompatible file changes, commands, contracts, or architecture, the agent assigns one owner or stops for clarification before mutation.
 
-## Install
+## ⚡ Quick start
 
-Install all six skills:
+### 1. Install the collection
 
 ```bash
 npx skills add amirtaherkhani/nestjs-agent-skills
 ```
 
-Install one skill for Claude Code and Codex:
+<details>
+<summary><strong>Install one skill for Claude Code and Codex</strong></summary>
 
 ```bash
 npx skills add amirtaherkhani/nestjs-agent-skills \
-  --skill professional-software-engineering \
+  --skill nestjs-professional-software-engineering \
   --agent claude-code \
   --agent codex
 ```
 
-List the available skills without installing:
+</details>
+
+<details>
+<summary><strong>Preview available skills without installing</strong></summary>
 
 ```bash
 npx skills add amirtaherkhani/nestjs-agent-skills --list
 ```
 
-The CLI installs project skills into the location expected by each agent, including `.claude/skills/` for Claude Code and `.agents/skills/` for Codex. Use `--global` for a user-level installation.
+</details>
 
-Optional repository-level engineering rules are included for both clients: [Codex `AGENTS.md`](integrations/codex/AGENTS.md) and [Claude Code `CLAUDE.md`](integrations/claude/CLAUDE.md). From this repository checkout:
+The CLI installs project skills into the client-specific location, including `.claude/skills/` for Claude Code and `.agents/skills/` for Codex. Add `--global` for a user-level installation.
+
+### 2. Invoke a skill
+
+The descriptions support automatic activation. You can also invoke a skill explicitly:
+
+| Claude Code | Codex |
+| --- | --- |
+| `/nestjs-professional-software-engineering` | `$nestjs-professional-software-engineering` |
+| `/nestjs-code-audit` | `$nestjs-code-audit` |
+| `/nestjs-git-commit-pr-message` | `$nestjs-git-commit-pr-message` |
+
+### 3. Ask naturally
+
+```text
+Implement this feature using the clearest syntax supported by the current
+project. Preserve the public API and run the relevant checks.
+```
+
+## 💬 Copy-ready requests
+
+| Goal | Example request |
+| --- | --- |
+| Implement | “Implement this feature using the clearest syntax supported by the current project, then verify it.” |
+| Audit | “Audit this NestJS repository and return one evidence-backed report without changing code.” |
+| Architecture | “Review this module graph and recommend the smallest change that removes the cycle.” |
+| Refactor | “Refactor this provider using SOLID and a pattern only if the observed variation justifies it.” |
+| Performance | “Trace this slow endpoint, identify the limiting resource, and propose a measured fix.” |
+| Publish | “Commit and push this verified change, open a draft PR, and report the matching CI and Pages status.” |
+
+### Read-only audit actions
+
+```text
+$nestjs-code-audit
+$nestjs-code-audit full src/payments
+$nestjs-code-audit static
+$nestjs-code-audit security src/auth
+```
+
+The audit collector uses installed local ESLint and `tsc --noEmit` checks only. It does not install dependencies, fix files, run migrations, build images, or deploy.
+
+> [!TIP]
+> Codex CLI/IDE can also expose the deprecated custom-prompt alias `/prompts:nestjs-audit`. See the [audit guide](https://amirtaherkhani.github.io/nestjs-agent-skills/guide/getting-started#audit-a-current-project). Bare custom commands such as `/Nestjs audit` are not supported.
+
+## 🤝 Optional project rules
+
+This repository includes ready-to-adapt engineering rules for both clients:
+
+- [Codex `AGENTS.md`](integrations/codex/AGENTS.md)
+- [Claude Code `CLAUDE.md`](integrations/claude/CLAUDE.md)
+
+From this repository checkout:
 
 ```bash
 # Codex
@@ -64,73 +155,63 @@ cp integrations/codex/AGENTS.md ./AGENTS.md
 cp integrations/claude/CLAUDE.md ./CLAUDE.md
 ```
 
-Review an existing rules file before merging these templates so project-specific instructions remain intact.
+> [!IMPORTANT]
+> Merge these templates into an existing rules file instead of overwriting project-specific instructions.
 
-## Invoke
+<details>
+<summary><strong>🛡️ Engineering principles behind the collection</strong></summary>
 
-The descriptions are written for automatic activation. You can also invoke a skill explicitly:
-
-```text
-# Claude Code
-/professional-software-engineering
-
-# Codex
-$professional-software-engineering
-```
-
-Example requests:
-
-- "Audit this NestJS repository and return one evidence-backed report without changing code."
-- "Implement this feature using the clearest syntax supported by the current project, and verify it."
-- "Commit and push this verified NestJS change, open a draft PR, and report whether the push updates GitHub Pages."
-- "Review this NestJS module graph and recommend the smallest architecture change."
-- "Refactor this provider using SOLID and an appropriate design pattern."
-- "Find the bottleneck in this NestJS endpoint and propose a measured scaling plan."
-
-For a read-only codebase report in Codex, use `$nestjs-code-audit`. Codex CLI/IDE's deprecated custom-prompt compatibility can also expose `/prompts:nestjs-audit`; see the [getting-started guide](https://amirtaherkhani.github.io/nestjs-agent-skills/guide/getting-started#audit-a-current-project). Bare user-defined commands such as `/Nestjs audit` are not supported.
-
-## Design choices
-
-- **Progressive disclosure:** the main instructions stay compact; detailed rules and examples live under `references/`.
-- **Architecture ladder:** begin with cohesive feature modules and add layers, ports, CQRS, or services only when the problem earns their cost.
-- **Context before rules:** inspect the actual repository, NestJS version, transport, persistence layer, and conventions before recommending a change.
-- **Syntax from evidence:** prefer repository conventions, installed versions, official documentation, and focused experiments over remembered or fashionable syntax.
-- **Safe syntactic sugar:** reduce real ceremony without hiding I/O, state, security, transactions, cost, failures, or advanced control.
-- **Intentional publication:** inspect the full diff, protect unrelated work, scan staged content for secrets, and perform only the Git/GitHub actions the user requested.
-- **Pages from reviewed history:** production documentation deploys after pushes to `main`; feature branches validate without replacing the public site.
-- **Pre-execution conflict guard:** every skill declares prerequisites, primary ownership, handoffs, and conflict tests; agents may inspect read-only state but must resolve material conflicts before mutation.
-- **Read-only audit:** the audit collector runs only installed local ESLint and `tsc --noEmit` checks, never package lifecycle scripts, dependency installation, fixing commands, builds, migrations, or deployments.
-- **Framework-aware OOP:** use Nest modules and providers as real boundaries; do not recreate the DI container or framework lifecycle in application code.
+- **Progressive disclosure:** compact `SKILL.md` instructions route to focused references only when needed.
+- **Context before rules:** inspect the repository, installed versions, transport, persistence, tests, and runtime before prescribing.
+- **Architecture ladder:** start with cohesive feature modules; add layers, ports, CQRS, or services only when real pressure earns the cost.
+- **Syntax from evidence:** prefer repository conventions, installed types, official documentation, and focused experiments over fashionable syntax.
+- **Safe syntactic sugar:** reduce real ceremony without hiding I/O, state, authorization, transactions, costs, or failures.
+- **Framework-aware OOP:** use Nest modules and providers as real boundaries; do not recreate the framework lifecycle.
+- **Stable error contracts:** keep application failure meaning separate from HTTP, GraphQL, RPC, gRPC, WebSocket, or worker representations.
 - **Measure before optimizing:** distinguish event-loop, database, network, memory, and capacity bottlenecks before selecting a remedy.
-- **Source freshness:** verify version-sensitive APIs and packages against the installed project and official documentation.
+- **Production-aware delivery:** verify built artifacts, effective configuration, live state, health, telemetry, drain, rollout, and rollback.
+- **Intentional publication:** protect unrelated work, scan staged content, and perform only explicitly authorized Git/GitHub actions.
 
-## Validate
+</details>
+
+<details>
+<summary><strong>🧪 Validate or contribute locally</strong></summary>
+
+Install dependencies and run the full repository suite:
 
 ```bash
 npm install
-npm run validate
-npm run docs:build
+npm test
 npx skills add . --list
 ```
 
-Run the deterministic audit collector tests:
+Run individual workflows:
 
 ```bash
+npm run validate
 npm run test:audit
-```
-
-The local validator checks required frontmatter, directory/name agreement, description limits, reference links, evaluation JSON, and the recommended `SKILL.md` size limit. The documentation build generates the complete website reference directly from the canonical skill files so the two cannot drift.
-
-Run the documentation site locally:
-
-```bash
+npm run docs:build
 npm run docs:dev
+npm run preview:gif
 ```
 
-## Research and attribution
+The validator checks frontmatter, naming, descriptions, cross-skill handoffs, references, evaluation JSON, client metadata, and recommended skill size. The documentation build generates the complete website reference directly from canonical skill sources.
 
-The skills synthesize the official Agent Skills, Claude Code, Codex, NestJS, and relevant language/framework documentation with the repositories and discussions requested for this project. See [SOURCES.md](SOURCES.md) for the complete research log and source policy.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for authoring rules and [SOURCES.md](SOURCES.md) for research and attribution.
 
-## License
+</details>
 
-[MIT](LICENSE)
+---
+
+<div align="center">
+  <p><strong>Built for deliberate NestJS engineering—not architecture theater.</strong></p>
+  <p>
+    <a href="https://amirtaherkhani.github.io/nestjs-agent-skills/">Read the docs</a>
+    ·
+    <a href="CONTRIBUTING.md">Contribute</a>
+    ·
+    <a href="SOURCES.md">Sources</a>
+    ·
+    <a href="LICENSE">MIT License</a>
+  </p>
+</div>

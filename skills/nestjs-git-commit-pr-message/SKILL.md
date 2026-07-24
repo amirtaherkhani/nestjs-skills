@@ -1,11 +1,11 @@
 ---
-name: git-commit-pr-message
+name: nestjs-git-commit-pr-message
 description: 'Prepares and publishes intentional Git changes for NestJS projects. Use when the user asks to commit, push, create or update a pull request, prepare changelog or release text, or verify a GitHub Pages deployment after publication. It inspects the complete diff, preserves unrelated work, scans staged content for secrets, matches repository commit conventions, runs relevant checks, and performs only the explicitly requested remote actions. When other skills also apply, reconcile ownership before mutation.'
 license: MIT
 compatibility: 'Requires Git. GitHub operations require an authenticated GitHub connector or gh CLI; Jira linking requires a user-provided ticket key.'
 metadata:
   author: amirtaherkhani
-  version: '1.0.0'
+  version: '2.0.0'
   source: 'https://github.com/psenger/ai-agent-skills/tree/main/skills/git-commit-pr-message'
 ---
 
@@ -29,7 +29,7 @@ Run this guard after identifying every applicable skill and before editing files
 
 This skill owns publication mechanics: intentional staging, sensitive-content checks, commit and pull-request wording, changelog routing, branch/upstream handling, push safety, GitHub/Jira references, tag/release preparation, CI follow-up, and GitHub Pages deployment verification.
 
-`professional-software-engineering` owns whether the implementation is correct and ready to publish. `nestjs-architecture-principles`, `nestjs-oop-design-patterns`, and `nestjs-features-performance` retain ownership of architecture, object design, runtime, security, testing, delivery design, and production-readiness decisions. This skill records those results; it does not rewrite them to obtain a cleaner commit.
+`nestjs-professional-software-engineering` owns whether the implementation is correct and ready to publish. `nestjs-architecture-principles`, `nestjs-oop-design-patterns`, and `nestjs-features-performance` retain ownership of architecture, object design, runtime, security, testing, delivery design, and production-readiness decisions. This skill records those results; it does not rewrite them to obtain a cleaner commit.
 
 `nestjs-code-audit` remains read-only. An audit report may be committed only when the user explicitly asks to publish that report; this skill never turns audit findings into code changes.
 

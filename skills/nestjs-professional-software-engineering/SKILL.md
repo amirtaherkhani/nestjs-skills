@@ -1,15 +1,15 @@
 ---
-name: professional-software-engineering
-description: 'Designs, implements, refactors, debugs, reviews, and verifies production-quality software in any language or framework. Use for feature development, bug fixes, APIs, libraries, architecture, testing, maintainability, developer experience, idiomatic syntax, or syntactic sugar. It inspects the current project and official version-appropriate documentation before selecting syntax, preserves public behavior, and tests the result. When other skills also apply, reconcile ownership before mutation.'
+name: nestjs-professional-software-engineering
+description: 'Designs, implements, refactors, debugs, reviews, and verifies production-quality NestJS and TypeScript software. Use for NestJS feature development, bug fixes, APIs, libraries, testing, maintainability, developer experience, idiomatic syntax, or syntactic sugar. It inspects the current project and official version-appropriate documentation before selecting syntax, preserves public behavior, and tests the result. When other skills also apply, reconcile ownership before mutation.'
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.0.0'
+  version: '2.0.0'
 ---
 
 # Professional Software Engineering
 
-Produce correct, idiomatic, secure, readable, maintainable, testable, and extensible software while respecting the existing project.
+Produce correct, idiomatic, secure, readable, maintainable, testable, and extensible NestJS software while respecting the existing project.
 
 ## Pre-execution conflict guard
 
@@ -31,7 +31,7 @@ It yields NestJS capability, module, dependency, data, transaction, and service 
 
 For a read-only NestJS repository review, `nestjs-code-audit` owns evidence collection, finding deduplication, severity, and report assembly. This skill may provide general implementation-quality context but must not turn an audit into a mutation.
 
-After implementation is verified, `git-commit-pr-message` owns intentional staging, commit and PR wording, push safety, changelog routing, and publication follow-up. It does not decide whether incomplete code is ready.
+After implementation is verified, `nestjs-git-commit-pr-message` owns intentional staging, commit and PR wording, push safety, changelog routing, and publication follow-up. It does not decide whether incomplete code is ready.
 
 ### Conflict test
 

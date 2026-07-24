@@ -14,7 +14,7 @@ If instructions conflict, follow the higher-priority instruction and briefly ide
 
 ## Required skill
 
-For implementation, refactoring, debugging, API design, library development, or code review, use the `professional-software-engineering` skill when it is available.
+For implementation, refactoring, debugging, API design, library development, or code review, use the `nestjs-professional-software-engineering` skill when it is available.
 
 Read the complete `SKILL.md` before acting. Follow any relevant files directly referenced by the skill.
 

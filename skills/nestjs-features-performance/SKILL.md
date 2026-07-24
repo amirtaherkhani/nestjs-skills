@@ -29,9 +29,9 @@ It shares provider/module placement with `nestjs-architecture-principles` and sh
 
 For a whole-repository review, `nestjs-code-audit` owns read-only evidence collection, deduplication, and report assembly while this skill remains the primary owner of runtime, security, testing, performance, and delivery findings.
 
-For implementation, `professional-software-engineering` coordinates project inspection, syntax selection, coding, and verification while this skill remains the primary owner of NestJS runtime, security, reliability, performance, and delivery decisions.
+For implementation, `nestjs-professional-software-engineering` coordinates project inspection, syntax selection, coding, and verification while this skill remains the primary owner of NestJS runtime, security, reliability, performance, and delivery decisions.
 
-`git-commit-pr-message` owns Git publication and CI/Pages follow-up after verification; this skill retains runtime deployment and production-readiness ownership.
+`nestjs-git-commit-pr-message` owns Git publication and CI/Pages follow-up after verification; this skill retains runtime deployment and production-readiness ownership.
 
 ### Conflict test
 

@@ -54,6 +54,10 @@ record(skillDirectories.length === 6, `Expected 6 skills, found ${skillDirectori
 for (const skillDirectory of skillDirectories) {
   const directoryName = relative(skillsRoot, skillDirectory);
   const skillPath = join(skillDirectory, 'SKILL.md');
+  record(
+    directoryName.startsWith('nestjs-'),
+    `${directoryName}: every skill in this collection must use the nestjs- prefix.`,
+  );
   record(existsSync(skillPath), `${directoryName} is missing SKILL.md.`);
   if (!existsSync(skillPath)) continue;
 
@@ -142,7 +146,7 @@ for (const skillDirectory of skillDirectories) {
     );
   }
 
-  if (directoryName === 'professional-software-engineering') {
+  if (directoryName === 'nestjs-professional-software-engineering') {
     record(
       existsSync(join(skillDirectory, 'agents', 'openai.yaml')),
       `${directoryName} is missing Codex UI metadata.`,
@@ -157,7 +161,7 @@ for (const skillDirectory of skillDirectories) {
     );
   }
 
-  if (directoryName === 'git-commit-pr-message') {
+  if (directoryName === 'nestjs-git-commit-pr-message') {
     record(
       existsSync(join(skillDirectory, 'agents', 'openai.yaml')),
       `${directoryName} is missing Codex UI metadata.`,

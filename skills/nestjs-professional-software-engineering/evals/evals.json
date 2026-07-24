@@ -1,6 +1,6 @@
 {
-  "skill": "professional-software-engineering",
-  "version": "1.0.0",
+  "skill": "nestjs-professional-software-engineering",
+  "version": "2.0.0",
   "cases": [
     {
       "id": "new-feature-existing-conventions",

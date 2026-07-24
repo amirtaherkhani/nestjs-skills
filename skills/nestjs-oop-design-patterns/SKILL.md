@@ -29,9 +29,9 @@ It shares provider/module placement with `nestjs-architecture-principles` and sh
 
 For a whole-repository review, `nestjs-code-audit` owns read-only evidence collection, deduplication, and report assembly while this skill remains the primary owner of object-design findings.
 
-For implementation, `professional-software-engineering` coordinates project inspection, syntax selection, coding, and verification while this skill remains the primary owner of object responsibilities, invariants, and pattern decisions.
+For implementation, `nestjs-professional-software-engineering` coordinates project inspection, syntax selection, coding, and verification while this skill remains the primary owner of object responsibilities, invariants, and pattern decisions.
 
-`git-commit-pr-message` may publish the verified change but does not alter object design or refactoring boundaries to simplify a commit.
+`nestjs-git-commit-pr-message` may publish the verified change but does not alter object design or refactoring boundaries to simplify a commit.
 
 ### Conflict test
 
