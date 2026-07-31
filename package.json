@@ -1,6 +1,6 @@
 {
   "name": "nestjs-agent-skills",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "description": "Six cross-compatible Agent Skills for NestJS implementation, safe Git publication, audits, architecture, OOP, APIs, security, testing, DevOps, scaling, and performance.",
   "license": "MIT",

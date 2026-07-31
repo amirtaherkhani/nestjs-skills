@@ -5,7 +5,7 @@ license: MIT
 compatibility: 'Requires Node.js 20+, a NestJS repository, and the sibling nestjs-architecture-principles, nestjs-oop-design-patterns, and nestjs-features-performance skills.'
 metadata:
   author: amirtaherkhani
-  version: '1.0.0'
+  version: '1.0.1'
 ---
 
 # NestJS Code Audit
@@ -45,7 +45,7 @@ A conflict exists when active skills would:
 - claim primary ownership of the same finding without a clear handoff; or
 - proceed without dependencies, configuration, authorization, or evidence required to make a reliable claim.
 
-Resolve conflicts in this order: explicit user intent, target-repository contracts and verified runtime constraints, then the narrowest primary owner above. If a material conflict remains, omit the disputed claim from confirmed findings and record it under **Needs verification** with the missing evidence. Never manufacture consensus, run an unsafe command, or modify the project to make the audit pass.
+Resolve conflicts in this order: explicit user intent, target-repository contracts and verified runtime constraints, then the narrowest primary owner above. If a material conflict remains, omit the disputed claim from confirmed findings and record it under **Needs verification** with the missing evidence. If a requested action would cross this skill's read-only boundary, stop before mutation and require a separately authorized implementation workflow. Never manufacture consensus, run an unsafe command, or modify the project to make the audit pass.
 
 ## Invocation
 

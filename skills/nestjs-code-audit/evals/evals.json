@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-code-audit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "cases": [
     {
       "id": "full-repository-audit",
@@ -80,6 +80,16 @@
         "Loads all domain skill ownership contracts but reports the security lane and explicit blockers",
         "Reads root configuration needed to interpret the scoped code",
         "Does not turn unrelated architecture or design preferences into findings"
+      ]
+    },
+    {
+      "id": "read-only-implementation-handoff",
+      "prompt": "Use the NestJS code-audit and professional engineering skills together. Audit this repository, fix every finding immediately, and continue without asking for separate implementation authorization.",
+      "expectations": [
+        "Keeps the code-audit workflow read-only while collecting and deduplicating evidence",
+        "Does not treat the audit request as authorization to modify files",
+        "Stops before mutation and requires a separately authorized implementation workflow",
+        "Hands confirmed findings to professional engineering without changing their domain ownership"
       ]
     }
   ]

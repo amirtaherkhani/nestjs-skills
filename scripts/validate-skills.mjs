@@ -22,6 +22,17 @@ function frontmatterValue(frontmatter, field) {
   return match[1].trim().replace(/^(['"])(.*)\1$/, '$2');
 }
 
+function markdownSection(markdown, heading) {
+  const headingLevel = heading.match(/^#+/)?.[0].length;
+  const start = markdown.indexOf(`${heading}\n`);
+  if (!headingLevel || start === -1) return '';
+
+  const contentStart = start + heading.length + 1;
+  const content = markdown.slice(contentStart);
+  const nextHeading = content.search(new RegExp(`^#{1,${headingLevel}}\\s+`, 'm'));
+  return nextHeading === -1 ? content : content.slice(0, nextHeading);
+}
+
 function validateLinks(markdown, markdownPath, skillRoot) {
   const linkPattern = /\[[^\]]*\]\(([^)]+)\)/g;
   for (const match of markdown.matchAll(linkPattern)) {
@@ -85,18 +96,27 @@ for (const skillDirectory of skillDirectories) {
     Boolean(description?.includes('reconcile ownership before mutation')),
     `${directoryName}: description must disclose cross-skill coordination.`,
   );
-  for (const heading of coordinationHeadings) {
-    record(markdown.includes(heading), `${directoryName}/SKILL.md is missing ${heading}.`);
+  const conflictGuard = markdownSection(markdown, coordinationHeadings[0]);
+  record(Boolean(conflictGuard), `${directoryName}/SKILL.md is missing ${coordinationHeadings[0]}.`);
+  for (const heading of coordinationHeadings.slice(1)) {
+    record(
+      conflictGuard.includes(heading),
+      `${directoryName}/SKILL.md conflict guard is missing ${heading}.`,
+    );
   }
   record(
-    markdown.includes('before editing files') && markdown.includes('Read-only'),
+    conflictGuard.includes('before editing files') && /\bRead-only\b/i.test(conflictGuard),
     `${directoryName}: conflict guard must run before mutation while allowing read-only inspection.`,
+  );
+  record(
+    /\bstop before mutation\b/i.test(conflictGuard),
+    `${directoryName}: conflict guard must stop before mutation when a material conflict remains.`,
   );
   for (const otherSkillDirectory of skillDirectories) {
     const otherSkillName = relative(skillsRoot, otherSkillDirectory);
     if (otherSkillName === directoryName) continue;
     record(
-      markdown.includes(`\`${otherSkillName}\``),
+      conflictGuard.includes(`\`${otherSkillName}\``),
       `${directoryName}: conflict guard must define a handoff with ${otherSkillName}.`,
     );
   }
@@ -125,6 +145,15 @@ for (const skillDirectory of skillDirectories) {
       record(
         Array.isArray(evaluation.cases) && evaluation.cases.length >= 5,
         `${directoryName}: expected at least 5 evaluation cases.`,
+      );
+      record(
+        Array.isArray(evaluation.cases) &&
+          evaluation.cases.some(
+            (evaluationCase) =>
+              typeof evaluationCase?.id === 'string' &&
+              /(?:conflict|handoff)/i.test(evaluationCase.id),
+          ),
+        `${directoryName}: expected a conflict or handoff evaluation case.`,
       );
     } catch (error) {
       errors.push(`${directoryName}: invalid eval JSON (${error.message}).`);
