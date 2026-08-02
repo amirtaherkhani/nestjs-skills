@@ -40,6 +40,10 @@ npx skills add amirtaherkhani/nestjs-agent-skills --list
 
 Use `--global` for a user-level installation. Without it, the CLI installs into the project location expected by each selected agent.
 
+::: tip Current release
+[`v2.1.0`](https://github.com/amirtaherkhani/nestjs-agent-skills/releases/tag/v2.1.0) includes all seven skills and introduces `nestjs-feature-audit`.
+:::
+
 ::: warning Version 2 migration
 `professional-software-engineering` was renamed to `nestjs-professional-software-engineering`, and `git-commit-pr-message` was renamed to `nestjs-git-commit-pr-message`. Reinstall the renamed skills and update explicit commands.
 :::
@@ -142,6 +146,8 @@ For Codex compatibility, copy [`integrations/codex/prompts/audit_feature.md`](ht
 ```
 
 Bare `/audit_feature` is client-specific and works only when the host routes it to `nestjs-feature-audit`.
+
+Continue with the [Feature Audit workflow guide](./feature-audit) for the roadmap gate, branch-safety rules, evidence categories, and exact report contract.
 
 ## Give the agent evidence
 

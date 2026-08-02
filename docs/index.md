@@ -38,8 +38,8 @@ features:
   - icon: 🗺
     title: Feature Audit
     details: Compare one feature at a stable branch revision with its documented roadmap and expose gaps, legacy paths, bugs, and blockers.
-    link: /reference/feature-audit/
-    linkText: Validate a roadmap
+    link: /guide/feature-audit
+    linkText: Use the workflow
   - icon: ◫
     title: Architecture & Principles
     details: Choose the smallest architecture that protects real boundaries—from cohesive feature modules to deliberate distributed services.
@@ -72,7 +72,7 @@ Use Professional Engineering to coordinate implementation and Git Publication af
     <strong>Implementation</strong>
     <span>Project inspection, idiomatic syntax, safe syntactic sugar, focused changes, tests, and verification.</span>
   </a>
-  <a class="route-card" href="./reference/feature-audit/">
+  <a class="route-card" href="./guide/feature-audit">
     <strong>Roadmap status</strong>
     <span>Target revision, roadmap gate, traceability, implementation gaps, legacy paths, bugs, and blockers.</span>
   </a>

@@ -44,7 +44,7 @@ Lead with `nestjs-feature-audit` when the user asks to validate one feature agai
 
 It safely prepares a stable target revision, stops when no clear roadmap exists, traces every roadmap item to code and verification evidence, and returns the required implemented, missing, legacy, bug, and blocker categories. It does not implement findings.
 
-[Open the full skill →](/reference/feature-audit/)
+[Use the Feature Audit workflow →](./feature-audit) · [Open the full skill →](/reference/feature-audit/)
 
 ## Architecture & Principles
 

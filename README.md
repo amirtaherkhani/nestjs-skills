@@ -9,6 +9,7 @@
   <p>
     <a href="https://github.com/amirtaherkhani/nestjs-agent-skills/actions/workflows/validate.yml"><img src="https://github.com/amirtaherkhani/nestjs-agent-skills/actions/workflows/validate.yml/badge.svg" alt="Validation status"></a>
     <a href="https://github.com/amirtaherkhani/nestjs-agent-skills/actions/workflows/deploy-pages.yml"><img src="https://github.com/amirtaherkhani/nestjs-agent-skills/actions/workflows/deploy-pages.yml/badge.svg" alt="Documentation deployment status"></a>
+    <a href="https://github.com/amirtaherkhani/nestjs-agent-skills/releases/latest"><img src="https://img.shields.io/github/v/release/amirtaherkhani/nestjs-agent-skills?display_name=tag&amp;style=flat-square&amp;label=release" alt="Latest release"></a>
     <a href="https://agentskills.io/specification"><img src="https://img.shields.io/badge/Agent_Skills-open_standard-E0234E?style=flat-square" alt="Agent Skills open standard"></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2F855A?style=flat-square" alt="MIT License"></a>
   </p>
@@ -19,6 +20,8 @@
     <a href="https://amirtaherkhani.github.io/nestjs-agent-skills/guide/getting-started">Getting started</a>
     ·
     <a href="https://amirtaherkhani.github.io/nestjs-agent-skills/guide/choose-a-skill">Choose a skill</a>
+    ·
+    <a href="https://amirtaherkhani.github.io/nestjs-agent-skills/guide/feature-audit">Feature audit</a>
     ·
     <a href="https://amirtaherkhani.github.io/nestjs-agent-skills/rules/">Rules reference</a>
   </p>
@@ -37,6 +40,9 @@
 This repository contains **seven focused Agent Skills** for Claude Code, Codex, and other clients that support the [Agent Skills open standard](https://agentskills.io/specification).
 
 Each skill owns a distinct engineering decision. Together they help an agent inspect the actual repository, choose the smallest safe design, resolve conflicting instructions before mutation, and verify outcomes with evidence.
+
+> [!TIP]
+> **Latest release:** [`v2.1.0`](https://github.com/amirtaherkhani/nestjs-agent-skills/releases/tag/v2.1.0) adds `nestjs-feature-audit` for branch-specific roadmap validation with a hard documentation gate and evidence-backed status reporting.
 
 > [!IMPORTANT]
 > **Version 2 migration:** `professional-software-engineering` is now `nestjs-professional-software-engineering`, and `git-commit-pr-message` is now `nestjs-git-commit-pr-message`. Reinstall the renamed skills and update explicit commands so every skill in this NestJS collection uses the `nestjs-` prefix.
@@ -147,6 +153,8 @@ $nestjs-feature-audit "payments" --branch "release/2026-q3"
 ```
 
 Feature Audit safely prepares the target branch, requires a clear roadmap in `docs/` or supplied by the user, and stops before code comparison when that roadmap is missing. It never treats audit findings as authorization to implement fixes.
+
+See the [Feature Audit workflow guide](https://amirtaherkhani.github.io/nestjs-agent-skills/guide/feature-audit) for roadmap eligibility, branch-safety behavior, evidence classification, and the required report format.
 
 The optional Codex compatibility prompt accepts `/prompts:audit_feature payments on branch release/2026-q3`. Bare `/audit_feature` is supported only when the active client already routes that command to the installed skill.
 

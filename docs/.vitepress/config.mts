@@ -67,7 +67,8 @@ export default defineConfig({
         text: 'Start here',
         items: [
           { text: 'Getting started', link: '/guide/getting-started' },
-          { text: 'Choose a skill', link: '/guide/choose-a-skill' }
+          { text: 'Choose a skill', link: '/guide/choose-a-skill' },
+          { text: 'Feature Audit workflow', link: '/guide/feature-audit' }
         ]
       },
       {
