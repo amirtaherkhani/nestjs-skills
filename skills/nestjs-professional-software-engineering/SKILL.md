@@ -4,7 +4,7 @@ description: 'Designs, implements, refactors, debugs, reviews, and verifies prod
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '2.0.0'
+  version: '2.0.1'
 ---
 
 # Professional Software Engineering
@@ -30,6 +30,8 @@ This skill leads the end-to-end engineering workflow: inspection, requirements c
 It yields NestJS capability, module, dependency, data, transaction, and service boundaries to `nestjs-architecture-principles`. It yields object responsibilities, invariants, SOLID trade-offs, and pattern selection to `nestjs-oop-design-patterns`. It yields Nest lifecycle mechanisms, transport/error contracts, security controls, runtime behavior, performance, reliability, and delivery to `nestjs-features-performance`.
 
 For a read-only NestJS repository review, `nestjs-code-audit` owns evidence collection, finding deduplication, severity, and report assembly. This skill may provide general implementation-quality context but must not turn an audit into a mutation.
+
+For a roadmap-scoped feature review, `nestjs-feature-audit` owns branch preparation, roadmap traceability, classification, and report assembly. This skill may implement confirmed gaps only after the user separately authorizes that scope.
 
 After implementation is verified, `nestjs-git-commit-pr-message` owns intentional staging, commit and PR wording, push safety, changelog routing, and publication follow-up. It does not decide whether incomplete code is ready.
 

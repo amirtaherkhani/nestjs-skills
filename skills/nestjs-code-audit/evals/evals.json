@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-code-audit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "cases": [
     {
       "id": "full-repository-audit",
@@ -90,6 +90,16 @@
         "Does not treat the audit request as authorization to modify files",
         "Stops before mutation and requires a separately authorized implementation workflow",
         "Hands confirmed findings to professional engineering without changing their domain ownership"
+      ]
+    },
+    {
+      "id": "feature-audit-handoff",
+      "prompt": "Use code audit and feature audit together to validate payments against its documented roadmap on release/payments.",
+      "expectations": [
+        "Lets nestjs-feature-audit own the branch, roadmap gate, traceability matrix, and four-section status report",
+        "Uses nestjs-code-audit only for verified quality evidence and domain-finding ownership",
+        "Does not replace roadmap coverage with a whole-repository severity report",
+        "Preserves the non-implementing audit boundary"
       ]
     }
   ]

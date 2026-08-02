@@ -5,7 +5,7 @@ license: MIT
 compatibility: 'Requires Node.js 20+, a NestJS repository, and the sibling nestjs-architecture-principles, nestjs-oop-design-patterns, and nestjs-features-performance skills.'
 metadata:
   author: amirtaherkhani
-  version: '1.0.1'
+  version: '1.0.2'
 ---
 
 # NestJS Code Audit
@@ -33,6 +33,8 @@ This skill owns audit orchestration, safe evidence collection, cross-skill dedup
 Syntax, TypeScript, and lint failures are reported as toolchain facts. A single issue that crosses lanes keeps one primary owner and lists the other skills as supporting context.
 
 `nestjs-professional-software-engineering` may provide general code-quality context, but this skill's read-only boundary controls the audit. Fixes require a separately authorized implementation workflow.
+
+`nestjs-feature-audit` owns branch-specific roadmap traceability and the feature-status report. This skill may supply verified quality findings, but it does not replace the roadmap gate or reorganize the report around whole-repository severity.
 
 `nestjs-git-commit-pr-message` may publish an explicitly requested audit report, but it cannot use publication as authorization to fix findings or mutate the audited project.
 

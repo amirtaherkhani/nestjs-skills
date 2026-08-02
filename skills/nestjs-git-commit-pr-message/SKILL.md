@@ -5,7 +5,7 @@ license: MIT
 compatibility: 'Requires Git. GitHub operations require an authenticated GitHub connector or gh CLI; Jira linking requires a user-provided ticket key.'
 metadata:
   author: amirtaherkhani
-  version: '2.0.0'
+  version: '2.0.1'
   source: 'https://github.com/psenger/ai-agent-skills/tree/main/skills/git-commit-pr-message'
 ---
 
@@ -32,6 +32,8 @@ This skill owns publication mechanics: intentional staging, sensitive-content ch
 `nestjs-professional-software-engineering` owns whether the implementation is correct and ready to publish. `nestjs-architecture-principles`, `nestjs-oop-design-patterns`, and `nestjs-features-performance` retain ownership of architecture, object design, runtime, security, testing, delivery design, and production-readiness decisions. This skill records those results; it does not rewrite them to obtain a cleaner commit.
 
 `nestjs-code-audit` remains read-only. An audit report may be committed only when the user explicitly asks to publish that report; this skill never turns audit findings into code changes.
+
+`nestjs-feature-audit` owns roadmap comparison and remains non-implementing after safe branch preparation. This skill may publish its report only when explicitly requested and cannot classify or fix roadmap gaps to simplify publication.
 
 ### Conflict test
 

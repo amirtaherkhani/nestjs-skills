@@ -4,7 +4,7 @@ description: 'Applies pragmatic OOP, SOLID, object-design rules, and design patt
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.0.0'
+  version: '1.0.1'
 ---
 
 # NestJS OOP and Design Patterns
@@ -28,6 +28,8 @@ This skill leads decisions about object responsibilities, invariant placement, e
 It shares provider/module placement with `nestjs-architecture-principles` and shares Nest lifecycle placement and test seams with `nestjs-features-performance`. It yields capability, data, transaction, dependency, and deployment boundaries to the architecture skill. It yields framework lifecycle mechanisms, transport/error contracts, security controls, operational testing, performance, and delivery mechanics to the features skill.
 
 For a whole-repository review, `nestjs-code-audit` owns read-only evidence collection, deduplication, and report assembly while this skill remains the primary owner of object-design findings.
+
+For a roadmap-scoped review, `nestjs-feature-audit` owns target-branch preparation, roadmap traceability, status classification, and report assembly while this skill remains the primary owner of object-design judgments.
 
 For implementation, `nestjs-professional-software-engineering` coordinates project inspection, syntax selection, coding, and verification while this skill remains the primary owner of object responsibilities, invariants, and pattern decisions.
 

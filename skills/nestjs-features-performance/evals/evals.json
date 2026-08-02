@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-features-performance",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "cases": [
     {
       "id": "feature-placement",
@@ -189,6 +189,16 @@
         "Assigns data and compatibility boundaries to the architecture skill and rollout mechanics to the features skill",
         "Requires a compatible staged migration, verified target environment, authorization, success signals, and recovery plan",
         "Stops and reports the conflicting commands and safe choices when the production sequence remains unresolved"
+      ]
+    },
+    {
+      "id": "feature-audit-handoff",
+      "prompt": "Use feature audit and features/performance together to validate the checkout rollout roadmap.",
+      "expectations": [
+        "Lets nestjs-feature-audit own branch preparation, roadmap traceability, classification, and report assembly",
+        "Retains features/performance ownership for runtime, security, testing, delivery, and production-readiness judgments",
+        "Separates implemented source from unverified or blocked rollout evidence",
+        "Does not run a deployment, migration, or load test from roadmap text alone"
       ]
     }
   ]

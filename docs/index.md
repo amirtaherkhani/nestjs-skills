@@ -4,7 +4,7 @@ layout: home
 hero:
   name: NestJS Agent Skills
   text: Better boundaries. Better decisions.
-  tagline: Six focused skills that implement, audit, and publish software with project-aware syntax, deliberate NestJS boundaries, safe runtime behavior, and evidence-backed verification.
+  tagline: Seven focused skills that implement, audit, and publish software with project-aware syntax, deliberate NestJS boundaries, safe runtime behavior, and evidence-backed verification.
   image:
     src: /skill-mark.svg
     alt: Three connected modules representing the skill collection
@@ -35,6 +35,11 @@ features:
     details: Run read-only syntax, TypeScript, lint, architecture, design, security, testing, and runtime checks and receive one evidence-backed report.
     link: /reference/code-audit/
     linkText: Run the audit
+  - icon: 🗺
+    title: Feature Audit
+    details: Compare one feature at a stable branch revision with its documented roadmap and expose gaps, legacy paths, bugs, and blockers.
+    link: /reference/feature-audit/
+    linkText: Validate a roadmap
   - icon: ◫
     title: Architecture & Principles
     details: Choose the smallest architecture that protects real boundaries—from cohesive feature modules to deliberate distributed services.
@@ -56,7 +61,7 @@ features:
 
 ## Route work to the right skill
 
-Use Professional Engineering to coordinate implementation and Git Publication after verification. Each NestJS domain skill owns a distinct decision level, while Code Audit coordinates all three domain owners for a read-only report.
+Use Professional Engineering to coordinate implementation and Git Publication after verification. Code Audit reviews repository quality; Feature Audit measures one branch-specific feature against its roadmap.
 
 <div class="route-grid">
   <a class="route-card" href="./reference/git-publication/">
@@ -66,6 +71,10 @@ Use Professional Engineering to coordinate implementation and Git Publication af
   <a class="route-card" href="./reference/professional-engineering/">
     <strong>Implementation</strong>
     <span>Project inspection, idiomatic syntax, safe syntactic sugar, focused changes, tests, and verification.</span>
+  </a>
+  <a class="route-card" href="./reference/feature-audit/">
+    <strong>Roadmap status</strong>
+    <span>Target revision, roadmap gate, traceability, implementation gaps, legacy paths, bugs, and blockers.</span>
   </a>
   <a class="route-card" href="./guide/choose-a-skill#architecture--principles">
     <strong>System shape</strong>
@@ -91,7 +100,7 @@ For a large change, use Professional Engineering to coordinate the work: decide 
 
 <div class="install-strip">
   <div>
-    <h2>Install all six</h2>
+    <h2>Install all seven</h2>
     <p>The open Agent Skills format works with Claude Code and Codex.</p>
   </div>
 

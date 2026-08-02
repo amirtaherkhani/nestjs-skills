@@ -60,7 +60,7 @@ const skillDirectories = existsSync(skillsRoot)
       .sort()
   : [];
 
-record(skillDirectories.length === 6, `Expected 6 skills, found ${skillDirectories.length}.`);
+record(skillDirectories.length === 7, `Expected 7 skills, found ${skillDirectories.length}.`);
 
 for (const skillDirectory of skillDirectories) {
   const directoryName = relative(skillsRoot, skillDirectory);
@@ -172,6 +172,47 @@ for (const skillDirectory of skillDirectories) {
     record(
       existsSync(join(skillDirectory, 'agents', 'openai.yaml')),
       `${directoryName} is missing Codex UI metadata.`,
+    );
+  }
+
+  if (directoryName === 'nestjs-feature-audit') {
+    const requiredFeatureAuditReferences = [
+      'roadmap-discovery.md',
+      'evidence-classification.md',
+      'report-template.md',
+    ];
+    for (const referenceFile of requiredFeatureAuditReferences) {
+      record(
+        existsSync(join(skillDirectory, 'references', referenceFile)),
+        `${directoryName} is missing references/${referenceFile}.`,
+      );
+    }
+    record(
+      /If no clear roadmap exists in `docs\/`, stop before implementation comparison/.test(markdown),
+      `${directoryName} must enforce the docs roadmap hard stop.`,
+    );
+    const featureReportTemplate = join(skillDirectory, 'references', 'report-template.md');
+    if (existsSync(featureReportTemplate)) {
+      const template = readFileSync(featureReportTemplate, 'utf8');
+      const categoryOffsets = [
+        '## ✅ Implemented',
+        '## ❌ Missing/Not Implemented',
+        '## ⚠️ Legacy Code',
+        '## 🛑 Bugs & Blockers',
+      ].map((heading) => template.indexOf(heading));
+      record(
+        categoryOffsets.every((offset) => offset >= 0) &&
+          categoryOffsets.every((offset, index) => index === 0 || offset > categoryOffsets[index - 1]),
+        `${directoryName} report template must preserve the four required categories in order.`,
+      );
+    }
+    record(
+      existsSync(join(skillDirectory, 'agents', 'openai.yaml')),
+      `${directoryName} is missing Codex UI metadata.`,
+    );
+    record(
+      existsSync(join(repositoryRoot, 'integrations', 'codex', 'prompts', 'audit_feature.md')),
+      `${directoryName} is missing the optional Codex compatibility prompt.`,
     );
   }
 

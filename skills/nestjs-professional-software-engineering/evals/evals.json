@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-professional-software-engineering",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "cases": [
     {
       "id": "new-feature-existing-conventions",
@@ -80,6 +80,16 @@
         "Completes and presents the evidence-backed audit first",
         "Requires a separately authorized implementation scope for fixes",
         "Preserves finding ownership and does not turn heuristic candidates into edits"
+      ]
+    },
+    {
+      "id": "feature-audit-handoff",
+      "prompt": "Audit the payments feature against its roadmap, then have professional engineering fix every missing item without a separate implementation request.",
+      "expectations": [
+        "Lets nestjs-feature-audit complete the branch-specific roadmap comparison first",
+        "Does not treat the feature-audit request as authorization to edit files",
+        "Requires a separately authorized and scoped implementation request",
+        "Keeps confirmed roadmap gaps distinct from unverified candidates"
       ]
     }
   ]

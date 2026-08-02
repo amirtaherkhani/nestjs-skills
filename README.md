@@ -34,7 +34,7 @@
 
 ## ✨ What is this?
 
-This repository contains **six focused Agent Skills** for Claude Code, Codex, and other clients that support the [Agent Skills open standard](https://agentskills.io/specification).
+This repository contains **seven focused Agent Skills** for Claude Code, Codex, and other clients that support the [Agent Skills open standard](https://agentskills.io/specification).
 
 Each skill owns a distinct engineering decision. Together they help an agent inspect the actual repository, choose the smallest safe design, resolve conflicting instructions before mutation, and verify outcomes with evidence.
 
@@ -53,6 +53,7 @@ Each skill owns a distinct engineering decision. Together they help an agent ins
 | 🧩 | [`nestjs-oop-design-patterns`](skills/nestjs-oop-design-patterns/SKILL.md) | Improve responsibilities, invariants, SOLID trade-offs, test seams, or pattern selection without over-engineering |
 | ⚡ | [`nestjs-features-performance`](skills/nestjs-features-performance/SKILL.md) | Design errors, security, APIs, queues, caching, observability, delivery, performance, reliability, or scale |
 | 🔎 | [`nestjs-code-audit`](skills/nestjs-code-audit/SKILL.md) | Audit a whole NestJS repository for static and semantic problems without modifying it |
+| 🗺️ | [`nestjs-feature-audit`](skills/nestjs-feature-audit/SKILL.md) | Compare one feature on a named branch with its documented roadmap and classify implementation, gaps, legacy code, bugs, and blockers |
 | 🚀 | [`nestjs-git-commit-pr-message`](skills/nestjs-git-commit-pr-message/SKILL.md) | Stage NestJS changes intentionally, scan for secrets, write commits and PRs, push safely, and follow CI or GitHub Pages |
 
 ### How they fit together
@@ -61,6 +62,7 @@ Each skill owns a distinct engineering decision. Together they help an agent ins
 | --- | --- |
 | Build or change a feature | 🧠 Professional Engineering → 🏗️ Architecture → 🧩 Object Design → ⚡ Runtime → 🚀 Git Publication |
 | Review the whole codebase | 🔎 Code Audit → one deduplicated, evidence-backed report |
+| Validate a feature roadmap | 🗺️ Feature Audit → one branch-specific roadmap traceability report |
 | Diagnose a focused problem | Start with the narrowest owning skill; add another only when the decision crosses boundaries |
 
 Every skill carries a **pre-execution conflict guard**. If two active skills want incompatible file changes, commands, contracts, or architecture, the agent assigns one owner or stops for clarification before mutation.
@@ -104,6 +106,7 @@ The descriptions support automatic activation. You can also invoke a skill expli
 | --- | --- |
 | `/nestjs-professional-software-engineering` | `$nestjs-professional-software-engineering` |
 | `/nestjs-code-audit` | `$nestjs-code-audit` |
+| `/nestjs-feature-audit` | `$nestjs-feature-audit` |
 | `/nestjs-git-commit-pr-message` | `$nestjs-git-commit-pr-message` |
 
 ### 3. Ask naturally
@@ -119,6 +122,7 @@ project. Preserve the public API and run the relevant checks.
 | --- | --- |
 | Implement | “Implement this feature using the clearest syntax supported by the current project, then verify it.” |
 | Audit | “Audit this NestJS repository and return one evidence-backed report without changing code.” |
+| Validate roadmap | “Audit the payments feature on `main` against its documented roadmap and report implemented, missing, legacy, bug, and blocker items.” |
 | Architecture | “Review this module graph and recommend the smallest change that removes the cycle.” |
 | Refactor | “Refactor this provider using SOLID and a pattern only if the observed variation justifies it.” |
 | Performance | “Trace this slow endpoint, identify the limiting resource, and propose a measured fix.” |
@@ -134,6 +138,17 @@ $nestjs-code-audit security src/auth
 ```
 
 The audit collector uses installed local ESLint and `tsc --noEmit` checks only. It does not install dependencies, fix files, run migrations, build images, or deploy.
+
+### Feature roadmap audit
+
+```text
+$nestjs-feature-audit "payments"
+$nestjs-feature-audit "payments" --branch "release/2026-q3"
+```
+
+Feature Audit safely prepares the target branch, requires a clear roadmap in `docs/` or supplied by the user, and stops before code comparison when that roadmap is missing. It never treats audit findings as authorization to implement fixes.
+
+The optional Codex compatibility prompt accepts `/prompts:audit_feature payments on branch release/2026-q3`. Bare `/audit_feature` is supported only when the active client already routes that command to the installed skill.
 
 > [!TIP]
 > Codex CLI/IDE can also expose the deprecated custom-prompt alias `/prompts:nestjs-audit`. See the [audit guide](https://amirtaherkhani.github.io/nestjs-agent-skills/guide/getting-started#audit-a-current-project). Bare custom commands such as `/Nestjs audit` are not supported.

@@ -1,6 +1,6 @@
 ---
 title: Choose a Skill
-description: Route implementation, Git publication, three NestJS domain skills, and code audits without conflicting ownership.
+description: Route implementation, Git publication, three NestJS domain skills, and feature or code audits without conflicting ownership.
 ---
 
 <p class="doc-kicker">Guide · Skill routing</p>
@@ -9,7 +9,7 @@ description: Route implementation, Git publication, three NestJS domain skills, 
 
 <p class="doc-lede">Use Professional Engineering to coordinate implementation, domain skills for NestJS decisions, and Git Publication only after the intended change is verified.</p>
 
-For a whole-codebase quality review, start with `nestjs-code-audit`. It coordinates all three decision owners, runs safe static checks, deduplicates findings, and returns one report without modifying the target project.
+For a whole-codebase quality review, start with `nestjs-code-audit`. For one feature measured against a documented roadmap on a named branch, start with `nestjs-feature-audit`.
 
 ## Routing matrix
 
@@ -17,6 +17,7 @@ For a whole-codebase quality review, start with `nestjs-code-audit`. It coordina
 | --- | --- | --- |
 | Git and GitHub publication | Git Commit and Pull Request | What belongs in the commit? Is staged content safe? Should this push create a PR or trigger Pages? |
 | Implementation workflow and syntax | Professional Software Engineering | What syntax does this project and version support? Is syntactic sugar clearer and safe? How should the change be tested? |
+| Feature roadmap status | Feature Audit | Which roadmap items are implemented, missing, legacy, broken, or blocked on this branch? |
 | System shape and ownership | Architecture & Principles | Which module owns this write? Is a port justified? Does this capability need its own deployment boundary? |
 | Object responsibilities and collaboration | OOP & Design Patterns | Where should this invariant live? Is Strategy warranted? How do we refactor this god provider safely? |
 | Framework lifecycle and runtime behavior | Features & Performance | Is this a guard or interceptor? Why is the endpoint slow? How should jobs retry and drain? |
@@ -36,6 +37,14 @@ Lead with `nestjs-professional-software-engineering` for NestJS feature implemen
 It inspects the actual project and installed versions, compares explicit and convenient forms, and uses syntactic sugar only when it reduces real ceremony without hiding meaningful behavior. NestJS-specific architecture, object-design, and runtime decisions remain owned by the domain skills below.
 
 [Open the full skill →](/reference/professional-engineering/)
+
+## Feature Audit
+
+Lead with `nestjs-feature-audit` when the user asks to validate one feature against a roadmap, acceptance plan, migration plan, or phased delivery target on `main` or another branch.
+
+It safely prepares a stable target revision, stops when no clear roadmap exists, traces every roadmap item to code and verification evidence, and returns the required implemented, missing, legacy, bug, and blocker categories. It does not implement findings.
+
+[Open the full skill →](/reference/feature-audit/)
 
 ## Architecture & Principles
 
@@ -69,6 +78,7 @@ Overlap is resolved by decision ownership, so the skills reinforce rather than o
 | --- | --- | --- |
 | Git publication | Git Publication owns staging, commits, pushes, PRs, changelog/release text, CI, and Pages follow-up | Professional Engineering and domain skills determine whether implementation is ready |
 | Implementation and syntax | Professional Engineering coordinates inspection, syntax selection, coding, testing, and reporting | Domain skills own architecture, object design, and NestJS runtime decisions |
+| Feature roadmap status | Feature Audit owns target revision, roadmap gate, traceability, classification, and the feature report | Code Audit may supply quality findings; domain skills retain technical judgment; implementation requires a separate request |
 | Dependency injection | Architecture defines boundaries and composition; OOP defines collaborator contracts | Features evaluates provider scope and runtime cost |
 | Interceptors and guards | Features owns lifecycle placement | OOP reviews cohesion; Architecture prevents business policy from leaking into transport adapters |
 | Events | Architecture owns capability and transaction boundaries | OOP models completed facts; Features owns delivery, retries, idempotency, and backpressure |
