@@ -17,7 +17,7 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#e0234e' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'NestJS Agent Skills' }],
-    ['meta', { property: 'og:description', content: 'Six focused Agent Skills for Claude Code and Codex.' }]
+    ['meta', { property: 'og:description', content: 'Seven focused Agent Skills for Claude Code and Codex.' }]
   ],
   markdown: {
     lineNumbers: true,
@@ -54,6 +54,7 @@ export default defineConfig({
           { text: 'Git Publication', link: '/reference/git-publication/' },
           { text: 'Professional Engineering', link: '/reference/professional-engineering/' },
           { text: 'Code Audit', link: '/reference/code-audit/' },
+          { text: 'Feature Audit', link: '/reference/feature-audit/' },
           { text: 'Architecture & Principles', link: '/reference/architecture/' },
           { text: 'OOP & Design Patterns', link: '/reference/oop-patterns/' },
           { text: 'Features & Performance', link: '/reference/features-performance/' }
@@ -125,6 +126,16 @@ export default defineConfig({
           { text: 'Read-only check policy', link: '/reference/code-audit/references/check-policy' },
           { text: 'Finding ownership', link: '/reference/code-audit/references/finding-ownership' },
           { text: 'Report template', link: '/reference/code-audit/references/report-template' }
+        ]
+      },
+      {
+        text: 'Feature Audit',
+        collapsed: false,
+        items: [
+          { text: 'Skill instructions', link: '/reference/feature-audit/' },
+          { text: 'Roadmap discovery', link: '/reference/feature-audit/references/roadmap-discovery' },
+          { text: 'Evidence classification', link: '/reference/feature-audit/references/evidence-classification' },
+          { text: 'Report template', link: '/reference/feature-audit/references/report-template' }
         ]
       },
       {

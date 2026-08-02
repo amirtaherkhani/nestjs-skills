@@ -7,7 +7,7 @@ description: Install and use the NestJS Agent Skills with Claude Code and Codex.
 
 # Getting started
 
-<p class="doc-lede">Install six focused Agent Skills for project-aware implementation, safe Git publication, NestJS architecture and runtime decisions, and read-only codebase audits.</p>
+<p class="doc-lede">Install seven focused Agent Skills for project-aware implementation, safe Git publication, NestJS architecture and runtime decisions, and evidence-backed feature or codebase audits.</p>
 
 ## Requirements
 
@@ -67,6 +67,7 @@ The other skill names are:
 - `nestjs-git-commit-pr-message`
 - `nestjs-architecture-principles`
 - `nestjs-code-audit`
+- `nestjs-feature-audit`
 - `nestjs-oop-design-patterns`
 - `nestjs-features-performance`
 
@@ -121,6 +122,26 @@ Codex does not support arbitrary bare custom commands such as `/Nestjs audit`. C
 /prompts:nestjs-audit
 /prompts:nestjs-audit full src/payments
 ```
+
+## Audit one feature against its roadmap
+
+Use Feature Audit when the expected state is a documented roadmap rather than general code quality:
+
+```text
+$nestjs-feature-audit "payments"
+$nestjs-feature-audit "payments" --branch "release/2026-q3"
+```
+
+The skill defaults to `main`, preserves dirty work, allows only fast-forward branch updates, and stops before comparison when `docs/` has no clear feature roadmap. A roadmap supplied by the user can satisfy that gate.
+
+For Codex compatibility, copy [`integrations/codex/prompts/audit_feature.md`](https://github.com/amirtaherkhani/nestjs-agent-skills/blob/main/integrations/codex/prompts/audit_feature.md) into `~/.codex/prompts/`, then use:
+
+```text
+/prompts:audit_feature payments
+/prompts:audit_feature payments on branch release/2026-q3
+```
+
+Bare `/audit_feature` is client-specific and works only when the host routes it to `nestjs-feature-audit`.
 
 ## Give the agent evidence
 

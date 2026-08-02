@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-git-commit-pr-message",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "cases": [
     {
       "id": "commit-only",
@@ -90,6 +90,16 @@
         "Explains the history-rewrite impact",
         "Requires separate explicit confirmation before any force-with-lease operation",
         "Never uses an unguarded force push"
+      ]
+    },
+    {
+      "id": "feature-audit-handoff",
+      "prompt": "Run the feature audit, commit its report, push it, and fix roadmap gaps along the way.",
+      "expectations": [
+        "Lets nestjs-feature-audit own roadmap comparison and classification",
+        "Publishes the report only when the report artifact is explicitly in scope",
+        "Does not fix gaps or treat audit branch preparation as publication authorization",
+        "Requires a separate verified implementation workflow before publishing fixes"
       ]
     }
   ]

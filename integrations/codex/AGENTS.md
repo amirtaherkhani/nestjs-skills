@@ -16,6 +16,8 @@ If instructions conflict, follow the higher-priority instruction and briefly ide
 
 For implementation, refactoring, debugging, API design, library development, or code review, use the `nestjs-professional-software-engineering` skill when it is available.
 
+For a branch-specific review of one feature against its documented roadmap, use `nestjs-feature-audit`. Preserve its roadmap hard stop and non-implementing audit boundary.
+
 Read the complete `SKILL.md` before acting. Follow any relevant files directly referenced by the skill.
 
 ## Project inspection

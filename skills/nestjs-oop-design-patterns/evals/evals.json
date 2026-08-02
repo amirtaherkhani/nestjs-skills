@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-oop-design-patterns",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "cases": [
     {
       "id": "god-service",
@@ -74,6 +74,16 @@
         "Assigns invariant and failure-type cohesion to the OOP skill and HTTP mapping to the features skill",
         "Keeps the reusable policy transport-neutral and maps its failure at the NestJS boundary",
         "Reports affected files and asks for clarification if a public contract prevents that handoff"
+      ]
+    },
+    {
+      "id": "feature-audit-handoff",
+      "prompt": "Use feature audit and OOP together to validate the refunds roadmap on main.",
+      "expectations": [
+        "Lets nestjs-feature-audit own branch preparation, roadmap traceability, classification, and report assembly",
+        "Retains OOP ownership for responsibility, invariant, collaborator, and pattern judgments",
+        "Requires evidence beyond file length or pattern preference",
+        "Does not refactor code during the audit"
       ]
     }
   ]

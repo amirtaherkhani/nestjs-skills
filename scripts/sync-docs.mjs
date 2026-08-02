@@ -25,6 +25,12 @@ const skills = [
     description: 'Read-only whole-repository checks, cross-skill finding ownership, and evidence-backed code-quality reports.'
   },
   {
+    directory: 'nestjs-feature-audit',
+    route: 'feature-audit',
+    title: 'Feature Audit',
+    description: 'Branch-specific roadmap validation, feature traceability, gap analysis, and blocker reporting.'
+  },
+  {
     directory: 'nestjs-architecture-principles',
     route: 'architecture',
     title: 'Architecture & Principles',

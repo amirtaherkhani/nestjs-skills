@@ -15,6 +15,8 @@ When `.claude/skills/nestjs-professional-software-engineering/SKILL.md` exists a
 3. Apply project-specific instructions from this file.
 4. Treat the user's explicit requirements as authoritative.
 
+When `.claude/skills/nestjs-feature-audit/SKILL.md` exists and the user asks to compare one feature with a roadmap, load it before acting. Keep its target-revision evidence stable, stop when no clear roadmap exists, and do not implement findings without a separate request.
+
 ## Understand the project first
 
 Before editing:

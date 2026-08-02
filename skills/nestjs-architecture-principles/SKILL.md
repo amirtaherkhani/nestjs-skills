@@ -4,7 +4,7 @@ description: 'Designs and reviews NestJS application architecture using cohesive
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.1.0'
+  version: '1.1.1'
 ---
 
 # NestJS Architecture and Principles
@@ -28,6 +28,8 @@ This skill leads decisions about architecture level, capability and module bound
 It shares provider/module placement with `nestjs-oop-design-patterns` and shares transport, deployment, and scaling boundaries with `nestjs-features-performance`. It yields local object responsibilities and pattern selection to the OOP skill, and yields NestJS lifecycle mechanisms, error/transport mapping, security controls, testing strategy, runtime performance, and delivery operations to the features skill.
 
 For a whole-repository review, `nestjs-code-audit` owns read-only evidence collection, deduplication, and report assembly while this skill remains the primary owner of architecture findings.
+
+For a roadmap-scoped review, `nestjs-feature-audit` owns target-branch preparation, roadmap traceability, status classification, and report assembly while this skill remains the primary owner of architecture judgments.
 
 For implementation, `nestjs-professional-software-engineering` coordinates project inspection, syntax selection, coding, and verification while this skill remains the primary owner of NestJS architecture boundaries.
 
