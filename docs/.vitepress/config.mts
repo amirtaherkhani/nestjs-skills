@@ -13,11 +13,22 @@ export default defineConfig({
     hostname: 'https://amirtaherkhani.github.io/nestjs-skills/'
   },
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/nestjs-skills/skill-mark.svg' }],
-    ['meta', { name: 'theme-color', content: '#e0234e' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/nestjs-skills/brand/nestjs-skills-icon-dark.svg' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/nestjs-skills/brand/nestjs-skills-icon-dark-32.png' }],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/nestjs-skills/brand/nestjs-skills-icon-dark-180.png' }],
+    ['meta', { name: 'theme-color', media: '(prefers-color-scheme: light)', content: '#FCFBF9' }],
+    ['meta', { name: 'theme-color', media: '(prefers-color-scheme: dark)', content: '#111013' }],
     ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:url', content: 'https://amirtaherkhani.github.io/nestjs-skills/' }],
     ['meta', { property: 'og:title', content: 'NestJS Skills' }],
-    ['meta', { property: 'og:description', content: 'Seven focused Agent Skills for Claude Code and Codex.' }]
+    ['meta', { property: 'og:description', content: 'Seven focused Agent Skills for Claude Code and Codex.' }],
+    ['meta', { property: 'og:image', content: 'https://amirtaherkhani.github.io/nestjs-skills/brand/social-cover.png' }],
+    ['meta', { property: 'og:image:width', content: '1200' }],
+    ['meta', { property: 'og:image:height', content: '630' }],
+    ['meta', { property: 'og:image:alt', content: 'NestJS Skills red N and charcoal S logo with title and description.' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:image', content: 'https://amirtaherkhani.github.io/nestjs-skills/brand/social-cover.png' }],
+    ['meta', { name: 'twitter:image:alt', content: 'NestJS Skills red N and charcoal S logo with title and description.' }]
   ],
   markdown: {
     lineNumbers: true,
@@ -27,7 +38,11 @@ export default defineConfig({
     }
   },
   themeConfig: {
-    logo: '/skill-mark.svg',
+    logo: {
+      light: '/brand/nestjs-skills-icon-light.svg',
+      dark: '/brand/nestjs-skills-icon-dark.svg',
+      alt: 'NestJS Skills'
+    },
     siteTitle: 'NestJS Skills',
     search: {
       provider: 'local',

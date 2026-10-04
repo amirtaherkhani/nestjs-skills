@@ -1,5 +1,9 @@
 <div align="center">
-  <img src="docs/public/skill-mark.svg" width="112" alt="NestJS Skills logo">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/public/brand/nestjs-skills-mark-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="docs/public/brand/nestjs-skills-mark-light.svg">
+    <img src="docs/public/brand/nestjs-skills-mark-light.svg" width="112" alt="NestJS Skills">
+  </picture>
 
   <h1>NestJS Skills</h1>
 

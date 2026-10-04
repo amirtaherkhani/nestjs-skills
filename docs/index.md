@@ -6,8 +6,9 @@ hero:
   text: Better boundaries. Better decisions.
   tagline: Seven focused skills that implement, audit, and publish software with project-aware syntax, deliberate NestJS boundaries, safe runtime behavior, and evidence-backed verification.
   image:
-    src: /skill-mark.svg
-    alt: Three connected modules representing the skill collection
+    light: /brand/nestjs-skills-mark-light.svg
+    dark: /brand/nestjs-skills-mark-dark.svg
+    alt: NestJS Skills
   actions:
     - theme: brand
       text: Get started
