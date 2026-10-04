@@ -273,6 +273,13 @@ body {
   font-size: 20px;
 }
 
+.VPFeature .icon .fa-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: var(--vp-c-brand-1);
+}
+
 .VPFeature .title {
   font-size: 17px;
   letter-spacing: -0.02em;
