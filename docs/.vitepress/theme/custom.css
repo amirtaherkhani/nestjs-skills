@@ -234,8 +234,12 @@ body {
 }
 
 .VPHomeHero .image-src {
-  width: min(290px, 70vw);
-  height: min(290px, 70vw);
+  width: min(360px, 80vw);
+  max-width: min(360px, 80vw) !important;
+  max-height: none !important;
+  height: auto;
+  aspect-ratio: 395 / 242;
+  object-fit: contain;
 }
 
 .VPButton {
