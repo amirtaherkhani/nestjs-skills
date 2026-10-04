@@ -1,0 +1,25 @@
+DEV post visual assets
+
+Files:
+- dev-cover.png (1600 × 672)
+- dev-explore-project.png (1400 × 360)
+
+The NestJS Skills monogram uses the project-approved geometry and colors:
+N #D91F4E; S #1C1B1E.
+
+The small NestJS framework mark is reproduced unchanged from
+https://nestjs.com/logo.svg and appears as a contextual marker beside “For
+NestJS developers.” NestJS Skills is an independent community project; the
+mark is not part of a new combined logo and no NestJS affiliation or
+endorsement is implied. The inspected source materials did not identify a
+general logo-reuse license; the framework mark remains NestJS branding.
+
+Typography is Manrope from the Google Fonts Manrope project:
+https://github.com/google/fonts/tree/main/ofl/manrope
+Font license: SIL Open Font License 1.1:
+https://github.com/google/fonts/blob/main/ofl/manrope/OFL.txt
+The final artwork uses outlined glyphs; no font file is embedded or included
+with these PNGs.
+
+Both images display the project documentation URL:
+https://amirtaherkhani.github.io/nestjs-skills/
