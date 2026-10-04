@@ -13,9 +13,12 @@ export default defineConfig({
     hostname: 'https://amirtaherkhani.github.io/nestjs-skills/'
   },
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/nestjs-skills/brand/nestjs-skills-icon-dark.svg' }],
-    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/nestjs-skills/brand/nestjs-skills-icon-dark-32.png' }],
-    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/nestjs-skills/brand/nestjs-skills-icon-dark-180.png' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', media: '(prefers-color-scheme: light)', href: '/nestjs-skills/brand/nestjs-skills-icon-light.svg' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', media: '(prefers-color-scheme: dark)', href: '/nestjs-skills/brand/nestjs-skills-icon-dark.svg' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', media: '(prefers-color-scheme: light)', href: '/nestjs-skills/brand/nestjs-skills-icon-light-32.png' }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', media: '(prefers-color-scheme: dark)', href: '/nestjs-skills/brand/nestjs-skills-icon-dark-32.png' }],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', media: '(prefers-color-scheme: light)', href: '/nestjs-skills/brand/nestjs-skills-icon-light-180.png' }],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', media: '(prefers-color-scheme: dark)', href: '/nestjs-skills/brand/nestjs-skills-icon-dark-180.png' }],
     ['meta', { name: 'theme-color', media: '(prefers-color-scheme: light)', content: '#FCFBF9' }],
     ['meta', { name: 'theme-color', media: '(prefers-color-scheme: dark)', content: '#111013' }],
     ['meta', { property: 'og:type', content: 'website' }],
