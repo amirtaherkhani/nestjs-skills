@@ -4,7 +4,7 @@ description: 'Designs, implements, refactors, debugs, reviews, and verifies prod
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '2.0.1'
+  version: '2.0.2'
 ---
 
 # Professional Software Engineering
@@ -13,41 +13,28 @@ Produce correct, idiomatic, secure, readable, maintainable, testable, and extens
 
 ## Pre-execution conflict guard
 
-Run this guard after identifying every applicable skill and before editing files, installing packages, generating code, running migrations, or executing any other state-changing command. Read-only inspection is allowed while resolving the guard.
+Before editing files or running any state-changing command, reconcile active instructions. Read-only inspection may continue.
 
 ### Prerequisites
 
-- Read the nearest repository instructions, contributor documentation, relevant source, tests, configuration, dependency manifests, and every active skill's coordination contract.
-- Identify the language, framework, runtime, package manager, versions, project structure, current behavior, public contracts, and available verification commands.
-- Search the repository for established patterns before proposing a new abstraction or syntax.
-- Inspect the working tree and preserve unrelated changes.
-- When syntax or library behavior is uncertain or version-sensitive, consult installed types/source and official version-appropriate documentation. Never invent an API.
+Inspect repository instructions, working tree, manifests, installed versions, source/callers, contracts, conventions, and checks. Preserve unrelated changes. Verify uncertain or version-sensitive syntax against installed types/source and official documentation; never invent an API. Read other active skills only when their decisions overlap.
 
 ### Primary ownership
 
-This skill leads the end-to-end engineering workflow: inspection, requirements clarification, minimal design, idiomatic implementation, developer-facing API ergonomics, testing, verification, and concise handoff. It owns the decision to use language or framework syntax and syntactic sugar only after repository and compatibility constraints are known.
+This skill owns project inspection, minimal implementation, version-compatible syntax, API ergonomics, testing, and verification. When installed and relevant, coordinate with:
 
-It yields NestJS capability, module, dependency, data, transaction, and service boundaries to `nestjs-architecture-principles`. It yields object responsibilities, invariants, SOLID trade-offs, and pattern selection to `nestjs-oop-design-patterns`. It yields Nest lifecycle mechanisms, transport/error contracts, security controls, runtime behavior, performance, reliability, and delivery to `nestjs-features-performance`.
+- `nestjs-architecture-principles`: module, dependency, data, and transaction boundaries.
+- `nestjs-oop-design-patterns`: object responsibilities, invariants, and patterns.
+- `nestjs-features-performance`: lifecycle, API/security, testing, runtime, and performance.
+- `nestjs-code-audit`: read-only quality evidence and deduplicated reporting.
+- `nestjs-feature-audit`: branch-specific roadmap gate and feature reporting.
+- `nestjs-git-commit-pr-message`: authorized Git publication and CI follow-up.
 
-For a read-only NestJS repository review, `nestjs-code-audit` owns evidence collection, finding deduplication, severity, and report assembly. This skill may provide general implementation-quality context but must not turn an audit into a mutation.
-
-For a roadmap-scoped feature review, `nestjs-feature-audit` owns branch preparation, roadmap traceability, classification, and report assembly. This skill may implement confirmed gaps only after the user separately authorizes that scope.
-
-After implementation is verified, `nestjs-git-commit-pr-message` owns intentional staging, commit and PR wording, push safety, changelog routing, and publication follow-up. It does not decide whether incomplete code is ready.
+These are decision boundaries, not required dependencies. Retain domain ownership when handing work to another workflow.
 
 ### Conflict test
 
-A conflict exists when active skills would:
-
-- change the same file, public contract, or architecture decision toward incompatible outcomes;
-- require commands whose order, environment, permissions, or side effects cannot all be satisfied;
-- select syntax that conflicts with the installed language/framework version or repository conventions;
-- hide behavior that another skill requires to remain explicit; or
-- proceed while another skill's prerequisite, repository constraint, or required evidence is unmet.
-
-Resolve conflicts in this order: explicit user intent, repository contracts and verified runtime constraints, then the narrowest primary owner above. Assign one lead skill per disputed decision. This skill coordinates the implementation but does not overrule a domain owner.
-
-If a material conflict remains, stop before mutation and ask for the smallest missing decision. Report the conflicting instructions, affected files or commands, and safe alternatives. Do not implement parallel APIs merely to satisfy incompatible advice.
+Check for incompatible edits/contracts, command order or side effects, competing owners, and unmet version, evidence, authorization, or repository prerequisites. Resolve using explicit user intent, repository contracts, verified runtime constraints, then the narrowest owner. Assign one lead per decision; do not create parallel designs to satisfy incompatible advice. If a material conflict remains, stop before mutation and ask for the smallest missing decision. Audits stay read-only; explicit fix authorization applies in a distinct implementation phase.
 
 ## Required workflow
 

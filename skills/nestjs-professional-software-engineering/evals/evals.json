@@ -74,22 +74,23 @@
     },
     {
       "id": "read-only-audit-conflict",
-      "prompt": "Use the code-audit and professional engineering skills to review this repository, then automatically fix every finding.",
+      "prompt": "Use code-audit and professional engineering to review this repository. Report findings only; do not fix them.",
       "expectations": [
-        "Recognizes that nestjs-code-audit is read-only and does not mutate during that workflow",
-        "Completes and presents the evidence-backed audit first",
-        "Requires a separately authorized implementation scope for fixes",
-        "Preserves finding ownership and does not turn heuristic candidates into edits"
+        "Keeps code-audit read-only",
+        "Reports verified findings and needs-verification separately",
+        "Does not edit files without a fix request",
+        "Preserves finding ownership"
       ]
     },
     {
       "id": "feature-audit-handoff",
-      "prompt": "Audit the payments feature against its roadmap, then have professional engineering fix every missing item without a separate implementation request.",
+      "prompt": "Audit payments against its documented roadmap, then implement the confirmed missing items within that roadmap. I authorize both phases; do not add unrelated features.",
       "expectations": [
-        "Lets nestjs-feature-audit complete the branch-specific roadmap comparison first",
-        "Does not treat the feature-audit request as authorization to edit files",
-        "Requires a separately authorized and scoped implementation request",
-        "Keeps confirmed roadmap gaps distinct from unverified candidates"
+        "Completes feature-audit branch preparation, roadmap gate, and comparison first",
+        "Proceeds with authorized confirmed in-scope gaps in a separate implementation phase",
+        "Does not ask for redundant approval; asks for material scope, risk, or permission changes",
+        "Stops before implementation comparison if no clear roadmap exists",
+        "Keeps unverified candidates out of implementation"
       ]
     }
   ]

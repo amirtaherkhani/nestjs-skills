@@ -143,6 +143,8 @@ $nestjs-code-audit static
 $nestjs-code-audit security src/auth
 ```
 
+Code Audit includes its own [semantic review guide](skills/nestjs-code-audit/references/semantic-review.md); sibling skills are optional.
+
 The audit collector uses installed local ESLint and `tsc --noEmit` checks only. It does not install dependencies, fix files, run migrations, build images, or deploy.
 
 ### Feature roadmap audit
@@ -160,6 +162,12 @@ The optional Codex compatibility prompt accepts `/prompts:audit_feature payments
 
 > [!TIP]
 > Codex CLI/IDE can also expose the deprecated custom-prompt alias `/prompts:nestjs-audit`. See the [audit guide](https://amirtaherkhani.github.io/nestjs-agent-skills/guide/getting-started#audit-a-current-project). Bare custom commands such as `/Nestjs audit` are not supported.
+
+## 🧪 Runnable examples and evaluation
+
+[Three executable NestJS examples](examples/README.md) cover strict boolean query parsing, a module-boundary invariant bypass with a healthy control, and a measured local HTTP optimization. Run `npm run test:fixtures` to verify the intentionally failing inputs and corrected behavior.
+
+The [opt-in evaluation harness](evals/README.md) prepares three tasks × two skill versions in fresh contexts, records actual CLI usage when available, and keeps fixture correctness separate from agent impact. Ordinary CI never invokes a model. [Initial pilot status](evals/reports/2026-10-04-pilot.md): the CLI was blocked before a model turn, so no agent-quality or token-savings claim is established.
 
 ## 🤝 Optional project rules
 
@@ -213,6 +221,8 @@ Run individual workflows:
 ```bash
 npm run validate
 npm run test:audit
+npm run test:fixtures
+npm run test:eval
 npm run docs:build
 npm run docs:dev
 npm run preview:gif

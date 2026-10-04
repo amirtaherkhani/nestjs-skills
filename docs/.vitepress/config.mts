@@ -68,7 +68,8 @@ export default defineConfig({
         items: [
           { text: 'Getting started', link: '/guide/getting-started' },
           { text: 'Choose a skill', link: '/guide/choose-a-skill' },
-          { text: 'Feature Audit workflow', link: '/guide/feature-audit' }
+          { text: 'Feature Audit workflow', link: '/guide/feature-audit' },
+          { text: 'Examples and evaluation', link: '/guide/examples-and-evaluation' }
         ]
       },
       {
@@ -124,6 +125,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'Skill instructions', link: '/reference/code-audit/' },
+          { text: 'Standalone semantic review', link: '/reference/code-audit/references/semantic-review' },
           { text: 'Read-only check policy', link: '/reference/code-audit/references/check-policy' },
           { text: 'Finding ownership', link: '/reference/code-audit/references/finding-ownership' },
           { text: 'Report template', link: '/reference/code-audit/references/report-template' }

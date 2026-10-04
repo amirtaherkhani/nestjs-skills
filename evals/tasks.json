@@ -1,0 +1,20 @@
+[
+  {
+    "id": "boolean-query",
+    "skill": "nestjs-professional-software-engineering",
+    "mode": "fix",
+    "prompt": "Fix the items endpoint. The includeArchived query must default to false, accept exactly true/false strings, and reject other supplied values with HTTP 400. Preserve the response shape. Implement the smallest correction and verify behavior over HTTP. You may edit src/ only; run existing checks and temporary commands without changing tests or configuration."
+  },
+  {
+    "id": "module-boundary",
+    "skill": "nestjs-code-audit",
+    "mode": "audit",
+    "prompt": "Audit this small NestJS application for module-boundary and invariant problems. Read the code and its consumers, return one evidence-backed report with file/line evidence, and identify healthy controls too. Do not edit any files. The wallet balance must never become negative; valid positive charges should still work. Distinguish confirmed defects from style preferences."
+  },
+  {
+    "id": "slow-api",
+    "skill": "nestjs-features-performance",
+    "mode": "fix",
+    "prompt": "The fixed quote endpoint is slow. Diagnose and improve it using the controlled local catalog benchmark provided here. The ordered four-item response, one-request freshness, one-second upstream timeout, and non-leaking 502 failure contract must remain unchanged. At most two upstream requests may be in flight. Measure calls and elapsed time before and after; make no production performance claims. You may edit src/ only; do not change tests, benchmark, dependencies, or configuration."
+  }
+]

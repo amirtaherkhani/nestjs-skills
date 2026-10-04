@@ -105,7 +105,7 @@ for (const skillDirectory of skillDirectories) {
     );
   }
   record(
-    conflictGuard.includes('before editing files') && /\bRead-only\b/i.test(conflictGuard),
+    /before editing files/i.test(conflictGuard) && /\bRead-only\b/i.test(conflictGuard),
     `${directoryName}: conflict guard must run before mutation while allowing read-only inspection.`,
   );
   record(

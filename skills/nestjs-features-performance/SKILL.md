@@ -4,7 +4,7 @@ description: 'Selects and implements NestJS runtime features, error and API cont
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.3.1'
+  version: '1.3.2'
 ---
 
 # NestJS Features, Scaling, and Performance
@@ -13,40 +13,28 @@ Choose the NestJS primitive whose lifecycle matches the concern. Diagnose the li
 
 ## Pre-execution conflict guard
 
-Run this guard after identifying every applicable skill and before editing files, installing packages, generating code, changing infrastructure, or executing any other state-changing command. Read-only repository and runtime inspection is allowed while resolving the guard.
+Before editing files or running any state-changing command, reconcile active instructions. Read-only inspection may continue.
 
 ### Prerequisites
 
-- Read repository instructions, installed versions, bootstrap and transport setup, deployment configuration, relevant tests, and the coordination contract of every other active skill.
-- Identify the requested runtime outcome, public and operational contracts, baseline evidence, and the files, environments, and commands likely to be affected.
-- Do not choose a framework feature, dependency, optimization, or deployment action before its lifecycle and evidence requirements are known.
+Inspect repository instructions, installed versions, bootstrap/transport and deployment configuration, tests, operational contracts, and baseline measurements. Preserve user changes; establish lifecycle, evidence, environment, and authorization before choosing an optimization or delivery action. Read other active skills only when their decisions overlap.
 
 ### Primary ownership
 
-This skill leads decisions about NestJS lifecycle features, API and transport contracts, error mapping, security controls, test-layer selection, queues and schedulers, runtime reliability, observability, performance evidence, CI/CD, containers, Kubernetes, rollout, and recovery.
+This skill owns Nest lifecycle, API/error/security contracts, test layers, performance evidence, reliability, observability, and runtime delivery. When installed and relevant, coordinate with:
 
-It shares provider/module placement with `nestjs-architecture-principles` and shares collaborator design with `nestjs-oop-design-patterns`. It yields capability, data/write, transaction, dependency, and service boundaries to the architecture skill. It yields local object responsibilities, invariant placement, and design-pattern selection to the OOP skill.
+- `nestjs-architecture-principles`: module, dependency, data, and transaction boundaries.
+- `nestjs-oop-design-patterns`: object responsibilities, invariants, and patterns.
+- `nestjs-professional-software-engineering`: implementation and verification.
+- `nestjs-code-audit`: read-only quality evidence and deduplicated reporting.
+- `nestjs-feature-audit`: branch-specific roadmap gate and feature reporting.
+- `nestjs-git-commit-pr-message`: authorized Git publication and CI follow-up.
 
-For a whole-repository review, `nestjs-code-audit` owns read-only evidence collection, deduplication, and report assembly while this skill remains the primary owner of runtime, security, testing, performance, and delivery findings.
-
-For a roadmap-scoped review, `nestjs-feature-audit` owns target-branch preparation, roadmap traceability, status classification, and report assembly while this skill remains the primary owner of runtime, security, testing, performance, and delivery judgments.
-
-For implementation, `nestjs-professional-software-engineering` coordinates project inspection, syntax selection, coding, and verification while this skill remains the primary owner of NestJS runtime, security, reliability, performance, and delivery decisions.
-
-`nestjs-git-commit-pr-message` owns Git publication and CI/Pages follow-up after verification; this skill retains runtime deployment and production-readiness ownership.
+These are decision boundaries, not required dependencies. Retain domain ownership when handing work to another workflow.
 
 ### Conflict test
 
-A conflict exists when active skills would:
-
-- change the same file or contract toward incompatible outcomes;
-- require commands whose order, target environment, or side effects cannot both be satisfied;
-- claim primary ownership of the same decision without a clear handoff; or
-- proceed without another skill's prerequisite, repository constraint, runtime evidence, or required authorization.
-
-Resolve conflicts in this order: explicit user intent, repository contracts and verified runtime constraints, then the narrowest primary owner above. Assign one lead skill per disputed decision; other skills may advise only within that boundary. For example, the architecture skill owns transaction and partial-effect boundaries, while this skill owns HTTP, message, and worker failure mapping plus retry behavior around them.
-
-If the conflict remains material, stop before mutation and ask for clarification. Report the conflicting instructions, affected files, commands, or environments, why both cannot be satisfied, and the smallest safe choices. Never deploy, migrate, install, or optimize merely because one skill requests it when another applicable constraint makes that action unsafe.
+Check for incompatible edits/contracts, command order or side effects, competing owners, and unmet version, evidence, authorization, or repository prerequisites. Resolve using explicit user intent, repository contracts, verified runtime constraints, then the narrowest owner. Assign one lead per decision; do not create parallel designs to satisfy incompatible advice. If a material conflict remains, stop before mutation and ask for the smallest missing decision. Audits stay read-only; explicit fix authorization applies in a distinct implementation phase.
 
 ## Establish the runtime baseline
 

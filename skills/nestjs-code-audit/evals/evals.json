@@ -77,19 +77,19 @@
       "prompt": "/prompts:nestjs-audit security src/auth",
       "expectations": [
         "Interprets security as the action and src/auth as the repository-relative scope",
-        "Loads all domain skill ownership contracts but reports the security lane and explicit blockers",
+        "Uses bundled security/runtime semantic guidance; loads available specialist guidance only for relevant cross-lane blockers",
         "Reads root configuration needed to interpret the scoped code",
         "Does not turn unrelated architecture or design preferences into findings"
       ]
     },
     {
       "id": "read-only-implementation-handoff",
-      "prompt": "Use the NestJS code-audit and professional engineering skills together. Audit this repository, fix every finding immediately, and continue without asking for separate implementation authorization.",
+      "prompt": "Use the NestJS code-audit and professional engineering skills together. First audit the repository read-only, then fix the confirmed in-scope correctness defects. I authorize that implementation phase; do not change unrelated behavior.",
       "expectations": [
-        "Keeps the code-audit workflow read-only while collecting and deduplicating evidence",
-        "Does not treat the audit request as authorization to modify files",
-        "Stops before mutation and requires a separately authorized implementation workflow",
-        "Hands confirmed findings to professional engineering without changing their domain ownership"
+        "Completes the read-only evidence collection and deduplicated report before any fix",
+        "Treats the explicit fix request as authorization for a distinct scoped implementation phase",
+        "Does not ask for the same approval again; asks only if scope, risk, or permissions materially change",
+        "Does not implement unverified candidates or treat audit findings alone as authorization"
       ]
     },
     {
@@ -100,6 +100,17 @@
         "Uses nestjs-code-audit only for verified quality evidence and domain-finding ownership",
         "Does not replace roadmap coverage with a whole-repository severity report",
         "Preserves the non-implementing audit boundary"
+      ]
+    },
+    {
+      "id": "standalone-semantic-audit",
+      "prompt": "Only nestjs-code-audit is installed. Review a NestJS module where a consumer writes through an exported storage provider; another consumer uses the public operation. Audit only.",
+      "expectations": [
+        "Uses the bundled semantic-review reference without requiring sibling installation",
+        "Traces consumers and verifies which invariant is bypassed before confirming a finding",
+        "Does not flag an export without concrete harmful usage",
+        "Keeps one root-cause finding and recognizes the healthy public-operation consumer",
+        "Does not edit the target or install dependencies"
       ]
     }
   ]

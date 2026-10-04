@@ -2,7 +2,7 @@
   "name": "nestjs-agent-skills",
   "version": "2.1.0",
   "private": true,
-  "description": "Seven cross-compatible Agent Skills for NestJS implementation, safe Git publication, feature and code audits, architecture, OOP, APIs, security, testing, DevOps, scaling, and performance.",
+  "description": "Seven Agent Skills for NestJS implementation, architecture, OOP, code and feature audits, runtime performance, and safe Git publication.",
   "license": "MIT",
   "scripts": {
     "docs:sync": "node scripts/sync-docs.mjs",
@@ -12,12 +12,27 @@
     "preview:gif": "node scripts/generate-readme-preview.mjs",
     "validate": "node scripts/validate-skills.mjs",
     "test:audit": "node scripts/test-code-audit.mjs",
-    "test": "npm run validate && npm run test:audit && npm run docs:build"
+    "test": "npm run validate && npm run test:audit && npm run test:fixtures && npm run test:eval && npm run docs:build",
+    "test:fixtures": "node scripts/test-fixtures.mjs",
+    "test:eval": "node --test evals/tests/*.test.mjs",
+    "eval:pilot": "node evals/run.mjs pilot",
+    "eval:grade": "node evals/run.mjs grade",
+    "eval:summary": "node evals/run.mjs summarize"
   },
   "engines": {
     "node": ">=20"
   },
   "devDependencies": {
+    "@nestjs/common": "11.2.7",
+    "@nestjs/core": "11.2.7",
+    "@nestjs/platform-express": "11.2.7",
+    "@types/node": "22.20.5",
+    "@types/supertest": "6.0.3",
+    "ajv": "8.20.0",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2",
+    "supertest": "7.3.1",
+    "typescript": "5.9.3",
     "vitepress": "1.6.4",
     "vue": "3.5.40"
   }

@@ -1,0 +1,228 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NestJS skill evaluation run",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task",
+    "variant",
+    "model",
+    "reasoning_effort",
+    "skill_hash",
+    "fixture_hash",
+    "duration_ms",
+    "commands",
+    "status",
+    "tokens",
+    "behavior"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "task": {
+      "enum": [
+        "boolean-query",
+        "module-boundary",
+        "slow-api"
+      ]
+    },
+    "variant": {
+      "enum": [
+        "baseline",
+        "candidate"
+      ]
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reasoning_effort": {
+      "type": "string",
+      "minLength": 1
+    },
+    "skill_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "fixture_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "duration_ms": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "commands": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "status": {
+      "enum": [
+        "completed",
+        "failed",
+        "not-run"
+      ]
+    },
+    "tokens": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "input",
+        "cached",
+        "output",
+        "reasoning",
+        "unavailable_reason"
+      ],
+      "properties": {
+        "input": {
+          "$ref": "#/definitions/count"
+        },
+        "cached": {
+          "$ref": "#/definitions/count"
+        },
+        "output": {
+          "$ref": "#/definitions/count"
+        },
+        "reasoning": {
+          "$ref": "#/definitions/count"
+        },
+        "unavailable_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "behavior": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pass",
+        "seeded_defects_found",
+        "false_findings",
+        "duplicates",
+        "unauthorized_edits",
+        "test_changes",
+        "unsupported_claims",
+        "reason"
+      ],
+      "properties": {
+        "pass": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "seeded_defects_found": {
+          "$ref": "#/definitions/count"
+        },
+        "false_findings": {
+          "$ref": "#/definitions/count"
+        },
+        "duplicates": {
+          "$ref": "#/definitions/count"
+        },
+        "unauthorized_edits": {
+          "$ref": "#/definitions/count"
+        },
+        "test_changes": {
+          "$ref": "#/definitions/count"
+        },
+        "unsupported_claims": {
+          "$ref": "#/definitions/count"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "definitions": {
+    "count": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "failed",
+              "not-run"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "behavior": {
+            "properties": {
+              "pass": {
+                "enum": [
+                  false,
+                  null
+                ]
+              }
+            },
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "behavior": {
+            "properties": {
+              "pass": {
+                "const": true
+              }
+            },
+            "type": "object"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "behavior": {
+            "properties": {
+              "seeded_defects_found": {
+                "const": 1
+              },
+              "false_findings": {
+                "const": 0
+              },
+              "duplicates": {
+                "const": 0
+              },
+              "unauthorized_edits": {
+                "const": 0
+              },
+              "test_changes": {
+                "const": 0
+              },
+              "unsupported_claims": {
+                "const": 0
+              }
+            },
+            "type": "object"
+          }
+        }
+      }
+    }
+  ]
+}

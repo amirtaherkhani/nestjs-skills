@@ -4,7 +4,7 @@ description: 'Designs and reviews NestJS application architecture using cohesive
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.1.1'
+  version: '1.1.2'
 ---
 
 # NestJS Architecture and Principles
@@ -13,40 +13,28 @@ Make architecture decisions from the repository's actual constraints. Prefer the
 
 ## Pre-execution conflict guard
 
-Run this guard after identifying every applicable skill and before editing files, installing packages, generating code, running migrations, or executing any other state-changing command. Read-only inspection is allowed while resolving the guard.
+Before editing files or running any state-changing command, reconcile active instructions. Read-only inspection may continue.
 
 ### Prerequisites
 
-- Read the target repository's instructions, manifests, module/bootstrap files, tests, and the coordination contract of every other active skill.
-- Identify the requested outcome, public contracts that must remain stable, and the files and commands likely to be affected.
-- Do not assume that activating this skill gives it ownership of every NestJS decision.
+Inspect repository instructions, installed versions, module wiring, contracts, callers, tests, and affected commands. Preserve user changes. Read other active skills only when their decisions overlap.
 
 ### Primary ownership
 
-This skill leads decisions about architecture level, capability and module boundaries, dependency direction, public module APIs, data/write ownership, transaction boundaries, ports, and service extraction.
+This skill owns architecture level, capability/module APIs, dependency direction, data/write and transaction boundaries, ports, and service extraction. When installed and relevant, coordinate with:
 
-It shares provider/module placement with `nestjs-oop-design-patterns` and shares transport, deployment, and scaling boundaries with `nestjs-features-performance`. It yields local object responsibilities and pattern selection to the OOP skill, and yields NestJS lifecycle mechanisms, error/transport mapping, security controls, testing strategy, runtime performance, and delivery operations to the features skill.
+- `nestjs-oop-design-patterns`: object responsibilities, invariants, and patterns.
+- `nestjs-features-performance`: lifecycle, API/security, testing, runtime, and performance.
+- `nestjs-professional-software-engineering`: implementation and verification.
+- `nestjs-code-audit`: read-only quality evidence and deduplicated reporting.
+- `nestjs-feature-audit`: branch-specific roadmap gate and feature reporting.
+- `nestjs-git-commit-pr-message`: authorized Git publication and CI follow-up.
 
-For a whole-repository review, `nestjs-code-audit` owns read-only evidence collection, deduplication, and report assembly while this skill remains the primary owner of architecture findings.
-
-For a roadmap-scoped review, `nestjs-feature-audit` owns target-branch preparation, roadmap traceability, status classification, and report assembly while this skill remains the primary owner of architecture judgments.
-
-For implementation, `nestjs-professional-software-engineering` coordinates project inspection, syntax selection, coding, and verification while this skill remains the primary owner of NestJS architecture boundaries.
-
-`nestjs-git-commit-pr-message` may publish the verified change but does not alter architecture decisions to simplify Git history or release text.
+These are decision boundaries, not required dependencies. Retain domain ownership when handing work to another workflow.
 
 ### Conflict test
 
-A conflict exists when active skills would:
-
-- change the same file or contract toward incompatible outcomes;
-- require commands whose order, environment, or side effects cannot both be satisfied;
-- claim primary ownership of the same decision without a clear handoff; or
-- proceed while another skill's prerequisite or repository constraint is unmet.
-
-Resolve conflicts in this order: explicit user intent, repository contracts and verified runtime constraints, then the narrowest primary owner above. Assign one lead skill per disputed decision; other skills may advise only within that boundary. For example, this skill decides whether application code may depend on HTTP types, while the features skill decides how a transport filter maps the resulting failure.
-
-If the conflict remains material, stop before mutation and ask for clarification. Report the conflicting instructions, affected files or commands, why both cannot be satisfied, and the smallest safe choices. Never silently blend incompatible architectures or let whichever skill runs last overwrite the earlier decision.
+Check for incompatible edits/contracts, command order or side effects, competing owners, and unmet version, evidence, authorization, or repository prerequisites. Resolve using explicit user intent, repository contracts, verified runtime constraints, then the narrowest owner. Assign one lead per decision; do not create parallel designs to satisfy incompatible advice. If a material conflict remains, stop before mutation and ask for the smallest missing decision. Audits stay read-only; explicit fix authorization applies in a distinct implementation phase.
 
 ## Start with evidence
 

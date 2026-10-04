@@ -160,3 +160,14 @@ Community feedback directly influenced two safeguards:
 - Avoid context-heavy, always-loaded instructions; route agents to focused references on demand.
 - Treat architecture work as evidence-based decision-making with explicit constraints and trade-offs, not a generic request to "act senior."
 - Detect incompatible file ownership, commands, architecture rules, and prerequisites before execution; use one primary owner per disputed decision and stop for clarification when verified constraints do not resolve it.
+
+## Runnable examples and evaluation methodology
+
+Checked 2026-10-04. Examples and harness are original work; no external fixture code was copied.
+
+- [Agent Skills specification](https://agentskills.io/specification): standalone packaging and progressive disclosure.
+- [Evaluating skill output quality](https://agentskills.io/skill-creation/evaluating-skills): realistic prompts, expected outcomes, comparisons, and measured iteration.
+- [NestJS pipes](https://docs.nestjs.com/pipes): default values and explicit boolean parsing at transport boundaries.
+- [NestJS modules](https://docs.nestjs.com/modules): provider visibility and public module APIs.
+- [NestJS testing](https://docs.nestjs.com/fundamentals/testing): application-level and HTTP contract verification.
+- [Codex non-interactive mode](https://developers.openai.com/codex/noninteractive/): ephemeral runs and JSON event output. The installed CLI's `exec --help` is checked before a pilot; optional usage fields remain unknown when not emitted.

@@ -1,11 +1,11 @@
 ---
 name: nestjs-code-audit
-description: 'Audits an existing NestJS repository with the NestJS Architecture, OOP, and Features skills and returns one prioritized, evidence-backed code-quality report. Use when asked to check a whole NestJS codebase or a scoped folder for syntax, TypeScript, lint, module-boundary, dependency, design-smell, security, testing, performance, reliability, or production-readiness problems. This is a read-only review workflow: it does not fix code, install dependencies, run migrations, or deploy. When other skills also apply, reconcile ownership before mutation.'
+description: 'Audits an existing NestJS repository with bundled semantic guidance and optional specialist skills and returns one prioritized, evidence-backed code-quality report. Use when asked to check a whole NestJS codebase or a scoped folder for syntax, TypeScript, lint, module-boundary, dependency, design-smell, security, testing, performance, reliability, or production-readiness problems. This is a read-only review workflow: it does not fix code, install dependencies, run migrations, or deploy. When other skills also apply, reconcile ownership before mutation.'
 license: MIT
-compatibility: 'Requires Node.js 20+, a NestJS repository, and the sibling nestjs-architecture-principles, nestjs-oop-design-patterns, and nestjs-features-performance skills.'
+compatibility: 'Requires Node.js 20+ and a NestJS repository. Sibling skills are optional.'
 metadata:
   author: amirtaherkhani
-  version: '1.0.2'
+  version: '1.0.3'
 ---
 
 # NestJS Code Audit
@@ -14,40 +14,28 @@ Inspect the current user's NestJS project and return one consolidated report of 
 
 ## Pre-execution conflict guard
 
-Run this guard after identifying every applicable skill and before editing files, installing packages, generating code, running migrations, changing infrastructure, or executing any other state-changing command. Read-only repository inspection and non-mutating static checks are allowed while resolving the guard.
+Before editing files or running any state-changing command, reconcile active instructions. Read-only inspection may continue.
 
 ### Prerequisites
 
-- Confirm the target root, requested scope, repository instructions, git state, package manager, installed dependencies, NestJS/Node/TypeScript versions, and available quality scripts.
-- Load `nestjs-architecture-principles`, `nestjs-oop-design-patterns`, and `nestjs-features-performance` before classifying semantic findings.
-- Treat the target repository's explicit contracts and verified runtime constraints as evidence. Do not import this repository's preferred folder structure into an unrelated project.
+Confirm root, scope, instructions, Git state, installed versions/dependencies, and safe checks. Preserve user changes. Load [semantic-review.md](references/semantic-review.md) for the requested semantic lanes; sibling skills are optional deeper guidance, not installation prerequisites. Read other active skills only when their decisions overlap.
 
 ### Primary ownership
 
-This skill owns audit orchestration, safe evidence collection, cross-skill deduplication, severity normalization, and the final report. It does not override the domain owners:
+This skill owns read-only quality evidence, finding deduplication, severity, and report assembly. When installed and relevant, coordinate with:
 
-- `nestjs-architecture-principles` owns module, capability, dependency, data/write, transaction, and service-boundary findings.
-- `nestjs-oop-design-patterns` owns object responsibility, invariant placement, coupling, abstraction, and pattern/refactoring findings.
-- `nestjs-features-performance` owns NestJS lifecycle, API/error, security, testing, runtime, performance, reliability, and delivery findings.
+- `nestjs-architecture-principles`: module, dependency, data, and transaction boundaries.
+- `nestjs-oop-design-patterns`: object responsibilities, invariants, and patterns.
+- `nestjs-features-performance`: lifecycle, API/security, testing, runtime, and performance.
+- `nestjs-professional-software-engineering`: implementation and verification.
+- `nestjs-feature-audit`: branch-specific roadmap gate and feature reporting.
+- `nestjs-git-commit-pr-message`: authorized Git publication and CI follow-up.
 
-Syntax, TypeScript, and lint failures are reported as toolchain facts. A single issue that crosses lanes keeps one primary owner and lists the other skills as supporting context.
-
-`nestjs-professional-software-engineering` may provide general code-quality context, but this skill's read-only boundary controls the audit. Fixes require a separately authorized implementation workflow.
-
-`nestjs-feature-audit` owns branch-specific roadmap traceability and the feature-status report. This skill may supply verified quality findings, but it does not replace the roadmap gate or reorganize the report around whole-repository severity.
-
-`nestjs-git-commit-pr-message` may publish an explicitly requested audit report, but it cannot use publication as authorization to fix findings or mutate the audited project.
+These are decision boundaries, not required dependencies. Retain domain ownership when handing work to another workflow.
 
 ### Conflict test
 
-A conflict exists when active skills would:
-
-- classify the same evidence as incompatible problems or recommend incompatible outcomes;
-- require checks whose commands, environment assumptions, or side effects cannot all remain read-only;
-- claim primary ownership of the same finding without a clear handoff; or
-- proceed without dependencies, configuration, authorization, or evidence required to make a reliable claim.
-
-Resolve conflicts in this order: explicit user intent, target-repository contracts and verified runtime constraints, then the narrowest primary owner above. If a material conflict remains, omit the disputed claim from confirmed findings and record it under **Needs verification** with the missing evidence. If a requested action would cross this skill's read-only boundary, stop before mutation and require a separately authorized implementation workflow. Never manufacture consensus, run an unsafe command, or modify the project to make the audit pass.
+Resolve incompatible findings, unsafe checks, or missing evidence using explicit user intent, repository contracts, verified runtime constraints, then the narrowest owner. Keep one finding per root cause; unresolved claims belong in **Needs verification**. If an action crosses the audit boundary, stop before mutation. An audit alone never authorizes fixes; if the user explicitly requested both, finish the read-only audit first, then enter the authorized implementation phase without asking for the same approval again.
 
 ## Invocation
 
@@ -81,7 +69,7 @@ Codex does not provide arbitrary bare user-defined commands such as `/Nestjs aud
 | `security` | Input, identity/access, tenant isolation, secrets, output, abuse controls, and security tests |
 | `tests` | Test-layer choice, missing boundary coverage, flaky lifecycle risks, and safely runnable checks |
 
-An optional repository-relative scope follows the action. If the first argument is not a recognized action, treat all arguments as the scope/focus and use `full`. Focused actions still load the three domain skills to resolve ownership, but they report only the requested lane and explicit cross-lane blockers.
+An optional repository-relative scope follows the action. If the first argument is not a recognized action, treat all arguments as the scope/focus and use `full`. For focused actions, load only the relevant lanes in the bundled semantic reference, plus any available specialist guidance needed for a cross-lane blocker. Report only the requested scope.
 
 ## Audit workflow
 
@@ -157,7 +145,7 @@ Return Markdown in this order:
 4. **Confirmed findings:** ordered by severity and impact, using the evidence/remedy/validation contract above.
 5. **Needs verification:** candidate, missing evidence, and smallest next check.
 6. **Healthy patterns:** only notable controls actually verified in the repository.
-7. **Recommended order:** a short, dependency-aware remediation sequence; do not implement it unless the user separately asks.
+7. **Recommended order:** a short, dependency-aware remediation sequence; implement only in a distinct phase if the user explicitly authorized those fixes.
 
 If there are no confirmed problems, say so and list the checks that were not run. A clean lint result is not proof of sound architecture, security, runtime behavior, or test coverage.
 
@@ -165,6 +153,7 @@ If there are no confirmed problems, say so and list the checks that were not run
 
 | Need | Load |
 | --- | --- |
+| Review architecture, objects, runtime, and healthy controls without sibling skills | [semantic-review.md](references/semantic-review.md) |
 | Decide which checks may run without modifying the project | [check-policy.md](references/check-policy.md) |
 | Assign and deduplicate findings across the three domain skills | [finding-ownership.md](references/finding-ownership.md) |
 | Format the final audit consistently | [report-template.md](references/report-template.md) |

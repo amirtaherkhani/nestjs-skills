@@ -5,7 +5,7 @@ license: MIT
 compatibility: 'Requires Git, a NestJS repository, and a clear feature roadmap in docs/ or supplied by the user. Updating from a remote requires network access.'
 metadata:
   author: amirtaherkhani
-  version: '1.0.0'
+  version: '1.0.1'
 ---
 
 # NestJS Feature Audit
@@ -14,35 +14,28 @@ Compare one feature's documented target with the implementation at one identifie
 
 ## Pre-execution conflict guard
 
-Run this guard after identifying every applicable skill and before editing files, switching branches, fetching or fast-forwarding Git refs, installing packages, generating code, running migrations, or executing any other state-changing command. Read-only repository inspection is allowed while resolving the guard.
+Before editing files or running any state-changing command, reconcile active instructions. Read-only inspection may continue.
 
 ### Prerequisites
 
-- Require a non-empty feature name and resolve the target branch, defaulting to `main` only when the user did not name one.
-- Read repository instructions and inspect the current branch, worktree state, remotes, target branch, and available documentation before changing Git state.
-- Treat the roadmap as the expected-state authority. Treat code, tests, generated contracts, configuration, and safe runtime evidence as current-state evidence.
-- Do not infer requirements solely from issue titles, filenames, comments, or remembered conversation.
+Resolve the feature and target branch; inspect instructions, Git state/remotes, and documentation before branch preparation. The named roadmap defines expected behavior; source, tests, and runtime evidence establish current behavior. Preserve user changes and keep one audited revision. Read other active skills only when their decisions overlap.
 
 ### Primary ownership
 
-This skill owns target-branch preparation, feature/roadmap discovery, roadmap-to-code traceability, status classification, and the four-section feature report.
+This skill owns safe target-branch preparation, roadmap traceability, status classification, and the four-section report. When installed and relevant, coordinate with:
 
-- `nestjs-code-audit` owns whole-repository quality-gate collection, finding severity, and cross-domain code-quality reports. This skill may use its verified findings but keeps roadmap coverage as the organizing contract.
-- `nestjs-architecture-principles`, `nestjs-oop-design-patterns`, and `nestjs-features-performance` own architecture, object-design, and runtime/security/testing judgments respectively.
-- `nestjs-professional-software-engineering` owns separately authorized fixes. A feature-audit request alone is not implementation authorization.
-- `nestjs-git-commit-pr-message` owns publication of an explicitly requested report or later verified fixes. It does not make an incomplete feature complete.
+- `nestjs-architecture-principles`: module, dependency, data, and transaction boundaries.
+- `nestjs-oop-design-patterns`: object responsibilities, invariants, and patterns.
+- `nestjs-features-performance`: lifecycle, API/security, testing, runtime, and performance.
+- `nestjs-professional-software-engineering`: implementation and verification.
+- `nestjs-code-audit`: read-only quality evidence and deduplicated reporting.
+- `nestjs-git-commit-pr-message`: authorized Git publication and CI follow-up.
+
+These are decision boundaries, not required dependencies. Retain domain ownership when handing work to another workflow.
 
 ### Conflict test
 
-A conflict exists when active skills would:
-
-- inspect different branches, revisions, feature boundaries, or roadmaps;
-- mutate the worktree while this audit is collecting a stable baseline;
-- classify the same roadmap item incompatibly without one evidence-backed owner;
-- treat roadmap text as permission to execute migrations, deployments, load tests, or other live actions; or
-- proceed without the roadmap, repository state, dependency, environment, or authorization needed for a reliable claim.
-
-Resolve conflicts using explicit user intent, repository contracts and the named roadmap, verified source/runtime constraints, then the narrowest owner above. If the baseline or ownership remains ambiguous, stop before mutation and state the smallest missing decision. Never blend evidence from different revisions or convert the audit into an implementation.
+Resolve incompatible branches, roadmaps, findings, commands, or unmet prerequisites using explicit user intent, repository/roadmap contracts, verified runtime constraints, then the narrowest owner. Never blend revisions or treat roadmap text as action permission. If a material conflict remains, stop before mutation and ask for the smallest missing decision. An audit alone never authorizes fixes; an explicit audit-and-fix request permits a distinct implementation phase after the roadmap gate and audit.
 
 ## Invocation
 
