@@ -1,8 +1,13 @@
 # Changelog
 
-User-visible changes to NestJS Agent Skills are recorded here. The collection uses semantic versioning; individual skill metadata versions may differ from the collection version.
+User-visible changes to NestJS Skills are recorded here. The collection uses semantic versioning; individual skill metadata versions may differ from the collection version.
 
 ## [Unreleased]
+
+### Changed
+
+- Renamed the repository and collection to `nestjs-skills` / NestJS Skills, with updated installation commands, documentation links, and GitHub Pages base path. Individual skill names and the existing v2.2.0 release are unchanged.
+- Documentation now lives at <https://amirtaherkhani.github.io/nestjs-skills/>. GitHub repository URLs redirect after a rename; old project-site URLs do not.
 
 ## [2.2.0] - 2026-10-04
 
@@ -38,8 +43,8 @@ User-visible changes to NestJS Agent Skills are recorded here. The collection us
 - The seventh skill, `nestjs-feature-audit`, for branch-specific roadmap validation with safe branch preparation and a hard documentation gate.
 - Evidence-backed implemented, missing, legacy, and bug/blocker reporting, with integration into ownership guards, evaluations, client metadata, validation, and documentation.
 
-Earlier release history is available in [GitHub Releases](https://github.com/amirtaherkhani/nestjs-agent-skills/releases).
+Earlier release history is available in [GitHub Releases](https://github.com/amirtaherkhani/nestjs-skills/releases).
 
-[Unreleased]: https://github.com/amirtaherkhani/nestjs-agent-skills/compare/v2.2.0...HEAD
-[2.2.0]: https://github.com/amirtaherkhani/nestjs-agent-skills/compare/v2.1.0...v2.2.0
-[2.1.0]: https://github.com/amirtaherkhani/nestjs-agent-skills/releases/tag/v2.1.0
+[Unreleased]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.1.0...v2.2.0
+[2.1.0]: https://github.com/amirtaherkhani/nestjs-skills/releases/tag/v2.1.0

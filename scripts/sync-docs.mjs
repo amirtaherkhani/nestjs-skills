@@ -71,7 +71,7 @@ function pageFrontmatter(title, description) {
 
 function sourceFooter(sourcePath) {
   const repoPath = relative(repositoryRoot, sourcePath).split('\\').join('/');
-  const sourceUrl = `https://github.com/amirtaherkhani/nestjs-agent-skills/blob/main/${repoPath}`;
+  const sourceUrl = `https://github.com/amirtaherkhani/nestjs-skills/blob/main/${repoPath}`;
 
   return `\n\n---\n\n<small>Canonical source: [\`${repoPath}\`](${sourceUrl}). This page is generated during the documentation build.</small>\n`;
 }

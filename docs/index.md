@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: NestJS Agent Skills
+  name: NestJS Skills
   text: Better boundaries. Better decisions.
   tagline: Seven focused skills that implement, audit, and publish software with project-aware syntax, deliberate NestJS boundaries, safe runtime behavior, and evidence-backed verification.
   image:
@@ -105,7 +105,7 @@ For a large change, use Professional Engineering to coordinate the work: decide 
   </div>
 
 ```bash
-npx skills add amirtaherkhani/nestjs-agent-skills
+npx skills add amirtaherkhani/nestjs-skills
 ```
 </div>
 

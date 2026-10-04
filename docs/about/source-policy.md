@@ -1,6 +1,6 @@
 ---
 title: Source Policy
-description: How the NestJS Agent Skills documentation stays authoritative, current, and original.
+description: How the NestJS Skills documentation stays authoritative, current, and original.
 ---
 
 <p class="doc-kicker">Project · Research</p>
@@ -26,6 +26,6 @@ Hand-authored concept pages explain how Professional Engineering coordinates imp
 
 ## Research log
 
-The repository's [complete source log](https://github.com/amirtaherkhani/nestjs-agent-skills/blob/main/SOURCES.md) includes official NestJS and Node.js references, authoring specifications, requested skill repositories, and community discussions reviewed for the project.
+The repository's [complete source log](https://github.com/amirtaherkhani/nestjs-skills/blob/main/SOURCES.md) includes official NestJS and Node.js references, authoring specifications, requested skill repositories, and community discussions reviewed for the project.
 
 Source projects were studied for structure, coverage, trade-offs, and failure modes. Their prose was not copied into these skills.

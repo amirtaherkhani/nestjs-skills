@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Install and use the NestJS Agent Skills with Claude Code and Codex.
+description: Install and use the NestJS Skills with Claude Code and Codex.
 ---
 
 <p class="doc-kicker">Guide · 5 minutes</p>
@@ -20,13 +20,13 @@ description: Install and use the NestJS Agent Skills with Claude Code and Codex.
 Install the collection with the `skills` CLI:
 
 ```bash
-npx skills add amirtaherkhani/nestjs-agent-skills
+npx skills add amirtaherkhani/nestjs-skills
 ```
 
 To install a single skill for Claude Code and Codex:
 
 ```bash
-npx skills add amirtaherkhani/nestjs-agent-skills \
+npx skills add amirtaherkhani/nestjs-skills \
   --skill nestjs-professional-software-engineering \
   --agent claude-code \
   --agent codex
@@ -35,13 +35,13 @@ npx skills add amirtaherkhani/nestjs-agent-skills \
 Preview the available skills without installing them:
 
 ```bash
-npx skills add amirtaherkhani/nestjs-agent-skills --list
+npx skills add amirtaherkhani/nestjs-skills --list
 ```
 
 Use `--global` for a user-level installation. Without it, the CLI installs into the project location expected by each selected agent.
 
 ::: tip Current release
-[`v2.2.0`](https://github.com/amirtaherkhani/nestjs-agent-skills/releases/tag/v2.2.0) includes all seven skills, standalone Code Audit guidance, runnable examples, and an opt-in evaluation harness. See [examples and evaluation](/guide/examples-and-evaluation) for the verified behavior and current measurement limits.
+[`v2.2.0`](https://github.com/amirtaherkhani/nestjs-skills/releases/tag/v2.2.0) includes all seven skills, standalone Code Audit guidance, runnable examples, and an opt-in evaluation harness. See [examples and evaluation](/guide/examples-and-evaluation) for the verified behavior and current measurement limits.
 :::
 
 ::: warning Version 2 migration
@@ -120,7 +120,7 @@ $nestjs-code-audit security src/auth
 
 It runs a read-only workflow and returns one report covering safe syntax/TypeScript/lint checks plus verified architecture, object-design, security, testing, runtime, and delivery findings. It does not install dependencies or fix code.
 
-Codex does not support arbitrary bare custom commands such as `/Nestjs audit`. Custom prompts are deprecated in favor of skills, but Codex CLI and the IDE extension still support them as explicit local aliases. Copy [`integrations/codex/prompts/nestjs-audit.md`](https://github.com/amirtaherkhani/nestjs-agent-skills/blob/main/integrations/codex/prompts/nestjs-audit.md) into `~/.codex/prompts/`, then use:
+Codex does not support arbitrary bare custom commands such as `/Nestjs audit`. Custom prompts are deprecated in favor of skills, but Codex CLI and the IDE extension still support them as explicit local aliases. Copy [`integrations/codex/prompts/nestjs-audit.md`](https://github.com/amirtaherkhani/nestjs-skills/blob/main/integrations/codex/prompts/nestjs-audit.md) into `~/.codex/prompts/`, then use:
 
 ```text
 /prompts:nestjs-audit
@@ -138,7 +138,7 @@ $nestjs-feature-audit "payments" --branch "release/2026-q3"
 
 The skill defaults to `main`, preserves dirty work, allows only fast-forward branch updates, and stops before comparison when `docs/` has no clear feature roadmap. A roadmap supplied by the user can satisfy that gate.
 
-For Codex compatibility, copy [`integrations/codex/prompts/audit_feature.md`](https://github.com/amirtaherkhani/nestjs-agent-skills/blob/main/integrations/codex/prompts/audit_feature.md) into `~/.codex/prompts/`, then use:
+For Codex compatibility, copy [`integrations/codex/prompts/audit_feature.md`](https://github.com/amirtaherkhani/nestjs-skills/blob/main/integrations/codex/prompts/audit_feature.md) into `~/.codex/prompts/`, then use:
 
 ```text
 /prompts:audit_feature payments

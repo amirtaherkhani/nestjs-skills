@@ -1,22 +1,22 @@
 import { defineConfig } from 'vitepress';
 
-const github = 'https://github.com/amirtaherkhani/nestjs-agent-skills';
+const github = 'https://github.com/amirtaherkhani/nestjs-skills';
 
 export default defineConfig({
-  title: 'NestJS Agent Skills',
+  title: 'NestJS Skills',
   description: 'Project-aware software implementation and evidence-based NestJS architecture, object design, runtime, performance, and scaling guidance for Claude Code and Codex.',
   lang: 'en-US',
-  base: '/nestjs-agent-skills/',
+  base: '/nestjs-skills/',
   cleanUrls: true,
   lastUpdated: true,
   sitemap: {
-    hostname: 'https://amirtaherkhani.github.io/nestjs-agent-skills/'
+    hostname: 'https://amirtaherkhani.github.io/nestjs-skills/'
   },
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/nestjs-agent-skills/skill-mark.svg' }],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/nestjs-skills/skill-mark.svg' }],
     ['meta', { name: 'theme-color', content: '#e0234e' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:title', content: 'NestJS Agent Skills' }],
+    ['meta', { property: 'og:title', content: 'NestJS Skills' }],
     ['meta', { property: 'og:description', content: 'Seven focused Agent Skills for Claude Code and Codex.' }]
   ],
   markdown: {
@@ -28,7 +28,7 @@ export default defineConfig({
   },
   themeConfig: {
     logo: '/skill-mark.svg',
-    siteTitle: 'NestJS Agent Skills',
+    siteTitle: 'NestJS Skills',
     search: {
       provider: 'local',
       options: {
