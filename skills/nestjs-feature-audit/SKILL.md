@@ -5,7 +5,7 @@ license: MIT
 compatibility: 'Requires Git, a NestJS repository, and a clear feature roadmap in docs/ or supplied by the user. Updating from a remote requires network access.'
 metadata:
   author: amirtaherkhani
-  version: '1.0.1'
+  version: '1.0.2'
 ---
 
 # NestJS Feature Audit
@@ -18,7 +18,7 @@ Before editing files or running any state-changing command, reconcile active ins
 
 ### Prerequisites
 
-Resolve the feature and target branch; inspect instructions, Git state/remotes, and documentation before branch preparation. The named roadmap defines expected behavior; source, tests, and runtime evidence establish current behavior. Preserve user changes and keep one audited revision. Read other active skills only when their decisions overlap.
+Require a non-empty feature name and resolve the target branch, defaulting to `main` only when no branch is named. Inspect instructions, Git state/remotes, and documentation before branch preparation. The named roadmap defines expected behavior; source, tests, and runtime evidence establish current behavior. Preserve user changes and keep one audited revision. Read other active skills only when their decisions overlap.
 
 ### Primary ownership
 
@@ -120,7 +120,7 @@ Start with the feature, branch, commit, dirty/freshness state, roadmap source, a
 
 Each item must name the roadmap requirement, observed state, evidence, impact, and next validation or exit evidence. Keep all four headings; write `None found in the audited evidence.` when a category is empty. Use [report-template.md](references/report-template.md).
 
-Do not assign a completion percentage unless the roadmap defines item weights. Do not implement, commit, push, deploy, or edit the roadmap unless the user separately requests that action.
+Do not assign a completion percentage unless the roadmap defines item weights. Do not implement, commit, push, deploy, or edit the roadmap unless the user explicitly authorizes that specific action and scope. Authorization may be in the original request; implementation starts only after the audit, and fix authorization does not imply publication, deployment, or roadmap edits.
 
 ## Reference routing
 

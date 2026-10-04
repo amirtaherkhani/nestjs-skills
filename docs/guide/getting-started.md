@@ -41,7 +41,7 @@ npx skills add amirtaherkhani/nestjs-agent-skills --list
 Use `--global` for a user-level installation. Without it, the CLI installs into the project location expected by each selected agent.
 
 ::: tip Current release
-[`v2.1.0`](https://github.com/amirtaherkhani/nestjs-agent-skills/releases/tag/v2.1.0) includes all seven skills and introduces `nestjs-feature-audit`.
+[`v2.2.0`](https://github.com/amirtaherkhani/nestjs-agent-skills/releases/tag/v2.2.0) includes all seven skills, standalone Code Audit guidance, runnable examples, and an opt-in evaluation harness. See [examples and evaluation](/guide/examples-and-evaluation) for the verified behavior and current measurement limits.
 :::
 
 ::: warning Version 2 migration

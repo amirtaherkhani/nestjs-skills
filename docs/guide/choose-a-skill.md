@@ -78,7 +78,7 @@ Overlap is resolved by decision ownership, so the skills reinforce rather than o
 | --- | --- | --- |
 | Git publication | Git Publication owns staging, commits, pushes, PRs, changelog/release text, CI, and Pages follow-up | Professional Engineering and domain skills determine whether implementation is ready |
 | Implementation and syntax | Professional Engineering coordinates inspection, syntax selection, coding, testing, and reporting | Domain skills own architecture, object design, and NestJS runtime decisions |
-| Feature roadmap status | Feature Audit owns target revision, roadmap gate, traceability, classification, and the feature report | Code Audit may supply quality findings; domain skills retain technical judgment; implementation requires a separate request |
+| Feature roadmap status | Feature Audit owns target revision, roadmap gate, traceability, classification, and the feature report | Code Audit may supply quality findings; domain skills retain technical judgment; fixes require explicit authorization and a distinct implementation phase; authorization may be in the original request |
 | Dependency injection | Architecture defines boundaries and composition; OOP defines collaborator contracts | Features evaluates provider scope and runtime cost |
 | Interceptors and guards | Features owns lifecycle placement | OOP reviews cohesion; Architecture prevents business policy from leaking into transport adapters |
 | Events | Architecture owns capability and transaction boundaries | OOP models completed facts; Features owns delivery, retries, idempotency, and backpressure |

@@ -176,6 +176,10 @@ for (const skillDirectory of skillDirectories) {
   }
 
   if (directoryName === 'nestjs-feature-audit') {
+    record(
+      markdown.includes('Require a non-empty feature name') && markdown.includes('defaulting to `main` only when no branch is named'),
+      `${directoryName} must preserve the feature-name requirement and omitted-branch default.`,
+    );
     const requiredFeatureAuditReferences = [
       'roadmap-discovery.md',
       'evidence-classification.md',

@@ -27,4 +27,6 @@ The runner records execution outcomes, version hashes, duration, command count, 
 
 The initial implementation environment verified the executable fixtures, but Codex CLI could not initialize before a model turn. The six-run comparison therefore remains unrun, and no token-savings claim is established. See the [dated pilot status](https://github.com/amirtaherkhani/nestjs-agent-skills/blob/main/evals/reports/2026-10-04-pilot.md).
 
+Fresh contexts may still contain ambient global skill metadata, and some CLI sandboxes block local TCP listeners. Disclose those conditions, keep authorized host-side HTTP verification separate, and treat affected comparisons as exploratory.
+
 A shorter skill entrypoint is a measured text-size change. Real agent quality and consumption require matched repeated runs, including all files and tool output the agent actually reads.

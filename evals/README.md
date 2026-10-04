@@ -31,6 +31,10 @@ Use a commit SHA instead of `working` for an immutable candidate when possible. 
 
 Each run installs only its selected skill package into `.agents/skills/`; Code Audit's independent-installation behavior is therefore part of this comparison. It copies the seeded source, a public smoke test, exact dependency metadata, and (for the slow task) a local five-sample benchmark. Dependencies are shared from this checkout through a link and need no installation in the run. Audit is read-only; the two explicit fix tasks permit source edits only. The build is prepared before the audit.
 
+Host behavior must also be checked. `--ignore-user-config` does not guarantee that ambient global skill metadata or host instructions disappear. A fresh conversation is not necessarily a clean-context control. If those inputs are present, disclose them and label the comparison exploratory rather than attributing differences to these skill versions alone.
+
+Some CLI sandboxes prohibit local TCP listeners. Record that limitation instead of weakening sandboxing or claiming that HTTP checks ran. An authorized operator can run the held-out contract checks from the host after the agent finishes; keep host verification separate from the agent's own evidence. In-memory checks are not a substitute for verified HTTP transport behavior.
+
 The baseline/candidate pair uses identical task text, fixtures, dependency versions, permissions, and declared model/reasoning. Runs execute task-major, baseline then candidate. A fresh conversation does not guarantee an empty provider prompt cache; use only the cache usage actually reported. The hosted model may change over time, so reruns are not automatically comparable.
 
 The `after/` solutions, held-out contract tests, rubric below, and written scenario expectations are not copied into the agent workspace or prompt. The prompt prohibits ancestor/other-run inspection. This is ordinary evaluation isolation, not an adversarial secrecy boundary: the OS sandbox may still allow reading other filesystem locations. Inspect command logs for violations before accepting a run.

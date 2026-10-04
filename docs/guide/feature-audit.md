@@ -44,7 +44,7 @@ Bare `/audit_feature` is client-specific. Do not assume every client installs th
 2. **Enforce the roadmap gate.** Search `docs/` for an authoritative feature roadmap or use roadmap text supplied directly by the user.
 3. **Build traceability.** Map every roadmap item to source, wiring, tests, configuration, migrations, contracts, deployment artifacts, and authorized runtime evidence.
 4. **Classify once.** Assign each normalized item to one primary report category without double-counting.
-5. **Report without fixing.** Return evidence, impact, and the next validation or exit condition. Implementation requires a separate request.
+5. **Report without fixing.** Return evidence, impact, and the next validation or exit condition. Implementation requires explicit fix authorization, which may be included in the original request, and starts in a distinct phase after the audit.
 
 ## Roadmap eligibility
 
@@ -92,4 +92,4 @@ When code and tests are complete but production cutover remains unapproved, repo
 - Review the [roadmap discovery gate](/reference/feature-audit/references/roadmap-discovery).
 - Apply the [evidence classification rules](/reference/feature-audit/references/evidence-classification).
 - Use the exact [report template](/reference/feature-audit/references/report-template).
-- Start a separately authorized implementation with [Professional Engineering](/reference/professional-engineering/) after the audit scope is accepted.
+- Start an explicitly authorized implementation with [Professional Engineering](/reference/professional-engineering/) after the audit. Reuse authorization already given for that scope; ask only if scope, risk, or permissions materially change.

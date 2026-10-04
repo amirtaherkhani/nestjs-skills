@@ -1,6 +1,6 @@
 {
   "name": "nestjs-agent-skills",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "description": "Seven Agent Skills for NestJS implementation, architecture, OOP, code and feature audits, runtime performance, and safe Git publication.",
   "license": "MIT",
