@@ -108,8 +108,8 @@ For a large change, use Professional Engineering to coordinate the work: decide 
 
 <div class="install-strip">
   <div>
-    <h2>Install all seven</h2>
-    <p>The open Agent Skills format works with Claude Code and Codex.</p>
+    <h2>Install the collection</h2>
+    <p>The open Agent Skills format works with Claude Code, Codex, and compatible harnesses. Browse the collection on <a href="https://www.skills.sh/amirtaherkhani/nestjs-skills">Skills.sh</a> or individual listings on <a href="https://www.agensi.io/skills/nestjs-skills-professional-software-engineering">Agensi.io</a> and <a href="https://skillstore.io/skills/amirtaherkhani-nestjs-professional-software-engineering">Skillstore</a>. Each source has its own install route; see <a href="./guide/getting-started#published-marketplace-listings">Getting Started</a>.</p>
   </div>
 
 ```bash

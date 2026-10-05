@@ -40,6 +40,53 @@ npx skills add amirtaherkhani/nestjs-skills --list
 
 Use `--global` for a user-level installation. Without it, the CLI installs into the project location expected by each selected agent.
 
+## Published marketplace listings
+
+The same open-format skills are available from three directories. Their listing links and installation routes are separate; a command for one source should not be assumed to work with another.
+
+### Agensi.io
+
+Agensi provides free ZIP downloads. Open a skill listing, choose **Download Free**, then use the agent-specific folder shown by the listing to place the extracted skill. If your agent is already running, restart it so it can discover the new files.
+
+- [Professional Software Engineering](https://www.agensi.io/skills/nestjs-skills-professional-software-engineering)
+- [Architecture and Principles](https://www.agensi.io/skills/nestjs-skills-architecture-and-principles)
+- [OOP and Design Patterns](https://www.agensi.io/skills/nestjs-skills-oop-and-design-patterns)
+- [Features, Scaling and Performance](https://www.agensi.io/skills/nestjs-skills-features-scaling-and-performance)
+- [Code Audit](https://www.agensi.io/skills/nestjs-skills-code-audit)
+- [Feature Audit](https://www.agensi.io/skills/nestjs-skills-feature-audit)
+- [Git Commit and PR Messages](https://www.agensi.io/skills/nestjs-skills-git-commit-and-pr-messages)
+
+### Skills.sh
+
+[Browse the NestJS Skills collection on Skills.sh](https://www.skills.sh/amirtaherkhani/nestjs-skills). Skills.sh uses the Skills CLI with the GitHub repository as its source:
+
+```bash
+npx skills add amirtaherkhani/nestjs-skills
+```
+
+For one skill, choose the supported agent IDs explicitly. For example, to install Professional Software Engineering for Claude Code and Codex:
+
+```bash
+npx skills add amirtaherkhani/nestjs-skills \
+  --skill nestjs-professional-software-engineering \
+  --agent claude-code \
+  --agent codex
+```
+
+For other compatible harnesses, use a target ID supported by the Skills CLI, or follow that harness's documented manual skill-folder instructions. The project-level folders used by the CLI include `.claude/skills/` for Claude Code and `.agents/skills/` for Codex; do not assume the same folder applies to every harness.
+
+### Skillstore
+
+Skillstore listings provide **Ask an Agent**, **CLI**, and **Manual** install choices. Follow the options shown on the specific listing you select: use its generated agent request, its displayed CLI command, or download the skill and place it in the selected agent's documented skills folder. These Skillstore choices are distinct from the GitHub-source command above.
+
+- [nestjs-professional-software-engineering](https://skillstore.io/skills/amirtaherkhani-nestjs-professional-software-engineering)
+- [nestjs-architecture-principles](https://skillstore.io/skills/amirtaherkhani-nestjs-architecture-principles)
+- [nestjs-oop-design-patterns](https://skillstore.io/skills/amirtaherkhani-nestjs-oop-design-patterns)
+- [nestjs-features-performance](https://skillstore.io/skills/amirtaherkhani-nestjs-features-performance)
+- [nestjs-code-audit](https://skillstore.io/skills/amirtaherkhani-nestjs-code-audit)
+- [nestjs-feature-audit](https://skillstore.io/skills/amirtaherkhani-nestjs-feature-audit)
+- [nestjs-git-commit-pr-message](https://skillstore.io/skills/amirtaherkhani-nestjs-git-commit-pr-message)
+
 ::: tip Current release
 [`v2.2.0`](https://github.com/amirtaherkhani/nestjs-skills/releases/tag/v2.2.0) includes all seven skills, standalone Code Audit guidance, runnable examples, and an opt-in evaluation harness. See [examples and evaluation](/guide/examples-and-evaluation) for the verified behavior and current measurement limits.
 :::

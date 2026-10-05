@@ -108,6 +108,8 @@ npx skills add amirtaherkhani/nestjs-skills --list
 
 The CLI installs project skills into the client-specific location, including `.claude/skills/` for Claude Code and `.agents/skills/` for Codex. Add `--global` for a user-level installation.
 
+Browse the GitHub repository on [Skills.sh](https://www.skills.sh/amirtaherkhani/nestjs-skills); Agensi.io and Skillstore publish individual skill listings, such as [Professional Software Engineering on Agensi](https://www.agensi.io/skills/nestjs-skills-professional-software-engineering) and [on Skillstore](https://skillstore.io/skills/amirtaherkhani-nestjs-professional-software-engineering). Those sources have different install flows: the command above installs from this GitHub repository with the Skills CLI; Agensi and Skillstore provide their own listing-level download or install choices. See all [marketplace listings and install paths](docs/guide/getting-started.md#published-marketplace-listings).
+
 ### 2. Invoke a skill
 
 The descriptions support automatic activation. You can also invoke a skill explicitly:
