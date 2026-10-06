@@ -12,10 +12,10 @@ const siteBasePath = '/nestjs-skills';
 
 const locales = [
   { key: 'root', slug: '', lang: 'en-US', hreflang: 'en', ogLocale: 'en_US', name: 'English', menuLabel: 'Select language', sidebarMenuLabel: 'Menu', homeTitle: 'NestJS Skills', guideTitle: 'Getting Started', homeNav: 'Guide', direction: 'ltr' },
-  { key: 'fa', slug: 'fa', lang: 'fa-IR', hreflang: 'fa', ogLocale: 'fa_IR', name: 'فارسی', menuLabel: 'انتخاب زبان', sidebarMenuLabel: 'فهرست', homeTitle: 'مهارت‌های NestJS', guideTitle: 'شروع به کار', homeNav: 'شروع کنید', direction: 'rtl' },
-  { key: 'fr', slug: 'fr', lang: 'fr-FR', hreflang: 'fr', ogLocale: 'fr_FR', name: 'Français', menuLabel: 'Choisir la langue', sidebarMenuLabel: 'Menu', homeTitle: 'Compétences NestJS', guideTitle: 'Premiers pas', homeNav: 'Guide', direction: 'ltr' },
-  { key: 'zh-CN', slug: 'zh-CN', lang: 'zh-CN', hreflang: 'zh-CN', ogLocale: 'zh_CN', name: '简体中文', menuLabel: '选择语言', sidebarMenuLabel: '菜单', homeTitle: 'NestJS 技能集', guideTitle: '快速开始', homeNav: '指南', direction: 'ltr' },
-  { key: 'ja', slug: 'ja', lang: 'ja-JP', hreflang: 'ja', ogLocale: 'ja_JP', name: '日本語', menuLabel: '言語を選択', sidebarMenuLabel: 'メニュー', homeTitle: 'NestJS スキル', guideTitle: 'はじめに', homeNav: 'ガイド', direction: 'ltr' }
+  { key: 'fa', slug: 'fa', lang: 'fa-IR', hreflang: 'fa', ogLocale: 'fa_IR', name: 'فارسی', menuLabel: 'انتخاب زبان', sidebarMenuLabel: 'فهرست', homeTitle: 'NestJS Skills', guideTitle: 'شروع به کار | NestJS Skills', homeNav: 'شروع کنید', direction: 'rtl' },
+  { key: 'fr', slug: 'fr', lang: 'fr-FR', hreflang: 'fr', ogLocale: 'fr_FR', name: 'Français', menuLabel: 'Choisir la langue', sidebarMenuLabel: 'Menu', homeTitle: 'NestJS Skills', guideTitle: 'Premiers pas | NestJS Skills', homeNav: 'Guide', direction: 'ltr' },
+  { key: 'zh-CN', slug: 'zh-CN', lang: 'zh-CN', hreflang: 'zh-CN', ogLocale: 'zh_CN', name: '简体中文', menuLabel: '选择语言', sidebarMenuLabel: '菜单', homeTitle: 'NestJS Skills', guideTitle: '快速开始 | NestJS Skills', homeNav: '指南', direction: 'ltr' },
+  { key: 'ja', slug: 'ja', lang: 'ja-JP', hreflang: 'ja', ogLocale: 'ja_JP', name: '日本語', menuLabel: '言語を選択', sidebarMenuLabel: 'メニュー', homeTitle: 'NestJS Skills', guideTitle: 'はじめに | NestJS Skills', homeNav: 'ガイド', direction: 'ltr' }
 ];
 
 const translatedPages = [

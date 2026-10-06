@@ -1,6 +1,6 @@
 ---
-title: Premiers pas
-description: Installer et utiliser les compétences NestJS avec Claude Code, Codex et les outils compatibles avec Agent Skills.
+title: Premiers pas | NestJS Skills
+description: Installer et utiliser NestJS Skills avec Claude Code, Codex et les outils compatibles avec Agent Skills.
 ---
 
 <p class="doc-kicker">Guide · 5 minutes</p>

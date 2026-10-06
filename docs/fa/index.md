@@ -1,16 +1,16 @@
 ---
-title: مهارت‌های NestJS
-description: مجموعه‌ای از هفت مهارت متن‌باز برای پیاده‌سازی، معماری، بازبینی و انتشار امن پروژه‌های NestJS.
+title: NestJS Skills
+description: NestJS Skills مجموعه‌ای از هفت مهارت متن‌باز برای پیاده‌سازی، معماری، بازبینی و انتشار امن پروژه‌های NestJS است.
 layout: home
 
 hero:
-  name: مهارت‌های NestJS
+  name: NestJS Skills
   text: مرزهای روشن‌تر. تصمیم‌های بهتر.
   tagline: هفت مهارت کاربردی برای پیاده‌سازی آگاه از پروژه، معماری NestJS، طراحی شی‌گرا، بازبینی کد و انتشار امن؛ همراه با شواهد روشن برای راستی‌آزمایی.
   image:
     light: /brand/nestjs-skills-mark-light.svg
     dark: /brand/nestjs-skills-mark-dark.svg
-    alt: نشان مهارت‌های NestJS
+    alt: نشان NestJS Skills
   actions:
     - theme: brand
       text: شروع به کار

@@ -1,5 +1,5 @@
 ---
-title: 快速开始
+title: 快速开始 | NestJS Skills
 description: 在 Claude Code、Codex 及兼容 Agent Skills 的工具中安装和使用 NestJS 技能。
 ---
 

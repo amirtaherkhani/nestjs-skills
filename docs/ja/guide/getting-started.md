@@ -1,6 +1,6 @@
 ---
-title: はじめに
-description: Claude Code、Codex、および Agent Skills 対応ツールで NestJS スキルをインストールして使う方法を説明します。
+title: はじめに | NestJS Skills
+description: Claude Code、Codex、および Agent Skills 対応ツールで NestJS Skills をインストールして使う方法を説明します。
 ---
 
 <p class="doc-kicker">ガイド · 5 分</p>

@@ -3,13 +3,13 @@ import { defineConfig } from 'vitepress';
 const github = 'https://github.com/amirtaherkhani/nestjs-skills';
 const siteUrl = 'https://amirtaherkhani.github.io/nestjs-skills';
 const englishDescription = 'Project-aware software implementation and evidence-based NestJS architecture, object design, runtime, performance, and scaling guidance for Claude Code and Codex.';
-const persianDescription = 'راهنمای فارسی برای نصب و شروع استفاده از مهارت‌های هوشمند NestJS.';
-const frenchDescription = 'Documentation en français pour installer et utiliser les compétences NestJS avec Claude Code et Codex.';
+const persianDescription = 'راهنمای فارسی برای نصب و شروع استفاده از NestJS Skills.';
+const frenchDescription = 'Documentation en français pour installer et utiliser NestJS Skills avec Claude Code et Codex.';
 const chineseDescription = 'NestJS Skills 中文指南：了解如何安装并使用 Claude Code 和 Codex 的 NestJS 技能。';
 const japaneseDescription = 'Claude Code と Codex で NestJS Skills をインストールして使うための日本語ガイドです。';
 const localeSeo = {
   root: { hreflang: 'en', lang: 'en-US', ogLocale: 'en_US', description: englishDescription, imageAlt: 'NestJS Skills red N and charcoal S logo.' },
-  fa: { hreflang: 'fa', lang: 'fa-IR', ogLocale: 'fa_IR', description: persianDescription, imageAlt: 'نشان مهارت‌های NestJS برای توسعه و معماری نرم‌افزار.' },
+  fa: { hreflang: 'fa', lang: 'fa-IR', ogLocale: 'fa_IR', description: persianDescription, imageAlt: 'نشان NestJS Skills برای توسعه و معماری نرم‌افزار.' },
   fr: { hreflang: 'fr', lang: 'fr-FR', ogLocale: 'fr_FR', description: frenchDescription, imageAlt: 'Logo NestJS Skills avec un N rouge et un S anthracite.' },
   'zh-CN': { hreflang: 'zh-CN', lang: 'zh-CN', ogLocale: 'zh_CN', description: chineseDescription, imageAlt: 'NestJS Skills 标志：红色 N 和深灰色 S。' },
   ja: { hreflang: 'ja', lang: 'ja-JP', ogLocale: 'ja_JP', description: japaneseDescription, imageAlt: '赤い N とチャコール色の S を使った NestJS Skills ロゴ。' }
@@ -140,7 +140,7 @@ export default defineConfig({
       lang: localeSeo.fa.lang,
       dir: 'rtl',
       title: 'NestJS Skills',
-      titleTemplate: ':title | NestJS Skills',
+      titleTemplate: ':title',
       description: persianDescription,
       themeConfig: {
         langMenuLabel: 'تغییر زبان',
@@ -209,7 +209,7 @@ export default defineConfig({
       label: 'Français',
       lang: localeSeo.fr.lang,
       title: 'NestJS Skills',
-      titleTemplate: ':title | NestJS Skills',
+      titleTemplate: ':title',
       description: frenchDescription,
       themeConfig: {
         langMenuLabel: 'Choisir la langue',
@@ -248,7 +248,7 @@ export default defineConfig({
       label: '简体中文',
       lang: localeSeo['zh-CN'].lang,
       title: 'NestJS Skills',
-      titleTemplate: ':title | NestJS Skills',
+      titleTemplate: ':title',
       description: chineseDescription,
       themeConfig: {
         langMenuLabel: '选择语言',
@@ -287,7 +287,7 @@ export default defineConfig({
       label: '日本語',
       lang: localeSeo.ja.lang,
       title: 'NestJS Skills',
-      titleTemplate: ':title | NestJS Skills',
+      titleTemplate: ':title',
       description: japaneseDescription,
       themeConfig: {
         langMenuLabel: '言語を選択',

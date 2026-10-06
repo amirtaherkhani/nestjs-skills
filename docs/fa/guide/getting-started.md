@@ -1,6 +1,6 @@
 ---
-title: شروع به کار
-description: روش نصب و استفاده از مهارت‌های NestJS در Claude Code و Codex.
+title: شروع به کار | NestJS Skills
+description: روش نصب و استفاده از NestJS Skills در Claude Code و Codex.
 ---
 
 <p class="doc-kicker">راهنما · ۵ دقیقه</p>

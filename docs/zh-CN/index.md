@@ -1,5 +1,5 @@
 ---
-title: NestJS 技能集
+title: NestJS Skills
 description: 了解七个开源技能，涵盖软件工程、NestJS 架构、代码审查、功能审计与安全发布。
 layout: home
 

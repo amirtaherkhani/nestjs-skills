@@ -1,5 +1,5 @@
 ---
-title: NestJS スキル
+title: NestJS Skills
 description: ソフトウェアエンジニアリング、NestJS アーキテクチャ、コード監査、機能監査、安全な公開を支援する 7 つのオープンソーススキルを紹介します。
 layout: home
 

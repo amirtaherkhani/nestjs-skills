@@ -1,5 +1,5 @@
 ---
-title: Compétences NestJS
+title: NestJS Skills
 description: Découvrez sept compétences open source pour l’ingénierie logicielle, l’architecture NestJS, les audits et la publication sécurisée.
 layout: home
 
