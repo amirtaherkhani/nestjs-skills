@@ -82,6 +82,58 @@ The source inventory below is preliminary, captured 2026-10-06. It is not comple
 
 **Depends on:** items 1–5 as relevant to the regression being guarded.
 
+## Backend Architecture Styles and Patterns in NestJS
+
+**Planning priority:** High decision value when a team is choosing or changing boundaries; otherwise a follow-on research topic because the existing [architecture ladder](../../skills/nestjs-architecture-principles/references/architecture-ladder.md) and [microservices guidance](../../skills/nestjs-architecture-principles/references/microservices.md) already cover the main progression. This is a practical sequencing judgment, not a popularity ranking.
+
+**Initial scope scan:** current guidance recommends cohesive feature modules, shows layered feature modules and hexagonal boundaries, and gives criteria for independent services. A likely research opportunity is a clearer side-by-side comparison of these choices in NestJS, especially where terms overlap. This scan is not a full coverage audit.
+
+**Questions for a later focused session**
+
+- When is a feature-based modular monolith sufficient, and what concrete change pressure justifies adding layers or ports and adapters?
+- How are Hexagonal Architecture and Clean Architecture related, and where do their dependency rules, terminology, or implementation choices differ? Treat them as related, not identical.
+- What observable ownership, deployment, data, scaling, and failure constraints justify microservices, and when would a separate worker be enough?
+- How do Event-Driven and Web-Queue-Worker styles support asynchronous integration and background workloads in NestJS, and what operational trade-offs do they introduce? See the [Microsoft architecture styles overview](https://learn.microsoft.com/azure/architecture/guide/architecture-styles) as a starting reference.
+- How does N-tier deployment topology differ from logical layered organization inside an application? Keep deployment tiers distinct from code organization.
+- How can serverless execution and deployment combine with Hexagonal Architecture, CQRS, or other logical patterns? Treat serverless as a deployment choice, not a competing logical style; see [AWS hexagonal architecture examples](https://docs.aws.amazon.com/prescriptive-guidance/latest/hexagonal-architectures/examples.html).
+- How should Domain-Driven Design modeling, CQRS, and event-driven integration be explained as orthogonal choices that can combine with multiple deployment styles, rather than as adjacent rungs in one ladder?
+- Which architectural terms or patterns are already useful in a real NestJS codebase, and which add ceremony without a present requirement?
+
+**Future evidence:** a compact decision matrix; one small NestJS example showing module ownership, dependency direction, and provider wiring; a comparison of layered, hexagonal, and Clean Architecture terminology; and a migration example showing what evidence would justify moving from a modular monolith toward independently operated services. Keep DDD, CQRS, and event-driven integration as separate dimensions in the comparison.
+
+**Potential guidance home:** first assess whether this belongs as a focused expansion of the existing NestJS Architecture & Principles skill. Do not create or implement a specialized skill until later research establishes a distinct audience, scope, and gap.
+
+**Depends on:** the existing architecture-skill coverage review; use the earlier Software Testing Strategy and Performance Measurement topics when a comparison needs runnable or operational evidence.
+
+## NestJS Release, Migration, and Guidance Currency
+
+**Planning priority:** revisit this topic when planning a framework upgrade or when version-sensitive guidance is selected for implementation. This is a research backlog item, not an upgrade request.
+
+**Scope and questions**
+
+- Verify the latest stable NestJS release from official GitHub releases and the npm stable package metadata when the topic is selected; compare it with this repository's package pins and compatibility constraints.
+- Review the official [migration guide](https://docs.nestjs.com/migration-guide) and identify migration steps and changed guidance relevant to the repository's current version. The supplied snapshot reports a current 11→12 migration guide; verify that at research time.
+- Record which guidance is version-sensitive and which remains applicable to the repository's pinned NestJS version. Do not automatically upgrade dependencies or change project files as part of the research.
+
+**Future evidence:** dated official release and package references, the repository-version comparison, compatibility notes, and a concise migration-impact summary grounded in the official guide.
+
+**Depends on:** a current package/version inventory and the repository's compatibility requirements; select alongside any version-sensitive topic before using its conclusions.
+
+## Background Job Processing and Workflow Orchestration in NestJS
+
+**Planning priority:** a later focused research topic for workloads that need deferred, recurring, event-triggered, or long-running background execution. This entry sets research scope only; it does not select a package or establish that a specialized skill is needed.
+
+**Scope and questions**
+
+- Compare scheduled, deferred, recurring, and event-triggered tasks, and distinguish CPU-bound work from I/O-bound work when considering execution boundaries.
+- Evaluate Nest-compatible queue options using explicit criteria, including maintenance and compatibility, durability, deployment needs, operational complexity, and fit for the workload. Use the official [NestJS queues guide](https://docs.nestjs.com/techniques/queues) and [BullMQ documentation](https://docs.bullmq.io/) as initial source seeds; inspect existing queue guidance in the repository before proposing an owner or new skill.
+- For BullMQ where relevant, examine jobs, queues, workers, and flows, including retry and backoff, idempotency, concurrency, rate limits, timeouts, cancellation, failure handling, recovery, and observability.
+- Define when a queue job is enough and when a durable multi-step workflow with state, coordination, and recovery semantics is warranted; compare using workload requirements rather than product labels.
+
+**Future evidence:** a workload-to-approach decision matrix, version-pinned NestJS examples, and executable evidence for enqueueing, worker execution, retry/failure recovery, idempotency, and observability, with deployment assumptions and operational trade-offs recorded.
+
+**Depends on:** the repository queue-guidance coverage review and a later selection of representative workload requirements. Do not choose a package or create a specialized skill until focused research establishes the gap and fit.
+
 ## Preliminary primary-source inventory
 
 These are official or primary references supplied for later investigation. Their contents, applicability, and version alignment still need review when a topic is selected.
