@@ -1,16 +1,59 @@
 import { defineConfig } from 'vitepress';
 
 const github = 'https://github.com/amirtaherkhani/nestjs-skills';
+const siteUrl = 'https://amirtaherkhani.github.io/nestjs-skills';
+const englishDescription = 'Project-aware software implementation and evidence-based NestJS architecture, object design, runtime, performance, and scaling guidance for Claude Code and Codex.';
+const persianDescription = 'راهنمای فارسی برای نصب و شروع استفاده از مهارت‌های هوشمند NestJS.';
+const pairedRoutes = [
+  { english: '/', persian: '/fa/' },
+  { english: '/guide/getting-started', persian: '/fa/guide/getting-started' }
+];
+
+function pageRoute(relativePath: string) {
+  if (/(^|\/)index\.md$/.test(relativePath)) {
+    const directory = relativePath.replace(/index\.md$/, '').replace(/\/$/, '');
+    return directory ? `/${directory}/` : '/';
+  }
+
+  return `/${relativePath.replace(/\.md$/, '')}`;
+}
+
+function pageUrl(route: string) {
+  return `${siteUrl}${route}`;
+}
+
+function normalizePath(path: string) {
+  const pathname = new URL(path, `${siteUrl}/`).pathname.replace(/\/+$/, '');
+  return pathname || '/';
+}
+
+const sitemapAlternates = new Map<string, { lang: string; url: string }[]>();
+
+for (const { english, persian } of pairedRoutes) {
+  const links = [
+    { lang: 'en', url: pageUrl(english) },
+    { lang: 'fa', url: pageUrl(persian) }
+  ];
+
+  sitemapAlternates.set(normalizePath(pageUrl(english)), links);
+  sitemapAlternates.set(normalizePath(pageUrl(persian)), links);
+}
 
 export default defineConfig({
   title: 'NestJS Skills',
-  description: 'Project-aware software implementation and evidence-based NestJS architecture, object design, runtime, performance, and scaling guidance for Claude Code and Codex.',
+  description: englishDescription,
   lang: 'en-US',
   base: '/nestjs-skills/',
   cleanUrls: true,
   lastUpdated: true,
   sitemap: {
-    hostname: 'https://amirtaherkhani.github.io/nestjs-skills/'
+    hostname: `${siteUrl}/`,
+    transformItems(items) {
+      return items.map((item) => {
+        const links = sitemapAlternates.get(normalizePath(item.url));
+        return links ? { ...item, links } : item;
+      });
+    }
   },
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', media: '(prefers-color-scheme: light)', href: '/nestjs-skills/brand/nestjs-skills-icon-light.svg' }],
@@ -22,23 +65,141 @@ export default defineConfig({
     ['meta', { name: 'theme-color', media: '(prefers-color-scheme: light)', content: '#FCFBF9' }],
     ['meta', { name: 'theme-color', media: '(prefers-color-scheme: dark)', content: '#111013' }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:url', content: 'https://amirtaherkhani.github.io/nestjs-skills/' }],
-    ['meta', { property: 'og:title', content: 'NestJS Skills' }],
-    ['meta', { property: 'og:description', content: 'Seven focused Agent Skills for Claude Code and Codex.' }],
     ['meta', { property: 'og:image', content: 'https://amirtaherkhani.github.io/nestjs-skills/brand/social-cover.png' }],
     ['meta', { property: 'og:image:width', content: '1200' }],
     ['meta', { property: 'og:image:height', content: '630' }],
     ['meta', { property: 'og:image:alt', content: 'NestJS Skills red N and charcoal S logo with title and description.' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:image', content: 'https://amirtaherkhani.github.io/nestjs-skills/brand/social-cover.png' }],
-    ['meta', { name: 'twitter:image:alt', content: 'NestJS Skills red N and charcoal S logo with title and description.' }]
+    ['meta', { name: 'twitter:image:alt', content: 'NestJS Skills red N and charcoal S logo.' }]
   ],
+  locales: {
+    root: {
+      label: 'English',
+      lang: 'en-US'
+    },
+    fa: {
+      label: 'فارسی',
+      lang: 'fa-IR',
+      dir: 'rtl',
+      title: 'NestJS Skills',
+      titleTemplate: ':title | NestJS Skills',
+      description: persianDescription,
+      themeConfig: {
+        langMenuLabel: 'تغییر زبان',
+        darkModeSwitchLabel: 'حالت نمایش',
+        lightModeSwitchTitle: 'تغییر به زمینهٔ روشن',
+        darkModeSwitchTitle: 'تغییر به زمینهٔ تیره',
+        search: {
+          provider: 'local',
+          options: {
+            detailedView: true,
+            miniSearch: {
+              searchOptions: {
+                boost: { title: 4, text: 2, titles: 1 }
+              }
+            },
+            translations: {
+              button: {
+                buttonText: 'جستجو',
+                buttonAriaLabel: 'جستجوی مستندات'
+              },
+              modal: {
+                displayDetails: 'نمایش جزئیات',
+                resetButtonTitle: 'پاک کردن جستجو',
+                backButtonTitle: 'بازگشت',
+                noResultsText: 'نتیجه‌ای برای',
+                footer: {
+                  selectText: 'انتخاب',
+                  selectKeyAriaLabel: 'انتخاب نتیجه',
+                  navigateText: 'پیمایش',
+                  navigateUpKeyAriaLabel: 'نتیجهٔ قبلی',
+                  navigateDownKeyAriaLabel: 'نتیجهٔ بعدی',
+                  closeText: 'بستن',
+                  closeKeyAriaLabel: 'بستن جستجو'
+                }
+              }
+            }
+          }
+        },
+        nav: [
+          { text: 'شروع کنید', link: '/fa/guide/getting-started', activeMatch: '/fa/guide/' },
+          { text: 'مفاهیم', link: '/concepts/request-lifecycle' },
+          { text: 'نصب', link: '/fa/guide/getting-started#نصب' }
+        ],
+        sidebar: [
+          {
+            text: 'راهنما',
+            items: [
+              { text: 'شروع به کار', link: '/fa/guide/getting-started' },
+              { text: 'صفحهٔ اصلی', link: '/fa/' }
+            ]
+          }
+        ],
+        outline: {
+          level: [2, 3],
+          label: 'در این صفحه'
+        },
+        lastUpdated: {
+          text: 'آخرین به‌روزرسانی',
+          formatOptions: { dateStyle: 'medium' }
+        },
+        docFooter: {
+          prev: 'قبلی',
+          next: 'بعدی'
+        },
+        footer: {
+          message: 'راهنمای متن‌باز برای مهندسی سنجیدهٔ NestJS.',
+          copyright: 'منتشرشده تحت مجوز MIT.'
+        },
+        editLink: {
+          pattern: `${github}/edit/main/docs/:path`,
+          text: 'ویرایش این صفحه در گیت‌هاب'
+        }
+      }
+    }
+  },
   markdown: {
     lineNumbers: true,
     theme: {
       light: 'github-light',
       dark: 'github-dark'
     }
+  },
+  transformPageData(pageData) {
+    const relativePath = pageData.relativePath.replace(/\\/g, '/');
+    if (relativePath === '404.md') return;
+
+    const route = pageRoute(relativePath);
+    const canonicalUrl = pageUrl(route);
+    const isPersian = relativePath.startsWith('fa/');
+    const title = pageData.frontmatter.title || pageData.title || (isPersian ? 'مهارت‌های NestJS' : 'NestJS Skills');
+    const description = pageData.frontmatter.description ?? (isPersian ? persianDescription : englishDescription);
+    const alternates = pairedRoutes.find(({ english, persian }) => route === english || route === persian);
+    const head = [
+      ['link', { rel: 'canonical', href: canonicalUrl }],
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: description }],
+      ['meta', { property: 'og:url', content: canonicalUrl }],
+      ['meta', { property: 'og:locale', content: isPersian ? 'fa_IR' : 'en_US' }],
+      ['meta', { property: 'og:image:alt', content: isPersian ? 'نشان مهارت‌های NestJS برای توسعه و معماری نرم‌افزار.' : 'NestJS Skills red N and charcoal S logo.' }],
+      ['meta', { name: 'twitter:title', content: title }],
+      ['meta', { name: 'twitter:description', content: description }],
+      ['meta', { name: 'twitter:image:alt', content: isPersian ? 'نشان مهارت‌های NestJS برای توسعه و معماری نرم‌افزار.' : 'NestJS Skills red N and charcoal S logo.' }]
+    ];
+
+    if (alternates) {
+      const routes = [
+        { lang: 'en', route: alternates.english },
+        { lang: 'fa', route: alternates.persian }
+      ];
+      for (const alternate of routes) {
+        head.push(['link', { rel: 'alternate', hreflang: alternate.lang, href: pageUrl(alternate.route) }]);
+      }
+    }
+
+    pageData.frontmatter.head ??= [];
+    pageData.frontmatter.head.push(...head);
   },
   themeConfig: {
     logo: {
