@@ -2,7 +2,9 @@
 
 This is a prioritized list for later, focused research sessions. These six headings are our proposed planning taxonomy, not a claim that one formal engineering standard defines a universal taxonomy. Topics are planned, not yet researched. Research cadence is undecided.
 
-The source list at the end is a preliminary primary-source inventory, captured 2026-10-06. It is not completed research or evidence for conclusions. Add independent engineering blogs and developer-community or social discussions during the relevant topic session, clearly labeled as commentary or discovery sources.
+Already-collected notes are kept separately in [preliminary materials](preliminary/README.md). They are incomplete and unapproved, not conclusions or guidance.
+
+The source inventory below is preliminary, captured 2026-10-06. It is not completed research or evidence for conclusions. Add independent engineering blogs and developer-community or social discussions during the relevant topic session, clearly labeled as commentary or discovery sources.
 
 ## 1. Software Testing Strategy
 
@@ -97,4 +99,32 @@ These are official or primary references supplied for later investigation. Their
 
 **Version note:** this repository pins NestJS packages at 11.2.7. The NestJS documentation URL is unversioned and may describe a newer release. When item 1 is researched, verify guidance against the repository’s pinned version and record the documentation version or retrieval date.
 
-**Source gaps:** no independent engineering blogs or developer-community/social sources have been inventoried or assessed yet. Add them per topic, labeled as independent commentary or discovery leads rather than primary documentation.
+**Source gaps:** venues are inventoried below, but no individual independent engineering blog posts or community/social discussions have been reviewed. Add specific sources per topic and label them as independent commentary or discovery leads rather than primary documentation.
+
+## Practitioner writing, communities, and discovery venues
+
+These are discovery locations and evidence venues, not a set of reviewed articles. Link checks were bounded to one HTTP `HEAD` request per URL on 2026-10-06; a response code only checks endpoint reachability, not page contents, authorship, accuracy, or current activity. No article sweep or account-content review was performed.
+
+| Venue | Purpose and priority | Evidence caveat and link-check result |
+| --- | --- | --- |
+| [DEV.to NestJS tag](https://dev.to/t/nestjs) | Find practitioner write-ups and questions tagged NestJS. | Independent posts; check author, date, version, sample, and claims later. `200` response. |
+| [DEV.to NestJS publication](https://dev.to/nestjs) | Official-publication discovery venue, as identified in the supplied inventory. | Verify authorship and whether each post is an official project statement. `200` response. |
+| [Hashnode](https://hashnode.com/) | General writing-platform discovery only; no NestJS topic URL assumed. | Individual post scope and authorship must be checked. Request timed out; contents not inspected. |
+| [Medium](https://medium.com/) | General writing-platform discovery only; no NestJS topic URL assumed. | Individual post scope and authorship must be checked. `403` response; contents not inspected. |
+| [Stack Overflow: NestJS tag](https://stackoverflow.com/questions/tagged/nestjs) | Find concrete implementation questions and answers. | Treat answers as community evidence; verify dates, versions, and accepted-answer context. `403` response; contents not inspected. |
+| [Reddit: r/nestjs](https://www.reddit.com/r/nestjs/) | Discover practitioner discussions and recurring problems. | Anecdotal leads only; validate technical claims against primary docs and runnable evidence. Request did not resolve; contents not inspected. |
+| [NestJS GitHub repository](https://github.com/nestjs/nest), [issues](https://github.com/nestjs/nest/issues), and [pull requests](https://github.com/nestjs/nest/pulls) | Inspect source, release context, and maintainer decisions for a specific version or change. | Prefer pinned code/PR/issue evidence. Use Discussions only if that feature is enabled. All three endpoints returned `200`; no issues, PRs, source files, or discussions were reviewed. |
+| [Grafana k6 community](https://community.grafana.com/c/grafana-k6/70) | Find k6 usage questions and operational reports. | Community commentary, not normative tool behavior; verify against k6 docs and controlled runs. `200` response. |
+
+### Official NestJS community links
+
+The links below were supplied as links listed by the [official NestJS homepage](https://nestjs.com/); this inventory does not establish current activity or review account contents. The homepage returned `200` to the bounded check. No account was joined, followed, or contacted.
+
+| Channel | Use as | Link check and limitation |
+| --- | --- | --- |
+| [NestJS Discord](https://discord.com/invite/G7Qnnhy) | Official community venue and discovery leads. | Request did not resolve; membership and channel contents not inspected. |
+| [NestJS on X](https://twitter.com/nestframework) | Official social account attribution from the homepage. | Request did not resolve; contents not inspected and no activity claim made. |
+| [NestJS on LinkedIn](https://linkedin.com/company/19078346) | Official social account attribution from the homepage. | `403` response; contents not inspected and no activity claim made. |
+| [NestJS GitHub](https://github.com/nestjs/nest) | Official source, issues, and pull requests. | `200` response; not a substitute for version-specific source review. |
+
+**Planned but not yet inventoried:** official engineering blogs from NestJS and relevant tooling maintainers. No specific blog articles have been verified or selected. For any source used later, record its author or organization, publication and update dates, applicable tool/framework version, evidence type, and whether examples were independently run. Community ideas should be checked against official documentation and runnable evidence before adoption.

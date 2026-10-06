@@ -1,0 +1,29 @@
+{
+  "title": "NestJS backend research: preliminary preservation bundle",
+  "created_date_utc": "2026-10-06",
+  "status": "preliminary_incomplete",
+  "purpose": "Preserve already collected notes in a separate preliminary subfolder of the user project.",
+  "scope_notice": "The user stopped further research and requested a prioritized topic list first. These reports contain partial findings and source inventories, not completed research, approved implementation plans, or published skills.",
+  "verification_notice": "No application tests, load tests, profiling experiments, installations, or skill implementations were performed for these reports. Proposed examples are unimplemented and unexecuted.",
+  "source_notice": "Sources and version caveats are recorded in each report. Coverage is incomplete, including the requested broader blog and community discovery. No additional source harvesting was done to prepare this archive.",
+  "files": [
+    {
+      "file": "testing-models.md",
+      "size_bytes": 13949,
+      "sha256": "c9719ff6b64fcff48782ba075dc9dd0a1cb2c5d2cadb31cd5801e9cb52f22589",
+      "status": "preliminary_incomplete"
+    },
+    {
+      "file": "k6-performance.md",
+      "size_bytes": 17395,
+      "sha256": "2cebe9157534eb4364776e98dee481fdd8bdcd28c26041b44d1e6e40b5e93b84",
+      "status": "preliminary_incomplete"
+    },
+    {
+      "file": "complexity-profiling.md",
+      "size_bytes": 13494,
+      "sha256": "1ab97051768353c95cfff62662cb0c6cc862cf88df82b921cc88f617d1e2b594",
+      "status": "preliminary_incomplete"
+    }
+  ]
+}
