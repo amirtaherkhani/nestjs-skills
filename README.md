@@ -108,7 +108,17 @@ npx skills add amirtaherkhani/nestjs-skills --list
 
 The CLI installs project skills into the client-specific location, including `.claude/skills/` for Claude Code and `.agents/skills/` for Codex. Add `--global` for a user-level installation.
 
-Browse the GitHub repository on [Skills.sh](https://www.skills.sh/amirtaherkhani/nestjs-skills); Agensi.io and Skillstore publish individual skill listings, such as [Professional Software Engineering on Agensi](https://www.agensi.io/skills/nestjs-skills-professional-software-engineering) and [on Skillstore](https://skillstore.io/skills/amirtaherkhani-nestjs-professional-software-engineering). Those sources have different install flows: the command above installs from this GitHub repository with the Skills CLI; Agensi and Skillstore provide their own listing-level download or install choices. See all [marketplace listings and install paths](docs/guide/getting-started.md#published-marketplace-listings).
+### Find NestJS Skills in marketplaces
+
+Each link opens a published collection or skill listing. The marketplaces have different install flows:
+
+| Marketplace | Listing and install path |
+| --- | --- |
+| <a href="https://www.skills.sh/amirtaherkhani/nestjs-skills"><img src="docs/assets/marketplaces/skills-sh.png" width="28" alt=""> <strong>Skills.sh</strong></a> | Browse the NestJS Skills collection. Install with the Skills CLI command above, or choose one skill with `--skill`. |
+| <a href="https://www.agensi.io/skills/nestjs-skills-professional-software-engineering"><img src="docs/assets/marketplaces/agensi.png" width="28" alt=""> <strong>Agensi.io</strong></a> | Browse individual skill listings. Select **Download Free** on a listing, then follow its agent-specific folder instructions. |
+| <a href="https://skillstore.io/skills/amirtaherkhani-nestjs-professional-software-engineering"><img src="docs/assets/marketplaces/skillstore.svg" width="28" alt=""> <strong>Skillstore</strong></a> | Browse individual skill listings. Use the listing’s **Ask an Agent**, **CLI**, or **Manual** install choice and follow its instructions. |
+
+The Skills CLI command above installs from this GitHub repository; it is separate from Agensi’s ZIP download and Skillstore’s listing-level install choices. See all [marketplace listings and install paths](docs/guide/getting-started.md#published-marketplace-listings).
 
 ### 2. Invoke a skill
 

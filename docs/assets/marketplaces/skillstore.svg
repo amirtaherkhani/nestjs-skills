@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Skillstore">
+  <!-- Skillstore "Unbox": install a workflow, a capability springs out -->
+  <defs>
+    <linearGradient id="ssBox" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#818cf8"/><stop offset="1" stop-color="#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="ssSpark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#4338ca"/>
+    </linearGradient>
+  </defs>
+  <path d="M16 31 h32 v19 a4 4 0 0 1 -4 4 h-24 a4 4 0 0 1 -4 -4 z" fill="url(#ssBox)"/>
+  <path d="M16 31 l-7 -9 l21 5 z" fill="#4338ca"/>
+  <path d="M48 31 l7 -9 l-21 5 z" fill="#4338ca"/>
+  <path d="M32 5 C33 12 35 14 41 15 C35 16 33 18 32 25 C31 18 29 16 23 15 C29 14 31 12 32 5 Z" fill="url(#ssSpark)"/>
+</svg>
