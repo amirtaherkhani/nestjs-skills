@@ -184,6 +184,11 @@ html[dir='rtl'] .vp-doc div[class*='language-'] {
   backdrop-filter: blur(18px) saturate(140%);
 }
 
+html[dir='rtl'] .VPNavBarExtra .menu {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+
 .VPNavBar.has-sidebar .title {
   border-bottom-color: transparent;
 }

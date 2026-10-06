@@ -137,6 +137,7 @@ const customCss = await readFile(join(repositoryRoot, 'docs', '.vitepress', 'the
 assert.match(customCss, /html\[dir='rtl'\] \.vp-doc :not\(pre\) > code\s*\{\s*direction:\s*ltr;\s*white-space:\s*normal;\s*overflow-wrap:\s*anywhere;\s*unicode-bidi:\s*isolate;/, 'inline technical code should remain left-to-right and wrap in Persian text');
 assert.match(customCss, /html\[dir='rtl'\] \.VPContent\s*\{\s*overflow-x:\s*clip;/, 'Persian document content should not create page-level horizontal scrolling');
 assert.match(customCss, /html\[dir='rtl'\] \.vp-doc div\[class\*='language-'\]\s*\{\s*direction:\s*ltr;\s*text-align:\s*left;\s*unicode-bidi:\s*isolate;/, 'Persian guide code blocks should remain left-to-right');
+assert.match(customCss, /html\[dir='rtl'\] \.VPNavBarExtra \.menu\s*\{\s*inset-inline-start:\s*auto;\s*inset-inline-end:\s*0;/, 'RTL extra-navigation menus should anchor to their left edge to stay within the viewport');
 
 const sitemap = await readFile(join(distRoot, 'sitemap.xml'), 'utf8');
 assert.match(sitemap, /xmlns:xhtml="http:\/\/www\.w3\.org\/1999\/xhtml"/, 'sitemap should declare the xhtml namespace');
