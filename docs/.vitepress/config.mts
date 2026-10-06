@@ -144,6 +144,7 @@ export default defineConfig({
       description: persianDescription,
       themeConfig: {
         langMenuLabel: 'تغییر زبان',
+        sidebarMenuLabel: 'فهرست',
         darkModeSwitchLabel: 'حالت نمایش',
         lightModeSwitchTitle: 'تغییر به زمینهٔ روشن',
         darkModeSwitchTitle: 'تغییر به زمینهٔ تیره',
@@ -212,6 +213,7 @@ export default defineConfig({
       description: frenchDescription,
       themeConfig: {
         langMenuLabel: 'Choisir la langue',
+        sidebarMenuLabel: 'Menu',
         darkModeSwitchLabel: 'Apparence',
         lightModeSwitchTitle: 'Passer au thème clair',
         darkModeSwitchTitle: 'Passer au thème sombre',
@@ -250,6 +252,7 @@ export default defineConfig({
       description: chineseDescription,
       themeConfig: {
         langMenuLabel: '选择语言',
+        sidebarMenuLabel: '菜单',
         darkModeSwitchLabel: '外观',
         lightModeSwitchTitle: '切换到浅色主题',
         darkModeSwitchTitle: '切换到深色主题',
@@ -288,6 +291,7 @@ export default defineConfig({
       description: japaneseDescription,
       themeConfig: {
         langMenuLabel: '言語を選択',
+        sidebarMenuLabel: 'メニュー',
         darkModeSwitchLabel: '表示設定',
         lightModeSwitchTitle: 'ライトテーマに切り替え',
         darkModeSwitchTitle: 'ダークテーマに切り替え',
