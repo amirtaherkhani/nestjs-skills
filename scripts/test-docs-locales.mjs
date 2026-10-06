@@ -3,6 +3,7 @@ import { access, readFile } from 'node:fs/promises';
 import { constants } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { syncDocumentLocale } from '../docs/.vitepress/theme/sync-document-locale.mjs';
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const distRoot = join(repositoryRoot, 'docs', '.vitepress', 'dist');
@@ -21,6 +22,18 @@ const translatedPages = [
   { key: 'home', route: (locale) => locale.slug ? `/${locale.slug}/` : '/', title: (locale) => locale.homeTitle, file: (locale) => locale.slug ? `${locale.slug}/index.html` : 'index.html' },
   { key: 'guide', route: (locale) => locale.slug ? `/${locale.slug}/guide/getting-started` : '/guide/getting-started', title: (locale) => locale.guideTitle, file: (locale) => locale.slug ? `${locale.slug}/guide/getting-started.html` : 'guide/getting-started.html' }
 ];
+
+for (const sequence of [
+  [['root', 'en-US', 'ltr'], ['fa', 'fa-IR', 'rtl']],
+  [['fa', 'fa-IR', 'rtl'], ['root', 'en-US', 'ltr'], ['fa', 'fa-IR', 'rtl']]
+]) {
+  const documentElement = { lang: 'en-US', dir: 'ltr' };
+  for (const [locale, lang, dir] of sequence) {
+    syncDocumentLocale(documentElement, { lang, dir });
+    assert.equal(documentElement.lang, lang, `${locale} navigation should update the document language immediately`);
+    assert.equal(documentElement.dir, dir, `${locale} navigation should update the document direction immediately`);
+  }
+}
 
 async function readBuiltPage(route) {
   const file = join(distRoot, route);
@@ -137,10 +150,12 @@ for (const [route, ariaLabel] of [
 }
 
 const customCss = await readFile(join(repositoryRoot, 'docs', '.vitepress', 'theme', 'custom.css'), 'utf8');
+const layoutComponent = await readFile(join(repositoryRoot, 'docs', '.vitepress', 'theme', 'Layout.vue'), 'utf8');
 assert.match(customCss, /html\[dir='rtl'\] \.vp-doc :not\(pre\) > code\s*\{\s*direction:\s*ltr;\s*white-space:\s*normal;\s*overflow-wrap:\s*anywhere;\s*unicode-bidi:\s*isolate;/, 'inline technical code should remain left-to-right and wrap in Persian text');
 assert.match(customCss, /html\[dir='rtl'\] \.VPContent\s*\{\s*overflow-x:\s*clip;/, 'Persian document content should not create page-level horizontal scrolling');
 assert.match(customCss, /html\[dir='rtl'\] \.vp-doc div\[class\*='language-'\]\s*\{\s*direction:\s*ltr;\s*text-align:\s*left;\s*unicode-bidi:\s*isolate;/, 'Persian guide code blocks should remain left-to-right');
 assert.match(customCss, /html\[dir='rtl'\] \.VPNavBarExtra \.menu\s*\{\s*inset-inline-start:\s*auto;\s*inset-inline-end:\s*0;/, 'RTL extra-navigation menus should anchor to their left edge to stay within the viewport');
+assert.match(layoutComponent, /watchEffect\(\(\) =>\s*\{\s*syncDocumentLocale\(document\.documentElement,\s*\{\s*lang:\s*lang\.value,\s*dir:\s*dir\.value\s*\}\);/, 'document language and direction should follow SPA locale changes reactively');
 
 const sitemap = await readFile(join(distRoot, 'sitemap.xml'), 'utf8');
 assert.match(sitemap, /xmlns:xhtml="http:\/\/www\.w3\.org\/1999\/xhtml"/, 'sitemap should declare the xhtml namespace');
