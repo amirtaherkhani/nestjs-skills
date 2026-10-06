@@ -4,11 +4,48 @@ import { constants } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { syncDocumentLocale } from '../docs/.vitepress/theme/sync-document-locale.mjs';
+import { installLocaleSwitcherDismiss } from '../docs/.vitepress/theme/locale-switcher-dismiss.mjs';
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const distRoot = join(repositoryRoot, 'docs', '.vitepress', 'dist');
 const siteUrl = 'https://amirtaherkhani.github.io/nestjs-skills';
 const siteBasePath = '/nestjs-skills';
+
+function testLocaleSwitcherDismiss() {
+  const listeners = new Map();
+  const document = {
+    addEventListener(type, listener) { listeners.set(type, listener); },
+    removeEventListener(type, listener) { if (listeners.get(type) === listener) listeners.delete(type); }
+  };
+  const summary = { focused: false, focus() { this.focused = true; } };
+  const details = {
+    open: true,
+    contains(target) { return target === this || target?.inside === true; },
+    querySelector(selector) { return selector === 'summary' ? summary : null; }
+  };
+  const cleanup = installLocaleSwitcherDismiss(details, document);
+
+  listeners.get('pointerdown')({ target: { inside: true } });
+  assert.equal(details.open, true, 'clicking a language choice inside the selector should not dismiss it before navigation');
+  listeners.get('pointerdown')({ target: {} });
+  assert.equal(details.open, false, 'outside pointer input should close the selector');
+  details.open = true;
+  listeners.get('pointerdown')({ target: {}, pointerType: 'touch' });
+  assert.equal(details.open, false, 'outside touch input should close the selector');
+  details.open = true;
+  listeners.get('pointerdown')({ target: {} });
+  assert.equal(details.open, false, 'repeated outside pointer input should continue closing after reopen');
+  details.open = true;
+  listeners.get('keydown')({ key: 'Enter' });
+  assert.equal(details.open, true, 'non-Escape keyboard input should preserve native summary behavior');
+  listeners.get('keydown')({ key: 'Escape' });
+  assert.equal(details.open, false, 'Escape should close the selector');
+  assert.equal(summary.focused, true, 'Escape should return focus to the selector summary');
+  cleanup();
+  assert.equal(listeners.size, 0, 'closing or unmounting should remove document listeners');
+}
+
+testLocaleSwitcherDismiss();
 
 const locales = [
   { key: 'root', slug: '', lang: 'en-US', hreflang: 'en', ogLocale: 'en_US', name: 'English', menuLabel: 'Select language', sidebarMenuLabel: 'Menu', homeTitle: 'NestJS Skills', guideTitle: 'Getting Started', homeNav: 'Guide', direction: 'ltr' },
@@ -151,11 +188,13 @@ for (const [route, ariaLabel] of [
 
 const customCss = await readFile(join(repositoryRoot, 'docs', '.vitepress', 'theme', 'custom.css'), 'utf8');
 const layoutComponent = await readFile(join(repositoryRoot, 'docs', '.vitepress', 'theme', 'Layout.vue'), 'utf8');
+const localeSwitcherComponent = await readFile(join(repositoryRoot, 'docs', '.vitepress', 'theme', 'LocaleSwitcher.vue'), 'utf8');
 assert.match(customCss, /html\[dir='rtl'\] \.vp-doc :not\(pre\) > code\s*\{\s*direction:\s*ltr;\s*white-space:\s*normal;\s*overflow-wrap:\s*anywhere;\s*unicode-bidi:\s*isolate;/, 'inline technical code should remain left-to-right and wrap in Persian text');
 assert.match(customCss, /html\[dir='rtl'\] \.VPContent\s*\{\s*overflow-x:\s*clip;/, 'Persian document content should not create page-level horizontal scrolling');
 assert.match(customCss, /html\[dir='rtl'\] \.vp-doc div\[class\*='language-'\]\s*\{\s*direction:\s*ltr;\s*text-align:\s*left;\s*unicode-bidi:\s*isolate;/, 'Persian guide code blocks should remain left-to-right');
 assert.match(customCss, /html\[dir='rtl'\] \.VPNavBarExtra \.menu\s*\{\s*inset-inline-start:\s*auto;\s*inset-inline-end:\s*0;/, 'RTL extra-navigation menus should anchor to their left edge to stay within the viewport');
 assert.match(layoutComponent, /watchEffect\(\(\) =>\s*\{\s*syncDocumentLocale\(document\.documentElement,\s*\{\s*lang:\s*lang\.value,\s*dir:\s*dir\.value\s*\}\);/, 'document language and direction should follow SPA locale changes reactively');
+assert.match(localeSwitcherComponent, /watch\(links,\s*\(\) =>\s*\{\s*if \(root\.value\?\.open\) root\.value\.open = false;/, 'language route changes should close the locale selector');
 
 const sitemap = await readFile(join(distRoot, 'sitemap.xml'), 'utf8');
 assert.match(sitemap, /xmlns:xhtml="http:\/\/www\.w3\.org\/1999\/xhtml"/, 'sitemap should declare the xhtml namespace');

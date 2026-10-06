@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, onBeforeUnmount, ref, watch } from 'vue';
 import { useData, withBase } from 'vitepress';
+import { installLocaleSwitcherDismiss } from './locale-switcher-dismiss.mjs';
 
 const { localeIndex, page } = useData();
 const languages = [
@@ -62,10 +63,25 @@ const links = computed(() => {
 });
 const currentLanguage = computed(() => languageNames[localeIndex.value] ?? 'English');
 const accessibleLabel = computed(() => `${menuLabels[localeIndex.value] ?? menuLabels.root}: ${currentLanguage.value}`);
+const root = ref<HTMLElement>();
+let removeDismissListeners: (() => void) | undefined;
+
+function syncDismissListeners(open: boolean) {
+  removeDismissListeners?.();
+  removeDismissListeners = undefined;
+  if (open && root.value && typeof document !== 'undefined') {
+    removeDismissListeners = installLocaleSwitcherDismiss(root.value, document);
+  }
+}
+
+watch(links, () => {
+  if (root.value?.open) root.value.open = false;
+});
+onBeforeUnmount(() => syncDismissListeners(false));
 </script>
 
 <template>
-  <details class="locale-switcher">
+  <details ref="root" class="locale-switcher" @toggle="syncDismissListeners(($event.currentTarget as HTMLDetailsElement).open)">
     <summary :aria-label="accessibleLabel" :title="accessibleLabel">
       <span aria-hidden="true">文</span>
       <span>{{ currentLanguage }}</span>
