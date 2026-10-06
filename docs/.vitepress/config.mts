@@ -4,10 +4,68 @@ const github = 'https://github.com/amirtaherkhani/nestjs-skills';
 const siteUrl = 'https://amirtaherkhani.github.io/nestjs-skills';
 const englishDescription = 'Project-aware software implementation and evidence-based NestJS architecture, object design, runtime, performance, and scaling guidance for Claude Code and Codex.';
 const persianDescription = 'راهنمای فارسی برای نصب و شروع استفاده از مهارت‌های هوشمند NestJS.';
+const frenchDescription = 'Documentation en français pour installer et utiliser les compétences NestJS avec Claude Code et Codex.';
+const chineseDescription = 'NestJS Skills 中文指南：了解如何安装并使用 Claude Code 和 Codex 的 NestJS 技能。';
+const japaneseDescription = 'Claude Code と Codex で NestJS Skills をインストールして使うための日本語ガイドです。';
+const localeSeo = {
+  root: { hreflang: 'en', lang: 'en-US', ogLocale: 'en_US', description: englishDescription, imageAlt: 'NestJS Skills red N and charcoal S logo.' },
+  fa: { hreflang: 'fa', lang: 'fa-IR', ogLocale: 'fa_IR', description: persianDescription, imageAlt: 'نشان مهارت‌های NestJS برای توسعه و معماری نرم‌افزار.' },
+  fr: { hreflang: 'fr', lang: 'fr-FR', ogLocale: 'fr_FR', description: frenchDescription, imageAlt: 'Logo NestJS Skills avec un N rouge et un S anthracite.' },
+  'zh-CN': { hreflang: 'zh-CN', lang: 'zh-CN', ogLocale: 'zh_CN', description: chineseDescription, imageAlt: 'NestJS Skills 标志：红色 N 和深灰色 S。' },
+  ja: { hreflang: 'ja', lang: 'ja-JP', ogLocale: 'ja_JP', description: japaneseDescription, imageAlt: '赤い N とチャコール色の S を使った NestJS Skills ロゴ。' }
+} as const;
 const pairedRoutes = [
-  { english: '/', persian: '/fa/' },
-  { english: '/guide/getting-started', persian: '/fa/guide/getting-started' }
+  {
+    routes: {
+      root: '/',
+      fa: '/fa/',
+      fr: '/fr/',
+      'zh-CN': '/zh-CN/',
+      ja: '/ja/'
+    }
+  },
+  {
+    routes: {
+      root: '/guide/getting-started',
+      fa: '/fa/guide/getting-started',
+      fr: '/fr/guide/getting-started',
+      'zh-CN': '/zh-CN/guide/getting-started',
+      ja: '/ja/guide/getting-started'
+    }
+  }
 ];
+
+function localizedSearch(translations: {
+  button: { buttonText: string; buttonAriaLabel: string };
+  modal: {
+    displayDetails: string;
+    resetButtonTitle: string;
+    backButtonTitle: string;
+    noResultsText: string;
+    footer: {
+      selectText: string;
+      selectKeyAriaLabel: string;
+      navigateText: string;
+      navigateUpKeyAriaLabel: string;
+      navigateDownKeyAriaLabel: string;
+      closeText: string;
+      closeKeyAriaLabel: string;
+    };
+  };
+}) {
+  return {
+    provider: 'local',
+    options: {
+      detailedView: true,
+      miniSearch: {
+        searchOptions: {
+          boost: { title: 4, text: 2, titles: 1 }
+        }
+      },
+      translations
+    }
+  };
+}
 
 function pageRoute(relativePath: string) {
   if (/(^|\/)index\.md$/.test(relativePath)) {
@@ -29,14 +87,15 @@ function normalizePath(path: string) {
 
 const sitemapAlternates = new Map<string, { lang: string; url: string }[]>();
 
-for (const { english, persian } of pairedRoutes) {
-  const links = [
-    { lang: 'en', url: pageUrl(english) },
-    { lang: 'fa', url: pageUrl(persian) }
-  ];
+for (const { routes } of pairedRoutes) {
+  const links = Object.entries(routes).map(([locale, route]) => ({
+    lang: localeSeo[locale as keyof typeof localeSeo].hreflang,
+    url: pageUrl(route)
+  }));
 
-  sitemapAlternates.set(normalizePath(pageUrl(english)), links);
-  sitemapAlternates.set(normalizePath(pageUrl(persian)), links);
+  for (const route of Object.values(routes)) {
+    sitemapAlternates.set(normalizePath(pageUrl(route)), links);
+  }
 }
 
 export default defineConfig({
@@ -68,19 +127,17 @@ export default defineConfig({
     ['meta', { property: 'og:image', content: 'https://amirtaherkhani.github.io/nestjs-skills/brand/social-cover.png' }],
     ['meta', { property: 'og:image:width', content: '1200' }],
     ['meta', { property: 'og:image:height', content: '630' }],
-    ['meta', { property: 'og:image:alt', content: 'NestJS Skills red N and charcoal S logo with title and description.' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:image', content: 'https://amirtaherkhani.github.io/nestjs-skills/brand/social-cover.png' }],
-    ['meta', { name: 'twitter:image:alt', content: 'NestJS Skills red N and charcoal S logo.' }]
+    ['meta', { name: 'twitter:image', content: 'https://amirtaherkhani.github.io/nestjs-skills/brand/social-cover.png' }]
   ],
   locales: {
     root: {
       label: 'English',
-      lang: 'en-US'
+      lang: localeSeo.root.lang
     },
     fa: {
       label: 'فارسی',
-      lang: 'fa-IR',
+      lang: localeSeo.fa.lang,
       dir: 'rtl',
       title: 'NestJS Skills',
       titleTemplate: ':title | NestJS Skills',
@@ -90,16 +147,7 @@ export default defineConfig({
         darkModeSwitchLabel: 'حالت نمایش',
         lightModeSwitchTitle: 'تغییر به زمینهٔ روشن',
         darkModeSwitchTitle: 'تغییر به زمینهٔ تیره',
-        search: {
-          provider: 'local',
-          options: {
-            detailedView: true,
-            miniSearch: {
-              searchOptions: {
-                boost: { title: 4, text: 2, titles: 1 }
-              }
-            },
-            translations: {
+        search: localizedSearch({
               button: {
                 buttonText: 'جستجو',
                 buttonAriaLabel: 'جستجوی مستندات'
@@ -119,9 +167,7 @@ export default defineConfig({
                   closeKeyAriaLabel: 'بستن جستجو'
                 }
               }
-            }
-          }
-        },
+        }),
         nav: [
           { text: 'شروع کنید', link: '/fa/guide/getting-started', activeMatch: '/fa/guide/' },
           { text: 'مفاهیم', link: '/concepts/request-lifecycle' },
@@ -157,6 +203,120 @@ export default defineConfig({
           text: 'ویرایش این صفحه در گیت‌هاب'
         }
       }
+    },
+    fr: {
+      label: 'Français',
+      lang: localeSeo.fr.lang,
+      title: 'NestJS Skills',
+      titleTemplate: ':title | NestJS Skills',
+      description: frenchDescription,
+      themeConfig: {
+        langMenuLabel: 'Choisir la langue',
+        darkModeSwitchLabel: 'Apparence',
+        lightModeSwitchTitle: 'Passer au thème clair',
+        darkModeSwitchTitle: 'Passer au thème sombre',
+        search: localizedSearch({
+          button: { buttonText: 'Rechercher', buttonAriaLabel: 'Rechercher dans la documentation' },
+          modal: {
+            displayDetails: 'Afficher les détails',
+            resetButtonTitle: 'Effacer la recherche',
+            backButtonTitle: 'Retour',
+            noResultsText: 'Aucun résultat pour',
+            footer: {
+              selectText: 'sélectionner', selectKeyAriaLabel: 'sélectionner un résultat',
+              navigateText: 'naviguer', navigateUpKeyAriaLabel: 'résultat précédent',
+              navigateDownKeyAriaLabel: 'résultat suivant', closeText: 'fermer', closeKeyAriaLabel: 'fermer la recherche'
+            }
+          }
+        }),
+        nav: [
+          { text: 'Guide', link: '/fr/guide/getting-started', activeMatch: '/fr/guide/' },
+          { text: 'Concepts', link: '/concepts/request-lifecycle' },
+          { text: 'Installer', link: '/fr/guide/getting-started#installation' }
+        ],
+        sidebar: [{ text: 'Guide', items: [{ text: 'Premiers pas', link: '/fr/guide/getting-started' }, { text: 'Accueil', link: '/fr/' }] }],
+        outline: { level: [2, 3], label: 'Sur cette page' },
+        lastUpdated: { text: 'Mis à jour', formatOptions: { dateStyle: 'medium' } },
+        docFooter: { prev: 'Précédent', next: 'Suivant' },
+        footer: { message: 'Conseils open source pour un développement NestJS réfléchi.', copyright: 'Publié sous licence MIT.' },
+        editLink: { pattern: `${github}/edit/main/docs/:path`, text: 'Modifier cette page sur GitHub' }
+      }
+    },
+    'zh-CN': {
+      label: '简体中文',
+      lang: localeSeo['zh-CN'].lang,
+      title: 'NestJS Skills',
+      titleTemplate: ':title | NestJS Skills',
+      description: chineseDescription,
+      themeConfig: {
+        langMenuLabel: '选择语言',
+        darkModeSwitchLabel: '外观',
+        lightModeSwitchTitle: '切换到浅色主题',
+        darkModeSwitchTitle: '切换到深色主题',
+        search: localizedSearch({
+          button: { buttonText: '搜索', buttonAriaLabel: '搜索文档' },
+          modal: {
+            displayDetails: '显示详情',
+            resetButtonTitle: '清除搜索',
+            backButtonTitle: '返回',
+            noResultsText: '未找到相关结果：',
+            footer: {
+              selectText: '选择', selectKeyAriaLabel: '选择结果',
+              navigateText: '浏览', navigateUpKeyAriaLabel: '上一个结果',
+              navigateDownKeyAriaLabel: '下一个结果', closeText: '关闭', closeKeyAriaLabel: '关闭搜索'
+            }
+          }
+        }),
+        nav: [
+          { text: '指南', link: '/zh-CN/guide/getting-started', activeMatch: '/zh-CN/guide/' },
+          { text: '概念', link: '/concepts/request-lifecycle' },
+          { text: '安装', link: '/zh-CN/guide/getting-started#安装' }
+        ],
+        sidebar: [{ text: '指南', items: [{ text: '快速开始', link: '/zh-CN/guide/getting-started' }, { text: '首页', link: '/zh-CN/' }] }],
+        outline: { level: [2, 3], label: '本页内容' },
+        lastUpdated: { text: '最后更新', formatOptions: { dateStyle: 'medium' } },
+        docFooter: { prev: '上一页', next: '下一页' },
+        footer: { message: '为严谨的 NestJS 工程实践提供开源指南。', copyright: '采用 MIT 许可证发布。' },
+        editLink: { pattern: `${github}/edit/main/docs/:path`, text: '在 GitHub 上编辑此页' }
+      }
+    },
+    ja: {
+      label: '日本語',
+      lang: localeSeo.ja.lang,
+      title: 'NestJS Skills',
+      titleTemplate: ':title | NestJS Skills',
+      description: japaneseDescription,
+      themeConfig: {
+        langMenuLabel: '言語を選択',
+        darkModeSwitchLabel: '表示設定',
+        lightModeSwitchTitle: 'ライトテーマに切り替え',
+        darkModeSwitchTitle: 'ダークテーマに切り替え',
+        search: localizedSearch({
+          button: { buttonText: '検索', buttonAriaLabel: 'ドキュメントを検索' },
+          modal: {
+            displayDetails: '詳細を表示',
+            resetButtonTitle: '検索をクリア',
+            backButtonTitle: '戻る',
+            noResultsText: '次の検索結果はありません：',
+            footer: {
+              selectText: '選択', selectKeyAriaLabel: '検索結果を選択',
+              navigateText: '移動', navigateUpKeyAriaLabel: '前の結果',
+              navigateDownKeyAriaLabel: '次の結果', closeText: '閉じる', closeKeyAriaLabel: '検索を閉じる'
+            }
+          }
+        }),
+        nav: [
+          { text: 'ガイド', link: '/ja/guide/getting-started', activeMatch: '/ja/guide/' },
+          { text: '概念', link: '/concepts/request-lifecycle' },
+          { text: 'インストール', link: '/ja/guide/getting-started#インストール' }
+        ],
+        sidebar: [{ text: 'ガイド', items: [{ text: 'はじめに', link: '/ja/guide/getting-started' }, { text: 'ホーム', link: '/ja/' }] }],
+        outline: { level: [2, 3], label: 'このページの内容' },
+        lastUpdated: { text: '更新日', formatOptions: { dateStyle: 'medium' } },
+        docFooter: { prev: '前へ', next: '次へ' },
+        footer: { message: '丁寧な NestJS 開発のためのオープンソースガイド。', copyright: 'MIT ライセンスで公開しています。' },
+        editLink: { pattern: `${github}/edit/main/docs/:path`, text: 'GitHub でこのページを編集' }
+      }
     }
   },
   markdown: {
@@ -172,29 +332,27 @@ export default defineConfig({
 
     const route = pageRoute(relativePath);
     const canonicalUrl = pageUrl(route);
-    const isPersian = relativePath.startsWith('fa/');
-    const title = pageData.frontmatter.title || pageData.title || (isPersian ? 'مهارت‌های NestJS' : 'NestJS Skills');
-    const description = pageData.frontmatter.description ?? (isPersian ? persianDescription : englishDescription);
-    const alternates = pairedRoutes.find(({ english, persian }) => route === english || route === persian);
+    const localeKey = (Object.keys(localeSeo).filter((key) => key !== 'root').sort((left, right) => right.length - left.length).find((key) => relativePath.startsWith(`${key}/`)) ?? 'root') as keyof typeof localeSeo;
+    const locale = localeSeo[localeKey];
+    const title = pageData.frontmatter.title || pageData.title || 'NestJS Skills';
+    const description = pageData.frontmatter.description ?? locale.description;
+    const alternates = pairedRoutes.find(({ routes }) => Object.values(routes).includes(route));
     const head = [
       ['link', { rel: 'canonical', href: canonicalUrl }],
       ['meta', { property: 'og:title', content: title }],
       ['meta', { property: 'og:description', content: description }],
       ['meta', { property: 'og:url', content: canonicalUrl }],
-      ['meta', { property: 'og:locale', content: isPersian ? 'fa_IR' : 'en_US' }],
-      ['meta', { property: 'og:image:alt', content: isPersian ? 'نشان مهارت‌های NestJS برای توسعه و معماری نرم‌افزار.' : 'NestJS Skills red N and charcoal S logo.' }],
+      ['meta', { property: 'og:locale', content: locale.ogLocale }],
+      ['meta', { property: 'og:image:alt', content: locale.imageAlt }],
       ['meta', { name: 'twitter:title', content: title }],
       ['meta', { name: 'twitter:description', content: description }],
-      ['meta', { name: 'twitter:image:alt', content: isPersian ? 'نشان مهارت‌های NestJS برای توسعه و معماری نرم‌افزار.' : 'NestJS Skills red N and charcoal S logo.' }]
+      ['meta', { name: 'twitter:image:alt', content: locale.imageAlt }]
     ];
 
     if (alternates) {
-      const routes = [
-        { lang: 'en', route: alternates.english },
-        { lang: 'fa', route: alternates.persian }
-      ];
-      for (const alternate of routes) {
-        head.push(['link', { rel: 'alternate', hreflang: alternate.lang, href: pageUrl(alternate.route) }]);
+      for (const [alternateLocale, alternateRoute] of Object.entries(alternates.routes)) {
+        const lang = localeSeo[alternateLocale as keyof typeof localeSeo].hreflang;
+        head.push(['link', { rel: 'alternate', hreflang: lang, href: pageUrl(alternateRoute) }]);
       }
     }
 

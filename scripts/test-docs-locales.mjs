@@ -9,14 +9,30 @@ const distRoot = join(repositoryRoot, 'docs', '.vitepress', 'dist');
 const siteUrl = 'https://amirtaherkhani.github.io/nestjs-skills';
 const siteBasePath = '/nestjs-skills';
 
+const locales = [
+  { key: 'root', slug: '', lang: 'en-US', hreflang: 'en', ogLocale: 'en_US', name: 'English', menuLabel: 'Select language', homeTitle: 'NestJS Skills', guideTitle: 'Getting Started', homeNav: 'Guide', direction: 'ltr' },
+  { key: 'fa', slug: 'fa', lang: 'fa-IR', hreflang: 'fa', ogLocale: 'fa_IR', name: 'فارسی', menuLabel: 'انتخاب زبان', homeTitle: 'مهارت‌های NestJS', guideTitle: 'شروع به کار', homeNav: 'شروع کنید', direction: 'rtl' },
+  { key: 'fr', slug: 'fr', lang: 'fr-FR', hreflang: 'fr', ogLocale: 'fr_FR', name: 'Français', menuLabel: 'Choisir la langue', homeTitle: 'Compétences NestJS', guideTitle: 'Premiers pas', homeNav: 'Guide', direction: 'ltr' },
+  { key: 'zh-CN', slug: 'zh-CN', lang: 'zh-CN', hreflang: 'zh-CN', ogLocale: 'zh_CN', name: '简体中文', menuLabel: '选择语言', homeTitle: 'NestJS 技能集', guideTitle: '快速开始', homeNav: '指南', direction: 'ltr' },
+  { key: 'ja', slug: 'ja', lang: 'ja-JP', hreflang: 'ja', ogLocale: 'ja_JP', name: '日本語', menuLabel: '言語を選択', homeTitle: 'NestJS スキル', guideTitle: 'はじめに', homeNav: 'ガイド', direction: 'ltr' }
+];
+
+const translatedPages = [
+  { key: 'home', route: (locale) => locale.slug ? `/${locale.slug}/` : '/', title: (locale) => locale.homeTitle, file: (locale) => locale.slug ? `${locale.slug}/index.html` : 'index.html' },
+  { key: 'guide', route: (locale) => locale.slug ? `/${locale.slug}/guide/getting-started` : '/guide/getting-started', title: (locale) => locale.guideTitle, file: (locale) => locale.slug ? `${locale.slug}/guide/getting-started.html` : 'guide/getting-started.html' }
+];
+
 async function readBuiltPage(route) {
   const file = join(distRoot, route);
   return { file, html: await readFile(file, 'utf8') };
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 function getMetaContent(html, attribute, name) {
-  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const match = html.match(new RegExp(`<meta\\s+${attribute}="${escapedName}"\\s+content="([^"]*)"`));
+  const match = html.match(new RegExp(`<meta\\s+${attribute}="${escapeRegExp(name)}"\\s+content="([^"]*)"`));
   assert.ok(match, `built page should include meta ${attribute}=${name}`);
   return match[1];
 }
@@ -28,12 +44,12 @@ function decodeHtmlAttribute(value) {
 async function assertLocalLinksResolve(route, html) {
   const hrefs = [...html.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)].map((match) => decodeHtmlAttribute(match[1]));
   const sourceRoute = route.replace(/index\.html$/, '').replace(/\.html$/, '');
-  const pageUrl = `${siteUrl}/${sourceRoute}`;
+  const pageCanonical = `${siteUrl}/${sourceRoute}`;
 
   for (const href of hrefs) {
     if (/^(?:https?:|mailto:|tel:|#|javascript:|data:|\/\/)/i.test(href)) continue;
 
-    const url = new URL(href, pageUrl);
+    const url = new URL(href, pageCanonical);
     if (url.origin !== new URL(siteUrl).origin) continue;
     assert.ok(url.pathname === siteBasePath || url.pathname.startsWith(`${siteBasePath}/`), `${route} link should stay inside the site base: ${href}`);
 
@@ -58,46 +74,65 @@ async function assertLocalLinksResolve(route, html) {
   }
 }
 
-const pages = [
-  { route: 'index.html', canonical: `${siteUrl}/`, lang: 'en-US', title: 'NestJS Skills', languageTarget: `${siteBasePath}/fa/` },
-  { route: 'guide/getting-started.html', canonical: `${siteUrl}/guide/getting-started`, lang: 'en-US', title: 'Getting Started', languageTarget: `${siteBasePath}/fa/guide/getting-started` },
-  { route: 'fa/index.html', canonical: `${siteUrl}/fa/`, lang: 'fa-IR', title: 'مهارت‌های NestJS', languageTarget: `${siteBasePath}/` },
-  { route: 'fa/guide/getting-started.html', canonical: `${siteUrl}/fa/guide/getting-started`, lang: 'fa-IR', title: 'شروع به کار', languageTarget: `${siteBasePath}/guide/getting-started` }
-];
-
 const builtPages = new Map();
-for (const page of pages) {
-  const built = await readBuiltPage(page.route);
-  builtPages.set(page.route, built.html);
-  assert.match(built.html, new RegExp(`<html\\b[^>]*lang="${page.lang}"`), `${page.route} should render its locale language`);
-  assert.equal((built.html.match(/rel="canonical"/g) ?? []).length, 1, `${page.route} should have exactly one canonical URL`);
-  assert.match(built.html, new RegExp(`<link rel="canonical" href="${page.canonical.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`));
-  assert.equal(getMetaContent(built.html, 'property', 'og:url'), page.canonical, `${page.route} should have a route-specific Open Graph URL`);
-  assert.equal(getMetaContent(built.html, 'property', 'og:title'), page.title, `${page.route} should have a localized Open Graph title`);
-  assert.equal(getMetaContent(built.html, 'name', 'twitter:title'), page.title, `${page.route} should have a localized social title`);
-  assert.ok(getMetaContent(built.html, 'name', 'twitter:description').length > 20, `${page.route} should have a useful social description`);
-  const languageLink = built.html.match(/<a class="[^"]*locale-switcher[^"]*" href="([^"]+)" aria-label="Switch to (?:Persian|English) documentation"/);
-  assert.ok(languageLink, `${page.route} should render a language switcher`);
-  assert.equal(languageLink[1], page.languageTarget, `${page.route} should switch to its translated page`);
-  await assertLocalLinksResolve(page.route, built.html);
-}
+for (const locale of locales) {
+  for (const page of translatedPages) {
+    const route = page.route(locale);
+    const built = await readBuiltPage(page.file(locale));
+    builtPages.set(route, built.html);
+    const html = built.html;
+    const canonical = `${siteUrl}${route}`;
 
-for (const [englishRoute, persianRoute] of [
-  ['index.html', 'fa/index.html'],
-  ['guide/getting-started.html', 'fa/guide/getting-started.html']
-]) {
-  for (const route of [englishRoute, persianRoute]) {
-    const html = builtPages.get(route);
-    assert.match(html, /<link rel="alternate" hreflang="en" href="https:\/\/amirtaherkhani\.github\.io\/nestjs-skills\//, `${route} should link to its English translation`);
-    assert.match(html, /<link rel="alternate" hreflang="fa" href="https:\/\/amirtaherkhani\.github\.io\/nestjs-skills\/fa\//, `${route} should link to its Persian translation`);
-    assert.match(html, /فارسی/, `${route} should expose the language switcher`);
+    assert.match(html, new RegExp(`<html\\b[^>]*lang="${escapeRegExp(locale.lang)}"`), `${route} should render its locale language`);
+    assert.match(html, new RegExp(`<html\\b[^>]*dir="${locale.direction}"`), `${route} should render the expected text direction`);
+    assert.equal((html.match(/rel="canonical"/g) ?? []).length, 1, `${route} should have exactly one canonical URL`);
+    assert.match(html, new RegExp(`<link rel="canonical" href="${escapeRegExp(canonical)}"`));
+    assert.equal(getMetaContent(html, 'property', 'og:url'), canonical, `${route} should have a route-specific Open Graph URL`);
+    assert.equal(getMetaContent(html, 'property', 'og:locale'), locale.ogLocale, `${route} should have a localized Open Graph locale`);
+    assert.equal((html.match(/property="og:image:alt"/g) ?? []).length, 1, `${route} should have one localized Open Graph image description`);
+    assert.equal((html.match(/name="twitter:image:alt"/g) ?? []).length, 1, `${route} should have one localized Twitter image description`);
+    assert.equal(getMetaContent(html, 'property', 'og:title'), page.title(locale), `${route} should have a localized Open Graph title`);
+    assert.equal(getMetaContent(html, 'name', 'twitter:title'), page.title(locale), `${route} should have a localized social title`);
+    assert.ok(getMetaContent(html, 'property', 'og:description').length > 20, `${route} should have a useful Open Graph description`);
+    assert.ok(getMetaContent(html, 'name', 'twitter:description').length > 20, `${route} should have a useful social description`);
+    assert.match(html, new RegExp(`aria-label="${escapeRegExp(locale.menuLabel)}: ${escapeRegExp(locale.name)}"`), `${route} should expose a localized language menu`);
+    assert.match(html, new RegExp(`>${escapeRegExp(locale.homeNav)}<`), `${route} should expose localized navigation`);
+
+    for (const targetLocale of locales) {
+      const targetRoute = page.route(targetLocale);
+      const href = `${siteBasePath}${targetRoute}`;
+      assert.match(html, new RegExp(`<a class="locale-switcher-option" href="${escapeRegExp(href)}"`), `${route} should offer ${targetLocale.name} at ${href}`);
+    }
+
+    await assertLocalLinksResolve(page.file(locale), html);
   }
 }
 
-assert.match(builtPages.get('fa/index.html'), /<html\b[^>]*dir="rtl"/, 'Persian homepage should render right-to-left');
-assert.match(builtPages.get('fa/guide/getting-started.html'), /<html\b[^>]*dir="rtl"/, 'Persian guide should render right-to-left');
-assert.match(builtPages.get('fa/index.html'), /aria-label="جستجوی مستندات"/, 'Persian homepage search controls should be localized');
-assert.match(builtPages.get('fa/index.html'), /حالت نمایش/, 'Persian appearance controls should be localized');
+for (const page of translatedPages) {
+  const expectedAlternates = locales.map((locale) => ({ locale, route: page.route(locale) }));
+  for (const { locale: pageLocale, route } of expectedAlternates) {
+    const html = builtPages.get(route);
+    const hreflangs = [...html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)];
+    assert.equal(hreflangs.length, locales.length, `${route} should declare one reciprocal hreflang for each translated version`);
+    for (const { locale, route: alternateRoute } of expectedAlternates) {
+      assert.ok(hreflangs.some(([, lang, href]) => lang === locale.hreflang && href === `${siteUrl}${alternateRoute}`), `${route} should link to its ${locale.name} version`);
+    }
+    assert.ok(html.includes(pageLocale.name), `${route} should expose its current locale label in the switcher`);
+  }
+}
+
+const rtlGuide = builtPages.get('/fa/guide/getting-started');
+assert.match(rtlGuide, /<html\b[^>]*dir="rtl"/, 'Persian guide should render right-to-left');
+assert.match(rtlGuide, /aria-label="جستجوی مستندات"/, 'Persian search controls should be localized');
+assert.match(builtPages.get('/fa/'), /حالت نمایش/, 'Persian appearance controls should be localized');
+for (const [route, ariaLabel] of [
+  ['/fr/', 'Rechercher dans la documentation'],
+  ['/zh-CN/', '搜索文档'],
+  ['/ja/', 'ドキュメントを検索']
+]) {
+  assert.ok(builtPages.get(route).includes(ariaLabel), `${route} should localize search controls`);
+}
+
 const customCss = await readFile(join(repositoryRoot, 'docs', '.vitepress', 'theme', 'custom.css'), 'utf8');
 assert.match(customCss, /html\[dir='rtl'\] \.vp-doc :not\(pre\) > code\s*\{\s*direction:\s*ltr;\s*white-space:\s*normal;\s*overflow-wrap:\s*anywhere;\s*unicode-bidi:\s*isolate;/, 'inline technical code should remain left-to-right and wrap in Persian text');
 assert.match(customCss, /html\[dir='rtl'\] \.VPContent\s*\{\s*overflow-x:\s*clip;/, 'Persian document content should not create page-level horizontal scrolling');
@@ -105,26 +140,30 @@ assert.match(customCss, /html\[dir='rtl'\] \.vp-doc div\[class\*='language-'\]\s
 
 const sitemap = await readFile(join(distRoot, 'sitemap.xml'), 'utf8');
 assert.match(sitemap, /xmlns:xhtml="http:\/\/www\.w3\.org\/1999\/xhtml"/, 'sitemap should declare the xhtml namespace');
-for (const pair of [
-  [`${siteUrl}/`, `${siteUrl}/fa/`],
-  [`${siteUrl}/guide/getting-started`, `${siteUrl}/fa/guide/getting-started`]
-]) {
-  for (const url of pair) {
-    const escapedUrl = url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const entry = sitemap.match(new RegExp(`<url><loc>${escapedUrl}<\\/loc>([\\s\\S]*?)<\\/url>`))?.[1];
+for (const page of translatedPages) {
+  const pageRoutes = locales.map((locale) => page.route(locale));
+  for (const route of pageRoutes) {
+    const url = `${siteUrl}${route}`;
+    const entry = sitemap.match(new RegExp(`<url><loc>${escapeRegExp(url)}</loc>([\\s\\S]*?)</url>`))?.[1];
     assert.ok(entry, `sitemap should include ${url}`);
-    assert.match(entry, /<xhtml:link rel="alternate" hreflang="en"/);
-    assert.match(entry, /<xhtml:link rel="alternate" hreflang="fa"/);
+    const alternateTags = [...entry.matchAll(/<xhtml:link rel="alternate" hreflang="([^"]+)" href="([^"]+)"\/>/g)];
+    assert.equal(alternateTags.length, locales.length, `${url} should include all five sitemap alternates`);
+    for (const locale of locales) {
+      assert.ok(alternateTags.some(([, lang, href]) => lang === locale.hreflang && href === `${siteUrl}${page.route(locale)}`), `${url} sitemap alternates should include ${locale.name}`);
+    }
   }
 }
 
-const untranslatedEntry = sitemap.match(/<url><loc>https:\/\/amirtaherkhani\.github\.io\/nestjs-skills\/concepts\/request-lifecycle<\/loc>([\s\S]*?)<\/url>/)?.[1];
+const untranslatedUrl = `${siteUrl}/concepts/request-lifecycle`;
+const untranslatedEntry = sitemap.match(new RegExp(`<url><loc>${escapeRegExp(untranslatedUrl)}</loc>([\\s\\S]*?)</url>`))?.[1];
 assert.ok(untranslatedEntry, 'sitemap should retain the English concepts page');
-assert.doesNotMatch(untranslatedEntry, /xhtml:link/, 'untranslated routes should not advertise a Persian alternate');
+assert.doesNotMatch(untranslatedEntry, /xhtml:link/, 'untranslated routes should not advertise translated alternates');
 const untranslatedPage = await readBuiltPage('concepts/request-lifecycle.html');
-assert.match(untranslatedPage.html, /href="\/nestjs-skills\/fa\/" aria-label="Switch to Persian documentation"/, 'untranslated English pages should switch to the Persian landing page rather than a missing route');
+for (const locale of locales) {
+  assert.match(untranslatedPage.html, new RegExp(`<a class="locale-switcher-option" href="${escapeRegExp(`${siteBasePath}${locale.slug ? `/${locale.slug}/` : '/'}`)}"`), `untranslated English pages should switch to the ${locale.name} landing page`);
+}
 
 const robots = await readFile(join(distRoot, 'robots.txt'), 'utf8');
 assert.match(robots, /^User-agent: \*\s+Allow: \/\s+Sitemap: https:\/\/amirtaherkhani\.github\.io\/nestjs-skills\/sitemap\.xml\s*$/);
 
-console.log(`Verified ${pages.length} localized page builds, canonical/social metadata, reciprocal hreflang, sitemap alternates, robots.txt, and internal links.`);
+console.log(`Verified ${locales.length * translatedPages.length} translated page builds, localized metadata and navigation, language switching, reciprocal hreflang, sitemap alternates, robots.txt, and internal links.`);
