@@ -4,10 +4,34 @@ User-visible changes to NestJS Skills are recorded here. The collection uses sem
 
 ## [Unreleased]
 
+## [2.3.0] - 2026-10-07
+
+### Added
+
+- Practical TypeScript examples for all 19 design-pattern catalog entries, with Nest provider wiring, selection guidance, tradeoffs, and behavioral checks. Examples distinguish simple factory selection from GoF Factory Method, object decorators from Nest metadata decorators, and provider scope from a static Singleton.
+- `npm run test:patterns`, which compiles the catalog's own code blocks and runs 26 behavioral tests, including transaction rollback, duplicate delivery, saga recovery, payment-timeout reconciliation, and concurrent outbox acknowledgements.
+- Persian, French, Simplified Chinese, and Japanese home, Getting Started, and publication gateway pages alongside English, with localized metadata, reciprocal language links, sitemap alternates, and language switching.
+- A public listing/article/post index, Hashnode links, marketplace installation guidance, and examples for all seven skill workflows.
+- A backend research backlog and archived preliminary notes, explicitly separated from approved skill guidance.
+
 ### Changed
 
-- Renamed the repository and collection to `nestjs-skills` / NestJS Skills, with updated installation commands, documentation links, and GitHub Pages base path. Individual skill names and the existing v2.2.0 release are unchanged.
+- Renamed the repository and collection to `nestjs-skills` / NestJS Skills, with updated installation commands, documentation links, and GitHub Pages base path. All seven individual skill names remain unchanged.
 - Documentation now lives at <https://amirtaherkhani.github.io/nestjs-skills/>. GitHub repository URLs redirect after a rename; old project-site URLs do not.
+- Updated the site branding, theme-aware logos, home icons, social assets, and localized homepage definitions.
+- Expanded the full test command to cover executable patterns, localized documentation, accessible home icons, and marketplace links.
+- Released OOP and Design Patterns as skill version `1.1.0` and Features and Performance as `1.3.3`, with their updated evaluation scenarios. The other five skill metadata versions are unchanged.
+
+### Fixed
+
+- Clarified strict boolean query parsing with `DefaultValuePipe` before `ParseBoolPipe`, including checks for omission, accepted strings, and invalid input.
+- Corrected document direction during locale navigation, RTL menu anchoring, translated navigation labels, and closing the locale selector on outside interaction.
+
+### Verification limits
+
+- Pattern examples compile and run against the repository's pinned NestJS 11.2.7 and TypeScript 5.9.3. Database, outbox, and saga tests use in-memory adapters; they do not prove real database isolation, broker durability, or process-crash recovery. CSV/PDF previews and email/SMS examples return teaching strings.
+- The research backlog is planned work, and archived notes remain preliminary. Full skill references remain in English; localized entry pages do not imply every reference has been translated.
+- Fixture correctness does not establish agent-quality improvements or token savings. The earlier evaluation pilot limitations still apply.
 
 ## [2.2.0] - 2026-10-04
 
@@ -45,6 +69,7 @@ User-visible changes to NestJS Skills are recorded here. The collection uses sem
 
 Earlier release history is available in [GitHub Releases](https://github.com/amirtaherkhani/nestjs-skills/releases).
 
-[Unreleased]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.2.0...HEAD
+[Unreleased]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.3.0...HEAD
+[2.3.0]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/amirtaherkhani/nestjs-skills/releases/tag/v2.1.0

@@ -4,7 +4,7 @@ description: 'Applies pragmatic OOP, SOLID, object-design rules, and design patt
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.0.2'
+  version: '1.1.0'
 ---
 
 # NestJS OOP and Design Patterns

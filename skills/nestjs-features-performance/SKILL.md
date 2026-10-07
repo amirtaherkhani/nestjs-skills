@@ -4,7 +4,7 @@ description: 'Selects and implements NestJS runtime features, error and API cont
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.3.2'
+  version: '1.3.3'
 ---
 
 # NestJS Features, Scaling, and Performance

@@ -90,7 +90,7 @@ Skillstore listings provide **Ask an Agent**, **CLI**, and **Manual** install ch
 See [public listings and posts](/guide/publications) for publication links and their current verification status.
 
 ::: tip Current release
-[`v2.2.0`](https://github.com/amirtaherkhani/nestjs-skills/releases/tag/v2.2.0) includes all seven skills, standalone Code Audit guidance, runnable examples, and an opt-in evaluation harness. See [examples and evaluation](/guide/examples-and-evaluation) for the verified behavior and current measurement limits.
+[`v2.3.0`](https://github.com/amirtaherkhani/nestjs-skills/releases/tag/v2.3.0) includes all seven skills, executable examples for all 19 design-pattern entries, and documentation entry pages in five languages. It retains the standalone Code Audit guidance, three before/after HTTP fixtures, and opt-in evaluation harness. See [examples and evaluation](/guide/examples-and-evaluation) for the verified behavior and current measurement limits.
 :::
 
 ::: warning Version 2 migration
