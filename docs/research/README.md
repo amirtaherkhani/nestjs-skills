@@ -84,7 +84,7 @@ The source inventory below is preliminary, captured 2026-10-06. It is not comple
 
 ## Backend Architecture Styles and Patterns in NestJS
 
-**Planning priority:** High decision value when a team is choosing or changing boundaries; otherwise a follow-on research topic because the existing [architecture ladder](../../skills/nestjs-architecture-principles/references/architecture-ladder.md) and [microservices guidance](../../skills/nestjs-architecture-principles/references/microservices.md) already cover the main progression. This is a practical sequencing judgment, not a popularity ranking.
+**Planning priority:** High decision value when a team is choosing or changing boundaries; otherwise a follow-on research topic because the existing [architecture ladder](../reference/architecture/references/architecture-ladder.md) and [microservices guidance](../reference/architecture/references/microservices.md) already cover the main progression. This is a practical sequencing judgment, not a popularity ranking.
 
 **Initial scope scan:** current guidance recommends cohesive feature modules, shows layered feature modules and hexagonal boundaries, and gives criteria for independent services. A likely research opportunity is a clearer side-by-side comparison of these choices in NestJS, especially where terms overlap. This scan is not a full coverage audit.
 
@@ -141,7 +141,7 @@ The source inventory below is preliminary, captured 2026-10-06. It is not comple
 **Scope and questions**
 
 - Define the terms distinctly: metrics are numeric measurements over time; monitoring uses known signals, dashboards, and alerts to detect expected conditions; observability uses logs, metrics, and traces to diagnose system behavior, including conditions not anticipated in advance; SRE applies service objectives, error budgets, and incident practices to reliability work.
-- Review the existing [Observability and SRE reference](../../skills/nestjs-features-performance/references/observability-sre.md) for coverage of SLIs/SLOs and error budgets, signals and dashboards, actionable alerts, incident response, recovery, privacy, cardinality, and telemetry cost. Identify the specific gap before proposing duplicate ownership or new guidance.
+- Review the existing [Observability and SRE reference](../reference/features-performance/references/observability-sre.md) for coverage of SLIs/SLOs and error budgets, signals and dashboards, actionable alerts, incident response, recovery, privacy, cardinality, and telemetry cost. Identify the specific gap before proposing duplicate ownership or new guidance.
 - Research executable NestJS OpenTelemetry instrumentation and export paths, including collector and Prometheus/Grafana arrangements. State framework, Node.js, and instrumentation versions, and distinguish example deployment assumptions from general guidance.
 - Address sensitive data and redaction, metric label cardinality, sampling, retention, access control, and telemetry cost as design constraints, not afterthoughts.
 
