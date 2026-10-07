@@ -187,6 +187,8 @@ The optional Codex compatibility prompt accepts `/prompts:audit_feature payments
 
 [Three executable NestJS examples](examples/README.md) cover strict boolean query parsing, a module-boundary invariant bypass with a healthy control, and a measured local HTTP optimization. Run `npm run test:fixtures` to verify the intentionally failing inputs and corrected behavior.
 
+The [design-pattern catalog](skills/nestjs-oop-design-patterns/references/pattern-catalog.md) adds practical examples for all 19 entries, with Nest wiring, tradeoffs, and behavioral tests. Run `npm run test:patterns` to compile and test the documentation's code blocks. The [scenario guide](examples/design-patterns/README.md) explains the in-memory adapters and other teaching limits.
+
 The [opt-in evaluation harness](evals/README.md) prepares three tasks × two skill versions in fresh contexts, records actual CLI usage when available, and keeps fixture correctness separate from agent impact. Ordinary CI never invokes a model. [Initial pilot status](evals/reports/2026-10-04-pilot.md): the CLI was blocked before a model turn, so no agent-quality or token-savings claim is established.
 
 ## 🤝 Optional project rules
@@ -242,6 +244,7 @@ Run individual workflows:
 npm run validate
 npm run test:audit
 npm run test:fixtures
+npm run test:patterns
 npm run test:eval
 npm run docs:build
 npm run docs:dev

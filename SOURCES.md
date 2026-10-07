@@ -171,3 +171,17 @@ Checked 2026-10-04. Examples and harness are original work; no external fixture 
 - [NestJS modules](https://docs.nestjs.com/modules): provider visibility and public module APIs.
 - [NestJS testing](https://docs.nestjs.com/fundamentals/testing): application-level and HTTP contract verification.
 - [Codex non-interactive mode](https://developers.openai.com/codex/noninteractive/): ephemeral runs and JSON event output. The installed CLI's `exec --help` is checked before a pilot; optional usage fields remain unknown when not emitted.
+
+## Practical pattern examples
+
+Checked 2026-10-07. Repository inspection covered the catalog, OOP/SOLID and object-design snippets, Nest lifecycle guidance, architecture/database references, and the three runnable HTTP fixtures. The catalog previously contained a Strategy interface and a Factory selector; examples also existed elsewhere in the repository.
+
+- [NestJS Design Patterns](https://dev.to/amirtaherkhani/nestjs-design-patterns-23fc): the author's broad topic inventory and examples informed which distinctions to explain.
+- [NestJS Agent Skills for Claude Code and Codex](https://dev.to/amirtaherkhani/i-built-3-conflict-checked-nestjs-agent-skills-for-claude-code-and-codex-2041): the author's pattern-selection discussion informed the focus on observed variation and the simplest suitable implementation.
+- [Custom providers](https://docs.nestjs.com/fundamentals/custom-providers), [modules](https://docs.nestjs.com/modules), and [injection scopes](https://docs.nestjs.com/fundamentals/injection-scopes): runtime tokens, factory/alias providers, module visibility, and container lifetimes.
+- [Testing](https://docs.nestjs.com/fundamentals/testing), [events](https://docs.nestjs.com/techniques/events), and [CQRS](https://docs.nestjs.com/recipes/cqrs): Nest integration points and the boundaries of in-process dispatch.
+- [TypeORM transactions](https://typeorm.io/docs/advanced-topics/transactions/): transaction-bound operations and isolation depend on the actual driver and adapter.
+- AWS Prescriptive Guidance on [transactional outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) and [saga orchestration](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/saga-orchestration.html): atomic local writes, duplicate delivery, coordinated recovery, and compensation.
+- [Nest releases](https://github.com/nestjs/nest/releases) and the [public npm registry](https://registry.npmjs.org/@nestjs/core/latest): version discovery. `npm view @nestjs/core version` returned 12.1.2 during this check; the cached GitHub release page returned v12.1.1. The examples compile and run against this repository's lockfile, NestJS 11.2.7 and TypeScript 5.9.3, without a dependency upgrade.
+
+The 19 examples are original code with behavioral contracts. The DEV articles are research inputs; official framework and library documentation governs API behavior. The fixtures keep simple factories distinct from GoF Factory Method, metadata decorators distinct from object decorators, and container scope distinct from a static Singleton. Database and messaging adapters in the tests are explicitly local teaching implementations.

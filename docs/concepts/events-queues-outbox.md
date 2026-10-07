@@ -56,3 +56,5 @@ The outbox closes the gap between committing data and publishing a message, but 
 Architecture decides which capability owns the fact and its transaction. Object design makes the event immutable and meaningful. Runtime design chooses in-process or durable transport, serialization, retries, backpressure, observability, and recovery.
 
 Use [Scaling and reliability](/reference/features-performance/references/scaling-reliability) for operational rules and [Pattern catalog](/reference/oop-patterns/references/pattern-catalog) for selection forces.
+
+For executable application examples, see [in-process observers](/reference/oop-patterns/references/pattern-catalog#observer-and-domain-events), [transactional outbox](/reference/oop-patterns/references/pattern-catalog#transactional-outbox), and [saga/process manager](/reference/oop-patterns/references/pattern-catalog#saga-process-manager). Their tests use in-memory adapters and exercise failure paths; actual database and broker guarantees need separate integration checks.

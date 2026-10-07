@@ -77,6 +77,39 @@
       ]
     },
     {
+      "id": "executable-pattern-examples",
+      "prompt": "Show practical NestJS examples for Builder and Bridge. Include the imports, collaborating types, provider wiring, and tests I need to run them. We already have receipt and overdue notices, each delivered by email or SMS.",
+      "expectations": [
+        "Uses a fresh builder per operation and validates the completed value without leaking mutable result aliases",
+        "Shows notice policy and delivery channel as two independently varying axes and checks all supported combinations",
+        "Includes concrete collaborators, runtime provider tokens where interfaces are used, and minimal Nest module wiring",
+        "Labels teaching transports and in-memory adapters honestly and identifies production boundary tests",
+        "Explains when simpler constructors or direct composition are sufficient"
+      ]
+    },
+    {
+      "id": "factory-method-versus-selection",
+      "prompt": "Our ExporterFactory returns injected CsvExporter or PdfExporter instances. Is that GoF Factory Method? Show the distinction and a usable Nest example without pretending placeholder strings generate real files.",
+      "expectations": [
+        "Identifies the existing code as a provider selector or simple factory, preserving Nest-owned provider instances",
+        "Explains GoF Factory Method through a base operation that calls a subclass creation hook",
+        "Distinguishes Nest useFactory container construction from a business workflow",
+        "Labels CSV and PDF teaching strings as previews rather than valid generated files",
+        "Tests selection, unsupported formats, and the creation hook's observable output"
+      ]
+    },
+    {
+      "id": "reliability-example-limits",
+      "prompt": "Write a NestJS checkout saga and outbox example with behavioral tests. A payment request can time out after succeeding, and the relay can publish successfully then fail to mark the outbox row. Use local adapters for the example.",
+      "expectations": [
+        "Persists workflow state, processed event IDs, and outgoing commands atomically behind an explicit adapter contract",
+        "Reconciles an uncertain payment outcome before compensation and uses stable operation keys",
+        "Tests redelivery with the same event identity after a publish-acknowledgement gap",
+        "Exercises saved-state recovery, duplicate input, failure rollback, and compensation acknowledgement",
+        "States that in-memory tests do not prove database isolation, process-crash recovery, broker durability, or exactly-once effects"
+      ]
+    },
+    {
       "id": "feature-audit-handoff",
       "prompt": "Use feature audit and OOP together to validate the refunds roadmap on main.",
       "expectations": [

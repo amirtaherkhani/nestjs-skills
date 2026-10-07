@@ -60,6 +60,8 @@ Lead with `nestjs-oop-design-patterns` when the system boundary is understood bu
 
 It does not require an interface for every class or a pattern for every conditional. Direct code remains preferable when no durable variation or boundary exists.
 
+The [pattern catalog](/reference/oop-patterns/references/pattern-catalog) includes 19 practical examples with Nest wiring, tradeoffs, and behavioral tests. The [example guide](/guide/examples-and-evaluation#practical-design-pattern-examples) explains how to run them and where the teaching adapters stop.
+
 [Open the full skill →](/reference/oop-patterns/)
 
 ## Features & Performance

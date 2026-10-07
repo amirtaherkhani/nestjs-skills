@@ -1,6 +1,6 @@
 # Runnable NestJS examples
 
-These small, authored applications show a failing behavior and a minimal correction using real NestJS HTTP boundaries. They are learning fixtures, not production templates or proof that an agent skill works better.
+The three before/after applications show a failing behavior and a minimal correction using real NestJS HTTP boundaries. A separate [executable pattern catalog](design-patterns/README.md) covers all 19 catalog entries. These are learning fixtures, not production templates or proof that an agent skill works better.
 
 From the repository root, with Node.js 20+:
 
@@ -35,13 +35,13 @@ For a repeatable five-sample benchmark, the [evaluation guide](../evals/README.m
 
 ## Seven skill workflows
 
-The three executable fixtures cover the behavior that benefits from a real HTTP contract. The remaining workflows are evidence-led reviews: their output depends on the repository under review, so fixed source snippets would imply conclusions without that evidence.
+The three before/after fixtures cover HTTP contracts. The [pattern examples](design-patterns/README.md) add executable object collaboration, provider wiring, and application reliability contracts through `npm run test:patterns`. Audit workflows still require evidence from the target repository before reaching a finding.
 
 | Skill | Example request | Evidence and stopping point |
 | --- | --- | --- |
 | [Professional Engineering](../skills/nestjs-professional-software-engineering/SKILL.md) | Add strict `includeArchived` parsing to an existing NestJS 11 endpoint. | Inspect the installed Nest version and route contract, then run the [boolean-query fixture](#boolean-query-parsing). Reject invalid query values and preserve the omitted-value default. |
 | [Architecture Principles](../skills/nestjs-architecture-principles/SKILL.md) | Review a wallet module where bulk checkout writes through exported storage. | Trace providers, exports, and both consumers. The [module-boundary fixture](#module-boundary-review) shows the bypass and its healthy negative control; route writes through the exported wallet operation and keep storage private. |
-| [OOP and Design Patterns](../skills/nestjs-oop-design-patterns/SKILL.md) | Keep wallet balance nonnegative and reject nonpositive charges. | Treat the balance rule as an invariant owned by the wallet operation. Exercise overdraft through both checkout and bulk routes; do not add a pattern when the direct operation protects the rule. See the same [module-boundary contract](#module-boundary-review). |
+| [OOP and Design Patterns](../skills/nestjs-oop-design-patterns/SKILL.md) | Select a pattern for an observed variation and prove its behavior. | Use the [19 pattern examples](design-patterns/README.md) for syntax, Nest wiring, and contracts. The [wallet fixture](#module-boundary-review) also shows when a direct invariant-owning operation is enough. |
 | [Features and Performance](../skills/nestjs-features-performance/SKILL.md) | Reduce repeated catalog work on a quote endpoint without changing its response. | Measure a fixed local workload, retain order and failure behavior, and bound concurrency. The [slow API fixture](#slow-local-api) separates deterministic call-count checks from illustrative elapsed time. |
 | [Code Audit](../skills/nestjs-code-audit/SKILL.md) | Audit only `src/payments` and report verified issues. | Establish the repo root, scope, instructions, versions, and safe checks. Run `node scripts/collect-quality-evidence.mjs --root "$PWD" --scope src/payments --run` from the target repository; report evidence and limitations without edits. |
 | [Feature Audit](../skills/nestjs-feature-audit/SKILL.md) | Compare refunds on `main` with its documented roadmap. | Confirm a concrete roadmap exists before evaluating it. Pin one branch revision, map every roadmap item to source/tests/runtime evidence, and report implemented items, gaps, legacy, bugs, and blockers without fixing them. |

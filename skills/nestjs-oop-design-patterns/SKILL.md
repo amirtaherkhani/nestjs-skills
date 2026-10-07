@@ -145,7 +145,7 @@ Do not force:
 | --- | --- |
 | Apply encapsulation, composition, polymorphism, or SOLID | [oop-solid.md](references/oop-solid.md) |
 | Design entities, value objects, policies, services, and DTO mapping | [object-design.md](references/object-design.md) |
-| Select creational, structural, behavioral, persistence, event, or reliability patterns | [pattern-catalog.md](references/pattern-catalog.md) |
+| Select patterns using 19 practical examples, Nest wiring, tradeoffs, and behavioral checks | [pattern-catalog.md](references/pattern-catalog.md) |
 | Map patterns to Nest modules, providers, guards, pipes, interceptors, filters, and CQRS | [nestjs-native-patterns.md](references/nestjs-native-patterns.md) |
 | Diagnose smells and choose a safe refactor | [smells-refactoring.md](references/smells-refactoring.md) |
 
