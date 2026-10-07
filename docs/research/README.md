@@ -149,6 +149,34 @@ The source inventory below is preliminary, captured 2026-10-06. It is not comple
 
 **Depends on:** the existing observability/SRE coverage review and a defined service scenario with user-facing SLIs. Research should establish whether a focused addition to the current performance skill is sufficient before considering a new skill.
 
+## HTTP Clients and Outbound Requests in NestJS
+
+**Planning priority:** a focused topic for reliable and maintainable outbound HTTP integrations, including the newly announced `@nestjs/http-client`. Confirm package status, compatibility, and supported NestJS versions during research; this entry does not select or add a dependency.
+
+**Scope and questions**
+
+- Compare Nest-compatible HTTP client options, including `@nestjs/http-client`, using compatibility, API, maintenance, runtime, and testing criteria.
+- Define safe timeout, cancellation, and error-handling practices for outbound requests, including propagation of request context and clear ownership of failures.
+- Evaluate retry behavior based on idempotency and operation semantics; address backoff, retry limits, and avoiding duplicate side effects.
+
+**Future evidence:** version-pinned NestJS examples for a client call, timeout and cancellation, structured error handling, and a retry decision that demonstrates safety boundaries; a concise client comparison with reproducible criteria.
+
+**Depends on:** checking current HTTP client guidance and the announced package's release and compatibility details. Research before choosing a default client or proposing new skill content.
+
+## NestJS HTTP Adapters: Express vs Fastify
+
+**Planning priority:** a focused comparison for teams selecting or changing NestJS HTTP adapters. This is a research topic; it does not recommend or migrate the repository to either adapter.
+
+**Scope and questions**
+
+- Compare Express and Fastify compatibility with NestJS features and ecosystem integrations, including middleware, plugins, request/response behavior, and adapter-specific constraints.
+- Measure performance under controlled, representative workloads; record versions, configuration, environment, and workload so results are reproducible and not treated as universal rankings.
+- Assess migration trade-offs, including code and integration changes, operational behavior, testing, and maintenance costs.
+
+**Future evidence:** a compatibility matrix, runnable equivalent NestJS examples, a reproducible performance measurement plan and results, and a migration checklist with risks and validation steps.
+
+**Depends on:** the existing adapter guidance and defined application requirements. Research first to identify a distinct gap before proposing a dedicated skill or migration.
+
 ## Preliminary primary-source inventory
 
 These are official or primary references supplied for later investigation. Their contents, applicability, and version alignment still need review when a topic is selected.
