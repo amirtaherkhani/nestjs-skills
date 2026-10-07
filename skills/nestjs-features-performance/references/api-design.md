@@ -14,6 +14,24 @@ Identify consumers, trust boundary, compatibility promise, latency/size requirem
 - Keep transport DTOs at the boundary. Map to an application command or query when the shapes or responsibilities differ.
 - Use parameterized persistence APIs after validation; DTO validation does not prevent injection by itself.
 
+For boolean query parameters, remember that HTTP query values arrive as strings. A TypeScript `boolean` annotation does not parse the value, and JavaScript treats the non-empty string `"false"` as truthy. Use Nest's `ParseBoolPipe` to accept only the literal `"true"` and `"false"` values. If omission should mean a default, apply `DefaultValuePipe` before `ParseBoolPipe`:
+
+```typescript
+@Get()
+list(
+  @Query(
+    'includeArchived',
+    new DefaultValuePipe(false),
+    ParseBoolPipe,
+  )
+  includeArchived: boolean,
+) {
+  return this.itemsService.list({ includeArchived });
+}
+```
+
+Test the missing parameter, both accepted values, and an invalid value through the actual HTTP route. See the official NestJS [pipes documentation](https://docs.nestjs.com/pipes#providing-defaults) and the pinned [NestJS 11.2.7 `ParseBoolPipe` implementation](https://github.com/nestjs/nest/blob/v11.2.7/packages/common/pipes/parse-bool.pipe.ts). The comparison began with the pinned upstream [API pipes rule](https://github.com/Kadajett/agent-nestjs-skills/blob/3986e0cede33958e000f959031cbee0cd83c2941/skills/nestjs-best-practices/rules/api-use-pipes.md); this guidance and example are original.
+
 ## Output contracts
 
 - Return response DTOs or explicit projections with allow-listed fields.

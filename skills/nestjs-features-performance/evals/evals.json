@@ -12,6 +12,16 @@
       ]
     },
     {
+      "id": "strict-boolean-query",
+      "prompt": "Add an optional includeArchived boolean query parameter to a NestJS 11 route. When omitted it should be false; accept only the literal true and false values, and reject invalid input.",
+      "expectations": [
+        "Treats an HTTP query value as a string regardless of the TypeScript parameter annotation",
+        "Uses ParseBoolPipe and applies DefaultValuePipe before it when absence means false",
+        "Avoids truthiness or generic coercion that interprets the non-empty string false as true",
+        "Tests missing, true, false, and invalid values through the HTTP route"
+      ]
+    },
+    {
       "id": "slow-endpoint",
       "prompt": "A NestJS endpoint has a 1.8 second p95. Make it faster.",
       "expectations": [
