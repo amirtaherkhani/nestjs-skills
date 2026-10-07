@@ -120,6 +120,8 @@ Each link opens a published collection or skill listing. The marketplaces have d
 
 See [public listings and posts](docs/guide/publications.md) for publication links and their verification status.
 
+We write on [Hashnode](https://nestjs-skills.hashnode.dev) about NestJS, practical backend and software engineering, and how NestJS Skills applies these topics in AI-assisted development. Read [Finding a business rule bypass in a NestJS module](https://nestjs-skills.hashnode.dev/finding-a-business-rule-bypass-in-a-nestjs-module) for an example; the publication index above has the detailed listings.
+
 The Skills CLI command above installs from this GitHub repository; it is separate from Agensi’s ZIP download and Skillstore’s listing-level install choices. See all [marketplace listings and install paths](docs/guide/getting-started.md#published-marketplace-listings).
 
 ### 2. Invoke a skill
