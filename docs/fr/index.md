@@ -1,6 +1,6 @@
 ---
 title: NestJS Skills
-description: Découvrez sept compétences open source pour l’ingénierie logicielle, l’architecture NestJS, les audits et la publication sécurisée.
+description: NestJS Skills réunit sept Agent Skills open source pour Claude Code et Codex. Elles accompagnent l’ingénierie NestJS, l’architecture, les audits de code et les performances.
 layout: home
 
 hero:
@@ -52,6 +52,10 @@ features:
     link: /reference/features-performance/
     linkText: Lire le guide en anglais
 ---
+
+## Qu’est-ce que NestJS Skills ?
+
+NestJS Skills est une collection open source de sept Agent Skills pour les assistants de programmation comme Claude Code et Codex. Ces compétences les aident à comprendre un projet NestJS, à apporter des changements ciblés, à examiner la qualité du code et à vérifier le comportement à l’exécution.
 
 ## Par où commencer ?
 

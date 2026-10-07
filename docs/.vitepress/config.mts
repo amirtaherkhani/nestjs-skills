@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress';
 
 const github = 'https://github.com/amirtaherkhani/nestjs-skills';
 const siteUrl = 'https://amirtaherkhani.github.io/nestjs-skills';
-const englishDescription = 'Project-aware software implementation and evidence-based NestJS architecture, object design, runtime, performance, and scaling guidance for Claude Code and Codex.';
+const englishDescription = 'NestJS Skills offers seven open-source Agent Skills for Claude Code and Codex, covering NestJS engineering, architecture, code audits, performance, and delivery.';
 const persianDescription = 'راهنمای فارسی برای نصب و شروع استفاده از NestJS Skills.';
 const frenchDescription = 'Documentation en français pour installer et utiliser NestJS Skills avec Claude Code et Codex.';
 const chineseDescription = 'NestJS Skills 中文指南：了解如何安装并使用 Claude Code 和 Codex 的 NestJS 技能。';
@@ -31,6 +31,15 @@ const pairedRoutes = [
       fr: '/fr/guide/getting-started',
       'zh-CN': '/zh-CN/guide/getting-started',
       ja: '/ja/guide/getting-started'
+    }
+  },
+  {
+    routes: {
+      root: '/guide/publications',
+      fa: '/fa/guide/publications',
+      fr: '/fr/guide/publications',
+      'zh-CN': '/zh-CN/guide/publications',
+      ja: '/ja/guide/publications'
     }
   }
 ];
@@ -410,7 +419,8 @@ export default defineConfig({
           { text: 'Getting started', link: '/guide/getting-started' },
           { text: 'Choose a skill', link: '/guide/choose-a-skill' },
           { text: 'Feature Audit workflow', link: '/guide/feature-audit' },
-          { text: 'Examples and evaluation', link: '/guide/examples-and-evaluation' }
+          { text: 'Examples and evaluation', link: '/guide/examples-and-evaluation' },
+          { text: 'Public listings and posts', link: '/guide/publications' }
         ]
       },
       {

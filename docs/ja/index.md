@@ -1,6 +1,6 @@
 ---
 title: NestJS Skills
-description: ソフトウェアエンジニアリング、NestJS アーキテクチャ、コード監査、機能監査、安全な公開を支援する 7 つのオープンソーススキルを紹介します。
+description: NestJS Skills は Claude Code と Codex 向けの 7 つのオープンソース Agent Skills をまとめたコレクションです。NestJS の開発、設計、コード監査、性能改善を支援します。
 layout: home
 
 hero:
@@ -52,6 +52,10 @@ features:
     link: /reference/features-performance/
     linkText: 英語のガイドを読む
 ---
+
+## NestJS Skills とは？
+
+NestJS Skills は、Claude Code や Codex などのコーディングエージェント向けに 7 つの Agent Skills をまとめたオープンソースのコレクションです。NestJS のコードベースを理解し、的を絞った設計・実装を行い、コード品質と実行時の動作を確認するために使えます。
 
 ## まず何をすればよいですか？
 

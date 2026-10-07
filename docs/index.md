@@ -67,6 +67,10 @@ features:
 
 <div class="home-content">
 
+## What is NestJS Skills?
+
+NestJS Skills is an open-source collection of seven Agent Skills for coding agents such as Claude Code and Codex. The skills help agents understand NestJS projects, make focused engineering and architecture changes, audit code, and verify runtime behavior.
+
 ## Route work to the right skill
 
 Use Professional Engineering to coordinate implementation and Git Publication after verification. Code Audit reviews repository quality; Feature Audit measures one branch-specific feature against its roadmap.

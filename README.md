@@ -118,6 +118,8 @@ Each link opens a published collection or skill listing. The marketplaces have d
 | <a href="https://www.agensi.io/skills/nestjs-skills-professional-software-engineering"><img src="docs/assets/marketplaces/agensi.png" width="28" alt=""> <strong>Agensi.io</strong></a> | Browse individual skill listings. Select **Download Free** on a listing, then follow its agent-specific folder instructions. |
 | <a href="https://skillstore.io/skills/amirtaherkhani-nestjs-professional-software-engineering"><img src="docs/assets/marketplaces/skillstore.svg" width="28" alt=""> <strong>Skillstore</strong></a> | Browse individual skill listings. Use the listing’s **Ask an Agent**, **CLI**, or **Manual** install choice and follow its instructions. |
 
+See [public listings and posts](docs/guide/publications.md) for publication links and their verification status.
+
 The Skills CLI command above installs from this GitHub repository; it is separate from Agensi’s ZIP download and Skillstore’s listing-level install choices. See all [marketplace listings and install paths](docs/guide/getting-started.md#published-marketplace-listings).
 
 ### 2. Invoke a skill

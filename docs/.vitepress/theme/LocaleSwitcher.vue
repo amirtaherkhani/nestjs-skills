@@ -43,6 +43,26 @@ const pageRoutes: Record<string, Record<string, string>> = {
   'ja/guide/getting-started.md': {
     root: '/guide/getting-started', fa: '/fa/guide/getting-started', fr: '/fr/guide/getting-started',
     'zh-CN': '/zh-CN/guide/getting-started', ja: '/ja/guide/getting-started'
+  },
+  'guide/publications.md': {
+    root: '/guide/publications', fa: '/fa/guide/publications', fr: '/fr/guide/publications',
+    'zh-CN': '/zh-CN/guide/publications', ja: '/ja/guide/publications'
+  },
+  'fa/guide/publications.md': {
+    root: '/guide/publications', fa: '/fa/guide/publications', fr: '/fr/guide/publications',
+    'zh-CN': '/zh-CN/guide/publications', ja: '/ja/guide/publications'
+  },
+  'fr/guide/publications.md': {
+    root: '/guide/publications', fa: '/fa/guide/publications', fr: '/fr/guide/publications',
+    'zh-CN': '/zh-CN/guide/publications', ja: '/ja/guide/publications'
+  },
+  'zh-CN/guide/publications.md': {
+    root: '/guide/publications', fa: '/fa/guide/publications', fr: '/fr/guide/publications',
+    'zh-CN': '/zh-CN/guide/publications', ja: '/ja/guide/publications'
+  },
+  'ja/guide/publications.md': {
+    root: '/guide/publications', fa: '/fa/guide/publications', fr: '/fr/guide/publications',
+    'zh-CN': '/zh-CN/guide/publications', ja: '/ja/guide/publications'
   }
 };
 const languageNames: Record<string, string> = Object.fromEntries(languages.map(({ key, label }) => [key, label]));

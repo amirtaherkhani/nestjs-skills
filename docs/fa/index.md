@@ -1,6 +1,6 @@
 ---
 title: NestJS Skills
-description: NestJS Skills مجموعه‌ای از هفت مهارت متن‌باز برای پیاده‌سازی، معماری، بازبینی و انتشار امن پروژه‌های NestJS است.
+description: NestJS Skills مجموعه‌ای متن‌باز از هفت مهارت برای Claude Code و Codex است و راهنمایی کاربردی برای مهندسی، معماری، بازبینی کد و کارایی NestJS ارائه می‌دهد.
 layout: home
 
 hero:
@@ -52,6 +52,10 @@ features:
     link: /reference/features-performance/
     linkText: مشاهدهٔ راهنمای انگلیسی
 ---
+
+## NestJS Skills چیست؟
+
+NestJS Skills مجموعه‌ای متن‌باز از هفت Agent Skill برای عامل‌های کدنویسی مانند Claude Code و Codex است. این مهارت‌ها به عامل‌ها کمک می‌کنند کدبیس NestJS را بشناسند، تغییرهای مهندسی و معماری را هدفمند انجام دهند، کد را بازبینی کنند و رفتار زمان اجرا را بسنجند.
 
 ## از کجا شروع کنم؟
 

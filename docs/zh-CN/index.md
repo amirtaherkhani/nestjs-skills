@@ -1,6 +1,6 @@
 ---
 title: NestJS Skills
-description: 了解七个开源技能，涵盖软件工程、NestJS 架构、代码审查、功能审计与安全发布。
+description: NestJS Skills 是面向 Claude Code 和 Codex 的七个开源 Agent Skills 集合，提供 NestJS 工程、架构、代码审查和性能方面的指导。
 layout: home
 
 hero:
@@ -52,6 +52,10 @@ features:
     link: /reference/features-performance/
     linkText: 阅读英文指南
 ---
+
+## 什么是 NestJS Skills？
+
+NestJS Skills 是一个开源技能集，包含七个面向 Claude Code、Codex 等编程代理的 Agent Skills。它帮助代理理解 NestJS 代码库、进行有针对性的工程与架构修改、审查代码质量，并验证运行时行为。
 
 ## 从哪里开始？
 

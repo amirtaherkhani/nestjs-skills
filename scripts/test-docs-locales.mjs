@@ -48,16 +48,17 @@ function testLocaleSwitcherDismiss() {
 testLocaleSwitcherDismiss();
 
 const locales = [
-  { key: 'root', slug: '', lang: 'en-US', hreflang: 'en', ogLocale: 'en_US', name: 'English', menuLabel: 'Select language', sidebarMenuLabel: 'Menu', homeTitle: 'NestJS Skills', guideTitle: 'Getting Started', homeNav: 'Guide', direction: 'ltr' },
-  { key: 'fa', slug: 'fa', lang: 'fa-IR', hreflang: 'fa', ogLocale: 'fa_IR', name: 'فارسی', menuLabel: 'انتخاب زبان', sidebarMenuLabel: 'فهرست', homeTitle: 'NestJS Skills', guideTitle: 'شروع به کار | NestJS Skills', homeNav: 'شروع کنید', direction: 'rtl' },
-  { key: 'fr', slug: 'fr', lang: 'fr-FR', hreflang: 'fr', ogLocale: 'fr_FR', name: 'Français', menuLabel: 'Choisir la langue', sidebarMenuLabel: 'Menu', homeTitle: 'NestJS Skills', guideTitle: 'Premiers pas | NestJS Skills', homeNav: 'Guide', direction: 'ltr' },
-  { key: 'zh-CN', slug: 'zh-CN', lang: 'zh-CN', hreflang: 'zh-CN', ogLocale: 'zh_CN', name: '简体中文', menuLabel: '选择语言', sidebarMenuLabel: '菜单', homeTitle: 'NestJS Skills', guideTitle: '快速开始 | NestJS Skills', homeNav: '指南', direction: 'ltr' },
-  { key: 'ja', slug: 'ja', lang: 'ja-JP', hreflang: 'ja', ogLocale: 'ja_JP', name: '日本語', menuLabel: '言語を選択', sidebarMenuLabel: 'メニュー', homeTitle: 'NestJS Skills', guideTitle: 'はじめに | NestJS Skills', homeNav: 'ガイド', direction: 'ltr' }
+  { key: 'root', slug: '', lang: 'en-US', hreflang: 'en', ogLocale: 'en_US', name: 'English', menuLabel: 'Select language', sidebarMenuLabel: 'Menu', homeTitle: 'NestJS Skills', guideTitle: 'Getting Started', publicationsTitle: 'Public listings and posts', homeNav: 'Guide', homeDescription: 'NestJS Skills offers seven open-source Agent Skills for Claude Code and Codex, covering NestJS engineering, architecture, code audits, performance, and delivery.', homeDefinition: 'NestJS Skills is an open-source collection of seven Agent Skills', direction: 'ltr' },
+  { key: 'fa', slug: 'fa', lang: 'fa-IR', hreflang: 'fa', ogLocale: 'fa_IR', name: 'فارسی', menuLabel: 'انتخاب زبان', sidebarMenuLabel: 'فهرست', homeTitle: 'NestJS Skills', guideTitle: 'شروع به کار | NestJS Skills', publicationsTitle: 'فهرست‌های عمومی و نوشته‌ها', homeNav: 'شروع کنید', homeDescription: 'NestJS Skills مجموعه‌ای متن‌باز از هفت مهارت برای Claude Code و Codex است و راهنمایی کاربردی برای مهندسی، معماری، بازبینی کد و کارایی NestJS ارائه می‌دهد.', homeDefinition: 'NestJS Skills مجموعه‌ای متن‌باز از هفت Agent Skill', direction: 'rtl' },
+  { key: 'fr', slug: 'fr', lang: 'fr-FR', hreflang: 'fr', ogLocale: 'fr_FR', name: 'Français', menuLabel: 'Choisir la langue', sidebarMenuLabel: 'Menu', homeTitle: 'NestJS Skills', guideTitle: 'Premiers pas | NestJS Skills', publicationsTitle: 'Listings publics et publications', homeNav: 'Guide', homeDescription: 'NestJS Skills réunit sept Agent Skills open source pour Claude Code et Codex. Elles accompagnent l’ingénierie NestJS, l’architecture, les audits de code et les performances.', homeDefinition: 'NestJS Skills est une collection open source de sept Agent Skills', direction: 'ltr' },
+  { key: 'zh-CN', slug: 'zh-CN', lang: 'zh-CN', hreflang: 'zh-CN', ogLocale: 'zh_CN', name: '简体中文', menuLabel: '选择语言', sidebarMenuLabel: '菜单', homeTitle: 'NestJS Skills', guideTitle: '快速开始 | NestJS Skills', publicationsTitle: '公开目录与文章', homeNav: '指南', homeDescription: 'NestJS Skills 是面向 Claude Code 和 Codex 的七个开源 Agent Skills 集合，提供 NestJS 工程、架构、代码审查和性能方面的指导。', homeDefinition: 'NestJS Skills 是一个开源技能集，包含七个面向 Claude Code、Codex 等编程代理的 Agent Skills', direction: 'ltr' },
+  { key: 'ja', slug: 'ja', lang: 'ja-JP', hreflang: 'ja', ogLocale: 'ja_JP', name: '日本語', menuLabel: '言語を選択', sidebarMenuLabel: 'メニュー', homeTitle: 'NestJS Skills', guideTitle: 'はじめに | NestJS Skills', publicationsTitle: '公開リストと記事', homeNav: 'ガイド', homeDescription: 'NestJS Skills は Claude Code と Codex 向けの 7 つのオープンソース Agent Skills をまとめたコレクションです。NestJS の開発、設計、コード監査、性能改善を支援します。', homeDefinition: 'NestJS Skills は、Claude Code や Codex などのコーディングエージェント向けに 7 つの Agent Skills', direction: 'ltr' }
 ];
 
 const translatedPages = [
   { key: 'home', route: (locale) => locale.slug ? `/${locale.slug}/` : '/', title: (locale) => locale.homeTitle, file: (locale) => locale.slug ? `${locale.slug}/index.html` : 'index.html' },
-  { key: 'guide', route: (locale) => locale.slug ? `/${locale.slug}/guide/getting-started` : '/guide/getting-started', title: (locale) => locale.guideTitle, file: (locale) => locale.slug ? `${locale.slug}/guide/getting-started.html` : 'guide/getting-started.html' }
+  { key: 'guide', route: (locale) => locale.slug ? `/${locale.slug}/guide/getting-started` : '/guide/getting-started', title: (locale) => locale.guideTitle, file: (locale) => locale.slug ? `${locale.slug}/guide/getting-started.html` : 'guide/getting-started.html' },
+  { key: 'publications', route: (locale) => locale.slug ? `/${locale.slug}/guide/publications` : '/guide/publications', title: (locale) => locale.publicationsTitle, file: (locale) => locale.slug ? `${locale.slug}/guide/publications.html` : 'guide/publications.html' }
 ];
 
 for (const sequence of [
@@ -145,6 +146,12 @@ for (const locale of locales) {
     assert.equal(getMetaContent(html, 'name', 'twitter:title'), page.title(locale), `${route} should have a localized social title`);
     assert.ok(getMetaContent(html, 'property', 'og:description').length > 20, `${route} should have a useful Open Graph description`);
     assert.ok(getMetaContent(html, 'name', 'twitter:description').length > 20, `${route} should have a useful social description`);
+    if (page.key === 'home') {
+      assert.equal(getMetaContent(html, 'property', 'og:description'), locale.homeDescription, `${route} should use the locale-specific homepage description`);
+      assert.equal(getMetaContent(html, 'name', 'twitter:description'), locale.homeDescription, `${route} should use the locale-specific social description`);
+      const visibleText = html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ');
+      assert.ok(visibleText.includes(locale.homeDefinition), `${route} should define NestJS Skills in its own language`);
+    }
     assert.match(html, new RegExp(`aria-label="${escapeRegExp(locale.menuLabel)}: ${escapeRegExp(locale.name)}"`), `${route} should expose a localized language menu`);
     if (page.key === 'guide') {
       assert.match(html, new RegExp(`<span class="menu-text"[^>]*>${escapeRegExp(locale.sidebarMenuLabel)}</span>`), `${route} should expose a localized sidebar menu control`);
@@ -220,6 +227,13 @@ const untranslatedPage = await readBuiltPage('concepts/request-lifecycle.html');
 for (const locale of locales) {
   assert.match(untranslatedPage.html, new RegExp(`<a class="locale-switcher-option" href="${escapeRegExp(`${siteBasePath}${locale.slug ? `/${locale.slug}/` : '/'}`)}"`), `untranslated English pages should switch to the ${locale.name} landing page`);
 }
+
+const publicationsPage = await readBuiltPage('guide/publications.html');
+assert.match(publicationsPage.html, /Public listings and posts/, 'the publication inventory should build with its title');
+assert.match(publicationsPage.html, /pending review/i, 'the publication inventory should distinguish pending review from published listings');
+assert.match(publicationsPage.html, /2107112281477992899/, 'the publication inventory should retain the verified public X post');
+await assertLocalLinksResolve('guide/publications.html', publicationsPage.html);
+assert.match(builtPages.get('/guide/getting-started'), /\/nestjs-skills\/guide\/publications/, 'Getting Started should link to the publication inventory');
 
 const robots = await readFile(join(distRoot, 'robots.txt'), 'utf8');
 assert.match(robots, /^User-agent: \*\s+Allow: \/\s+Sitemap: https:\/\/amirtaherkhani\.github\.io\/nestjs-skills\/sitemap\.xml\s*$/);
