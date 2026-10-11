@@ -27,6 +27,12 @@ The runner compiles the code blocks shown on the catalog page, then checks their
 
 The Unit of Work, outbox, and saga examples use explicit application ports with in-memory test adapters. Their checks cover rollback, duplicate delivery, saved-state recovery, and payment-timeout reconciliation. They do not verify a real database or broker. CSV/PDF examples return teaching strings. See the [scenario and verification guide](https://github.com/amirtaherkhani/nestjs-skills/blob/main/examples/design-patterns/README.md) for all examples, tested versions, and production checks.
 
+## Four-axis boundary proofs
+
+Run npm run test:boundaries for 16 deterministic checks covering two actual feature modules sharing authentication, private-provider and token failures, inventory behavioral substitution, HTTP enhancer success/error paths, runtime schemas, domain invariants and a project-specific import rule. See the [fixture guide](https://github.com/amirtaherkhani/nestjs-skills/blob/main/examples/four-axis/README.md), [module contracts](/reference/architecture/references/module-contracts), [enhancer composition](/reference/features-performance/references/enhancer-composition) and [project profile](/reference/professional-engineering/references/project-profile-and-scaffolding).
+
+Both slow-API variants additionally validate successful external JSON and allow-list public output. Future evaluation preparations record the new source revision and fixture hash; existing pilot receipts retain their original meaning. No agent comparison or custom generator is claimed by these deterministic checks.
+
 ## Seven skill workflows
 
 The runnable apps cover endpoint behavior, module boundaries, and measured performance. The catalog examples cover object collaboration and application contracts. Audit workflows use an evidence path and stop condition because their conclusions depend on the target repository.

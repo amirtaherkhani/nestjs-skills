@@ -32,6 +32,22 @@ list(
 
 Test the missing parameter, both accepted values, and an invalid value through the actual HTTP route. See the official NestJS [pipes documentation](https://docs.nestjs.com/pipes#providing-defaults) and the pinned [NestJS 11.2.7 `ParseBoolPipe` implementation](https://github.com/nestjs/nest/blob/v11.2.7/packages/common/pipes/parse-bool.pipe.ts). The comparison began with the pinned upstream [API pipes rule](https://github.com/Kadajett/agent-nestjs-skills/blob/3986e0cede33958e000f959031cbee0cd83c2941/skills/nestjs-best-practices/rules/api-use-pipes.md); this guidance and example are original.
 
+## Transport, internal and domain types
+
+| Boundary or role | Suitable representation | What proves safety |
+| --- | --- | --- |
+| Reflection/class-validator transport input | Concrete DTO class imported as a runtime value | Explicit pipe settings, metadata, transformation and nested validation checks |
+| Explicit schema/custom-pipe input | Schema over unknown values; class optional | Real transport checks for shape, bounds, coercion and unknown-field policy |
+| Trusted internal command/query | Interface or type when reflection is unnecessary | Static caller checks plus operation/domain invariants |
+| Behavior-rich domain value/entity | Domain object independent of transport/ORM concerns | Construction and mutation reject invalid states for every caller |
+| Persistence/public output | ORM model inside persistence; explicit allow-listed projection at the public boundary | Mapping checks and absence of private fields |
+
+TypeScript annotations and assertions are erased; they do not validate JSON. A class alone also does not validate a value without a configured runtime mechanism. Treat external successful responses as unknown and validate them at the adapter boundary. The slow-API example rejects malformed JSON, mismatched identities and invalid prices in both variants, then projects only id/price.
+
+Transport validation and domain invariants protect different promises: a positive inventory quantity can still exceed stock. Internal interfaces are valid without runtime DTO classes, and an internal transfer object is not forbidden merely because someone calls it a DTO. Separate shapes when ownership or contracts differ; keep a simple direct model when the project needs no additional boundary.
+
+See [enhancer-composition.md](enhancer-composition.md) for the inventory HTTP/operation/domain path and [testing.md](testing.md) for test-layer limits.
+
 ## Output contracts
 
 - Return response DTOs or explicit projections with allow-listed fields.

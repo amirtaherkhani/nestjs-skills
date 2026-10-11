@@ -111,6 +111,14 @@ const command: PlaceOrderInput = {
 
 Avoid universal mapping frameworks when explicit mapping is short and captures important semantics.
 
+A transport DTO, an internal command/query type, a domain object and an ORM model have different owners. Internal interfaces/types are useful when no runtime reflection is needed. Concrete DTO classes support reflection-based validation only with the configured validator/pipe; explicit schema validation is also valid. Neither a TypeScript assertion nor a class declaration validates incoming JSON by itself.
+
+For example, a file-upload boundary checks size, media type and filename policy; an internal StoreFile command can be an interface containing validated content metadata. Storage owns filesystem/vendor translation, while a domain rule may still reject overwriting a protected file. A public FileView projects only the allowed identifier and display name. Avoid turning every property into a value object or every simple CRUD row into a separate domain entity.
+
+The inventory fixture additionally checks an internal caller that bypasses the pipe: the domain still rejects a negative or excessive reservation. The reusable inventory-reader suite rejects an adapter whose static return type is correct but whose returned object aliases mutable state. See the [executable boundary examples](https://github.com/amirtaherkhani/nestjs-skills/tree/main/examples/four-axis) and [nestjs-native-patterns.md](nestjs-native-patterns.md).
+
+A project may use a shared `User` class with Swagger and serialization decorators as its central model, alongside a separately validated create DTO. Follow that supported project design; a rich or framework-free domain is a chosen boundary, not a universal requirement. Indexed-access types such as `User['email']` reuse a static property type; they do not transfer Swagger, serialization or validation metadata to another class. Configure and test runtime validation and serialization at their actual boundaries.
+
 ## Factory
 
 Use a factory when valid construction has branching, multiple steps, dependencies, or invariants that should not leak to callers. Prefer a named static constructor for a single straightforward invariant.

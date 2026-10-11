@@ -1,5 +1,7 @@
 # API and Runtime Features
 
+See [enhancer-composition.md](enhancer-composition.md) for responsibility, binding reach versus provider lifetime, and executable success/error ordering.
+
 ## Bootstrap and configuration
 
 Bootstrap order should be intentional:

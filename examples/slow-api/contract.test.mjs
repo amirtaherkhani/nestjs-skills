@@ -8,6 +8,7 @@ import request from 'supertest';
 
 const { createApp } = await import(pathToFileURL(process.env.FIXTURE_ENTRY));
 let app, dependency, calls = 0, active = 0, peak = 0, fail = false, delayMs = 30;
+let successBody, extraFields = false;
 before(async () => {
   dependency = createServer((req, res) => {
     calls++; active++; peak = Math.max(peak, active);
@@ -15,7 +16,8 @@ before(async () => {
       active--;
       res.setHeader('content-type', 'application/json');
       res.statusCode = fail ? 503 : 200;
-      res.end(JSON.stringify(fail ? { error: 'unavailable' } : { id: req.url.slice(1), price: 10 }));
+      res.end(fail ? JSON.stringify({ error: 'unavailable' })
+        : successBody ?? JSON.stringify({ id: req.url.slice(1), price: 10, ...(extraFields ? { vendorSecret: 'private' } : {}) }));
     }, delayMs);
   });
   dependency.listen(0, '127.0.0.1');
@@ -53,6 +55,7 @@ test('the one-second upstream deadline returns the existing 502 contract', async
     const response = await request(app.getHttpServer()).get('/quote').expect(502);
     assert.equal(response.body.message, 'Catalog unavailable');
     assert.ok(performance.now() - start >= 800, 'deadline must not be shortened substantially');
+    assert.ok(performance.now() - start < 2500, 'deadline must abort rather than wait for the dependency');
   } finally { delayMs = 30; }
 });
 test('dependency failure retains the non-leaking 502 contract', async () => {
@@ -60,4 +63,29 @@ test('dependency failure retains the non-leaking 502 contract', async () => {
   const response = await request(app.getHttpServer()).get('/quote').expect(502);
   assert.equal(response.body.message, 'Catalog unavailable');
   assert.ok(!JSON.stringify(response.body).includes('127.0.0.1'));
+  fail = false;
+});
+
+for (const [name, body] of [
+  ['invalid JSON', '{private'], ['null', 'null'], ['array', '[]'],
+  ['missing price', '{"id":"one"}'], ['wrong price type', '{"id":"one","price":"10"}'],
+  ['negative price', '{"id":"one","price":-1}'], ['non-finite price', '{"id":"one","price":1e400}'],
+  ['wrong identity', '{"id":"other","price":10}'],
+]) {
+  test(`malformed successful catalog response: ${name}`, async () => {
+    successBody = body;
+    try {
+      const response = await request(app.getHttpServer()).get('/quote').expect(502);
+      assert.equal(response.body.message, 'Catalog unavailable');
+      assert.ok(!JSON.stringify(response.body).includes('private'));
+    } finally { successBody = undefined; }
+  });
+}
+
+test('extra vendor fields never appear in the public quote', async () => {
+  extraFields = true;
+  try {
+    const response = await request(app.getHttpServer()).get('/quote').expect(200);
+    assert.deepEqual(response.body, ['one', 'two', 'one', 'two'].map(id => ({ id, price: 10 })));
+  } finally { extraFields = false; }
 });

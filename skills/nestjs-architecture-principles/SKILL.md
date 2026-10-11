@@ -4,7 +4,7 @@ description: 'Designs and reviews NestJS application architecture using cohesive
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.1.2'
+  version: '1.2.0'
 ---
 
 # NestJS Architecture and Principles
@@ -115,6 +115,8 @@ KISS does not mean hiding failure cases. DRY does not mean abstracting coinciden
 Use [references/architecture-review.md](references/architecture-review.md). Report evidence-backed findings with severity, impact, a minimal remedy, and a validation step. Do not propose a rewrite when a boundary repair is sufficient.
 
 ## Reference routing
+
+For consumer promises and executable wiring/behavior controls, see [module-contracts.md](references/module-contracts.md).
 
 | Task | Load |
 | --- | --- |

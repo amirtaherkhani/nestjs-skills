@@ -229,6 +229,8 @@ test('Provider lifetime shares the owning-module singleton and isolates request 
   const app = await context(t, m.ExampleModule);
   assert.equal(app.get(m.ConsumerA).settings, app.get(m.ConsumerB).settings);
   assert.equal(app.get(m.SETTINGS_ALIAS), app.get(m.RuntimeSettings));
+  assert.notEqual(app.get(m.SETTINGS_COPY), app.get(m.RuntimeSettings));
+  assert.deepEqual(app.get(m.SETTINGS_COPY).value, app.get(m.RuntimeSettings).value);
   const one = ContextIdFactory.create();
   const two = ContextIdFactory.create();
   assert.equal(await app.resolve(m.RequestMarker, one), await app.resolve(m.RequestMarker, one));

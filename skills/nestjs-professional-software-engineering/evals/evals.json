@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-professional-software-engineering",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "cases": [
     {
       "id": "new-feature-existing-conventions",
@@ -91,6 +91,26 @@
         "Does not ask for redundant approval; asks for material scope, risk, or permission changes",
         "Stops before implementation comparison if no clear roadmap exists",
         "Keeps unverified candidates out of implementation"
+      ]
+    },
+    {
+      "id": "project-profile-before-scaffold",
+      "prompt": "One project allows direct service/ORM CRUD; another keeps domain code framework-free and uses consumer-owned Symbol ports. Prepare a feature consistent with each profile.",
+      "expectations": [
+        "Reads instructions, healthy local precedents and exact installed tool versions",
+        "Does not impose mandatory repository/CQRS/layer folders",
+        "Records intended files, import edits, collision behavior and checks before scaffolding",
+        "Keeps a custom generator as a separate feasibility decision"
+      ]
+    },
+    {
+      "id": "erased-token-rule-conflict",
+      "prompt": "A local naming rule asks the generator to use a TypeScript interface as the runtime injection token. Resolve the conflict before mutation.",
+      "expectations": [
+        "Identifies that naming cannot supply an erased runtime value",
+        "Offers a concrete runtime class/abstract class/Symbol/string token consistent with the project",
+        "Preserves all compatible local instructions",
+        "Separates written scenarios and deterministic checks from actual agent compliance evidence"
       ]
     }
   ]

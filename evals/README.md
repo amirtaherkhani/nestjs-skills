@@ -74,3 +74,5 @@ Run directories and raw transcripts are ignored by Git. Inspect and redact envir
 One observation per task/version is a small pilot. It cannot establish general quality, reliability, cost, or token savings. Repeat matched runs and use more independent tasks before making broad claims. A shorter skill body is a text-size change, not a measured reduction in agent consumption.
 
 See [pilot status](reports/2026-10-04-pilot.md) for what was actually executable in the initial implementation environment.
+
+The 2.4.0 slow-API fixtures validate successful upstream JSON in both variants. Newly prepared workspaces record the updated source commit and fixture hash. Existing pilot reports and raw receipts are historical evidence and are not reinterpreted as runs of these new controls. The four-axis written scenarios are not completed agent evaluations.

@@ -142,3 +142,5 @@ For a feature that writes data and publishes work:
 4. **Features:** choose the controller, validation, event or queue mechanism, idempotency, observability, and shutdown behavior.
 5. **Professional Engineering:** implement the coherent design and verify the public contract, boundary wiring, failure paths, and runtime target.
 6. **Git Publication:** stage the intended scope, scan for sensitive content, publish only the requested Git/GitHub state, and verify matching CI or Pages workflows.
+
+Before scaffolding, use the [project profile](/reference/professional-engineering/references/project-profile-and-scaffolding) to record local conventions, installed versions, capability owners and intended changes. The [four-axis examples](/guide/examples-and-evaluation#four-axis-boundary-proofs) distinguish deterministic contract evidence from written agent expectations.

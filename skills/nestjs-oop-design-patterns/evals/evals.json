@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-oop-design-patterns",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "cases": [
     {
       "id": "god-service",
@@ -117,6 +117,24 @@
         "Retains OOP ownership for responsibility, invariant, collaborator, and pattern judgments",
         "Requires evidence beyond file length or pattern preference",
         "Does not refactor code during the audit"
+      ]
+    },
+    {
+      "id": "inventory-adapter-conformance",
+      "prompt": "Two inventory readers have the same TypeScript interface, but one returns its mutable stored row. Define and test the consumer contract.",
+      "expectations": [
+        "Specifies tenant isolation, absence semantics and returned-value isolation",
+        "Runs one behavioral suite against the implementations",
+        "Rejects the type-compatible aliasing implementation without adding unnecessary inheritance"
+      ]
+    },
+    {
+      "id": "file-object-roles",
+      "prompt": "An existing file feature validates uploads, stores content and returns public metadata. Select DTO, internal and domain types.",
+      "expectations": [
+        "Separates untrusted transport validation from internal static contracts",
+        "Keeps filesystem or vendor translation in storage",
+        "Preserves supported simple CRUD and adds domain objects only for meaningful invariants"
       ]
     }
   ]

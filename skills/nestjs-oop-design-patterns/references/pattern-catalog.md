@@ -625,9 +625,11 @@ export class RuntimeSettings {
   readonly value = Object.freeze({ currency: 'USD' });
 }
 export const SETTINGS_ALIAS = Symbol('SETTINGS_ALIAS');
+export const SETTINGS_COPY = Symbol('SETTINGS_COPY');
 @Module({ providers: [RuntimeSettings,
   { provide: SETTINGS_ALIAS, useExisting: RuntimeSettings },
-], exports: [RuntimeSettings, SETTINGS_ALIAS] })
+  { provide: SETTINGS_COPY, useClass: RuntimeSettings },
+], exports: [RuntimeSettings, SETTINGS_ALIAS, SETTINGS_COPY] })
 class SettingsModule {}
 
 @Injectable()
@@ -650,7 +652,7 @@ export class RequestMarker { readonly id = Symbol('request'); }
 export class ExampleModule {}
 ```
 
-`useExisting` aliases an existing instance. Registering `RuntimeSettings` separately in both feature modules could create two instances. Tests compare identities across consumers and aliases, then use `ContextIdFactory.create()` and `app.resolve(RequestMarker, context)` to verify isolation between contexts and reuse within one context. These explicit contexts exercise DI scope, rather than an HTTP request pipeline.
+`useExisting` aliases an existing instance; `useClass` under SETTINGS_COPY constructs a separate singleton for that registration. Registering `RuntimeSettings` separately in both feature modules could create two instances. Tests compare identities across consumers and aliases, then use `ContextIdFactory.create()` and `app.resolve(RequestMarker, context)` to verify isolation between contexts and reuse within one context. These explicit contexts exercise DI scope, rather than an HTTP request pipeline.
 
 Never keep mutable per-request data in a default-scoped provider. Request scope can propagate to consumers and has a runtime cost. Transient scope provides a separate instance per consumer; it does not mean one new object per method call. The default lifetime is a Nest container property, distinct from enforcing a process-wide GoF Singleton.
 

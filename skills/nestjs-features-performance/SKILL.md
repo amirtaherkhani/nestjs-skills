@@ -4,7 +4,7 @@ description: 'Selects and implements NestJS runtime features, error and API cont
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.3.3'
+  version: '1.4.0'
 ---
 
 # NestJS Features, Scaling, and Performance
@@ -164,6 +164,8 @@ Use [references/scaling-reliability.md](references/scaling-reliability.md).
 Use [references/production-readiness.md](references/production-readiness.md) before calling a feature production-ready. At minimum verify configuration, security, contracts, resource bounds, observability, health/readiness, shutdown, and recovery.
 
 ## Reference routing
+
+For enhancer reach, lifetime, responsibility and tested execution paths, see [enhancer-composition.md](references/enhancer-composition.md).
 
 | Task | Load |
 | --- | --- |

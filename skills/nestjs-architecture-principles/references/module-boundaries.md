@@ -1,5 +1,7 @@
 # NestJS Module Boundaries
 
+For a compact ownership/consumer/effect record and its executable healthy and broken controls, see [module-contracts.md](module-contracts.md).
+
 Nest modules create an application graph and encapsulate providers by default. Treat each module's exports as its public API.
 
 ## Define modules by capability

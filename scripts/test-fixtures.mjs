@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('..', import.meta.url));
 const build = spawnSync(process.execPath, ['node_modules/typescript/bin/tsc', '-p', 'examples/tsconfig.json'], { cwd: root, encoding: 'utf8' });
 assert.equal(build.status, 0, build.stdout + build.stderr);
-const expected = { 'boolean-query': [7, 5], 'module-boundary': [3, 1], 'slow-api': [5, 2] };
+const expected = { 'boolean-query': [7, 5], 'module-boundary': [3, 1], 'slow-api': [14, 2] };
 const results = [];
 for (const [fixture, [tests, failures]] of Object.entries(expected)) {
   for (const variant of ['before', 'after']) {

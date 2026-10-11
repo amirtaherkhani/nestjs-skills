@@ -4,6 +4,31 @@ User-visible changes to NestJS Skills are recorded here. The collection uses sem
 
 ## [Unreleased]
 
+## [2.4.0] - 2026-10-11
+
+### Added
+
+- Focused library, school, inventory and notification examples with 16 deterministic boundary checks: multi-consumer authentication, private-provider and token failures, behavioral adapter conformance, enhancer success/error paths, runtime validation, domain invariants and project-specific import rules.
+- Module contract, enhancer composition and pre-scaffold project-profile guidance, with written evaluation scenarios. Internal static types, transport validation and domain invariants now have explicit decision guidance.
+- `npm run test:boundaries` in the full repository check. The existing provider-lifetime example also proves the identity difference between `useExisting` and a separate `useClass` registration.
+
+### Changed
+
+- Updated Architecture and OOP skills to `1.2.0`, Features and Performance at `1.4.0`, and Professional Engineering at `2.1.0`; the other skill versions are unchanged.
+- Connected new guidance to existing references and documented evidence limits without removing the established architecture or simple-CRUD controls.
+- Added social footer navigation across all five locale entry pages since 2.3.0.
+
+### Fixed
+
+- Both slow-API variants validate successful external JSON at runtime, reject malformed shapes/values and mismatched identities, and project only public fields. Their 14 checks each preserve the isolated performance comparison and its two expected before-variant failures.
+- Corrected abstract-class token wording: structurally compatible adapters need not inherit from the token class.
+- Corrected global-filter wording: registration does not determine construction; a container-resolved singleton retains DI when passed to `useGlobalFilters()`.
+
+### Verification limits
+
+- New examples use in-memory/fixed teaching policies and Express HTTP; they do not prove production authentication, database isolation, transport parity or request-scoped global-filter behavior.
+- Deterministic checks and written scenarios do not establish agent-quality or token-savings improvements. Existing pilot receipts remain historical; generator feasibility remains separate and no custom generator is implemented.
+
 ## [2.3.0] - 2026-10-07
 
 ### Added
@@ -69,7 +94,8 @@ User-visible changes to NestJS Skills are recorded here. The collection uses sem
 
 Earlier release history is available in [GitHub Releases](https://github.com/amirtaherkhani/nestjs-skills/releases).
 
-[Unreleased]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.3.0...HEAD
+[Unreleased]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.4.0...HEAD
+[2.4.0]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.3.0...v2.4.0
 [2.3.0]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/amirtaherkhani/nestjs-skills/releases/tag/v2.1.0

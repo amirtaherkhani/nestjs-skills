@@ -33,6 +33,12 @@ Tests check response equality/order, request count, maximum concurrency, request
 
 For a repeatable five-sample benchmark, the [evaluation guide](../evals/README.md) explains the controlled agent workspace and benchmark command.
 
+## Four-axis boundary proofs
+
+Run npm run test:boundaries for the [focused examples](four-axis/README.md): library/school consumers sharing authentication, provider visibility and Symbol identity failures, notification abstract-class wiring without inheritance, inventory adapter conformance, HTTP enhancer traces, schema/domain validation, and project-specific import rules. Sixteen deterministic checks exercise healthy and deliberately broken controls. They do not prove production authentication, persistence, transport parity or agent compliance.
+
+Both slow-API variants now validate successful external JSON at runtime and project only public fields. Fourteen checks per variant include malformed JSON, null/array/missing/wrong-typed values, invalid prices, mismatched identity, extra-field isolation and the existing performance/failure contracts. The before variant remains deliberately slow, with exactly its two expected performance failures.
+
 ## Seven skill workflows
 
 The three before/after fixtures cover HTTP contracts. The [pattern examples](design-patterns/README.md) add executable object collaboration, provider wiring, and application reliability contracts through `npm run test:patterns`. Audit workflows still require evidence from the target repository before reaching a finding.

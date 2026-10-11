@@ -39,7 +39,7 @@ Register the adapter at the composition root:
 }
 ```
 
-An abstract class can be a runtime token, but it couples the port to a class hierarchy. Use it when the repository already follows that convention or shared behavior genuinely belongs in the base class; otherwise a `Symbol` plus interface is clearer.
+An abstract class can be a runtime token without requiring the registered adapter to extend it. A structurally compatible class can be selected with `useClass`; private/protected members or inherited behavior can impose additional constraints. Keep the token in an application-owned contract file and follow the repository's convention. A `Symbol` plus interface is another valid choice; neither form enforces behavioral substitutability by itself.
 
 ## Ports belong to consumers
 
@@ -102,6 +102,8 @@ When two providers inject each other:
 5. use `forwardRef()` only as a documented transition or unavoidable framework integration.
 
 ## Test the wiring
+
+The executable provider-lifetime example distinguishes an alias from a separately constructed useClass provider. The [module-contract record](module-contracts.md) connects constructor-wiring failures with consumer behavior; type compatibility alone does not prove the contract.
 
 - Unit-test application operations with hand-written fakes or provider overrides.
 - Add a module compilation test for custom tokens and dynamic configuration.

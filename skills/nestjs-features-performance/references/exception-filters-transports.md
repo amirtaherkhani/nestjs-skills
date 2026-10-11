@@ -27,7 +27,7 @@ The translator should not query databases, call remote services, start transacti
 
 - Prefer passing a filter class to `@UseFilters()` so Nest can reuse and inject it.
 - Register a DI-dependent global filter with `APP_FILTER` from the module that owns it.
-- A filter passed to `app.useGlobalFilters()` is created outside module DI.
+- A filter constructed with `new` outside Nest is not constructed by module DI. `useGlobalFilters()` registers supplied instances; `app.useGlobalFilters(app.get(FilterClass))` can retain a container-resolved singleton's injected dependencies. Prefer `APP_FILTER` for declarative DI-managed global registration, especially when request-context lifetime matters; resolving a singleton at bootstrap does not establish request-scoped behavior.
 - `useGlobalFilters()` does not automatically cover gateways or every hybrid application context.
 - When extending a Nest base filter, delegate only the cases the base filter actually owns.
 - Verify the installed NestJS version before relying on exception hierarchy or adapter behavior.
@@ -84,6 +84,8 @@ Expected public failures usually need counters and selected audit events, not a 
 Adapters may add breadcrumbs but should not duplicate the same stack as an independent error at every hop.
 
 ## Test the boundary
+
+The [enhancer composition example](enhancer-composition.md) proves HTTP filter selection, singleton DI registration and negative constructor wiring. Use its focused controls alongside the transport-specific tests below.
 
 - Unit-test the pure translator with known and unknown `unknown` values.
 - E2E-test status/code/body/headers through each real transport.

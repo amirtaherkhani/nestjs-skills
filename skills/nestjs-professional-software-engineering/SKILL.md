@@ -4,7 +4,7 @@ description: 'Designs, implements, refactors, debugs, reviews, and verifies prod
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '2.0.2'
+  version: '2.1.0'
 ---
 
 # Professional Software Engineering
@@ -37,6 +37,8 @@ These are decision boundaries, not required dependencies. Retain domain ownershi
 Check for incompatible edits/contracts, command order or side effects, competing owners, and unmet version, evidence, authorization, or repository prerequisites. Resolve using explicit user intent, repository contracts, verified runtime constraints, then the narrowest owner. Assign one lead per decision; do not create parallel designs to satisfy incompatible advice. If a material conflict remains, stop before mutation and ask for the smallest missing decision. Audits stay read-only; explicit fix authorization applies in a distinct implementation phase.
 
 ## Required workflow
+
+Before scaffolding or introducing a new boundary, record the [project profile](references/project-profile-and-scaffolding.md). Follow healthy local conventions and verify the installed generator/version contract.
 
 For implementation requests, complete the workflow through mutation and verification. For review or diagnosis requests, inspect and report evidence without modifying files unless the user also authorizes implementation.
 

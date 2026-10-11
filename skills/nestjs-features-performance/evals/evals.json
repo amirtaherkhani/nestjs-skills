@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-features-performance",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "cases": [
     {
       "id": "feature-placement",
@@ -209,6 +209,27 @@
         "Retains features/performance ownership for runtime, security, testing, delivery, and production-readiness judgments",
         "Separates implemented source from unverified or blocked rollout evidence",
         "Does not run a deployment, migration, or load test from roadmap text alone"
+      ]
+    },
+    {
+      "id": "global-binding-and-control-flow",
+      "prompt": "A global guard checks identity; an interceptor times requests; a route filter consumes stock failures. Explain responsibilities and the tested request paths.",
+      "expectations": [
+        "Distinguishes binding reach, provider lifetime and visibility",
+        "Does not call a global component multi-responsibility merely because it is global",
+        "Tests guard denial and pipe failure as well as reverse interceptor response handling",
+        "Does not expect a consumed route-filter exception to reach a global filter",
+        "Allows a container-resolved singleton passed to useGlobalFilters to retain DI without claiming request-scoped behavior"
+      ]
+    },
+    {
+      "id": "successful-external-json",
+      "prompt": "A catalog returns HTTP 200 with null, wrong price types, negative prices or another requested item id. The code asserts response.json() as Item. Fix the trust boundary.",
+      "expectations": [
+        "Validates unknown JSON at runtime",
+        "Maps invalid JSON or values to the existing safe dependency failure",
+        "Projects allowed output fields",
+        "Keeps both performance-comparison variants equally safe"
       ]
     }
   ]

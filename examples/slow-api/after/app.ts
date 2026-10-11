@@ -11,7 +11,14 @@ class Catalog {
     try {
       const response = await fetch(`${this.url}/${id}`, { signal: AbortSignal.timeout(1000) });
       if (!response.ok) throw new Error('Catalog request failed');
-      return await response.json() as Item;
+      const value: unknown = await response.json();
+      // TypeScript annotations do not validate a successful external response.
+      if (value === null || typeof value !== 'object' || Array.isArray(value)) throw new Error('Invalid item');
+      const item = value as Record<string, unknown>;
+      if (item.id !== id || typeof item.price !== 'number' || !Number.isFinite(item.price) || item.price < 0) {
+        throw new Error('Invalid item');
+      }
+      return { id, price: item.price }; // Allow-list fields; vendor additions stay private.
     } catch {
       throw new BadGatewayException('Catalog unavailable');
     }

@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-architecture-principles",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "cases": [
     {
       "id": "modular-monolith-default",
@@ -101,6 +101,25 @@
         "Retains architecture ownership for module, dependency, data, and transaction judgments",
         "Requires a clear roadmap before comparing the implementation",
         "Does not turn the audit into an architecture rewrite"
+      ]
+    },
+    {
+      "id": "multi-consumer-auth-contract",
+      "prompt": "LibraryModule and SchoolModule both need session verification. Library owns loans; School owns capacity. Design their public contracts without exporting session storage.",
+      "expectations": [
+        "Uses explicit imports and a small principal",
+        "Keeps resource policy and writes with each consumer owner",
+        "Tests both consumers, denied writes and duplicate enrollment semantics",
+        "Does not claim extracting an interface removes module import cycles"
+      ]
+    },
+    {
+      "id": "runtime-token-negative-controls",
+      "prompt": "Two Symbols both have description auth.verify-session, and a consumer injects a private provider from an imported module. Diagnose both wiring failures.",
+      "expectations": [
+        "Distinguishes Symbol identity from its description",
+        "Distinguishes TypeScript exports from Nest provider exports",
+        "Uses real constructor/container checks rather than global lookup as encapsulation proof"
       ]
     }
   ]
