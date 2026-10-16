@@ -52,3 +52,5 @@ The builder must not hide that `build()` performs network I/O; creation should r
 ## Verification record
 
 When syntax is a central decision, record the relevant version, repository precedent, official source, focused experiment if used, and why rejected alternatives were less clear or less compatible.
+
+For array, `Record`, `Map`, `Set`, tuple, accumulator and early-exit choices, use the tested `examples/collections/README.md` repository example. Confirm the ordering and duplicate/equality contract before replacing repeated `find` calls with an index or membership checks with a Set. Use a fresh local accumulator when building a result; repeated spread copies previous results, while mutating a caller-owned array changes the API contract. Treat parsed JSON as `unknown` until runtime checks narrow it.
