@@ -44,6 +44,8 @@ Test the missing parameter, both accepted values, and an invalid value through t
 
 TypeScript annotations and assertions are erased; they do not validate JSON. A class alone also does not validate a value without a configured runtime mechanism. Treat external successful responses as unknown and validate them at the adapter boundary. The slow-API example rejects malformed JSON, mismatched identities and invalid prices in both variants, then projects only id/price.
 
+For bounded JSON lists and collection joins, see the tested `examples/collections/README.md` repository example. Cap request bytes before parsing, then narrow `unknown` and check item counts/types; cap data-source rows and output separately. Preserve the caller's ID order and duplicates when those are the contract. Build a request-local index only when repeated lookups justify its setup and memory cost, and project response fields explicitly.
+
 Transport validation and domain invariants protect different promises: a positive inventory quantity can still exceed stock. Internal interfaces are valid without runtime DTO classes, and an internal transfer object is not forbidden merely because someone calls it a DTO. Separate shapes when ownership or contracts differ; keep a simple direct model when the project needs no additional boundary.
 
 See [enhancer-composition.md](enhancer-composition.md) for the inventory HTTP/operation/domain path and [testing.md](testing.md) for test-layer limits.

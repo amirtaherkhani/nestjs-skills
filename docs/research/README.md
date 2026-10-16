@@ -6,6 +6,10 @@ Already-collected notes are kept separately in [preliminary materials](prelimina
 
 The source inventory below is preliminary, captured 2026-10-06. It is not completed research or evidence for conclusions. Add independent engineering blogs and developer-community or social discussions during the relevant topic session, clearly labeled as commentary or discovery sources.
 
+## Completed focused additions
+
+The [runtime research record](runtime-contracts.md) documents completed teaching contracts for upstream categories 10 (operations), 2 (dependency injection) and 5 (performance), with ownership across all seven skills. The [collection example guide](https://github.com/amirtaherkhani/nestjs-skills/blob/main/examples/collections/README.md) records collection semantics, boundary checks and official sources. See [examples and evaluation](/guide/examples-and-evaluation#collections-and-runtime-contracts) for both runners. These additions do not complete the broader research topics below or establish production performance results.
+
 ## 1. Software Testing Strategy
 
 **Scope and questions**

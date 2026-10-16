@@ -185,3 +185,7 @@ Checked 2026-10-07. Repository inspection covered the catalog, OOP/SOLID and obj
 - [Nest releases](https://github.com/nestjs/nest/releases) and the [public npm registry](https://registry.npmjs.org/@nestjs/core/latest): version discovery. `npm view @nestjs/core version` returned 12.1.2 during this check; the cached GitHub release page returned v12.1.1. The examples compile and run against this repository's lockfile, NestJS 11.2.7 and TypeScript 5.9.3, without a dependency upgrade.
 
 The 19 examples are original code with behavioral contracts. The DEV articles are research inputs; official framework and library documentation governs API behavior. The fixtures keep simple factories distinct from GoF Factory Method, metadata decorators distinct from object decorators, and container scope distinct from a static Singleton. Database and messaging adapters in the tests are explicitly local teaching implementations.
+
+## Operations, DI, and performance runtime contracts
+
+Checked 2026-10-16. The [research record](docs/research/runtime-contracts.md) maps all 13 rules in upstream categories 10, 2, and 5 to original executable examples, official NestJS/Node references, applicability and limits. The other seven categories remain expansion backlog. The [runtime suite](examples/runtime-contracts/README.md) verifies behavior against the unchanged NestJS 11.2.7 and TypeScript 5.9.3 lockfile. No upstream code or unverified speedup claim was copied; existing upstream attribution above remains the provenance baseline.

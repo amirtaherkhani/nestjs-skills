@@ -33,6 +33,14 @@ Run npm run test:boundaries for 16 deterministic checks covering two actual feat
 
 Both slow-API variants additionally validate successful external JSON and allow-list public output. Future evaluation preparations record the new source revision and fixture hash; existing pilot receipts retain their original meaning. No agent comparison or custom generator is claimed by these deterministic checks.
 
+## Collections and runtime contracts
+
+Run `npm run test:fixtures` for [15 collection checks](https://github.com/amirtaherkhani/nestjs-skills/blob/main/examples/collections/README.md) covering indexed joins, membership, ordering, duplicate semantics, caller-owned input, runtime validation and bounded HTTP projection. Both index construction and the input distribution matter when measuring an optimization; these checks make no speed claim.
+
+Run `npm run test:runtime` for [17 runtime checks](https://github.com/amirtaherkhani/nestjs-skills/blob/main/examples/runtime-contracts/README.md) covering configuration rejection, allowlisted logging, awaited lifecycle work, constructor injection, scopes, cache expiry and failures, bounded query requests and lazy-module reuse. The [research record](/research/runtime-contracts) maps upstream categories 10, 2 and 5 to the seven existing skills and keeps the other categories as expansion backlog. Fake adapters and explicit application close do not prove database plans, broker behavior, OS signal handling or live request draining.
+
+Both suites run as part of `npm test` with the repository's pinned dependencies.
+
 ## Seven skill workflows
 
 The runnable apps cover endpoint behavior, module boundaries, and measured performance. The catalog examples cover object collaboration and application contracts. Audit workflows use an evidence path and stop condition because their conclusions depend on the target repository.

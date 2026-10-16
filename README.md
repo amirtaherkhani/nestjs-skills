@@ -185,6 +185,8 @@ The optional Codex compatibility prompt accepts `/prompts:audit_feature payments
 
 ## 🧪 Runnable examples and evaluation
 
+The [collection examples](examples/collections/README.md) add 15 checks for collection semantics and bounded HTTP processing through `npm run test:fixtures`. The [operations, DI and performance examples](examples/runtime-contracts/README.md) add 17 checks through `npm run test:runtime`. Both are included in `npm test`; see the [research mapping](docs/research/runtime-contracts.md) for scope, provenance and limitations.
+
 [Three executable NestJS examples](examples/README.md) cover strict boolean query parsing, a module-boundary invariant bypass with a healthy control, and a measured local HTTP optimization. Run `npm run test:fixtures` to verify the intentionally failing inputs and corrected behavior.
 
 The [design-pattern catalog](skills/nestjs-oop-design-patterns/references/pattern-catalog.md) adds practical examples for all 19 entries, with Nest wiring, tradeoffs, and behavioral tests. Run `npm run test:patterns` to compile and test the documentation's code blocks. The [scenario guide](examples/design-patterns/README.md) explains the in-memory adapters and other teaching limits.

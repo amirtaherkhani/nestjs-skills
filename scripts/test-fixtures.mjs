@@ -24,6 +24,15 @@ for (const [fixture, [tests, failures]] of Object.entries(expected)) {
     console.log(`${fixture}/${variant}: ${tests} tests; ${expectedFailures} expected failures verified.`);
   }
 }
+const collections = spawnSync(process.execPath, ['--test', '--test-reporter=tap', 'examples/collections/contract.test.mjs'], {
+  cwd: root, encoding: 'utf8', timeout: 30_000,
+  env: { ...process.env, FIXTURE_ENTRY: resolve(root, 'examples/.build/collections/app.js') },
+});
+assert.equal(collections.status, 0, `collections\n${collections.stdout}\n${collections.stderr}`);
+assert.match(collections.stdout, /# tests 15\b/);
+assert.match(collections.stdout, /# fail 0\b/);
+results.push({ fixture: 'collections', variant: 'single', tests: 15, expected_failures: 0, verified: true, measurements: [] });
+console.log('collections: 15 tests; 0 failures verified.');
 await mkdir(resolve(root, 'evals/.runs'), { recursive: true });
 await writeFile(resolve(root, 'evals/.runs/fixtures.json'), JSON.stringify({ kind: 'fixture-correctness', results }, null, 2) + '\n');
 console.log('Fixture correctness verified. This does not measure agent performance.');
