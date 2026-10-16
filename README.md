@@ -46,7 +46,7 @@ This repository contains **seven focused Agent Skills** for Claude Code, Codex, 
 Each skill owns a distinct engineering decision. Together they help an agent inspect the actual repository, choose the smallest safe design, resolve conflicting instructions before mutation, and verify outcomes with evidence.
 
 > [!TIP]
-> **Latest release:** [`v2.4.0`](https://github.com/amirtaherkhani/nestjs-skills/releases/tag/v2.4.0) adds focused module, provider, enhancer and type-boundary examples with 16 deterministic checks, and corrects external JSON validation and DI guidance. The 19 executable pattern examples and documentation entry pages in five languages remain available. See the [changelog](CHANGELOG.md) for changes and verification limits.
+> **Latest release:** [`v2.5.0`](https://github.com/amirtaherkhani/nestjs-skills/releases/tag/v2.5.0) adds bounded collection selection and operations, DI and performance examples with 32 deterministic checks. A research record maps 13 selected upstream rules to the seven existing skills and records the remaining categories as backlog. See the [changelog](CHANGELOG.md) for changes and verification limits.
 
 > [!IMPORTANT]
 > **Version 2 migration:** `professional-software-engineering` is now `nestjs-professional-software-engineering`, and `git-commit-pr-message` is now `nestjs-git-commit-pr-message`. Reinstall the renamed skills and update explicit commands so every skill in this NestJS collection uses the `nestjs-` prefix.

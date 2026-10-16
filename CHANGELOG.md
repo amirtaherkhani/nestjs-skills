@@ -4,6 +4,30 @@ User-visible changes to NestJS Skills are recorded here. The collection uses sem
 
 ## [Unreleased]
 
+## [2.5.0] - 2026-10-16
+
+### Added
+
+- A bounded collection selection example with 15 deterministic checks for indexed joins, membership, first-match catalog duplicates, request order and repeated IDs, caller-owned inputs, fresh public output, runtime validation and parser byte limits.
+- Operations, dependency injection and performance examples with 17 deterministic checks for configuration rejection, allowlisted logging, awaited startup and cleanup, constructor tokens and aliases, adapter substitution, provider scopes, cache expiry and failures, bounded query requests and lazy-module reuse.
+- A research record mapping all 13 selected upstream rules in categories 10 (operations), 2 (dependency injection) and 5 (performance) to original examples, official sources and ownership across the seven existing skills. The other seven categories remain expansion backlog.
+- `npm run test:runtime` in the full repository check, with the collection checks included in `npm run test:fixtures`.
+
+### Changed
+
+- Updated Architecture to `1.2.1`, Features and Performance to `1.4.1`, and Professional Engineering to `2.1.1`; the other skill versions are unchanged.
+- Connected the new examples and research record from the public indexes and relevant architecture, API, deployment, performance and syntax references.
+
+### Fixed
+
+- Direct collection-selector calls reject limits outside 1 to 32, including fractional and non-finite values, so callers cannot bypass the output bound enforced by the HTTP route.
+
+### Verification limits
+
+- Examples target the existing NestJS 11.2.7 and TypeScript 5.9.3 lockfile without dependency upgrades. The collection uses a fixed server-owned catalog, and the runtime examples use local adapters and explicit application close; they do not prove real database plans, broker behavior, OS signal delivery, active-request draining or production authorization.
+- The custom configuration and event-logging examples do not exercise ConfigModule or Nest bootstrap logging. The cache is process-local and single-key; lazy loading defers a provider graph in the same file, without proving deferred JavaScript loading.
+- These deterministic contracts do not establish production speed, memory, agent-quality or token-savings improvements. Existing evaluation receipts remain historical.
+
 ## [2.4.0] - 2026-10-11
 
 ### Added
@@ -94,7 +118,8 @@ User-visible changes to NestJS Skills are recorded here. The collection uses sem
 
 Earlier release history is available in [GitHub Releases](https://github.com/amirtaherkhani/nestjs-skills/releases).
 
-[Unreleased]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.4.0...HEAD
+[Unreleased]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.5.0...HEAD
+[2.5.0]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.4.0...v2.5.0
 [2.4.0]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.3.0...v2.4.0
 [2.3.0]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.2.0...v2.3.0
 [2.2.0]: https://github.com/amirtaherkhani/nestjs-skills/compare/v2.1.0...v2.2.0

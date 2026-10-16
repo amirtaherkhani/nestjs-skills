@@ -4,7 +4,7 @@ description: 'Designs and reviews NestJS application architecture using cohesive
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.2.0'
+  version: '1.2.1'
 ---
 
 # NestJS Architecture and Principles

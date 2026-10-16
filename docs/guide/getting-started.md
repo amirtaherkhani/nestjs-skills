@@ -90,7 +90,7 @@ Skillstore listings provide **Ask an Agent**, **CLI**, and **Manual** install ch
 See [public listings and posts](/guide/publications) for publication links and their current verification status.
 
 ::: tip Current release
-[`v2.4.0`](https://github.com/amirtaherkhani/nestjs-skills/releases/tag/v2.4.0) includes all seven skills, the 19 executable pattern examples, focused four-axis boundary checks, and documentation entry pages in five languages. It retains the standalone Code Audit guidance, three before/after HTTP fixtures, and opt-in evaluation harness. See [examples and evaluation](/guide/examples-and-evaluation) for the verified behavior and current measurement limits.
+[`v2.5.0`](https://github.com/amirtaherkhani/nestjs-skills/releases/tag/v2.5.0) adds 15 collection checks and 17 operations, DI and performance checks, with a research record mapping 13 selected upstream rules to the seven existing skills. The collection also includes the 19 executable pattern examples, focused four-axis boundary checks, and documentation entry pages in five languages. See [examples and evaluation](/guide/examples-and-evaluation) for scope and verification limits.
 :::
 
 ::: warning Version 2 migration

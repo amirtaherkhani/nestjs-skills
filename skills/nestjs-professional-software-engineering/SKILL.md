@@ -4,7 +4,7 @@ description: 'Designs, implements, refactors, debugs, reviews, and verifies prod
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '2.1.0'
+  version: '2.1.1'
 ---
 
 # Professional Software Engineering
