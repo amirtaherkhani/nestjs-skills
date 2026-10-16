@@ -1,0 +1,5 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": { "rootDir": ".", "outDir": "../.build/runtime-contracts", "noEmitOnError": true },
+  "include": ["*.ts"]
+}

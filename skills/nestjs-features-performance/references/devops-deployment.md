@@ -133,3 +133,7 @@ When Kubernetes is present, load [kubernetes-operations.md](kubernetes-operation
 Before release, record the artifact/digest, migrations, configuration changes, rollout strategy, success/rollback signals, owner, runbook, and recovery procedure. Verify backups by restore testing. After rollout, compare error, latency, saturation, and business correctness against the baseline, then confirm the live revision matches the intended artifact.
 
 See official NestJS guidance for [configuration](https://docs.nestjs.com/techniques/configuration), [logging](https://docs.nestjs.com/techniques/logger), [deployment](https://docs.nestjs.com/deployment), [lifecycle events](https://docs.nestjs.com/fundamentals/lifecycle-events), and [health checks](https://docs.nestjs.com/recipes/terminus).
+
+## Runnable operations contracts
+
+The operations examples in `examples/runtime-contracts/` (run `npm run test:runtime` from the source repository) demonstrate startup configuration rejection, bounded application log events and awaited resource cleanup after Nest connection disposal. The explicit-close tests do not prove OS signal delivery or active-request draining. For deployment, test the actual signal path, ingress removal, readiness change, drain deadline and dependent-resource cleanup within the termination grace period. A custom event logger is not Nest bootstrap logging; use and test the installed framework logger integration separately.

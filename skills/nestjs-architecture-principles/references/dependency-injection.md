@@ -111,3 +111,7 @@ The executable provider-lifetime example distinguishes an alias from a separatel
 - Fail application startup when required configuration cannot construct a provider safely.
 
 See the official NestJS documentation for [custom providers](https://docs.nestjs.com/fundamentals/custom-providers), [injection scopes](https://docs.nestjs.com/fundamentals/injection-scopes), [dynamic modules](https://docs.nestjs.com/fundamentals/dynamic-modules), and [circular dependencies](https://docs.nestjs.com/fundamentals/circular-dependency).
+
+## Runnable constructor and scope evidence
+
+The repository's runtime contracts in `examples/runtime-contracts/` (run `npm run test:runtime` from the source repository) add real container checks for constructor injection, imported Symbol identity, aliases, query-only substitution, invalid adapter behavior, singleton/transient identity and request-scope propagation. Use the same behavioral assertions for alternate adapters; passing the compiler is only the first check. Request-scoped classes do not receive application lifecycle hooks. These fixtures use explicit context IDs and do not establish HTTP authentication or tenant authorization.

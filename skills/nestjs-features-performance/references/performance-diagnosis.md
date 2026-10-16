@@ -126,3 +126,7 @@ Capacity: new saturation point and next limiting dependency
 ```
 
 See Node.js guidance on [event-loop safety](https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop) and [worker threads](https://nodejs.org/api/worker_threads.html), plus NestJS guidance on [injection scope](https://docs.nestjs.com/fundamentals/injection-scopes) and [Fastify](https://docs.nestjs.com/techniques/performance).
+
+## Runnable runtime contracts
+
+The runtime suite in `examples/runtime-contracts/` (run `npm run test:runtime` from the source repository) checks a bounded single-value cache, query projection/limit requests, awaited lifecycle work and real lazy-module reuse. It records failure and scope limitations without timing thresholds. A fake query adapter does not prove an SQL plan; lazy provider construction does not prove deferred JavaScript loading or a startup speedup. Keep actual database and production load evidence separate from these deterministic contracts.

@@ -54,3 +54,7 @@ The three before/after fixtures cover HTTP contracts. The [pattern examples](des
 | [Git Commit and PR](../skills/nestjs-git-commit-pr-message/SKILL.md) | Commit only the verified docs change; do not push. | Inspect branch and complete diff; stage explicit paths; inspect the staged diff and scan it for secrets/generated output; run relevant checks; commit locally and confirm clean scoped status. Never infer push or deployment permission. |
 
 The Nest module behavior above follows the official [Modules](https://docs.nestjs.com/modules) and [Providers](https://docs.nestjs.com/providers) contracts. For an actual repository task, use that repository's installed version and instructions as the authority. The [Git documentation](https://git-scm.com/docs/git-add) describes explicit-path staging; inspect the staged patch with `git diff --cached` before committing.
+
+## Operations, dependency injection, and performance contracts
+
+Run `npm run test:runtime` for [17 focused runtime checks](runtime-contracts/README.md): configuration rejection, allowlisted logging, awaited startup/cleanup, constructor tokens, substitutable query ports, scope identities, cache expiry and failures, bounded database query requests, and lazy-module limitations. These examples require no external services and make no production latency or zero-downtime claims. The [research matrix](../docs/research/runtime-contracts.md) covers upstream categories 10, 2, and 5 and records the other seven as backlog.
