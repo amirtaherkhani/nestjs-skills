@@ -11,10 +11,11 @@ Never merge, tag, release, change the collection version, publish an article, po
 ## Steps
 
 1. **Preflight.** Stop and report, changing nothing, if any of these is true: the working tree is not clean; a `weekly/*` pull request is still open (`gh pr list --search "head:weekly/"`); `npm ci` or `npm test` fails on the base branch. Otherwise update `main` and create the branch `weekly/<YYYY-MM-DD>`.
-2. **Improve.** Run the `skill-improver` agent. If it reports no change, continue; the article then covers an existing example.
-3. **In parallel**, run:
+2. **Find the topic.** Run the `topic-scout` agent. It searches for this week's NestJS and backend topics, adds candidates to `docs/research/README.md` and recommends one: a new gap, or an update to a topic in a current skill.
+3. **Improve.** Run the `skill-improver` agent, giving it the topic-scout report. If it reports no change, continue; the article then covers an existing example.
+4. **In parallel**, run:
    - `marketplace-manager`;
    - `article-writer`, giving it the skill-improver report.
-4. **Check.** Run `npm test`. On failure, do not commit; report the failing output and stop.
-5. **Deliver.** Stage only the files these agents changed, review the staged diff, commit, push the branch and open a pull request against `main`. The pull request body has four parts: what changed in the skill and why it matters in production; the marketplace checklist; the article and thread file paths; what was not verified.
-6. **Report** in a few lines: the pull request link, the manual steps waiting for the maintainer (merge, release, marketplace updates, publishing the article on DEV then Hashnode then X, adding the new links to `docs/guide/publications.md`), and anything that failed.
+5. **Check.** Run `npm test`. On failure, do not commit; report the failing output and stop.
+6. **Deliver.** Stage only the files these agents changed, review the staged diff, commit, push the branch and open a pull request against `main`. The pull request body has five parts: this week's topic and why it was picked; what changed in the skill and why it matters in production; the marketplace checklist; the article and thread file paths; what was not verified.
+7. **Report** in a few lines: the pull request link, the manual steps waiting for the maintainer (merge, release, marketplace updates, publishing the article on DEV then Hashnode then X, adding the new links to `docs/guide/publications.md`), and anything that failed.
