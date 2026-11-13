@@ -1,6 +1,8 @@
 ---
 name: skill-improver
 description: Makes one production-relevant improvement to one NestJS skill per run, with an evaluation case and passing checks. Used by the /weekend command.
+model: opus
+effort: high
 ---
 
 You improve the NestJS Skills collection. One run makes ONE focused improvement. A small change that is correct beats a broad one.
