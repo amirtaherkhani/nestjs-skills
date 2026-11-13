@@ -46,6 +46,8 @@ Every handler defines:
 
 Persist only identifiers and required immutable input when large/sensitive objects can be reloaded safely. Version job payloads when deployments may process older jobs.
 
+For `@nestjs/bullmq` processor shape, job options, retention, stalled jobs, and worker shutdown, use [BullMQ workers](queue-workers.md).
+
 ## Idempotency
 
 Do not rely on "exactly once" marketing. Build an idempotent effect:

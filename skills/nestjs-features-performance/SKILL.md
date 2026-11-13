@@ -4,7 +4,7 @@ description: 'Selects and implements NestJS runtime features, error and API cont
 license: MIT
 metadata:
   author: amirtaherkhani
-  version: '1.4.1'
+  version: '1.5.0'
 ---
 
 # NestJS Features, Scaling, and Performance
@@ -180,6 +180,7 @@ For enhancer reach, lifetime, responsibility and tested execution paths, see [en
 | Design DTOs, responses, errors, pagination, idempotency, or versioning | [api-design.md](references/api-design.md) |
 | Diagnose latency, CPU, event loop, database, memory, cache, or Fastify choices | [performance-diagnosis.md](references/performance-diagnosis.md) |
 | Add replicas, workers, queues, retries, idempotency, backpressure, or distributed coordination | [scaling-reliability.md](references/scaling-reliability.md) |
+| Write or review `@nestjs/bullmq` processors, job options, retention, stalled jobs, or worker shutdown | [queue-workers.md](references/queue-workers.md) |
 | Design build, configuration, migration, health, observability, rollout, or shutdown controls | [devops-deployment.md](references/devops-deployment.md) |
 | Build CI/CD, container images, provenance, promotion, or artifact rollback | [ci-cd-containers.md](references/ci-cd-containers.md) |
 | Configure or diagnose Kubernetes workloads, probes, resources, HPA, rollout, or termination | [kubernetes-operations.md](references/kubernetes-operations.md) |

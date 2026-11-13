@@ -1,6 +1,6 @@
 # NestJS backend research backlog
 
-This is a prioritized list for later, focused research sessions. These six headings are our proposed planning taxonomy, not a claim that one formal engineering standard defines a universal taxonomy. Topics are planned, not yet researched. Research cadence is undecided.
+This is a prioritized list for later, focused research sessions. These six headings are our proposed planning taxonomy, not a claim that one formal engineering standard defines a universal taxonomy. Topics are planned, not yet researched. Research cadence: one topic per weekly run, recorded in the weekly topic candidates table below.
 
 Already-collected notes are kept separately in [preliminary materials](preliminary/README.md). They are incomplete and unapproved, not conclusions or guidance.
 
@@ -9,6 +9,21 @@ The source inventory below is preliminary, captured 2026-10-06. It is not comple
 ## Completed focused additions
 
 The [runtime research record](runtime-contracts.md) documents completed teaching contracts for upstream categories 10 (operations), 2 (dependency injection) and 5 (performance), with ownership across all seven skills. The [collection example guide](https://github.com/amirtaherkhani/nestjs-skills/blob/main/examples/collections/README.md) records collection semantics, boundary checks and official sources. See [examples and evaluation](/guide/examples-and-evaluation#collections-and-runtime-contracts) for both runners. These additions do not complete the broader research topics below or establish production performance results.
+
+The [BullMQ worker reference](https://github.com/amirtaherkhani/nestjs-skills/blob/main/skills/nestjs-features-performance/references/queue-workers.md) (2026-11-13) covers the retry, idempotency, concurrency, failure-handling and recovery questions of the background job topic below for projects that already use `@nestjs/bullmq`, from official documentation. It does not compare queue products, and the decision matrix, version-pinned examples and executable evidence of that topic remain open.
+
+## Weekly topic candidates
+
+One row is picked per weekly run: a new gap, or an update to a topic in a current skill. A row is a lead, not a conclusion. Outside signals are discovery inputs; "search summary" means the page itself was not opened. The limits written in the topics below still apply.
+
+| Topic | Outside signal | Current coverage | Owning skill | Status |
+| --- | --- | --- | --- | --- |
+| BullMQ worker semantics | Senior NestJS job postings name BullMQ with Redis (search summary, 2026-11-13); BullMQ production guide | One mention across all skills before this change | Features and Performance | Done 2026-11-13: `queue-workers.md` |
+| Official documentation link drift | The docs.nestjs.com sitemap on 2026-11-13 lists queues under `/application/`; ten paths linked from the skills (nine `/techniques/` pages and `/recipes/terminus`) are not in it | Links in seven or more files | All skills | Candidate. Confirm whether old paths redirect before editing |
+| Multi-tenant data isolation | Job postings and 2026 SaaS write-ups treat isolation as a security boundary (search summary) | Tenant checks in `security.md`; one file names multi-tenancy | Architecture, Features and Performance | Candidate |
+| Webhook receiving and sending | 2026 API design write-ups treat webhooks as a replayable contract (search summary) | One bullet in `security.md`; two files | Features and Performance | Candidate |
+| PostgreSQL in practice: indexes, query plans, locking, migrations | The most consistent requirement in senior NestJS job postings (search summary) | Backlog category 7 lists real driver transactions, migration and N+1 evidence as open | Architecture | Candidate |
+| File uploads: multipart limits and streaming to object storage | Not researched outside | One bullet in `security.md`; no file names multipart handling | Features and Performance | Candidate. Inside gap only |
 
 ## 1. Software Testing Strategy
 
