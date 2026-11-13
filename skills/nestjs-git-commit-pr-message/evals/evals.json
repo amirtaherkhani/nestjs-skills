@@ -1,6 +1,5 @@
 {
   "skill": "nestjs-git-commit-pr-message",
-  "version": "2.0.1",
   "cases": [
     {
       "id": "commit-only",

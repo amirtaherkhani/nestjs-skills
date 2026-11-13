@@ -1,6 +1,5 @@
 {
   "skill": "nestjs-code-audit",
-  "version": "1.0.2",
   "cases": [
     {
       "id": "full-repository-audit",
