@@ -4,6 +4,20 @@ User-visible changes to NestJS Skills are recorded here. The collection uses sem
 
 ## [Unreleased]
 
+### Added
+
+- A BullMQ worker reference in Features and Performance for projects that already use `@nestjs/bullmq`: package-correct `WorkerHost` processors, at-least-once redelivery and stalled jobs, why a custom `jobId` stops deduplicating once retention removes the earlier job, `UnrecoverableError` for terminal failures, retention and Redis requirements, producer versus worker connection behavior, and shutdown hooks with the termination grace period. One written evaluation scenario covers it.
+- A weekly topic candidates table in the research backlog, seeded from a topic search on 2026-11-13.
+
+### Changed
+
+- Updated Features and Performance to `1.5.0`; the other skill versions are unchanged.
+
+### Verification limits
+
+- The BullMQ guidance comes from the official NestJS and BullMQ documentation and the `@nestjs/bullmq` source as read on 2026-11-13. This repository has no BullMQ or Redis dependency, so no example executes it; retry, stall recovery and shutdown behavior are not proven here. The evaluation scenario is a written prompt, not a completed evaluation.
+- The reference does not compare or select a queue product. The decision matrix and executable evidence planned in the research backlog remain open.
+
 ## [2.5.0] - 2026-10-16
 
 ### Added

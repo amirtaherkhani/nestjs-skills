@@ -1,6 +1,6 @@
 {
   "skill": "nestjs-features-performance",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "cases": [
     {
       "id": "feature-placement",
@@ -230,6 +230,19 @@
         "Maps invalid JSON or values to the existing safe dependency failure",
         "Projects allowed output fields",
         "Keeps both performance-comparison variants equally safe"
+      ]
+    },
+    {
+      "id": "bullmq-duplicate-after-deploy",
+      "prompt": "Our NestJS service uses @nestjs/bullmq. A send-receipt job sometimes runs twice after a deployment and Redis memory keeps growing. A teammate wants to fix both with a custom jobId and removeOnComplete: true. Review the processor and the job options.",
+      "expectations": [
+        "Uses a WorkerHost processor routed by job.name and does not mix in Bull @Process handlers",
+        "Explains the duplicate as at-least-once redelivery of a stalled or killed job and makes the effect idempotent with a durable operation key",
+        "States that a custom jobId only blocks enqueueing while the earlier job is retained, so removeOnComplete: true reopens the window",
+        "Enables shutdown hooks and sizes the termination grace period above the longest job",
+        "Sets bounded retention for completed and failed jobs and keeps secrets out of job data",
+        "Throws UnrecoverableError for terminal failures and sets bounded attempts with exponential backoff and jitter for transient ones",
+        "Says which behaviors still need a real Redis test"
       ]
     }
   ]
