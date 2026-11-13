@@ -6,16 +6,22 @@ Run the weekly NestJS Skills routine. The result is one pull request and a short
 
 ## Hard limits
 
-Never merge, tag, release, change the collection version, publish an article, post to X, sign in to a marketplace or submit a form. `AGENTS.md` applies in full.
+Never merge, tag, release, change the collection version, publish an article, post to X, sign in to a marketplace or submit a form. Never switch branches, pull, commit or edit files in the maintainer's own checkout. `AGENTS.md` applies in full.
 
 ## Steps
 
-1. **Preflight.** Stop and report, changing nothing, if any of these is true: the working tree is not clean; a `weekly/*` pull request is still open (`gh pr list --search "head:weekly/"`); `npm ci` or `npm test` fails on the base branch. Otherwise update `main` and create the branch `weekly/<YYYY-MM-DD>`.
+1. **Preflight.** Work in a fresh worktree, so the maintainer's checkout, its branch and its uncommitted files are never touched and cannot block the run.
+   - Run `git fetch origin`. Stop and report, changing nothing, if a `weekly/*` pull request is still open (`gh pr list --search "head:weekly/"`) or the branch `weekly/<YYYY-MM-DD>` already exists.
+   - Clean up as `AGENTS.md` describes: for each older `weekly-*` worktree whose branch is merged into `origin/main` and whose files are clean, run `git worktree remove` and `git branch -d`. Never force. Leave anything else in place and name it in the report.
+   - Create the worktree: `git worktree add --no-track "$(git rev-parse --path-format=absolute --git-common-dir)/../.claude/worktrees/weekly-<YYYY-MM-DD>" -b weekly/<YYYY-MM-DD> origin/main`.
+   - Inside it run `npm ci` and `npm test`. If either fails, the base branch is broken: stop and report.
+
+   Every later step and every agent works inside this worktree. Give each agent its absolute path and tell it to read, edit and run commands only there.
 2. **Find the topic.** Run the `topic-scout` agent. It searches for this week's NestJS and backend topics, adds candidates to `docs/research/README.md` and recommends one: a new gap, or an update to a topic in a current skill.
 3. **Improve.** Run the `skill-improver` agent, giving it the topic-scout report. If it reports no change, continue; the article then covers an existing example.
 4. **In parallel**, run:
    - `marketplace-manager`;
    - `article-writer`, giving it the skill-improver report.
 5. **Check.** Run `npm test`. On failure, do not commit; report the failing output and stop.
-6. **Deliver.** Stage only the files these agents changed, review the staged diff, commit, push the branch and open a pull request against `main`. The pull request body has five parts: this week's topic and why it was picked; what changed in the skill and why it matters in production; the marketplace checklist; the article and thread file paths; what was not verified.
+6. **Deliver.** Stage only the files these agents changed, review the staged diff, commit, push with `git push -u origin weekly/<YYYY-MM-DD>` and open a pull request against `main`. The pull request body has five parts: this week's topic and why it was picked; what changed in the skill and why it matters in production; the marketplace checklist; the article and thread file paths; what was not verified.
 7. **Report** in a few lines: the pull request link, the manual steps waiting for the maintainer (merge, release, marketplace updates, publishing the article on DEV then Hashnode then X, adding the new links to `docs/guide/publications.md`), and anything that failed.
