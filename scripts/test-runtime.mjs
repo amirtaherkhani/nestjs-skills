@@ -8,7 +8,10 @@ const build = spawnSync(process.execPath, ['node_modules/typescript/bin/tsc', '-
   cwd: root, encoding: 'utf8', timeout: 30_000,
 });
 assert.equal(build.status, 0, build.stdout + build.stderr);
-const tests = spawnSync(process.execPath, ['--test', 'examples/runtime-contracts/contract.test.mjs'], {
-  cwd: root, stdio: 'inherit', timeout: 30_000,
+const tests = spawnSync(process.execPath, ['--test', '--test-reporter=tap', 'examples/runtime-contracts/contract.test.mjs'], {
+  cwd: root, encoding: 'utf8', timeout: 30_000,
 });
-assert.equal(tests.status, 0, 'Runtime contracts failed: ' + (tests.error ?? tests.status));
+assert.equal(tests.status, 0, `Runtime contracts failed: ${tests.error ?? tests.status}\n${tests.stdout}\n${tests.stderr}`);
+// The changelog, README and guide state this count; fail here when it drifts.
+assert.match(tests.stdout, /# tests 17\b/);
+console.log('runtime-contracts: 17 tests; 0 failures verified.');

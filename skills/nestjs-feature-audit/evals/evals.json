@@ -1,6 +1,5 @@
 {
   "skill": "nestjs-feature-audit",
-  "version": "1.0.0",
   "cases": [
     {
       "id": "documented-feature-on-main",

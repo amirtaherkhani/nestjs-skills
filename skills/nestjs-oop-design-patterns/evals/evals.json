@@ -1,6 +1,5 @@
 {
   "skill": "nestjs-oop-design-patterns",
-  "version": "1.2.0",
   "cases": [
     {
       "id": "god-service",

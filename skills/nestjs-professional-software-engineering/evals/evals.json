@@ -1,6 +1,5 @@
 {
   "skill": "nestjs-professional-software-engineering",
-  "version": "2.1.0",
   "cases": [
     {
       "id": "new-feature-existing-conventions",
