@@ -1,6 +1,5 @@
 {
   "skill": "nestjs-features-performance",
-  "version": "1.4.0",
   "cases": [
     {
       "id": "feature-placement",
