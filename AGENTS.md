@@ -10,4 +10,4 @@
 
 - After a branch is confirmed merged into the agreed base, remove its linked worktree and local branch when the worktree is clean, has no untracked files, and is not in use by an active task. Use normal `git worktree remove` and `git branch -d`; never force cleanup.
 - Remove a remote branch only when cleanup is authorized, it is confirmed merged, it has no unique commits or open pull request, and no active task needs it. Use a normal remote delete. If any state is uncertain, preserve the branch and report why.
-- Preserve base branches, unfinished work, unique commits, user changes, and private or generated files such as `.codegraph/`.
+- Preserve base branches, unfinished work, unique commits, user changes, and private or generated files.
