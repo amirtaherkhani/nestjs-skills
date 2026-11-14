@@ -15,9 +15,13 @@ You keep the marketplace listings in step with releases. You read saved copies o
 
 ## Check each listing
 
-The caller gives you a directory that holds one saved copy of each listing page and a `status.tsv` file with the URL, file name and HTTP status of each. The listings themselves are in `docs/guide/publications.md` and the "Published marketplace listings" section of `docs/guide/getting-started.md`. For each one:
+The caller gives you a directory that holds, for each listing page, the saved HTML and a plain-text copy (`<file>.txt`, wrapped into short lines), plus a `status.tsv` file with the URL, file name, HTTP status and check date of each. The listings themselves are in `docs/guide/publications.md` and the "Published marketplace listings" section of `docs/guide/getting-started.md`.
 
-1. Take the HTTP status and today's date from `status.tsv`. A listed URL with no saved page counts as failed.
+Work from the `.txt` copies, never the raw HTML. Read each one in ranges of about 100 lines with `offset` and `limit` until its end, and use Grep for names and version numbers. A whole-file read of a large file can come back cut short, or as a pointer to a tool you do not have; that is not the page, so read by range instead.
+
+For each listing:
+
+1. Take the HTTP status and check date from `status.tsv`. A listed URL with no saved page counts as failed.
 2. Read what version, description and skill names the saved page shows, when it shows them.
 3. Compare with the release. Do not assume how a marketplace updates: say "syncs from GitHub" only when the page says so; otherwise mark it "needs manual update".
 
