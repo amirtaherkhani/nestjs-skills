@@ -1,7 +1,7 @@
 ---
 name: nestjs-code-audit
 description: 'Audits an existing NestJS repository with bundled semantic guidance and optional specialist skills and returns one prioritized, evidence-backed code-quality report. Use when asked to check a whole NestJS codebase or a scoped folder for syntax, TypeScript, lint, module-boundary, dependency, design-smell, security, testing, performance, reliability, or production-readiness problems. This is a read-only review workflow: it does not fix code, install dependencies, run migrations, or deploy. When other skills also apply, reconcile ownership before mutation.'
-license: MIT
+license: Apache-2.0
 compatibility: 'Requires Node.js 20+ and a NestJS repository. Sibling skills are optional.'
 metadata:
   author: amirtaherkhani

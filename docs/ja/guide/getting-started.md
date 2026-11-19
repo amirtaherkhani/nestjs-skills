@@ -74,4 +74,4 @@ $nestjs-professional-software-engineering
 
 ## ライセンス
 
-このプロジェクトは [MIT ライセンス](https://github.com/amirtaherkhani/nestjs-skills/blob/main/LICENSE)で公開されています。バージョンと変更履歴は[GitHub リポジトリ](https://github.com/amirtaherkhani/nestjs-skills)をご覧ください。
+このプロジェクトは [Apache 2.0 ライセンス](https://github.com/amirtaherkhani/nestjs-skills/blob/main/LICENSE)で公開されています。バージョンと変更履歴は[GitHub リポジトリ](https://github.com/amirtaherkhani/nestjs-skills)をご覧ください。

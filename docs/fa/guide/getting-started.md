@@ -78,4 +78,4 @@ $nestjs-professional-software-engineering
 
 ## مجوز
 
-این پروژه تحت [مجوز MIT](https://github.com/amirtaherkhani/nestjs-skills/blob/main/LICENSE) منتشر شده است. برای مشاهدهٔ نسخه و تغییرهای آن، [مخزن گیت‌هاب](https://github.com/amirtaherkhani/nestjs-skills) را ببینید.
+این پروژه تحت [مجوز Apache 2.0](https://github.com/amirtaherkhani/nestjs-skills/blob/main/LICENSE) منتشر شده است. برای مشاهدهٔ نسخه و تغییرهای آن، [مخزن گیت‌هاب](https://github.com/amirtaherkhani/nestjs-skills) را ببینید.

@@ -249,7 +249,7 @@ export default defineConfig({
         outline: { level: [2, 3], label: 'Sur cette page' },
         lastUpdated: { text: 'Mis à jour', formatOptions: { dateStyle: 'medium' } },
         docFooter: { prev: 'Précédent', next: 'Suivant' },
-        footer: { message: 'Conseils open source pour un développement NestJS réfléchi.', copyright: 'Publié sous licence MIT.' },
+        footer: { message: 'Conseils open source pour un développement NestJS réfléchi.', copyright: 'Publié sous licence Apache 2.0.' },
         editLink: { pattern: `${github}/edit/main/docs/:path`, text: 'Modifier cette page sur GitHub' }
       }
     },
@@ -571,7 +571,7 @@ export default defineConfig({
     },
     footer: {
       message: 'Open-source guidance for deliberate NestJS engineering.',
-      copyright: 'Released under the MIT License.'
+      copyright: 'Released under the Apache License 2.0.'
     }
   }
 });

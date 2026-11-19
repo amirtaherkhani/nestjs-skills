@@ -1,7 +1,7 @@
 ---
 name: nestjs-git-commit-pr-message
 description: 'Prepares and publishes intentional Git changes for NestJS projects. Use when the user asks to commit, push, create or update a pull request, prepare changelog or release text, or verify a GitHub Pages deployment after publication. It inspects the complete diff, preserves unrelated work, scans staged content for secrets, matches repository commit conventions, runs relevant checks, and performs only the explicitly requested remote actions. When other skills also apply, reconcile ownership before mutation.'
-license: MIT
+license: Apache-2.0
 compatibility: 'Requires Git. GitHub operations require an authenticated GitHub connector or gh CLI; Jira linking requires a user-provided ticket key.'
 metadata:
   author: amirtaherkhani
