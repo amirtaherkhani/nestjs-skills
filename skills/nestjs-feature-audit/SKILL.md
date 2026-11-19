@@ -1,7 +1,7 @@
 ---
 name: nestjs-feature-audit
 description: 'Audits one NestJS feature against its documented roadmap on a specific Git branch and returns an evidence-backed implementation, gap, legacy, bug, and blocker report. Use when asked to audit a feature, validate feature completeness, compare code with a roadmap or acceptance plan, run a feature gap analysis, review migration status, or invoke /audit_feature with a feature name and optional branch. It stops when no clear roadmap is available and does not implement fixes. When other skills also apply, reconcile ownership before mutation.'
-license: MIT
+license: Apache-2.0
 compatibility: 'Requires Git, a NestJS repository, and a clear feature roadmap in docs/ or supplied by the user. Updating from a remote requires network access.'
 metadata:
   author: amirtaherkhani

@@ -15,7 +15,7 @@
     <a href="https://github.com/amirtaherkhani/nestjs-skills/actions/workflows/deploy-pages.yml"><img src="https://github.com/amirtaherkhani/nestjs-skills/actions/workflows/deploy-pages.yml/badge.svg" alt="Documentation deployment status"></a>
     <a href="https://github.com/amirtaherkhani/nestjs-skills/releases/latest"><img src="https://img.shields.io/github/v/release/amirtaherkhani/nestjs-skills?display_name=tag&amp;style=flat-square&amp;label=release" alt="Latest release"></a>
     <a href="https://agentskills.io/specification"><img src="https://img.shields.io/badge/Agent_Skills-open_standard-E0234E?style=flat-square" alt="Agent Skills open standard"></a>
-    <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2F855A?style=flat-square" alt="MIT License"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-2F855A?style=flat-square" alt="Apache 2.0 License"></a>
   </p>
 
   <p>
@@ -270,6 +270,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for authoring rules and [SOURCES.md](SOUR
     ·
     <a href="SOURCES.md">Sources</a>
     ·
-    <a href="LICENSE">MIT License</a>
+    <a href="LICENSE">Apache License 2.0</a>
   </p>
 </div>

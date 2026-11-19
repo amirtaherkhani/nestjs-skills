@@ -74,4 +74,4 @@ La page d’accueil et ce guide sont disponibles en français. Les références 
 
 ## Licence
 
-Le projet est distribué sous [licence MIT](https://github.com/amirtaherkhani/nestjs-skills/blob/main/LICENSE). Consultez le [dépôt GitHub](https://github.com/amirtaherkhani/nestjs-skills) pour la version et l’historique des changements.
+Le projet est distribué sous [licence Apache 2.0](https://github.com/amirtaherkhani/nestjs-skills/blob/main/LICENSE). Consultez le [dépôt GitHub](https://github.com/amirtaherkhani/nestjs-skills) pour la version et l’historique des changements.

@@ -1,7 +1,7 @@
 ---
 name: nestjs-professional-software-engineering
 description: 'Designs, implements, refactors, debugs, reviews, and verifies production-quality NestJS and TypeScript software. Use for NestJS feature development, bug fixes, APIs, libraries, testing, maintainability, developer experience, idiomatic syntax, or syntactic sugar. It inspects the current project and official version-appropriate documentation before selecting syntax, preserves public behavior, and tests the result. When other skills also apply, reconcile ownership before mutation.'
-license: MIT
+license: Apache-2.0
 metadata:
   author: amirtaherkhani
   version: '2.1.1'

@@ -3,7 +3,7 @@
   "version": "2.5.0",
   "private": true,
   "description": "Seven Agent Skills for NestJS implementation, architecture, OOP, code and feature audits, runtime performance, and safe Git publication.",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "scripts": {
     "docs:sync": "node scripts/sync-docs.mjs",
     "docs:dev": "npm run docs:sync && vitepress dev docs",

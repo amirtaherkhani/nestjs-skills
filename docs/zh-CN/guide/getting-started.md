@@ -74,4 +74,4 @@ $nestjs-professional-software-engineering
 
 ## 许可证
 
-本项目采用 [MIT 许可证](https://github.com/amirtaherkhani/nestjs-skills/blob/main/LICENSE)。版本与更改记录请参阅 [GitHub 仓库](https://github.com/amirtaherkhani/nestjs-skills)。
+本项目采用 [Apache 2.0 许可证](https://github.com/amirtaherkhani/nestjs-skills/blob/main/LICENSE)。版本与更改记录请参阅 [GitHub 仓库](https://github.com/amirtaherkhani/nestjs-skills)。
